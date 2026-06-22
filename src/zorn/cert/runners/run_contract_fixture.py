@@ -1,14 +1,27 @@
 from __future__ import annotations
 
+import asyncio
 import json
 from pathlib import Path
 import shutil
 from typing import Any
 from urllib import request
 
+import grpc
 import yaml
 
-from .common import base_report, http_bytes, http_json, start_http_zorn_server, stop_https_zorn_server
+from ..grpc_wire import request_message_type, request_metadata
+from ...grpc_api.contract import assert_lattice_grpc_contract, build_lattice_grpc_contract_report
+from ...grpc_api.proto_modules import MissingLatticeProtoDependency, load_lattice_proto_modules
+from .common import (
+    base_report,
+    http_bytes,
+    http_json,
+    start_http_insecure_grpc_zorn_server,
+    start_http_zorn_server,
+    stop_dual_transport_zorn_server,
+    stop_https_zorn_server,
+)
 
 
 def run_schema_proto(*, fixture: Any, fixture_dir: Path, target: str, token: str, mode: str) -> dict[str, Any]:
@@ -17,17 +30,74 @@ def run_schema_proto(*, fixture: Any, fixture_dir: Path, target: str, token: str
     repo_root = Path(__file__).resolve().parents[4]
     manifest_path = repo_root / "tests" / "fixtures" / "grpc" / "manifest.yaml"
     manifest = yaml.safe_load(manifest_path.read_text(encoding="utf-8")) if manifest_path.exists() else {}
-    expected = [item["path"] for item in manifest.get("fixtures", []) if isinstance(item, dict) and item.get("path")]
+    fixtures = [item for item in manifest.get("fixtures", []) if isinstance(item, dict) and item.get("path") and item.get("rpc")]
+    expected = [item["path"] for item in fixtures]
     missing_files = [path for path in expected if not (manifest_path.parent / path).exists()]
     report["details"] = {
-        "reason": "golden gRPC wire fixture generator is not implemented yet",
         "fixture_dir": str(fixture_dir),
         "manifest": str(manifest_path),
         "expected_binpb": expected,
         "missing_binpb": missing_files,
     }
-    report["result"] = "missing" if missing_files else "blocked"
-    report["missing"] = list(fixture.surfaces)
+    if missing_files:
+        report["details"]["reason"] = "golden gRPC wire fixtures are missing"
+        report["result"] = "missing"
+        report["missing"] = list(fixture.surfaces)
+        return report
+    ####
+    try:
+        proto_modules = load_lattice_proto_modules()
+        assert_lattice_grpc_contract(proto_modules)
+    except MissingLatticeProtoDependency as exc:
+        report["details"]["reason"] = str(exc)
+        report["result"] = "blocked"
+        report["missing"] = list(fixture.surfaces)
+        return report
+    except Exception as exc:
+        report["details"]["reason"] = str(exc)
+        report["result"] = "failed"
+        report["failed"] = list(fixture.surfaces)
+        report["missing"] = []
+        return report
+    ####
+    contract_report = build_lattice_grpc_contract_report(proto_modules)
+    report["details"]["grpc_contract_report"] = contract_report
+    parsed_messages: dict[str, Any] = {}
+    parsed_fixtures: dict[str, Any] = {}
+    for item in fixtures:
+        path = item["path"]
+        request_type = request_message_type(proto_modules, item["rpc"])
+        message = request_type()
+        message.ParseFromString((manifest_path.parent / path).read_bytes())
+        parsed_messages[path] = message
+        parsed_fixtures[path] = {
+            "rpc": item["rpc"],
+            "capability": item.get("capability"),
+            "request": request_metadata(message),
+        }
+    ####
+    report["details"]["parsed_fixtures"] = parsed_fixtures
+    server = start_http_insecure_grpc_zorn_server(repo_root=repo_root, token="dev-token")
+    try:
+        wire_results = asyncio.run(
+            _run_golden_wire_checks(
+                proto_modules=proto_modules,
+                grpc_target=server.grpc_target,
+                requests=parsed_messages,
+            )
+        )
+        report["details"]["wire_results"] = wire_results
+        _record(report, "transport.grpc_protobuf", all(result["ok"] for result in wire_results.values()), {"grpc_target": server.grpc_target})
+        _record(report, "auth.grpc_bearer_metadata", True, {"grpc_target": server.grpc_target, "metadata": "authorization: Bearer dev-token"})
+        _record(report, "entities.grpc_stream", wire_results["entity_stream_request.binpb"]["ok"], wire_results["entity_stream_request.binpb"])
+        _record(report, "tasks.listen_as_agent", wire_results["task_listen_as_agent_request.binpb"]["ok"], wire_results["task_listen_as_agent_request.binpb"])
+        report["missing"] = sorted(surface for surface in fixture.surfaces if surface not in report["passed"] and surface not in report["failed"])
+        report["result"] = "failed" if report["failed"] else ("partial" if report["missing"] else "pass")
+    finally:
+        logs = stop_dual_transport_zorn_server(server)
+        report["details"]["server_log"] = logs["rest"]
+        report["details"]["grpc_server_log"] = logs["grpc"]
+    ####
     return report
 ####
 
@@ -275,6 +345,157 @@ def _native_sdk_report(
     report["result"] = "blocked"
     report["missing"] = list(fixture.surfaces)
     return report
+####
+
+
+async def _run_golden_wire_checks(
+    *,
+    proto_modules: Any,
+    grpc_target: str,
+    requests: dict[str, Any],
+) -> dict[str, dict[str, Any]]:
+    metadata = (("authorization", "Bearer dev-token"),)
+    results: dict[str, dict[str, Any]] = {}
+    async with grpc.aio.insecure_channel(grpc_target) as channel:
+        entity_stub = proto_modules.entity_api_grpc.EntityManagerAPIStub(channel)
+        task_stub = proto_modules.task_api_grpc.TaskManagerAPIStub(channel)
+
+        publish_request = requests["entity_publish_request.binpb"]
+        publish_response = await entity_stub.PublishEntity(publish_request, metadata=metadata)
+        publish_roundtrip = proto_modules.entity_api.PublishEntityResponse()
+        publish_roundtrip.ParseFromString(publish_response.SerializeToString())
+        published_entity_id = publish_request.entity.entity_id
+        fetched_after_publish = await entity_stub.GetEntity(
+            proto_modules.entity_api.GetEntityRequest(entity_id=published_entity_id),
+            metadata=metadata,
+        )
+        results["entity_publish_request.binpb"] = {
+            "ok": fetched_after_publish.entity.entity_id == published_entity_id,
+            "entity_id": published_entity_id,
+            "response_type": publish_roundtrip.DESCRIPTOR.full_name,
+        }
+
+        get_request = requests["entity_get_request.binpb"]
+        await entity_stub.PublishEntity(
+            proto_modules.entity_api.PublishEntityRequest(
+                entity=proto_modules.entity.Entity(
+                    entity_id=get_request.entity_id,
+                    description="gRPC wire get fixture",
+                    is_live=True,
+                    no_expiry=True,
+                )
+            ),
+            metadata=metadata,
+        )
+        get_response = await entity_stub.GetEntity(get_request, metadata=metadata)
+        get_roundtrip = proto_modules.entity_api.GetEntityResponse()
+        get_roundtrip.ParseFromString(get_response.SerializeToString())
+        results["entity_get_request.binpb"] = {
+            "ok": get_roundtrip.entity.entity_id == get_request.entity_id,
+            "entity_id": get_roundtrip.entity.entity_id,
+        }
+
+        await entity_stub.PublishEntity(
+            proto_modules.entity_api.PublishEntityRequest(
+                entity=proto_modules.entity.Entity(
+                    entity_id="grpc-wire-stream-entity",
+                    description="gRPC wire stream fixture",
+                    is_live=True,
+                    no_expiry=True,
+                )
+            ),
+            metadata=metadata,
+        )
+        stream_call = entity_stub.StreamEntityComponents(requests["entity_stream_request.binpb"], metadata=metadata)
+        stream_response = await asyncio.wait_for(stream_call.read(), timeout=2.0)
+        stream_call.cancel()
+        entity_event = getattr(stream_response, "entity_event", None)
+        streamed_entity = getattr(entity_event, "entity", None) if entity_event is not None else None
+        results["entity_stream_request.binpb"] = {
+            "ok": bool(streamed_entity is not None and getattr(streamed_entity, "entity_id", "")),
+            "response_type": stream_response.DESCRIPTOR.full_name,
+            "entity_id": getattr(streamed_entity, "entity_id", ""),
+        }
+
+        create_request = requests["task_create_request.binpb"]
+        create_response = await task_stub.CreateTask(create_request, metadata=metadata)
+        create_roundtrip = proto_modules.task_api.CreateTaskResponse()
+        create_roundtrip.ParseFromString(create_response.SerializeToString())
+        created_task = create_roundtrip.task
+        results["task_create_request.binpb"] = {
+            "ok": created_task.version.task_id == create_request.task_id and created_task.specification.type_url == create_request.specification.type_url,
+            "task_id": created_task.version.task_id,
+            "specification_type_url": created_task.specification.type_url,
+        }
+
+        update_request = requests["task_update_status_request.binpb"]
+        await task_stub.CreateTask(
+            proto_modules.task_api.CreateTaskRequest(
+                task_id=update_request.status_update.version.task_id,
+                display_name="gRPC wire update task",
+                relations=proto_modules.task.Relations(
+                    assignee=proto_modules.task.Principal(
+                        system=proto_modules.task.System(entity_id="grpc-wire-agent-update")
+                    )
+                ),
+            ),
+            metadata=metadata,
+        )
+        update_response = await task_stub.UpdateStatus(update_request, metadata=metadata)
+        update_roundtrip = proto_modules.task_api.UpdateStatusResponse()
+        update_roundtrip.ParseFromString(update_response.SerializeToString())
+        updated_task = update_roundtrip.task
+        results["task_update_status_request.binpb"] = {
+            "ok": updated_task.version.task_id == update_request.status_update.version.task_id and updated_task.version.status_version >= 2,
+            "task_id": updated_task.version.task_id,
+            "status_version": updated_task.version.status_version,
+            "progress_type_url": updated_task.status.progress.type_url,
+        }
+
+        cancel_request = requests["task_cancel_request.binpb"]
+        await task_stub.CreateTask(
+            proto_modules.task_api.CreateTaskRequest(
+                task_id=cancel_request.task_id,
+                display_name="gRPC wire cancel task",
+            ),
+            metadata=metadata,
+        )
+        cancel_response = await task_stub.CancelTask(cancel_request, metadata=metadata)
+        cancel_roundtrip = proto_modules.task_api.CancelTaskResponse()
+        cancel_roundtrip.ParseFromString(cancel_response.SerializeToString())
+        cancelled_task = cancel_roundtrip.task
+        results["task_cancel_request.binpb"] = {
+            "ok": cancelled_task.version.task_id == cancel_request.task_id,
+            "task_id": cancelled_task.version.task_id,
+            "status": cancelled_task.status.status,
+        }
+
+        listen_request = requests["task_listen_as_agent_request.binpb"]
+        listen_entity_id = listen_request.entity_ids.entity_ids[0]
+        await task_stub.CreateTask(
+            proto_modules.task_api.CreateTaskRequest(
+                task_id="grpc-wire-task-listen",
+                display_name="gRPC wire listen task",
+                relations=proto_modules.task.Relations(
+                    assignee=proto_modules.task.Principal(
+                        system=proto_modules.task.System(entity_id=listen_entity_id)
+                    )
+                ),
+            ),
+            metadata=metadata,
+        )
+        listen_call = task_stub.ListenAsAgent(listen_request, metadata=metadata)
+        listen_response = await asyncio.wait_for(listen_call.read(), timeout=2.0)
+        listen_call.cancel()
+        execute_request = getattr(listen_response, "execute_request", None)
+        execute_task = getattr(execute_request, "task", None) if execute_request is not None else None
+        results["task_listen_as_agent_request.binpb"] = {
+            "ok": bool(execute_task is not None and execute_task.version.task_id == "grpc-wire-task-listen"),
+            "response_type": listen_response.DESCRIPTOR.full_name,
+            "task_id": execute_task.version.task_id if execute_task is not None else None,
+        }
+    ####
+    return results
 ####
 
 

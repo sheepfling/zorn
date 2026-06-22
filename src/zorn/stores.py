@@ -623,6 +623,12 @@ class TaskStore:
     def _normalize_status_payload(payload: dict[str, Any] | object) -> dict[str, Any]:
         if isinstance(payload, dict):
             nested_status = payload.get("newStatus") if isinstance(payload.get("newStatus"), dict) else payload.get("new_status")
+            if not isinstance(nested_status, dict):
+                candidate_status = payload.get("status")
+                if isinstance(candidate_status, dict):
+                    nested_status = candidate_status
+                ####
+            ####
             result = dict(nested_status) if isinstance(nested_status, dict) else dict(payload)
             status = (
                 result.get("status")

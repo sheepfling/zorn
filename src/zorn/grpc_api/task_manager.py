@@ -84,12 +84,10 @@ class TaskManagerServiceFactory:
                     await context.abort(grpc.StatusCode.INVALID_ARGUMENT, "UpdateStatusRequest.status_update.version.task_id is required")
                     raise AssertionError("unreachable after gRPC abort")
                 ####
-                raw_status = status_update.get("status")
-                status_payload = raw_status if isinstance(raw_status, dict) else status_update
                 try:
                     task = task_store.update_status(
                         task_id,
-                        status_payload,
+                        status_update,
                         enforce_version=settings.grpc_enforce_task_status_version,
                     )
                 except TaskStatusConflict as exc:
@@ -322,6 +320,8 @@ def _task_id_from_request(request: Any, payload: dict[str, Any], status_update: 
 def _assignee_id_from_payload(payload: dict[str, Any]) -> str | None:
     return (
         _first_string(payload, "assigneeId", "assignee_id", "agentId", "agent_id", "entityId", "entity_id")
+        or _nested_string(payload, ["entityIds", "entityIds", 0])
+        or _nested_string(payload, ["entity_ids", "entity_ids", 0])
         or _nested_string(payload, ["agentSelector", "entityIds", "entityIds", 0])
         or _nested_string(payload, ["agent_selector", "entity_ids", "entity_ids", 0])
         or _nested_string(payload, ["agent", "entityId"])

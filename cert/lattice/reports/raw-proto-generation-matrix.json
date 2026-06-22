@@ -1,6 +1,15 @@
 {
   "adaptation_tier": "runtime_shim",
   "details": {
+    "auth.grpc_bearer_metadata": {
+      "grpc_target": "127.0.0.1:55874",
+      "metadata": "authorization: Bearer dev-token"
+    },
+    "entities.grpc_stream": {
+      "entity_id": "grpc-wire-entity-publish",
+      "ok": true,
+      "response_type": "anduril.entitymanager.v1.StreamEntityComponentsResponse"
+    },
     "expected_binpb": [
       "entity_publish_request.binpb",
       "entity_get_request.binpb",
@@ -11,27 +20,292 @@
       "task_listen_as_agent_request.binpb"
     ],
     "fixture_dir": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/raw-proto-generation-matrix",
+    "grpc_contract_report": {
+      "mismatches": [],
+      "moduleNames": {
+        "entity": "anduril.entitymanager.v1.entity.pub_pb2",
+        "entity_api": "anduril.entitymanager.v1.entity_manager_api.pub_pb2",
+        "entity_api_grpc": "anduril.entitymanager.v1.entity_manager_api.pub_pb2_grpc",
+        "entity_grpcapi": "anduril.entitymanager.v1.entity_manager_api.pub_pb2",
+        "task": "anduril.taskmanager.v1.task.pub_pb2",
+        "task_api": "anduril.taskmanager.v1.task_manager_api.pub_pb2",
+        "task_api_grpc": "anduril.taskmanager.v1.task_manager_api.pub_pb2_grpc",
+        "task_grpcapi": "anduril.taskmanager.v1.task_manager_api.pub_pb2"
+      },
+      "officialPackageVersions": {
+        "anduril-lattice-sdk-grpc-python": "1.80.0.1.20260515215502+ed34febdefc1",
+        "anduril-lattice-sdk-protocolbuffers-pyi": "34.1.0.1.20260515215502+ed34febdefc1",
+        "anduril-lattice-sdk-protocolbuffers-python": "34.1.0.1.20260515215502+ed34febdefc1"
+      },
+      "services": [
+        {
+          "file_name": "anduril/entitymanager/v1/entity_manager_api.pub.proto",
+          "file_sha256": "72a55122369a9a1d4ac8b324b380e1b3a0b0a66fe7ddfd1e8be96fcbe86821ea",
+          "full_name": "anduril.entitymanager.v1.EntityManagerAPI",
+          "methods": [
+            {
+              "client_streaming": false,
+              "input_type": "anduril.entitymanager.v1.PublishEntityRequest",
+              "name": "PublishEntity",
+              "output_type": "anduril.entitymanager.v1.PublishEntityResponse",
+              "server_streaming": false
+            },
+            {
+              "client_streaming": true,
+              "input_type": "anduril.entitymanager.v1.PublishEntitiesRequest",
+              "name": "PublishEntities",
+              "output_type": "anduril.entitymanager.v1.PublishEntitiesResponse",
+              "server_streaming": false
+            },
+            {
+              "client_streaming": false,
+              "input_type": "anduril.entitymanager.v1.GetEntityRequest",
+              "name": "GetEntity",
+              "output_type": "anduril.entitymanager.v1.GetEntityResponse",
+              "server_streaming": false
+            },
+            {
+              "client_streaming": false,
+              "input_type": "anduril.entitymanager.v1.OverrideEntityRequest",
+              "name": "OverrideEntity",
+              "output_type": "anduril.entitymanager.v1.OverrideEntityResponse",
+              "server_streaming": false
+            },
+            {
+              "client_streaming": false,
+              "input_type": "anduril.entitymanager.v1.RemoveEntityOverrideRequest",
+              "name": "RemoveEntityOverride",
+              "output_type": "anduril.entitymanager.v1.RemoveEntityOverrideResponse",
+              "server_streaming": false
+            },
+            {
+              "client_streaming": false,
+              "input_type": "anduril.entitymanager.v1.StreamEntityComponentsRequest",
+              "name": "StreamEntityComponents",
+              "output_type": "anduril.entitymanager.v1.StreamEntityComponentsResponse",
+              "server_streaming": true
+            }
+          ]
+        },
+        {
+          "file_name": "anduril/taskmanager/v1/task_manager_api.pub.proto",
+          "file_sha256": "2069b1ee15ddd7edd360d523f76cd96d45efa8bd4f0709ae99e0855f95814e36",
+          "full_name": "anduril.taskmanager.v1.TaskManagerAPI",
+          "methods": [
+            {
+              "client_streaming": false,
+              "input_type": "anduril.taskmanager.v1.CreateTaskRequest",
+              "name": "CreateTask",
+              "output_type": "anduril.taskmanager.v1.CreateTaskResponse",
+              "server_streaming": false
+            },
+            {
+              "client_streaming": false,
+              "input_type": "anduril.taskmanager.v1.GetTaskRequest",
+              "name": "GetTask",
+              "output_type": "anduril.taskmanager.v1.GetTaskResponse",
+              "server_streaming": false
+            },
+            {
+              "client_streaming": false,
+              "input_type": "anduril.taskmanager.v1.QueryTasksRequest",
+              "name": "QueryTasks",
+              "output_type": "anduril.taskmanager.v1.QueryTasksResponse",
+              "server_streaming": false
+            },
+            {
+              "client_streaming": false,
+              "input_type": "anduril.taskmanager.v1.UpdateStatusRequest",
+              "name": "UpdateStatus",
+              "output_type": "anduril.taskmanager.v1.UpdateStatusResponse",
+              "server_streaming": false
+            },
+            {
+              "client_streaming": false,
+              "input_type": "anduril.taskmanager.v1.CancelTaskRequest",
+              "name": "CancelTask",
+              "output_type": "anduril.taskmanager.v1.CancelTaskResponse",
+              "server_streaming": false
+            },
+            {
+              "client_streaming": false,
+              "input_type": "anduril.taskmanager.v1.ListenAsAgentRequest",
+              "name": "ListenAsAgent",
+              "output_type": "anduril.taskmanager.v1.ListenAsAgentResponse",
+              "server_streaming": true
+            },
+            {
+              "client_streaming": false,
+              "input_type": "anduril.taskmanager.v1.ListenForManualControlFramesRequest",
+              "name": "ListenForManualControlFrames",
+              "output_type": "anduril.taskmanager.v1.ListenForManualControlFramesResponse",
+              "server_streaming": true
+            },
+            {
+              "client_streaming": false,
+              "input_type": "anduril.taskmanager.v1.StreamTasksRequest",
+              "name": "StreamTasks",
+              "output_type": "anduril.taskmanager.v1.StreamTasksResponse",
+              "server_streaming": true
+            }
+          ]
+        }
+      ]
+    },
+    "grpc_server_log": "",
     "manifest": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/tests/fixtures/grpc/manifest.yaml",
-    "missing_binpb": [
-      "entity_publish_request.binpb",
-      "entity_get_request.binpb",
-      "entity_stream_request.binpb",
-      "task_create_request.binpb",
-      "task_update_status_request.binpb",
-      "task_cancel_request.binpb",
-      "task_listen_as_agent_request.binpb"
-    ],
-    "reason": "golden gRPC wire fixture generator is not implemented yet"
+    "missing_binpb": [],
+    "parsed_fixtures": {
+      "entity_get_request.binpb": {
+        "capability": "grpc.entity_get_wire",
+        "request": {
+          "entity_id": "grpc-wire-entity-get",
+          "fields": [
+            "entity_id"
+          ],
+          "message_type": "anduril.entitymanager.v1.GetEntityRequest",
+          "serialized_size": 22
+        },
+        "rpc": "anduril.entitymanager.v1.EntityManagerAPI.GetEntity"
+      },
+      "entity_publish_request.binpb": {
+        "capability": "grpc.entity_publish_wire",
+        "request": {
+          "entity_id": "grpc-wire-entity-publish",
+          "fields": [
+            "entity"
+          ],
+          "message_type": "anduril.entitymanager.v1.PublishEntityRequest",
+          "serialized_size": 59
+        },
+        "rpc": "anduril.entitymanager.v1.EntityManagerAPI.PublishEntity"
+      },
+      "entity_stream_request.binpb": {
+        "capability": "grpc.entity_stream_wire",
+        "request": {
+          "fields": [
+            "components_to_include",
+            "preexisting_only"
+          ],
+          "message_type": "anduril.entitymanager.v1.StreamEntityComponentsRequest",
+          "serialized_size": 15
+        },
+        "rpc": "anduril.entitymanager.v1.EntityManagerAPI.StreamEntityComponents"
+      },
+      "task_cancel_request.binpb": {
+        "capability": "grpc.task_cancel_wire",
+        "request": {
+          "fields": [
+            "author",
+            "task_id"
+          ],
+          "message_type": "anduril.taskmanager.v1.CancelTaskRequest",
+          "serialized_size": 47,
+          "task_id": "grpc-wire-task-cancel"
+        },
+        "rpc": "anduril.taskmanager.v1.TaskManagerAPI.CancelTask"
+      },
+      "task_create_request.binpb": {
+        "capability": "grpc.task_create_wire",
+        "request": {
+          "fields": [
+            "description",
+            "display_name",
+            "relations",
+            "specification",
+            "task_id"
+          ],
+          "message_type": "anduril.taskmanager.v1.CreateTaskRequest",
+          "serialized_size": 181,
+          "task_id": "grpc-wire-task-create"
+        },
+        "rpc": "anduril.taskmanager.v1.TaskManagerAPI.CreateTask"
+      },
+      "task_listen_as_agent_request.binpb": {
+        "capability": "grpc.task_listen_wire",
+        "request": {
+          "entity_ids": [
+            "grpc-wire-agent-listen"
+          ],
+          "fields": [
+            "entity_ids"
+          ],
+          "message_type": "anduril.taskmanager.v1.ListenAsAgentRequest",
+          "serialized_size": 26
+        },
+        "rpc": "anduril.taskmanager.v1.TaskManagerAPI.ListenAsAgent"
+      },
+      "task_update_status_request.binpb": {
+        "capability": "grpc.task_update_wire",
+        "request": {
+          "fields": [
+            "status_update"
+          ],
+          "message_type": "anduril.taskmanager.v1.UpdateStatusRequest",
+          "serialized_size": 106,
+          "status_version": 1,
+          "task_id": "grpc-wire-task-update"
+        },
+        "rpc": "anduril.taskmanager.v1.TaskManagerAPI.UpdateStatus"
+      }
+    },
+    "server_log": "INFO:     Started server process [19994]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://127.0.0.1:55873 (Press CTRL+C to quit)\nINFO:     127.0.0.1:55888 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55889 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55897 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55902 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55910 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [19994]\n",
+    "tasks.listen_as_agent": {
+      "ok": true,
+      "response_type": "anduril.taskmanager.v1.ListenAsAgentResponse",
+      "task_id": "grpc-wire-task-listen"
+    },
+    "transport.grpc_protobuf": {
+      "grpc_target": "127.0.0.1:55874"
+    },
+    "wire_results": {
+      "entity_get_request.binpb": {
+        "entity_id": "grpc-wire-entity-get",
+        "ok": true
+      },
+      "entity_publish_request.binpb": {
+        "entity_id": "grpc-wire-entity-publish",
+        "ok": true,
+        "response_type": "anduril.entitymanager.v1.PublishEntityResponse"
+      },
+      "entity_stream_request.binpb": {
+        "entity_id": "grpc-wire-entity-publish",
+        "ok": true,
+        "response_type": "anduril.entitymanager.v1.StreamEntityComponentsResponse"
+      },
+      "task_cancel_request.binpb": {
+        "ok": true,
+        "status": 10,
+        "task_id": "grpc-wire-task-cancel"
+      },
+      "task_create_request.binpb": {
+        "ok": true,
+        "specification_type_url": "type.googleapis.com/google.protobuf.StringValue",
+        "task_id": "grpc-wire-task-create"
+      },
+      "task_listen_as_agent_request.binpb": {
+        "ok": true,
+        "response_type": "anduril.taskmanager.v1.ListenAsAgentResponse",
+        "task_id": "grpc-wire-task-listen"
+      },
+      "task_update_status_request.binpb": {
+        "ok": true,
+        "progress_type_url": "type.googleapis.com/google.protobuf.StringValue",
+        "status_version": 2,
+        "task_id": "grpc-wire-task-update"
+      }
+    }
   },
   "failed": [],
   "fixture": "raw-proto-generation-matrix",
-  "missing": [
+  "missing": [],
+  "mode": "strict",
+  "passed": [
     "transport.grpc_protobuf",
     "auth.grpc_bearer_metadata",
-    "entities.grpc_stream"
+    "entities.grpc_stream",
+    "tasks.listen_as_agent"
   ],
-  "mode": "strict",
-  "passed": [],
-  "result": "missing",
+  "result": "pass",
   "zorn_version": "0.1.0"
 }
