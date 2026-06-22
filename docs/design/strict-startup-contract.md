@@ -27,6 +27,7 @@ When `C2_COMPAT_STRICT_STARTUP=true`, the process must validate:
 - `C2_COMPAT_REQUIRE_SANDBOX_HEADER=true`
 - `C2_COMPAT_GRPC_STRICT_PROTO_AUDIT=true`
 - `C2_COMPAT_OAUTH_DEV_TOKEN_TTL_SECONDS` is positive when `oauth-dev` is used
+- `C2_COMPAT_OAUTH_DEV_SIGNING_SECRET` or `C2_COMPAT_OAUTH_DEV_SIGNING_SECRET_FILE` is set when `oauth-dev` is used
 
 ## Recommended Strict Profile
 
@@ -38,6 +39,7 @@ C2_COMPAT_AUTH_MODE=oauth-dev
 C2_COMPAT_REQUIRE_SANDBOX_HEADER=true
 C2_COMPAT_GRPC_STRICT_PROTO_AUDIT=true
 C2_COMPAT_OAUTH_DEV_TOKEN_TTL_SECONDS=3600
+C2_COMPAT_OAUTH_DEV_SIGNING_SECRET=replace-with-real-seed
 ```
 
 TLS can still be configured separately using the existing gRPC TLS settings.

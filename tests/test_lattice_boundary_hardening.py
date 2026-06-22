@@ -7,7 +7,7 @@ from typing import Literal, cast
 from fastapi.testclient import TestClient
 import pytest
 
-from zorn import AppSettings, build_app
+from zorn import AppSettings, build_app, load_settings
 from zorn.startup import StrictStartupError
 
 
@@ -76,10 +76,13 @@ def test_default_app_mounts_only_strict_runtime_surface(tmp_path: Path) -> None:
 
 
 def test_strict_startup_boots_with_faithful_profile(tmp_path: Path) -> None:
+    secret_file = tmp_path / "oauth-dev-signing-secret.txt"
+    secret_file.write_text("alpha1-secret", encoding="utf-8")
     settings = AppSettings(
         auth_mode="oauth-dev",
         static_tokens=["dev-token"],
         oauth_dev_token_ttl_seconds=3600,
+        oauth_dev_signing_secret=secret_file.read_text(encoding="utf-8").strip(),
         require_sandbox_header=True,
         strict_startup=True,
         grpc_strict_proto_audit=True,
@@ -93,6 +96,31 @@ def test_strict_startup_boots_with_faithful_profile(tmp_path: Path) -> None:
     assert app.state.settings.require_sandbox_header is True
 
 
+def test_strict_startup_can_source_oauth_secret_from_file(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    secret_file = tmp_path / "oauth-dev-signing-secret.txt"
+    secret_file.write_text("alpha1-file-secret", encoding="utf-8")
+    database_url = f"sqlite:///{tmp_path / 'strict-startup-file.db'}"
+    object_root = tmp_path / "objects"
+
+    monkeypatch.setenv("C2_COMPAT_AUTH_MODE", "oauth-dev")
+    monkeypatch.setenv("C2_COMPAT_STATIC_TOKENS", "dev-token")
+    monkeypatch.setenv("C2_COMPAT_OAUTH_DEV_TOKEN_TTL_SECONDS", "3600")
+    monkeypatch.setenv("C2_COMPAT_OAUTH_DEV_SIGNING_SECRET_FILE", str(secret_file))
+    monkeypatch.setenv("C2_COMPAT_REQUIRE_SANDBOX_HEADER", "true")
+    monkeypatch.setenv("C2_COMPAT_STRICT_STARTUP", "true")
+    monkeypatch.setenv("C2_COMPAT_GRPC_STRICT_PROTO_AUDIT", "true")
+    monkeypatch.setenv("C2_COMPAT_DATABASE_URL", database_url)
+    monkeypatch.setenv("C2_COMPAT_OBJECT_ROOT", str(object_root))
+
+    settings = load_settings()
+    app = build_app(settings)
+
+    with TestClient(app) as client:
+        token_response = client.post("/api/v1/oauth/token", json={"client_id": "dev", "client_secret": "dev"})
+        assert token_response.status_code == 200
+        assert token_response.json()["access_token"].startswith("zorn-oauth-dev.")
+
+
 @pytest.mark.parametrize(
     ("auth_mode", "require_sandbox_header", "grpc_strict_proto_audit", "oauth_dev_token_ttl_seconds", "expected_fragment"),
     [
@@ -100,6 +128,13 @@ def test_strict_startup_boots_with_faithful_profile(tmp_path: Path) -> None:
         ("oauth-dev", False, True, 3600, "C2_COMPAT_REQUIRE_SANDBOX_HEADER must be true"),
         ("oauth-dev", True, False, 3600, "C2_COMPAT_GRPC_STRICT_PROTO_AUDIT must be true"),
         ("oauth-dev", True, True, 0, "C2_COMPAT_OAUTH_DEV_TOKEN_TTL_SECONDS must be positive"),
+        (
+            "oauth-dev",
+            True,
+            True,
+            3600,
+            "C2_COMPAT_OAUTH_DEV_SIGNING_SECRET or C2_COMPAT_OAUTH_DEV_SIGNING_SECRET_FILE must be set",
+        ),
     ],
 )
 def test_strict_startup_rejects_invalid_profiles(
@@ -121,8 +156,12 @@ def test_strict_startup_rejects_invalid_profiles(
         object_root=tmp_path / "objects",
     )
 
-    with pytest.raises(StrictStartupError) as exc_info:
-        build_app(settings)
+    if auth_mode == "oauth-dev" and expected_fragment.startswith("C2_COMPAT_OAUTH_DEV_SIGNING_SECRET"):
+        with pytest.raises(StrictStartupError) as exc_info:
+            build_app(settings)
+    else:
+        with pytest.raises(StrictStartupError) as exc_info:
+            build_app(settings)
 
     assert expected_fragment in str(exc_info.value)
 

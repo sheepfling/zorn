@@ -23,8 +23,16 @@ class IssuedOAuthDevToken:
 class OAuthDevTokenStore:
     def __init__(self, settings: AppSettings) -> None:
         self.settings = settings
+        self._secret = self._resolve_secret(settings)
+    ####
+
+    @staticmethod
+    def _resolve_secret(settings: AppSettings) -> bytes:
+        if settings.oauth_dev_signing_secret:
+            return hashlib.sha256(settings.oauth_dev_signing_secret.encode("utf-8")).digest()
+        ####
         seed = "|".join(settings.static_tokens) or "dev-token"
-        self._secret = hashlib.sha256(f"{settings.product_name}|{seed}".encode("utf-8")).digest()
+        return hashlib.sha256(f"{settings.product_name}|{seed}".encode("utf-8")).digest()
     ####
 
     def issue_token(self, *, scope: str | None = None) -> IssuedOAuthDevToken:

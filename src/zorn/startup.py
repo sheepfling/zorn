@@ -28,6 +28,11 @@ def validate_strict_startup(settings: AppSettings) -> None:
     if settings.auth_mode == "oauth-dev" and settings.oauth_dev_token_ttl_seconds <= 0:
         errors.append("C2_COMPAT_OAUTH_DEV_TOKEN_TTL_SECONDS must be positive in oauth-dev strict startup mode")
     ####
+    if settings.auth_mode == "oauth-dev" and not settings.oauth_dev_signing_secret:
+        errors.append(
+            "C2_COMPAT_OAUTH_DEV_SIGNING_SECRET or C2_COMPAT_OAUTH_DEV_SIGNING_SECRET_FILE must be set in oauth-dev strict startup mode"
+        )
+    ####
     if errors:
         raise StrictStartupError("Strict startup validation failed:\n" + "\n".join(f"- {error}" for error in errors))
     ####

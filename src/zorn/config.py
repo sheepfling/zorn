@@ -14,6 +14,7 @@ class AppSettings(BaseModel):
     auth_mode: Literal["none", "static", "oauth-dev"] = "none"
     static_tokens: list[str] = Field(default_factory=lambda: ["dev-token"])
     oauth_dev_token_ttl_seconds: int = 3600
+    oauth_dev_signing_secret: str | None = None
     require_sandbox_header: bool = False
     strict_startup: bool = False
     database_url: str = "sqlite:///./var/zorn.db"
@@ -45,6 +46,20 @@ def _optional_path_from_env(name: str) -> Path | None:
 ####
 
 
+def _optional_secret_from_env(name: str) -> str | None:
+    value = os.getenv(name)
+    return value if value else None
+####
+
+
+def _optional_secret_from_file(name: str) -> str | None:
+    value = os.getenv(name)
+    if not value:
+        return None
+    return Path(value).read_text(encoding="utf-8").strip() or None
+####
+
+
 def _grpc_tls_mode_from_env() -> Literal["insecure", "self-signed", "provided"]:
     raw_mode = os.getenv("C2_COMPAT_GRPC_TLS_MODE")
     if raw_mode in {"insecure", "self-signed", "provided"}:
@@ -69,6 +84,8 @@ def load_settings() -> AppSettings:
         auth_mode=os.getenv("C2_COMPAT_AUTH_MODE", "none"),  # type: ignore[arg-type]
         static_tokens=_split_tokens(os.getenv("C2_COMPAT_STATIC_TOKENS", "dev-token")),
         oauth_dev_token_ttl_seconds=int(os.getenv("C2_COMPAT_OAUTH_DEV_TOKEN_TTL_SECONDS", "3600")),
+        oauth_dev_signing_secret=_optional_secret_from_env("C2_COMPAT_OAUTH_DEV_SIGNING_SECRET")
+        or _optional_secret_from_file("C2_COMPAT_OAUTH_DEV_SIGNING_SECRET_FILE"),
         require_sandbox_header=os.getenv("C2_COMPAT_REQUIRE_SANDBOX_HEADER", "false").lower() in {"1", "true", "yes"},
         strict_startup=os.getenv("C2_COMPAT_STRICT_STARTUP", "false").lower() in {"1", "true", "yes"},
         database_url=os.getenv("C2_COMPAT_DATABASE_URL", "sqlite:///./var/zorn.db"),
