@@ -25,15 +25,6 @@ The repo includes replay tooling and fixtures that exercise those public routes:
 - Entity/Task/Object JSONL replay logs.
 - Pass/fail/missing reports for replay runs.
 
-FastDIS and other plugins should prefer API verification over CLI report files:
-
-- `GET /healthz/details`
-- `GET /api/v1/entities/events/snapshot`
-- `GET /api/v1/tasks/events/snapshot`
-- `GET /api/v1/verification/state`
-- `GET /api/v1/backend/capabilities`
-- `GET /api/v1/backend/compatibility`
-
 ## Start Here
 
 - `src/zorn/` contains the reusable surrogate logic.
@@ -112,8 +103,6 @@ An external DIS/FastDIS plugin should treat Zorn as an HTTP API target:
 4. Verify stream behavior through `POST /api/v1/entities/events` or
    `POST /api/v1/entities/stream`.
 5. Use existing Task and Object routes for task lifecycle and media/object replay.
-6. Verify backend state through `GET /api/v1/verification/state` and event
-   snapshots rather than treating replay reports as the source of truth.
 
 The in-repo JSONL fixtures are examples of the expected payload shape and report
 format; they are not a new public DIS API.

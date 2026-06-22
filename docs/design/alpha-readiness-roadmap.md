@@ -185,14 +185,3 @@ Entity API. It also proves Entity/Task/Object replay logs can be applied through
 the existing public routes without adding a new server surface. It does not yet
 prove PCAP or FastDIS ingestion; those should feed the same neutral adapter
 model next.
-
-Alpha 1 verification should now prefer API state over report files:
-
-- `GET /healthz/details` describes backend mode, auth mode, enabled surfaces, and stream guarantees.
-- `GET /api/v1/entities/events/snapshot` returns a deterministic entity event dump.
-- `GET /api/v1/tasks/events/snapshot` returns a deterministic task event dump.
-- `GET /api/v1/verification/state` returns canonical backend state plus event snapshots.
-- `GET /api/v1/backend/capabilities` and `GET /api/v1/backend/compatibility` expose supported, partial, unsupported, and shortcut behavior.
-
-Replay reports remain useful diagnostics, but they are no longer the intended
-truth source for FastDIS integration checks.
