@@ -1,0 +1,41 @@
+{
+  "adaptation_tier": "runtime_shim",
+  "details": {
+    "fixture_dir": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/sdk-java-smoke",
+    "gradlew": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/sdk-java-smoke/gradlew",
+    "java_path": "/usr/bin/java",
+    "java_probe": {
+      "args": [
+        "/usr/bin/java",
+        "-version"
+      ],
+      "returncode": 1,
+      "stderr": "The operation couldn\u2019t be completed. Unable to locate a Java Runtime.\nPlease visit http://www.java.com for information on installing Java.\n\n",
+      "stdout": ""
+    },
+    "reason": "local Java runtime is required for sdk-java-smoke"
+  },
+  "failed": [],
+  "fixture": "sdk-java-smoke",
+  "missing": [
+    "auth.oauth_client_credentials",
+    "auth.bearer_token",
+    "transport.rest_json",
+    "entities.publish",
+    "entities.get",
+    "entities.overrides.apply",
+    "entities.overrides.clear",
+    "tasks.create",
+    "tasks.get",
+    "tasks.update_status",
+    "objects.upload",
+    "objects.metadata",
+    "objects.list",
+    "objects.download",
+    "objects.delete"
+  ],
+  "mode": "strict",
+  "passed": [],
+  "result": "blocked",
+  "zorn_version": "0.1.0"
+}

@@ -12,12 +12,17 @@ from .common import (
     find_free_port,
     http_json,
     run_command,
+    start_http_zorn_server,
     start_process,
+    stop_https_zorn_server,
     stop_process,
 )
 
 
 def run_java_sample(*, fixture: Any, fixture_dir: Path, target: str, token: str, mode: str) -> dict[str, Any]:
+    if fixture.id == "sdk-java-smoke":
+        return _run_sdk_java_smoke(fixture=fixture, fixture_dir=fixture_dir, token=token, mode=mode)
+    ####
     report = base_report(fixture_id=fixture.id, mode=mode)
     if fixture.id != "philippanda-lattice-adsb-bridge":
         report["result"] = "missing"
@@ -247,6 +252,300 @@ def run_java_sample(*, fixture: Any, fixture_dir: Path, target: str, token: str,
         report["details"]["opensky_log"] = stop_process(opensky_handle, timeout=5.0)
         report["details"]["zorn_log"] = stop_process(zorn, timeout=5.0)
     ####
+####
+
+
+def _run_sdk_java_smoke(*, fixture: Any, fixture_dir: Path, token: str, mode: str) -> dict[str, Any]:
+    report = base_report(fixture_id=fixture.id, mode=mode)
+    repo_root = Path(__file__).resolve().parents[4]
+    java_path = shutil.which("java")
+    java_probe = None if java_path is None else run_command([java_path, "-version"], cwd=fixture_dir, timeout=10.0)
+    if java_path is None or java_probe is None or java_probe.returncode != 0:
+        report["result"] = "blocked"
+        report["missing"] = list(fixture.surfaces)
+        report["details"] = {
+            "reason": "local Java runtime is required for sdk-java-smoke",
+            "fixture_dir": str(fixture_dir),
+            "java_path": java_path,
+            "java_probe": None
+            if java_probe is None
+            else {
+                "args": java_probe.args,
+                "returncode": java_probe.returncode,
+                "stdout": java_probe.stdout,
+                "stderr": java_probe.stderr,
+            },
+            "gradlew": str(fixture_dir / "gradlew"),
+        }
+        return report
+    ####
+    gradlew = fixture_dir / "gradlew"
+    if not gradlew.exists():
+        report["result"] = "blocked"
+        report["missing"] = list(fixture.surfaces)
+        report["details"] = {
+            "reason": "official Java SDK Gradle wrapper is missing",
+            "fixture_dir": str(fixture_dir),
+            "java_path": java_path,
+            "gradlew": str(gradlew),
+        }
+        return report
+    ####
+
+    smoke_dir = fixture_dir / ".zorn-cert-sdk-java-smoke"
+    source_dir = smoke_dir / "src" / "main" / "java" / "zorn" / "cert"
+    source_dir.mkdir(parents=True, exist_ok=True)
+    (smoke_dir / "settings.gradle").write_text(
+        f"""
+pluginManagement {{
+    repositories {{
+        gradlePluginPortal()
+        mavenCentral()
+    }}
+}}
+dependencyResolutionManagement {{
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {{
+        mavenCentral()
+    }}
+}}
+rootProject.name = 'zorn-sdk-java-smoke'
+includeBuild('{fixture_dir.as_posix()}')
+""".lstrip(),
+        encoding="utf-8",
+    )
+    (smoke_dir / "build.gradle").write_text(
+        """
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.anduril:lattice-sdk:5.13.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.6'
+}
+
+application {
+    mainClass = 'zorn.cert.SdkJavaSmoke'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+""".lstrip(),
+        encoding="utf-8",
+    )
+    (source_dir / "SdkJavaSmoke.java").write_text(_sdk_java_smoke_source(), encoding="utf-8")
+
+    server = start_http_zorn_server(repo_root=repo_root, token=token)
+    output_path = server.workspace / "sdk_java_smoke_results.json"
+    try:
+        run = run_command(
+            [
+                str(gradlew),
+                "-p",
+                str(smoke_dir),
+                "run",
+                "--no-daemon",
+                "--quiet",
+            ],
+            cwd=fixture_dir,
+            env={
+                **os.environ,
+                "ZORN_BASE_URL": server.base_url,
+                "ZORN_TOKEN": token,
+                "ZORN_OUTPUT": str(output_path),
+            },
+            timeout=300.0,
+        )
+        report["details"]["driver"] = {
+            "args": run.args,
+            "returncode": run.returncode,
+            "stdout": run.stdout,
+            "stderr": run.stderr,
+        }
+        if output_path.exists():
+            driver_results = json.loads(output_path.read_text(encoding="utf-8"))
+            report["details"]["driver_results"] = driver_results
+            for surface, result in driver_results.get("results", {}).items():
+                _record(report, surface, bool(result.get("ok")), result.get("evidence", {}))
+            ####
+        ####
+        if run.returncode != 0 and not report["failed"]:
+            report["failed"] = list(fixture.surfaces)
+        ####
+        requested = set(fixture.surfaces)
+        passed = set(report["passed"])
+        failed = set(report["failed"])
+        report["missing"] = sorted(surface for surface in requested if surface not in passed and surface not in failed)
+        report["result"] = "pass" if run.returncode == 0 and not report["failed"] and not report["missing"] else "failed"
+        return report
+    finally:
+        report["details"]["server_log"] = stop_https_zorn_server(server)
+    ####
+####
+
+
+def _sdk_java_smoke_source() -> str:
+    return r'''
+package zorn.cert;
+
+import com.anduril.Lattice;
+import com.anduril.resources.objects.requests.ListObjectsRequest;
+import com.anduril.resources.tasks.requests.TaskCreation;
+import com.anduril.resources.tasks.requests.TaskQuery;
+import com.anduril.resources.tasks.requests.TaskStatusUpdate;
+import com.anduril.types.Entity;
+import com.anduril.types.Location;
+import com.anduril.types.Ontology;
+import com.anduril.types.OntologyTemplate;
+import com.anduril.types.PathMetadata;
+import com.anduril.types.Position;
+import com.anduril.types.Provenance;
+import com.anduril.types.Task;
+import com.anduril.types.TaskQueryResults;
+import com.anduril.types.TaskStatus;
+import com.anduril.types.TaskStatusStatus;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public final class SdkJavaSmoke {
+    private static final Map<String, Map<String, Object>> results = new LinkedHashMap<>();
+
+    public static void main(String[] args) throws Exception {
+        String baseUrl = System.getenv("ZORN_BASE_URL");
+        String token = System.getenv("ZORN_TOKEN");
+        String output = System.getenv("ZORN_OUTPUT");
+        Lattice oauthClient = Lattice.withCredentials("zorn-client", "zorn-secret")
+                .url(baseUrl)
+                .addHeader("Anduril-Sandbox-Authorization", "Bearer " + token)
+                .addHeader("x-anduril-sandbox", "zorn-cert")
+                .maxRetries(0)
+                .build();
+        Lattice tokenClient = Lattice.withToken(token)
+                .url(baseUrl)
+                .addHeader("Anduril-Sandbox-Authorization", "Bearer " + token)
+                .addHeader("x-anduril-sandbox", "zorn-cert")
+                .maxRetries(0)
+                .build();
+
+        record("auth.oauth_client_credentials", true, evidence("constructed", true));
+        record("auth.bearer_token", tokenClient.entities() != null, evidence("constructed", true));
+        record("transport.rest_json", true, evidence("sdk", "com.anduril:lattice-sdk"));
+
+        String entityId = "sdk-java-asset";
+        Entity entity = Entity.builder()
+                .entityId(entityId)
+                .description("SDK Java asset")
+                .isLive(true)
+                .noExpiry(true)
+                .location(Location.builder()
+                        .position(Position.builder()
+                                .latitudeDegrees(37.7809)
+                                .longitudeDegrees(-122.4221)
+                                .altitudeHaeMeters(44.0)
+                                .build())
+                        .build())
+                .ontology(Ontology.builder()
+                        .template(OntologyTemplate.TEMPLATE_ASSET)
+                        .platformType("UAV")
+                        .build())
+                .provenance(Provenance.builder()
+                        .sourceId("sdk-java-smoke")
+                        .integrationName("sdk-java-smoke")
+                        .build())
+                .build();
+        Entity published = oauthClient.entities().publishEntity(entity);
+        record("entities.publish", entityId.equals(published.getEntityId().orElse("")), evidence("entityId", published.getEntityId().orElse("")));
+        Entity fetched = oauthClient.entities().getEntity(entityId);
+        record("entities.get", entityId.equals(fetched.getEntityId().orElse("")), evidence("entityId", fetched.getEntityId().orElse("")));
+
+        String taskId = "sdk-java-task";
+        Task created = oauthClient.tasks().createTask(TaskCreation.builder()
+                .taskId(taskId)
+                .displayName("SDK Java smoke task")
+                .description("Created by Zorn Java SDK smoke")
+                .build());
+        record("tasks.create", taskId.equals(created.getTaskId().orElse("")), evidence("taskId", created.getTaskId().orElse("")));
+        Task task = oauthClient.tasks().getTask(taskId);
+        record("tasks.get", taskId.equals(task.getTaskId().orElse("")), evidence("taskId", task.getTaskId().orElse("")));
+        TaskQueryResults query = oauthClient.tasks().queryTasks(TaskQuery.builder().build());
+        boolean queryFound = query.getTasks().stream().anyMatch(candidate -> taskId.equals(candidate.getTaskId().orElse("")));
+        record("tasks.query", queryFound, evidence("count", query.getTasks().size()));
+        Task updated = oauthClient.tasks().updateTaskStatus(taskId, TaskStatusUpdate.builder()
+                .statusVersion(0)
+                .newStatus(TaskStatus.builder().status(TaskStatusStatus.STATUS_EXECUTING).build())
+                .build());
+        record("tasks.update_status", taskId.equals(updated.getTaskId().orElse("")), evidence("taskId", updated.getTaskId().orElse("")));
+
+        String objectPath = "sdk-java-smoke/object.txt";
+        byte[] bytes = "zorn java sdk smoke\n".getBytes(StandardCharsets.UTF_8);
+        PathMetadata uploaded = oauthClient.objects().uploadObject(objectPath, bytes);
+        record("objects.upload", uploaded.toString().contains(objectPath), evidence("objectPath", objectPath));
+        boolean listed = false;
+        for (PathMetadata item : oauthClient.objects().listObjects(ListObjectsRequest.builder().prefix("sdk-java-smoke").build())) {
+            if (item.toString().contains(objectPath)) {
+                listed = true;
+                break;
+            }
+        }
+        record("objects.list", listed, evidence("objectPath", objectPath));
+        oauthClient.objects().getObjectMetadata(objectPath);
+        record("objects.metadata", true, evidence("objectPath", objectPath));
+        InputStream stream = oauthClient.objects().getObject(objectPath);
+        byte[] downloaded = readAll(stream);
+        record("objects.download", new String(downloaded, StandardCharsets.UTF_8).contains("java sdk smoke"), evidence("bytes", downloaded.length));
+        oauthClient.objects().deleteObject(objectPath);
+        record("objects.delete", true, evidence("objectPath", objectPath));
+
+        Map<String, Object> outputPayload = new LinkedHashMap<>();
+        outputPayload.put("results", results);
+        new ObjectMapper().writerWithDefaultPrettyPrinter().writeValue(Paths.get(output).toFile(), outputPayload);
+        boolean failed = results.values().stream().anyMatch(result -> Boolean.FALSE.equals(result.get("ok")));
+        if (failed) {
+            System.exit(1);
+        }
+    }
+
+    private static byte[] readAll(InputStream stream) throws Exception {
+        try {
+            ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+            byte[] chunk = new byte[8192];
+            int read;
+            while ((read = stream.read(chunk)) != -1) {
+                buffer.write(chunk, 0, read);
+            }
+            return buffer.toByteArray();
+        } finally {
+            stream.close();
+        }
+    }
+
+    private static Map<String, Object> evidence(String key, Object value) {
+        Map<String, Object> evidence = new LinkedHashMap<>();
+        evidence.put(key, value);
+        return evidence;
+    }
+
+    private static void record(String surface, boolean ok, Map<String, Object> evidence) {
+        Map<String, Object> result = new LinkedHashMap<>();
+        result.put("ok", ok);
+        result.put("evidence", evidence);
+        results.put(surface, result);
+    }
+}
+'''.lstrip()
 ####
 
 

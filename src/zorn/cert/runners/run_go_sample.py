@@ -22,6 +22,9 @@ from .common import (
 
 
 def run_go_sample(*, fixture: Any, fixture_dir: Path, target: str, token: str, mode: str) -> dict[str, Any]:
+    if fixture.id == "sdk-go-smoke":
+        return _run_sdk_go_smoke(fixture=fixture, fixture_dir=fixture_dir, token=token, mode=mode)
+    ####
     if fixture.id == "anduril-sample-objects":
         return _run_objects_sample(fixture=fixture, fixture_dir=fixture_dir, token=token, mode=mode)
     ####
@@ -38,6 +41,363 @@ def run_go_sample(*, fixture: Any, fixture_dir: Path, target: str, token: str, m
         "token_configured": bool(token),
     }
     return report
+####
+
+
+def _run_sdk_go_smoke(*, fixture: Any, fixture_dir: Path, token: str, mode: str) -> dict[str, Any]:
+    report = base_report(fixture_id=fixture.id, mode=mode)
+    repo_root = Path(__file__).resolve().parents[4]
+    go_workspace = Path(tempfile.mkdtemp(prefix="zorn-go-sdk-"))
+    module_dir = go_workspace / "smoke"
+    module_dir.mkdir(parents=True)
+    sdk_link = go_workspace / "lattice-sdk-go"
+    sdk_link.symlink_to(fixture_dir, target_is_directory=True)
+    env = {
+        **os.environ,
+        "GOCACHE": str(go_workspace / "gocache"),
+        "GOMODCACHE": str(go_workspace / "gomodcache"),
+        "GOPATH": str(go_workspace / "gopath"),
+    }
+    install = run_command(["go", "mod", "download"], cwd=fixture_dir, env=env, timeout=300.0)
+    report["details"]["install"] = {
+        "args": install.args,
+        "returncode": install.returncode,
+        "stdout": install.stdout,
+        "stderr": install.stderr,
+    }
+    if install.returncode != 0:
+        report["result"] = "failed"
+        report["failed"] = list(fixture.surfaces)
+        return report
+    ####
+
+    (module_dir / "go.mod").write_text(
+        f"""
+module zorn-sdk-go-smoke
+
+go 1.23.0
+
+require github.com/anduril/lattice-sdk-go/v4 v4.14.0
+
+replace github.com/anduril/lattice-sdk-go/v4 => {sdk_link}
+""".lstrip(),
+        encoding="utf-8",
+    )
+    (module_dir / "main.go").write_text(
+        r'''
+package main
+
+import (
+	"bytes"
+	"context"
+	"encoding/json"
+	"errors"
+	"io"
+	"net/http"
+	"os"
+	"time"
+
+	Lattice "github.com/anduril/lattice-sdk-go/v4"
+	"github.com/anduril/lattice-sdk-go/v4/client"
+	"github.com/anduril/lattice-sdk-go/v4/core"
+	"github.com/anduril/lattice-sdk-go/v4/option"
+)
+
+type surfaceResult struct {
+	OK       bool        `json:"ok"`
+	Evidence interface{} `json:"evidence,omitempty"`
+}
+
+func record(results map[string]surfaceResult, surface string, ok bool, evidence interface{}) {
+	results[surface] = surfaceResult{OK: ok, Evidence: evidence}
+}
+
+func strValue(value *string) string {
+	if value == nil {
+		return ""
+	}
+	return *value
+}
+
+func intValue(value *int) int {
+	if value == nil {
+		return 0
+	}
+	return *value
+}
+
+func main() {
+	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	defer cancel()
+
+	baseURL := os.Getenv("ZORN_BASE_URL")
+	token := os.Getenv("ZORN_TOKEN")
+	headers := http.Header{}
+	headers.Add("Anduril-Sandbox-Authorization", "Bearer "+token)
+	headers.Add("x-anduril-sandbox", "zorn-cert")
+
+	httpClient := &http.Client{Timeout: 20 * time.Second}
+	oauthClient := client.NewClient(
+		option.WithBaseURL(baseURL),
+		option.WithClientCredentials("zorn-client", "zorn-secret"),
+		option.WithHTTPHeader(headers),
+		option.WithHTTPClient(httpClient),
+	)
+	tokenClient := client.NewClient(
+		option.WithBaseURL(baseURL),
+		option.WithToken(token),
+		option.WithHTTPHeader(headers),
+		option.WithHTTPClient(httpClient),
+	)
+
+	results := map[string]surfaceResult{}
+	oauth, err := oauthClient.Oauth.GetToken(ctx, &Lattice.GetTokenRequest{
+		ClientID:     Lattice.String("zorn-client"),
+		ClientSecret: Lattice.String("zorn-secret"),
+	})
+	record(results, "auth.oauth_client_credentials", err == nil && oauth.GetAccessToken() != "", oauth)
+	record(results, "auth.bearer_token", tokenClient.Entities != nil, "constructed")
+	record(results, "transport.rest_json", true, "github.com/anduril/lattice-sdk-go/v4")
+
+	assetID := "sdk-go-asset"
+	trackID := "sdk-go-track"
+	lat := 37.7801
+	lon := -122.4202
+	alt := 40.0
+	assetTemplate := Lattice.OntologyTemplateTemplateAsset
+	trackTemplate := Lattice.OntologyTemplateTemplateTrack
+	dispositionFriendly := Lattice.MilViewDispositionDispositionAssumedFriendly
+	dispositionHostile := Lattice.MilViewDispositionDispositionHostile
+	asset, err := oauthClient.Entities.PublishEntity(ctx, &Lattice.Entity{
+		EntityID:    Lattice.String(assetID),
+		Description: Lattice.String("SDK Go asset"),
+		IsLive:      Lattice.Bool(true),
+		NoExpiry:    Lattice.Bool(true),
+		Location: &Lattice.Location{
+			Position: &Lattice.Position{
+				LatitudeDegrees:  &lat,
+				LongitudeDegrees: &lon,
+				AltitudeHaeMeters: &alt,
+			},
+		},
+		Ontology: &Lattice.Ontology{
+			Template:     &assetTemplate,
+			PlatformType: Lattice.String("UAV"),
+		},
+		Provenance: &Lattice.Provenance{
+			SourceID:        Lattice.String("sdk-go-smoke"),
+			IntegrationName: Lattice.String("sdk-go-smoke"),
+		},
+	})
+	record(results, "entities.publish", err == nil && strValue(asset.GetEntityID()) == assetID, asset)
+	fetched, err := oauthClient.Entities.GetEntity(ctx, &Lattice.GetEntityRequest{EntityID: assetID})
+	record(results, "entities.get", err == nil && strValue(fetched.GetEntityID()) == assetID, fetched)
+
+	track, err := oauthClient.Entities.PublishEntity(ctx, &Lattice.Entity{
+		EntityID:    Lattice.String(trackID),
+		Description: Lattice.String("SDK Go track"),
+		IsLive:      Lattice.Bool(true),
+		NoExpiry:    Lattice.Bool(true),
+		Location: &Lattice.Location{
+			Position: &Lattice.Position{
+				LatitudeDegrees:  &lat,
+				LongitudeDegrees: Lattice.Float64(-122.421),
+				AltitudeHaeMeters: &alt,
+			},
+		},
+		Ontology: &Lattice.Ontology{
+			Template:     &trackTemplate,
+			PlatformType: Lattice.String("UAS"),
+		},
+		MilView: &Lattice.MilView{Disposition: &dispositionFriendly},
+		Provenance: &Lattice.Provenance{
+			SourceID:        Lattice.String("sdk-go-smoke"),
+			IntegrationName: Lattice.String("sdk-go-smoke"),
+		},
+	})
+	record(results, "entities.track", err == nil && strValue(track.GetEntityID()) == trackID, track)
+
+	poll, err := oauthClient.Entities.LongPollEntityEvents(ctx, &Lattice.EntityEventRequest{SessionToken: ""})
+	pollOK := err == nil
+	if pollOK {
+		pollOK = false
+		for _, event := range poll.GetEntityEvents() {
+			if event.GetEntity() != nil && strValue(event.GetEntity().GetEntityID()) == assetID {
+				pollOK = true
+				break
+			}
+		}
+	}
+	record(results, "entities.long_poll", pollOK, poll)
+
+	preexisting := true
+	heartbeat := 0
+	stream, err := oauthClient.Entities.StreamEntities(ctx, &Lattice.EntityStreamRequest{
+		PreExistingOnly:     &preexisting,
+		HeartbeatIntervalMs: &heartbeat,
+	})
+	streamOK := false
+	var streamEvidence []Lattice.StreamEntitiesResponse
+	if err == nil {
+		defer stream.Close()
+		for {
+			item, recvErr := stream.Recv()
+			if recvErr != nil {
+				break
+			}
+			streamEvidence = append(streamEvidence, item)
+			event := item.GetEntity()
+			if event != nil && event.GetEntity() != nil && strValue(event.GetEntity().GetEntityID()) == trackID {
+				streamOK = true
+				break
+			}
+			if len(streamEvidence) > 10 {
+				break
+			}
+		}
+	}
+	record(results, "entities.stream_sse", streamOK, streamEvidence)
+
+	override, err := oauthClient.Entities.OverrideEntity(ctx, &Lattice.EntityOverride{
+		EntityID: trackID,
+		FieldPath: "mil_view.disposition",
+		Entity: &Lattice.Entity{MilView: &Lattice.MilView{Disposition: &dispositionHostile}},
+		Provenance: &Lattice.Provenance{
+			SourceID:        Lattice.String("sdk-go-smoke"),
+			IntegrationName: Lattice.String("sdk-go-smoke"),
+		},
+	})
+	record(results, "entities.overrides.apply", err == nil && override.GetMilView() != nil && override.GetMilView().GetDisposition() != nil && *override.GetMilView().GetDisposition() == dispositionHostile, override)
+	cleared, err := oauthClient.Entities.RemoveEntityOverride(ctx, &Lattice.RemoveEntityOverrideRequest{EntityID: trackID, FieldPath: "mil_view.disposition"})
+	record(results, "entities.overrides.clear", err == nil && strValue(cleared.GetEntityID()) == trackID, cleared)
+
+	taskID := "sdk-go-task"
+	task, err := oauthClient.Tasks.CreateTask(ctx, &Lattice.TaskCreation{
+		TaskID:      Lattice.String(taskID),
+		DisplayName: Lattice.String("SDK Go task"),
+		Description: Lattice.String("Direct Go SDK cert smoke"),
+		Relations: &Lattice.Relations{Assignee: &Lattice.Principal{System: &Lattice.System{EntityID: Lattice.String(assetID)}}},
+	})
+	record(results, "tasks.create", err == nil && strValue(task.GetVersion().GetTaskID()) == taskID, task)
+	gotTask, err := oauthClient.Tasks.GetTask(ctx, &Lattice.GetTaskRequest{TaskID: taskID})
+	record(results, "tasks.get", err == nil && strValue(gotTask.GetVersion().GetTaskID()) == taskID, gotTask)
+	query, err := oauthClient.Tasks.QueryTasks(ctx, &Lattice.TaskQuery{})
+	queryOK := err == nil
+	if queryOK {
+		queryOK = false
+		for _, item := range query.GetTasks() {
+			if item.GetVersion() != nil && strValue(item.GetVersion().GetTaskID()) == taskID {
+				queryOK = true
+				break
+			}
+		}
+	}
+	record(results, "tasks.query", queryOK, query)
+	agent, err := oauthClient.Tasks.ListenAsAgent(ctx, &Lattice.AgentListener{
+		AgentSelector: &Lattice.EntityIDsSelector{EntityIDs: []string{assetID}},
+	})
+	listenOK := err == nil && agent.GetExecuteRequest() != nil && agent.GetExecuteRequest().GetTask() != nil && agent.GetExecuteRequest().GetTask().GetVersion() != nil && strValue(agent.GetExecuteRequest().GetTask().GetVersion().GetTaskID()) == taskID
+	record(results, "tasks.listen_as_agent", listenOK, agent)
+	executing := Lattice.TaskStatusStatusStatusExecuting
+	statusVersion := 1
+	status, err := oauthClient.Tasks.UpdateTaskStatus(ctx, &Lattice.TaskStatusUpdate{
+		TaskID:        taskID,
+		StatusVersion: &statusVersion,
+		NewStatus:    &Lattice.TaskStatus{Status: &executing},
+	})
+	record(results, "tasks.update_status", err == nil && status.GetStatus() != nil && status.GetStatus().GetStatus() != nil && *status.GetStatus().GetStatus() == executing, status)
+	cancelled, err := oauthClient.Tasks.CancelTask(ctx, &Lattice.TaskCancellation{TaskID: taskID})
+	record(results, "tasks.cancel", err == nil && strValue(cancelled.GetVersion().GetTaskID()) == taskID, cancelled)
+
+	objectPath := "sdk-go-smoke/object.txt"
+	objectBytes := []byte("zorn sdk go smoke\n")
+	uploaded, err := oauthClient.Objects.UploadObject(ctx, objectPath, bytes.NewReader(objectBytes))
+	uploadedPath := ""
+	if uploaded != nil && uploaded.GetContentIdentifier() != nil {
+		uploadedPath = uploaded.GetContentIdentifier().GetPath()
+	}
+	record(results, "objects.upload", err == nil && uploadedPath == objectPath, uploaded)
+	rawMeta, err := oauthClient.Objects.WithRawResponse.GetObjectMetadata(ctx, &Lattice.GetObjectMetadataRequest{ObjectPath: objectPath})
+	record(results, "objects.metadata", err == nil && rawMeta.Header.Get("Path") == objectPath, rawMeta.Header)
+	prefix := "sdk-go-smoke"
+	listed, err := oauthClient.Objects.ListObjects(ctx, &Lattice.ListObjectsRequest{Prefix: &prefix})
+	listOK := err == nil
+	listPaths := []string{}
+	if listOK {
+		listOK = false
+		for _, item := range listed.Results {
+			if item.GetContentIdentifier() != nil && item.GetContentIdentifier().GetPath() == objectPath {
+				listOK = true
+			}
+			if item.GetContentIdentifier() != nil {
+				listPaths = append(listPaths, item.GetContentIdentifier().GetPath())
+			}
+		}
+	}
+	record(results, "objects.list", listOK, listPaths)
+	reader, err := oauthClient.Objects.GetObject(ctx, &Lattice.GetObjectRequest{ObjectPath: objectPath})
+	downloaded := []byte{}
+	if err == nil {
+		downloaded, err = io.ReadAll(reader)
+	}
+	record(results, "objects.download", err == nil && bytes.Equal(downloaded, objectBytes), string(downloaded))
+	err = oauthClient.Objects.DeleteObject(ctx, &Lattice.DeleteObjectRequest{ObjectPath: objectPath})
+	metaAfterDelete, metadataErr := oauthClient.Objects.WithRawResponse.GetObjectMetadata(ctx, &Lattice.GetObjectMetadataRequest{ObjectPath: objectPath})
+	var apiError *core.APIError
+	deleted := err == nil && errors.As(metadataErr, &apiError) && apiError.StatusCode == 404
+	record(results, "objects.delete", deleted, map[string]interface{}{"delete_error": err, "metadata_error": metadataErr, "metadata_after_delete": metaAfterDelete})
+
+	if err := json.NewEncoder(os.Stdout).Encode(results); err != nil {
+		panic(err)
+	}
+}
+'''.lstrip(),
+        encoding="utf-8",
+    )
+    tidy = run_command(["go", "mod", "tidy"], cwd=module_dir, env=env, timeout=300.0)
+    report["details"]["tidy"] = {"args": tidy.args, "returncode": tidy.returncode, "stdout": tidy.stdout, "stderr": tidy.stderr}
+    if tidy.returncode != 0:
+        report["result"] = "failed"
+        report["failed"] = list(fixture.surfaces)
+        return report
+    ####
+
+    server = start_http_zorn_server(repo_root=repo_root, token=token)
+    try:
+        run_env = {**env, "ZORN_BASE_URL": server.base_url, "ZORN_TOKEN": token}
+        run = run_command(["go", "run", "."], cwd=module_dir, env=run_env, timeout=300.0)
+        report["details"]["command"] = {"args": run.args, "returncode": run.returncode, "stdout": run.stdout, "stderr": run.stderr}
+        results: dict[str, Any] = {}
+        try:
+            results = json.loads(run.stdout) if run.stdout.strip() else {}
+        except json.JSONDecodeError:
+            results = {}
+        ####
+        report["details"]["sdk_results"] = results
+        for surface, payload in results.items():
+            if isinstance(payload, dict):
+                _record(report, surface, bool(payload.get("ok")), payload.get("evidence"))
+            ####
+        ####
+        requested = set(fixture.surfaces)
+        passed = set(report["passed"])
+        report["missing"] = sorted(surface for surface in requested if surface not in passed)
+        if run.returncode != 0:
+            report["result"] = "failed"
+            if not report["failed"]:
+                report["failed"] = list(fixture.surfaces)
+            ####
+        elif report["failed"]:
+            report["result"] = "failed"
+        elif report["missing"]:
+            report["result"] = "partial"
+        else:
+            report["result"] = "pass"
+        ####
+        return report
+    finally:
+        report["details"]["server_log"] = stop_https_zorn_server(server)
+    ####
 ####
 
 
@@ -517,7 +877,7 @@ func main() {
 ####
 
 
-def _record(report: dict[str, Any], capability: str, ok: bool, detail: dict[str, Any]) -> None:
+def _record(report: dict[str, Any], capability: str, ok: bool, detail: Any) -> None:
     target = "passed" if ok else "failed"
     if capability not in report[target]:
         report[target].append(capability)

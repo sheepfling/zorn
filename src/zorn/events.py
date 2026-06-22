@@ -118,6 +118,7 @@ def _entity_stream_event_type(event_type: str) -> str:
         "CREATE": "EVENT_TYPE_CREATED",
         "UPDATE": "EVENT_TYPE_UPDATE",
         "DELETE": "EVENT_TYPE_DELETED",
+        "DELETED": "EVENT_TYPE_DELETED",
         "PREEXISTING": "EVENT_TYPE_PREEXISTING",
         "POST_EXPIRY_OVERRIDE": "EVENT_TYPE_POST_EXPIRY_OVERRIDE",
     }.get(event_type, "EVENT_TYPE_INVALID")

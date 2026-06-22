@@ -1,0 +1,54 @@
+{
+  "adaptation_tier": "runtime_shim",
+  "details": {
+    "fixture_dir": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/sdk-rust-grpc-smoke",
+    "language": "rust",
+    "missing_tools": [],
+    "reason": "rust direct gRPC SDK smoke runner is scaffolded but not implemented yet",
+    "required_tools": [
+      "cargo",
+      "protoc"
+    ],
+    "sample_source_files": [
+      "src/anduril.entitymanager.v1.rs",
+      "src/anduril.entitymanager.v1.serde.rs",
+      "src/anduril.entitymanager.v1.tonic.rs",
+      "src/anduril.ontology.v1.rs",
+      "src/anduril.ontology.v1.serde.rs",
+      "src/anduril.taskmanager.v1.rs",
+      "src/anduril.taskmanager.v1.serde.rs",
+      "src/anduril.taskmanager.v1.tonic.rs",
+      "src/anduril.tasks.ad.desertguardian.common.v1.rs",
+      "src/anduril.tasks.ad.desertguardian.common.v1.serde.rs",
+      "src/anduril.tasks.ad.desertguardian.rf.v1.rs",
+      "src/anduril.tasks.ad.desertguardian.rf.v1.serde.rs",
+      "src/anduril.tasks.ads.thirdparty.v1.rs",
+      "src/anduril.tasks.ads.thirdparty.v1.serde.rs",
+      "src/anduril.tasks.jadc2.thirdparty.v1.rs",
+      "src/anduril.tasks.jadc2.thirdparty.v1.serde.rs",
+      "src/anduril.tasks.v2.rs",
+      "src/anduril.tasks.v2.serde.rs",
+      "src/anduril.type.rs",
+      "src/anduril.type.serde.rs"
+    ],
+    "source_file_count": 22,
+    "target": "http://localhost:8080",
+    "token_configured": true
+  },
+  "failed": [],
+  "fixture": "sdk-rust-grpc-smoke",
+  "missing": [
+    "auth.grpc_bearer_metadata",
+    "transport.grpc_protobuf",
+    "entities.publish",
+    "entities.get",
+    "entities.grpc_stream",
+    "tasks.create",
+    "tasks.listen_as_agent",
+    "tasks.update_status"
+  ],
+  "mode": "strict",
+  "passed": [],
+  "result": "blocked",
+  "zorn_version": "0.1.0"
+}

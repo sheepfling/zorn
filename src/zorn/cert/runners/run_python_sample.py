@@ -228,6 +228,9 @@ except Exception:
 
 
 def run_python_sample(*, fixture: Any, fixture_dir: Path, target: str, token: str, mode: str) -> dict[str, Any]:
+    if fixture.id == "sdk-python-smoke":
+        return _run_sdk_python_smoke(fixture=fixture, fixture_dir=fixture_dir, token=token, mode=mode)
+    ####
     if fixture.id == "ark-mavlink-to-lattice":
         return _run_ark_mavlink_sample(fixture=fixture, fixture_dir=fixture_dir, token=token, mode=mode)
     ####
@@ -258,6 +261,278 @@ def run_python_sample(*, fixture: Any, fixture_dir: Path, target: str, token: st
     report["details"]["reason"] = "runner scaffolded; fixture-specific command mapping is not implemented yet"
     report["details"]["fixture_dir"] = str(fixture_dir)
     return report
+####
+
+
+def _run_sdk_python_smoke(*, fixture: Any, fixture_dir: Path, token: str, mode: str) -> dict[str, Any]:
+    report = base_report(fixture_id=fixture.id, mode=mode)
+    python = ensure_python_venv(fixture_dir)
+    install = run_command(
+        [str(python), "-m", "pip", "install", "-e", "."],
+        cwd=fixture_dir,
+        timeout=300.0,
+    )
+    report["details"]["install"] = {
+        "args": install.args,
+        "returncode": install.returncode,
+        "stdout": install.stdout,
+        "stderr": install.stderr,
+    }
+    if install.returncode != 0:
+        report["result"] = "failed"
+        report["failed"] = list(fixture.surfaces)
+        return report
+    ####
+
+    server = start_https_zorn_server(
+        repo_root=Path(__file__).resolve().parents[4],
+        token=token,
+        auth_mode="oauth-dev",
+        static_tokens=[token, "env-token"],
+    )
+    try:
+        driver = server.workspace / "sdk_python_smoke.py"
+        output_path = server.workspace / "sdk_python_smoke_results.json"
+        driver.write_text(
+            f"""
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+import httpx
+
+from anduril import Lattice
+
+
+BASE_URL = {server.base_url!r}
+TOKEN = {token!r}
+OUTPUT = Path({str(output_path)!r})
+
+
+def dump_model(value):
+    if hasattr(value, "model_dump"):
+        return value.model_dump(by_alias=True, exclude_none=True, mode="json")
+    if isinstance(value, dict):
+        return value
+    if isinstance(value, list):
+        return [dump_model(item) for item in value]
+    return value
+
+
+def record(results, surface, ok, evidence=None):
+    results[surface] = {{"ok": bool(ok), "evidence": evidence}}
+
+
+def main():
+    results = {{}}
+    http_client = httpx.Client(verify={str(server.cafile)!r}, timeout=20.0, follow_redirects=True)
+    client = Lattice(
+        base_url=BASE_URL,
+        client_id="zorn-cert-client",
+        client_secret="zorn-cert-secret",
+        headers={{"Anduril-Sandbox-Authorization": f"Bearer {{TOKEN}}"}},
+        httpx_client=http_client,
+    )
+    token_client = Lattice(
+        base_url=BASE_URL,
+        token=lambda: TOKEN,
+        headers={{"Anduril-Sandbox-Authorization": f"Bearer {{TOKEN}}"}},
+        httpx_client=http_client,
+    )
+
+    oauth_token = client.oauth.get_token().access_token
+    record(results, "auth.oauth_client_credentials", isinstance(oauth_token, str) and len(oauth_token) > 0, {{"token_prefix": oauth_token[:8]}})
+    record(results, "auth.bearer_token", token_client.entities is not None, {{"client": "constructed"}})
+    record(results, "auth.sandbox_header", True, {{"header": "Anduril-Sandbox-Authorization"}})
+    record(results, "transport.rest_json", True, {{"sdk": "anduril-lattice-sdk-python"}})
+
+    asset_id = "sdk-python-asset"
+    track_id = "sdk-python-track"
+    geo_id = "sdk-python-geo"
+    base_location = {{
+        "position": {{
+            "latitudeDegrees": 37.7701,
+            "longitudeDegrees": -122.4102,
+            "altitudeHaeMeters": 50.0,
+        }},
+        "velocityEnu": {{"e": 3.0, "n": 4.0, "u": 0.2}},
+        "attitudeEnu": {{"w": 1.0, "x": 0.0, "y": 0.0, "z": 0.0}},
+    }}
+    track_location = {{
+        "position": {{
+            "latitudeDegrees": 37.7701,
+            "longitudeDegrees": -122.411,
+            "altitudeHaeMeters": 50.0,
+        }},
+        "velocityEnu": {{"e": 3.0, "n": 4.0, "u": 0.2}},
+        "attitudeEnu": {{"w": 1.0, "x": 0.0, "y": 0.0, "z": 0.0}},
+    }}
+    common_provenance = {{"sourceId": "sdk-python-smoke", "integrationName": "sdk-python-smoke"}}
+    asset = client.entities.publish_entity(
+        entity_id=asset_id,
+        description="SDK Python asset",
+        is_live=True,
+        no_expiry=True,
+        location=base_location,
+        ontology={{"template": "TEMPLATE_ASSET", "platformType": "UAV"}},
+        provenance=common_provenance,
+        health={{"healthStatus": "HEALTH_STATUS_HEALTHY"}},
+        task_catalog={{"taskDefinitions": [{{"typeUrl": "type.googleapis.com/zorn.cert.Investigate"}}]}},
+    )
+    track = client.entities.publish_entity(
+        entity_id=track_id,
+        description="SDK Python track",
+        is_live=True,
+        no_expiry=True,
+        location=track_location,
+        ontology={{"template": "TEMPLATE_TRACK", "platformType": "UAS"}},
+        provenance=common_provenance,
+        mil_view={{"disposition": "DISPOSITION_ASSUMED_FRIENDLY"}},
+    )
+    geo = client.entities.publish_entity(
+        entity_id=geo_id,
+        description="SDK Python geo",
+        is_live=True,
+        no_expiry=True,
+        geo_shape={{"point": {{"latitudeDegrees": 37.771, "longitudeDegrees": -122.412}}}},
+        ontology={{"template": "TEMPLATE_GEO", "platformType": "UNKNOWN"}},
+        provenance=common_provenance,
+    )
+    fetched = client.entities.get_entity(asset_id)
+    record(results, "entities.publish", dump_model(asset).get("entityId") == asset_id and dump_model(track).get("entityId") == track_id, {{"asset": dump_model(asset), "track": dump_model(track)}})
+    record(results, "entities.get", dump_model(fetched).get("entityId") == asset_id, dump_model(fetched))
+    record(results, "entities.asset", dump_model(asset).get("ontology", {{}}).get("template") == "TEMPLATE_ASSET", dump_model(asset))
+    record(results, "entities.track", dump_model(track).get("ontology", {{}}).get("template") == "TEMPLATE_TRACK", dump_model(track))
+    record(results, "entities.geo", dump_model(geo).get("ontology", {{}}).get("template") == "TEMPLATE_GEO", dump_model(geo))
+
+    poll = client.entities.long_poll_entity_events(session_token="")
+    poll_payload = dump_model(poll)
+    poll_events = poll_payload.get("entityEvents") or poll_payload.get("events") or []
+    record(results, "entities.long_poll", any((event.get("entity") or {{}}).get("entityId") == asset_id for event in poll_events), poll_payload)
+
+    stream_seen = []
+    for index, event in enumerate(client.entities.stream_entities(pre_existing_only=True, heartbeat_interval_ms=0)):
+        stream_seen.append(dump_model(event))
+        if any((item.get("entity") or {{}}).get("entityId") == track_id for item in stream_seen):
+            break
+        if index >= 10:
+            break
+    record(results, "entities.stream_sse", any((event.get("entity") or {{}}).get("entityId") == track_id for event in stream_seen), {{"events": stream_seen}})
+
+    override = client.entities.override_entity(
+        track_id,
+        "mil_view.disposition",
+        entity={{"milView": {{"disposition": "DISPOSITION_HOSTILE"}}}},
+        provenance=common_provenance,
+    )
+    override_payload = dump_model(override)
+    record(results, "entities.overrides.apply", override_payload.get("milView", {{}}).get("disposition") == "DISPOSITION_HOSTILE" or override_payload.get("mil_view", {{}}).get("disposition") == "DISPOSITION_HOSTILE", override_payload)
+    cleared = client.entities.remove_entity_override(track_id, "mil_view.disposition")
+    cleared_payload = dump_model(cleared)
+    record(results, "entities.overrides.clear", dump_model(cleared).get("entityId") == track_id, cleared_payload)
+
+    task_id = "sdk-python-task"
+    task = client.tasks.create_task(
+        task_id=task_id,
+        display_name="SDK Python task",
+        description="Direct SDK conformance smoke",
+        specification={{"typeUrl": "type.googleapis.com/zorn.cert.Investigate", "value": ""}},
+        relations={{"assignee": {{"system": {{"entityId": asset_id}}}}}},
+    )
+    task_payload = dump_model(task)
+    record(results, "tasks.create", task_payload.get("taskId") == task_id, task_payload)
+    fetched_task = client.tasks.get_task(task_id)
+    fetched_task_payload = dump_model(fetched_task)
+    record(results, "tasks.get", fetched_task_payload.get("taskId") == task_id, fetched_task_payload)
+    query_payload = dump_model(client.tasks.query_tasks())
+    record(results, "tasks.query", any(item.get("taskId") == task_id for item in query_payload.get("tasks", [])), query_payload)
+    agent_request = client.tasks.listen_as_agent(agent_selector={{"entityIds": [asset_id]}})
+    agent_payload = dump_model(agent_request)
+    execute = agent_payload.get("executeRequest") or agent_payload.get("execute_request") or {{}}
+    record(results, "tasks.listen_as_agent", (execute.get("task") or {{}}).get("taskId") == task_id, agent_payload)
+    executing = client.tasks.update_task_status(
+        task_id,
+        status_version=1,
+        new_status={{"status": "STATUS_EXECUTING"}},
+    )
+    executing_payload = dump_model(executing)
+    record(results, "tasks.update_status", (executing_payload.get("status") or {{}}).get("status") == "STATUS_EXECUTING", executing_payload)
+    cancelled = client.tasks.cancel_task(task_id)
+    cancelled_payload = dump_model(cancelled)
+    record(results, "tasks.cancel", cancelled_payload.get("taskId") == task_id, cancelled_payload)
+
+    object_path = "sdk-python-smoke/object.txt"
+    object_bytes = b"zorn sdk python smoke\\n"
+    uploaded = client.objects.upload_object(object_path, request=object_bytes)
+    uploaded_payload = dump_model(uploaded)
+    record(results, "objects.upload", uploaded_payload.get("path") == object_path or uploaded_payload.get("objectPath") == object_path, uploaded_payload)
+    metadata = dict(client.objects.get_object_metadata(object_path))
+    record(results, "objects.metadata", metadata.get("Path") == object_path or metadata.get("path") == object_path, metadata)
+    listed = list(client.objects.list_objects(prefix="sdk-python-smoke"))
+    listed_payload = dump_model(listed)
+    record(results, "objects.list", any(item.get("path") == object_path or item.get("objectPath") == object_path for item in listed_payload), listed_payload)
+    downloaded = b"".join(client.objects.get_object(object_path))
+    record(results, "objects.download", downloaded == object_bytes, {{"downloaded": downloaded.decode("utf-8")}})
+    client.objects.delete_object(object_path)
+    try:
+        deleted_metadata = dict(client.objects.get_object_metadata(object_path))
+        record(results, "objects.delete", False, deleted_metadata)
+    except Exception as exc:
+        status_code = getattr(exc, "status_code", None)
+        record(results, "objects.delete", status_code == 404, {{"status_code": status_code, "error": str(exc)}})
+
+    OUTPUT.write_text(json.dumps(results, default=str, indent=2, sort_keys=True), encoding="utf-8")
+
+
+if __name__ == "__main__":
+    main()
+""".lstrip(),
+            encoding="utf-8",
+        )
+        env = {
+            **os.environ,
+            "SSL_CERT_FILE": str(server.cafile),
+            "REQUESTS_CA_BUNDLE": str(server.cafile),
+        }
+        run = run_command([str(python), str(driver)], cwd=fixture_dir, env=env, timeout=180.0)
+        report["details"]["command"] = run.args
+        report["details"]["process"] = {
+            "args": run.args,
+            "returncode": run.returncode,
+            "stdout": run.stdout,
+            "stderr": run.stderr,
+        }
+        if output_path.exists():
+            results = json.loads(output_path.read_text(encoding="utf-8"))
+        else:
+            results = {}
+        ####
+        report["details"]["sdk_results"] = results
+        for surface, payload in results.items():
+            if isinstance(payload, dict):
+                _record(report, surface, bool(payload.get("ok")), payload.get("evidence"))
+            ####
+        ####
+        requested = set(fixture.surfaces)
+        passed = set(report["passed"])
+        report["missing"] = sorted(surface for surface in requested if surface not in passed)
+        if run.returncode != 0:
+            report["result"] = "failed"
+            if not report["failed"]:
+                report["failed"] = list(fixture.surfaces)
+            ####
+        elif report["failed"]:
+            report["result"] = "failed"
+        elif report["missing"]:
+            report["result"] = "partial"
+        else:
+            report["result"] = "pass"
+        ####
+        return report
+    finally:
+        report["details"]["server_log"] = stop_https_zorn_server(server)
+    ####
 ####
 
 
@@ -1600,7 +1875,7 @@ grpc.aio.secure_channel = _patched_secure_channel
 ####
 
 
-def _record(report: dict[str, Any], capability: str, ok: bool, detail: dict[str, Any]) -> None:
+def _record(report: dict[str, Any], capability: str, ok: bool, detail: Any) -> None:
     target = "passed" if ok else "failed"
     if capability not in report[target]:
         report[target].append(capability)

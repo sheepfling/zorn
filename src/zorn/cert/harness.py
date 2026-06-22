@@ -14,6 +14,13 @@ from .runners.run_python_sample import run_python_sample
 from .runners.run_go_sample import run_go_sample
 from .runners.run_java_sample import run_java_sample
 from .runners.run_node_sample import run_node_sample
+from .runners.run_contract_fixture import (
+    run_cpp_sample,
+    run_postman_rest,
+    run_rust_sample,
+    run_schema_proto,
+    run_spec_rest,
+)
 from .runners.common import ensure_python_venv
 
 
@@ -25,6 +32,9 @@ COVERAGE_FILE = CERT_ROOT / "coverage.yaml"
 LEVELS_FILE = CERT_ROOT / "levels.yaml"
 SCENARIOS_FILE = CERT_ROOT / "scenarios.yaml"
 ARTIFACTS_FILE = CERT_ROOT / "artifacts.yaml"
+ADAPTATION_TIERS_FILE = CERT_ROOT / "adaptation-tiers.yaml"
+ASSERTIONS_FILE = CERT_ROOT / "assertions.yaml"
+UI_REQUIREMENTS_FILE = Path("cert") / "ui" / "requirements.yaml"
 REPORTS_DIR = CERT_ROOT / "reports"
 CLONES_DIR = CERT_ROOT / ".fixtures"
 
@@ -38,6 +48,7 @@ class Fixture:
     category: str
     runner: str
     license_status: str
+    adaptation_tier: str
     surfaces: tuple[str, ...]
     modes: tuple[str, ...]
     install_command: tuple[str, ...] | None
@@ -82,12 +93,15 @@ def load_fixtures(root: Path) -> list[Fixture]:
 
 def load_contract(root: Path, name: str) -> dict[str, Any]:
     paths = {
+        "adaptation_tiers": ADAPTATION_TIERS_FILE,
         "artifacts": ARTIFACTS_FILE,
+        "assertions": ASSERTIONS_FILE,
         "capabilities": CAPABILITIES_FILE,
         "coverage": COVERAGE_FILE,
         "domains": DOMAINS_FILE,
         "levels": LEVELS_FILE,
         "scenarios": SCENARIOS_FILE,
+        "ui_requirements": UI_REQUIREMENTS_FILE,
     }
     path = paths.get(name)
     if path is None:
@@ -103,11 +117,28 @@ def contract_capabilities(root: Path) -> set[str]:
 ####
 
 
+def contract_adaptation_tiers(root: Path) -> set[str]:
+    tiers = load_contract(root, "adaptation_tiers").get("adaptation_tiers", {})
+    return set(tiers) if isinstance(tiers, dict) else set()
+####
+
+
 def validate_contracts(root: Path) -> list[str]:
     known = contract_capabilities(root)
+    known_tiers = contract_adaptation_tiers(root)
     errors: list[str] = []
-    for contract_name in ("domains", "scenarios", "coverage", "levels"):
+    for contract_name in ("domains", "scenarios", "coverage", "levels", "assertions"):
         _validate_capability_references(load_contract(root, contract_name), known, errors, context=contract_name)
+    ####
+    for fixture in load_fixtures(root):
+        if fixture.adaptation_tier not in known_tiers:
+            errors.append(f"fixtures: {fixture.id} references unknown adaptation tier {fixture.adaptation_tier}")
+        ####
+        for surface in fixture.surfaces:
+            if surface not in known:
+                errors.append(f"fixtures: {fixture.id} references unknown capability {surface}")
+            ####
+        ####
     ####
     return errors
 ####
@@ -154,6 +185,7 @@ def inspect_fixture(root: Path, fixture: Fixture) -> dict[str, Any]:
         "priority": fixture.priority,
         "category": fixture.category,
         "runner": fixture.runner,
+        "adaptation_tier": fixture.adaptation_tier,
         "repo": fixture.repo,
         "ref": fixture.ref,
         "clone_dir": str(clone_dir),
@@ -215,6 +247,11 @@ def run_fixture(root: Path, fixture: Fixture, *, target: str, token: str, mode: 
         "go_sample": run_go_sample,
         "java_sample": run_java_sample,
         "node_sample": run_node_sample,
+        "cpp_sample": run_cpp_sample,
+        "rust_sample": run_rust_sample,
+        "schema_proto": run_schema_proto,
+        "spec_rest": run_spec_rest,
+        "postman_rest": run_postman_rest,
     }.get(fixture.runner)
     if runner is None:
         raise SystemExit(f"unsupported runner for {fixture.id}: {fixture.runner}")
@@ -223,6 +260,7 @@ def run_fixture(root: Path, fixture: Fixture, *, target: str, token: str, mode: 
     report.setdefault("fixture", fixture.id)
     report.setdefault("zorn_version", _zorn_version(root))
     report.setdefault("mode", mode)
+    report.setdefault("adaptation_tier", fixture.adaptation_tier)
     report_path = report_file(root, fixture)
     report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
@@ -232,9 +270,12 @@ def run_fixture(root: Path, fixture: Fixture, *, target: str, token: str, mode: 
 
 def reports_summary(root: Path, *, as_json: bool) -> str:
     reports = []
+    tiers_by_fixture = {fixture.id: fixture.adaptation_tier for fixture in load_fixtures(root)}
     reports_dir = root / REPORTS_DIR
     for path in sorted(reports_dir.glob("*.json")):
-        reports.append(json.loads(path.read_text()))
+        report = json.loads(path.read_text())
+        report.setdefault("adaptation_tier", tiers_by_fixture.get(str(report.get("fixture")), "unreported"))
+        reports.append(report)
     ####
     if as_json:
         return json.dumps({"reports": reports}, indent=2, sort_keys=True)
@@ -244,6 +285,7 @@ def reports_summary(root: Path, *, as_json: bool) -> str:
     ####
     return "\n".join(
         f"{report.get('fixture')}: {report.get('result')} "
+        f"tier={report.get('adaptation_tier', 'unreported')} "
         f"passed={len(report.get('passed', []))} failed={len(report.get('failed', []))} missing={len(report.get('missing', []))}"
         for report in reports
     )
@@ -271,6 +313,7 @@ def _fixture_from_payload(payload: dict[str, Any]) -> Fixture:
         category=str(payload["category"]),
         runner=str(payload["runner"]),
         license_status=str(payload["license_status"]),
+        adaptation_tier=str(payload.get("adaptation_tier", "endpoint_token_only")),
         surfaces=tuple(str(surface) for surface in surfaces),
         modes=tuple(str(mode) for mode in modes),
         install_command=_command_tuple(payload.get("install_command")),
@@ -366,6 +409,15 @@ def _detect_language(clone_dir: Path, runner: str, relative_paths: list[str]) ->
     if runner == "java_sample" or any(path.endswith((".java", ".kt", ".kts")) for path in relative_paths):
         return "java"
     ####
+    if runner == "cpp_sample" or any(path.endswith((".cc", ".cpp", ".cxx", ".h", ".hpp")) for path in relative_paths):
+        return "cpp"
+    ####
+    if runner == "rust_sample" or "Cargo.toml" in relative_paths:
+        return "rust"
+    ####
+    if runner in {"spec_rest", "postman_rest", "schema_proto", "reference_only"}:
+        return runner
+    ####
     return _language_for_runner(runner)
 ####
 
@@ -376,6 +428,12 @@ def _language_for_runner(runner: str) -> str:
         "go_sample": "go",
         "node_sample": "node",
         "java_sample": "java",
+        "cpp_sample": "cpp",
+        "rust_sample": "rust",
+        "spec_rest": "spec",
+        "postman_rest": "postman",
+        "schema_proto": "proto",
+        "reference_only": "reference",
     }.get(runner, "unknown")
 ####
 
@@ -420,6 +478,15 @@ def _detect_install_command(clone_dir: Path, language: str, relative_paths: list
             return ["gradle", "build", "-x", "test"]
         ####
         return None
+    ####
+    if language == "cpp":
+        if "CMakeLists.txt" in relative_paths:
+            return ["cmake", "-S", ".", "-B", "build"]
+        ####
+        return None
+    ####
+    if language == "rust":
+        return ["cargo", "fetch"] if "Cargo.toml" in relative_paths else None
     ####
     return None
 ####
@@ -478,6 +545,12 @@ def _detect_run_commands(clone_dir: Path, language: str, relative_paths: list[st
             return [["./gradlew", "run"]]
         ####
         return []
+    ####
+    if language == "cpp":
+        return [["cmake", "--build", "build"]] if "CMakeLists.txt" in relative_paths else []
+    ####
+    if language == "rust":
+        return [["cargo", "test"]] if "Cargo.toml" in relative_paths else []
     ####
     return []
 ####

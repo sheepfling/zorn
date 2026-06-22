@@ -24,6 +24,12 @@ brew install bufbuild/buf/buf
 Generated or exported files should be treated as vendor artifacts. Do not edit
 them and do not replace them with local lookalike proto definitions.
 
+Zorn-owned protobuf contracts may live under `proto/zorn/**` when they describe
+local projection state, certification artifacts, or plugin contracts. These are
+not Lattice API replacements and should not be placed in the compatibility data
+plane namespace. For example, `proto/zorn/ui/v1/ui.proto` defines a UI-facing
+COP projection generated from Zorn stores and streams.
+
 
 ## Audit commands
 

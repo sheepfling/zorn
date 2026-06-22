@@ -12,6 +12,24 @@ fixture_groups:
     maven: daemon-maven
     lattice-adsb-bridge: philippanda-lattice-adsb-bridge
     deep-prove-demo: lagrange-deep-prove-demo
+    alfred-agent: tyler-alfred-agent
+  official_sdk_conformance:
+    python: sdk-python-smoke
+    go: sdk-go-smoke
+    java: sdk-java-smoke
+    javascript: sdk-javascript-smoke
+    cpp-grpc: sdk-cpp-grpc-smoke
+    rust-grpc: sdk-rust-grpc-smoke
+  spec_derived_rest_conformance:
+    openapi: api-evangelist-openapi-rest
+    postman: api-evangelist-postman-rest
+  schema_proto_conformance:
+    buf-descriptor-check: buf-schema-registry-descriptor-check
+    raw-proto-generation-matrix: raw-proto-generation-matrix
+  lattice_style_scenario_references:
+    sargvision-console: sargvision-console-ui-reference
+    sargvision-swarm: sargvision-swarm-replay-reference
+    lattice-bridge: vihorx-lattice-bridge-drone-ui-reference
   scenarios:
     battlespace-awareness: battlespace-awareness
     air-dominance-strike: air-dominance-strike

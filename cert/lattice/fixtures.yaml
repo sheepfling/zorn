@@ -15,6 +15,7 @@ fixtures:
       - LATTICE_ENDPOINT
       - SANDBOXES_TOKEN
     license_status: upstream_terms_review_required
+    adaptation_tier: endpoint_token_only
     surfaces:
       - auth.bearer_token
       - auth.sandbox_header
@@ -39,6 +40,7 @@ fixtures:
       - LATTICE_ENDPOINT
       - SANDBOXES_TOKEN
     license_status: upstream_terms_review_required
+    adaptation_tier: endpoint_token_only
     surfaces:
       - auth.grpc_bearer_metadata
       - entities.publish
@@ -62,6 +64,7 @@ fixtures:
       - VITE_SANDBOX_TOKEN
       - VITE_LATTICE_URL
     license_status: upstream_terms_review_required
+    adaptation_tier: transport_proxy
     surfaces:
       - auth.bearer_token
       - entities.stream
@@ -85,6 +88,7 @@ fixtures:
       - LATTICE_CLIENT_SECRET
       - SANDBOXES_TOKEN
     license_status: upstream_terms_review_required
+    adaptation_tier: endpoint_token_only
     surfaces:
       - entities.publish
       - entities.stream
@@ -106,6 +110,7 @@ fixtures:
       - [go, run, main.go, get]
       - [go, run, main.go, delete]
     license_status: upstream_terms_review_required
+    adaptation_tier: endpoint_token_only
     surfaces:
       - auth.bearer_token
       - objects.upload
@@ -131,6 +136,7 @@ fixtures:
       - LATTICE_CLIENT_SECRET
       - SANDBOXES_TOKEN
     license_status: upstream_terms_review_required
+    adaptation_tier: endpoint_token_only
     surfaces:
       - objects.upload
       - objects.metadata
@@ -150,6 +156,7 @@ fixtures:
       - ENVIRONMENT_TOKEN
       - SANDBOXES_TOKEN
     license_status: bsd_3_clause_found
+    adaptation_tier: runtime_env_translation
     modes: [strict, stress]
     surfaces:
       - auth.bearer_token
@@ -175,6 +182,7 @@ fixtures:
       - SANDBOXES_TOKEN
       - LATTICE_ENDPOINT
     license_status: apache_2_found
+    adaptation_tier: runtime_env_translation
     modes: [strict, stress]
     surfaces:
       - auth.bearer_token
@@ -198,6 +206,7 @@ fixtures:
       - LATTICE_CLIENT_SECRET
       - SANDBOX_TOKEN
     license_status: no_license_found
+    adaptation_tier: transport_proxy
     modes: [strict, stress]
     surfaces:
       - auth.oauth_client_credentials
@@ -218,6 +227,7 @@ fixtures:
       - pom.xml
       - src/main/resources/application.properties
     license_status: no_license_found
+    adaptation_tier: runtime_env_translation
     modes: [strict, stress]
     surfaces:
       - auth.bearer_token
@@ -242,6 +252,7 @@ fixtures:
       - ENVIRONMENT_TOKEN
       - SANDBOXES_TOKEN
     license_status: no_license_found
+    adaptation_tier: runtime_env_translation
     modes: [strict, stress]
     surfaces:
       - entities.publish
@@ -256,6 +267,7 @@ fixtures:
     category: third_party_realish
     runner: python_sample
     license_status: license_not_verified
+    adaptation_tier: local_overlay
     modes: [stress]
     install_command: [python, -m, pip, install, anduril-lattice-sdk]
     required_env: [LATTICE_ENDPOINT, LATTICE_CLIENT_ID, LATTICE_CLIENT_SECRET, LATTICE_SANDBOXES_TOKEN, ENVIRONMENT_TOKEN]
@@ -266,3 +278,271 @@ fixtures:
       - entities.override
       - tasks.create
       - local_mock
+  - id: sdk-python-smoke
+    repo: https://github.com/anduril/lattice-sdk-python.git
+    ref: 1aab990e92a32dacb504e91e502fb5816d0f02c4
+    priority: P0
+    category: official_sdk_conformance
+    runner: python_sample
+    install_command: [python, -m, pip, install, -e, .]
+    license_status: upstream_terms_review_required
+    adaptation_tier: runtime_shim
+    surfaces:
+      - auth.oauth_client_credentials
+      - auth.bearer_token
+      - auth.sandbox_header
+      - transport.rest_json
+      - entities.publish
+      - entities.get
+      - entities.stream_sse
+      - entities.long_poll
+      - entities.overrides.apply
+      - entities.overrides.clear
+      - tasks.create
+      - tasks.get
+      - tasks.query
+      - tasks.listen_as_agent
+      - tasks.update_status
+      - tasks.cancel
+      - objects.upload
+      - objects.metadata
+      - objects.list
+      - objects.download
+      - objects.delete
+  - id: sdk-go-smoke
+    repo: https://github.com/anduril/lattice-sdk-go.git
+    ref: b6e4f17ca316baca58a50e3076fe3a8908fa1132
+    priority: P0
+    category: official_sdk_conformance
+    runner: go_sample
+    install_command: [go, mod, download]
+    license_status: upstream_terms_review_required
+    adaptation_tier: runtime_shim
+    surfaces:
+      - auth.oauth_client_credentials
+      - auth.bearer_token
+      - transport.rest_json
+      - entities.publish
+      - entities.get
+      - entities.stream_sse
+      - entities.long_poll
+      - entities.overrides.apply
+      - entities.overrides.clear
+      - tasks.create
+      - tasks.get
+      - tasks.query
+      - tasks.listen_as_agent
+      - tasks.update_status
+      - tasks.cancel
+      - objects.upload
+      - objects.metadata
+      - objects.list
+      - objects.download
+      - objects.delete
+  - id: sdk-java-smoke
+    repo: https://github.com/anduril/lattice-sdk-java.git
+    ref: 2da4d7a68550aad64370ef5eb51aea6946fe56f0
+    priority: P1
+    category: official_sdk_conformance
+    runner: java_sample
+    install_command: [mvn, -q, -DskipTests, package]
+    license_status: upstream_terms_review_required
+    adaptation_tier: runtime_shim
+    surfaces:
+      - auth.oauth_client_credentials
+      - auth.bearer_token
+      - transport.rest_json
+      - entities.publish
+      - entities.get
+      - entities.overrides.apply
+      - entities.overrides.clear
+      - tasks.create
+      - tasks.get
+      - tasks.update_status
+      - objects.upload
+      - objects.metadata
+      - objects.list
+      - objects.download
+      - objects.delete
+  - id: sdk-javascript-smoke
+    repo: https://github.com/anduril/lattice-sdk-javascript.git
+    ref: e5563284047dd0f4f1716cd45725c37f15133bbb
+    priority: P1
+    category: official_sdk_conformance
+    runner: node_sample
+    install_command: [pnpm, install, --frozen-lockfile]
+    license_status: upstream_terms_review_required
+    adaptation_tier: runtime_shim
+    surfaces:
+      - auth.oauth_client_credentials
+      - auth.bearer_token
+      - auth.sandbox_header
+      - transport.rest_json
+      - entities.publish
+      - entities.get
+      - entities.stream_sse
+      - entities.long_poll
+      - tasks.create
+      - tasks.get
+      - tasks.query
+      - tasks.update_status
+      - tasks.cancel
+      - objects.upload
+      - objects.metadata
+      - objects.list
+      - objects.download
+      - objects.delete
+  - id: sdk-cpp-grpc-smoke
+    repo: https://github.com/anduril/lattice-sdk-cpp.git
+    ref: 5015d9ba088377148d52aa0801a3c7d656812c82
+    priority: P2
+    category: official_sdk_conformance
+    runner: cpp_sample
+    license_status: upstream_terms_review_required
+    adaptation_tier: runtime_shim
+    surfaces:
+      - auth.grpc_bearer_metadata
+      - transport.grpc_protobuf
+      - entities.publish
+      - entities.get
+      - entities.grpc_stream
+      - tasks.create
+      - tasks.listen_as_agent
+      - tasks.update_status
+  - id: sdk-rust-grpc-smoke
+    repo: https://github.com/anduril/lattice-sdk-rust.git
+    ref: e7bee33dffebbaa0fa469ddf24867a3f4320e390
+    priority: P2
+    category: official_sdk_conformance
+    runner: rust_sample
+    license_status: upstream_terms_review_required
+    adaptation_tier: runtime_shim
+    surfaces:
+      - auth.grpc_bearer_metadata
+      - transport.grpc_protobuf
+      - entities.publish
+      - entities.get
+      - entities.grpc_stream
+      - tasks.create
+      - tasks.listen_as_agent
+      - tasks.update_status
+  - id: api-evangelist-openapi-rest
+    repo: https://github.com/api-evangelist/anduril.git
+    ref: cd2323549fa09dba58b9471d75af3ef36d7a2c9c
+    priority: P1
+    category: spec_derived_rest_conformance
+    runner: spec_rest
+    license_status: third_party_reference_terms_review_required
+    adaptation_tier: runtime_shim
+    surfaces:
+      - auth.oauth_client_credentials
+      - auth.bearer_token
+      - transport.rest_json
+      - entities.publish
+      - entities.get
+      - entities.overrides.apply
+      - entities.overrides.clear
+      - entities.long_poll
+      - entities.stream_sse
+      - tasks.create
+      - tasks.get
+      - tasks.query
+      - tasks.update_status
+      - tasks.cancel
+      - tasks.stream
+      - tasks.listen_as_agent
+      - tasks.stream_as_agent
+      - tasks.manual_control_frames
+      - objects.upload
+      - objects.download
+      - objects.metadata
+      - objects.list
+      - objects.list_deleted
+      - objects.delete
+  - id: api-evangelist-postman-rest
+    repo: https://github.com/api-evangelist/anduril.git
+    ref: cd2323549fa09dba58b9471d75af3ef36d7a2c9c
+    priority: P2
+    category: spec_derived_rest_conformance
+    runner: postman_rest
+    license_status: third_party_reference_terms_review_required
+    adaptation_tier: runtime_shim
+    surfaces:
+      - auth.oauth_client_credentials
+      - auth.bearer_token
+      - transport.rest_json
+      - entities.publish
+      - entities.get
+      - tasks.create
+      - tasks.update_status
+      - objects.upload
+      - objects.metadata
+      - objects.download
+      - objects.delete
+  - id: buf-schema-registry-descriptor-check
+    repo: https://github.com/anduril/lattice-sdk-python.git
+    ref: 1aab990e92a32dacb504e91e502fb5816d0f02c4
+    priority: P0
+    category: schema_proto_conformance
+    runner: schema_proto
+    license_status: upstream_terms_review_required
+    adaptation_tier: runtime_shim
+    surfaces:
+      - transport.grpc_protobuf
+      - entities.grpc_stream
+      - tasks.listen_as_agent
+  - id: raw-proto-generation-matrix
+    repo: https://github.com/anduril/lattice-sdk-go.git
+    ref: b6e4f17ca316baca58a50e3076fe3a8908fa1132
+    priority: P1
+    category: schema_proto_conformance
+    runner: schema_proto
+    license_status: upstream_terms_review_required
+    adaptation_tier: runtime_shim
+    surfaces:
+      - transport.grpc_protobuf
+      - auth.grpc_bearer_metadata
+      - entities.grpc_stream
+  - id: sargvision-console-ui-reference
+    repo: https://github.com/sargupta/sargvision-console.git
+    ref: 13fb77722af519c2fc137cc2b69211e55f89706d
+    priority: P2
+    category: lattice_style_scenario_reference
+    runner: reference_only
+    license_status: third_party_reference_terms_review_required
+    adaptation_tier: local_overlay
+    surfaces:
+      - ui.map_visualizer
+      - transport.websocket_surrogate
+      - replay.event_replay
+      - scenario.task_lifecycle
+  - id: sargvision-swarm-replay-reference
+    repo: https://github.com/sargupta/sargvision-swarm.git
+    ref: 068fdb5605cbd968134a00abef36ca331085db76
+    priority: P2
+    category: lattice_style_scenario_reference
+    runner: reference_only
+    license_status: third_party_reference_terms_review_required
+    adaptation_tier: local_overlay
+    surfaces:
+      - sensors.synthetic
+      - fusion.track_correlation
+      - replay.event_recording
+      - replay.event_replay
+      - replay.deterministic
+      - effects.assignment
+      - effects.intercept
+  - id: vihorx-lattice-bridge-drone-ui-reference
+    repo: https://github.com/vihorx/lattice-bridge.git
+    ref: fa1123f3365ddf7b7d1e10aa7c6f6b0db95d21be
+    priority: P2
+    category: lattice_style_scenario_reference
+    runner: reference_only
+    license_status: third_party_reference_terms_review_required
+    adaptation_tier: local_overlay
+    surfaces:
+      - sensors.synthetic
+      - entities.location
+      - entities.media
+      - alerts.suspicious
+      - ui.map_visualizer

@@ -737,6 +737,7 @@ class ObjectStore:
         metadata_json = dict(metadata or {})
         with self.database.session() as session:
             row = session.get(ObjectRow, normalized_path)
+            event_type = "CREATE"
             if row is None:
                 row = ObjectRow(
                     object_path=normalized_path,
@@ -750,6 +751,7 @@ class ObjectStore:
                 )
                 session.add(row)
             else:
+                event_type = "UPDATE"
                 row.checksum_sha256 = checksum
                 row.size_bytes = len(content)
                 row.content_type = content_type
@@ -757,6 +759,16 @@ class ObjectStore:
                 row.expiry_time = expiry_time
                 row.metadata_json = metadata_json
             ####
+            add_event(
+                session,
+                stream="object",
+                subject_id=normalized_path,
+                event_type=event_type,
+                payload={
+                    "eventType": event_type,
+                    "object": self._row_to_payload(row),
+                },
+            )
             session.commit()
             return self._row_to_payload(row)
         ####
@@ -789,7 +801,17 @@ class ObjectStore:
         normalized_path = self._normalize_path(object_path)
         file_path = self._file_path(normalized_path)
         with self.database.session() as session:
-            existed = session.get(ObjectRow, normalized_path) is not None
+            row = session.get(ObjectRow, normalized_path)
+            existed = row is not None
+            if row is not None:
+                add_event(
+                    session,
+                    stream="object",
+                    subject_id=normalized_path,
+                    event_type="DELETED",
+                    payload={"eventType": "DELETED", "object": self._row_to_payload(row)},
+                )
+            ####
             session.execute(delete(ObjectRow).where(ObjectRow.object_path == normalized_path))
             session.commit()
         ####

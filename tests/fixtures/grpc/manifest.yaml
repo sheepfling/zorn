@@ -1,0 +1,44 @@
+fixtures:
+  - path: entity_publish_request.binpb
+    rpc: anduril.entitymanager.v1.EntityManagerAPI.PublishEntity
+    capability: grpc.entity_publish_wire
+    assertions:
+      - official generated request serializes
+      - Zorn accepts request bytes
+      - official generated response parses
+      - Any, unknown fields, enums, and timestamps are preserved where expected
+  - path: entity_get_request.binpb
+    rpc: anduril.entitymanager.v1.EntityManagerAPI.GetEntity
+    capability: grpc.entity_get_wire
+    assertions:
+      - official generated request serializes
+      - response round-trips entity identity and components
+  - path: entity_stream_request.binpb
+    rpc: anduril.entitymanager.v1.EntityManagerAPI.StreamEntityComponents
+    capability: grpc.entity_stream_wire
+    assertions:
+      - stream request parses through official generated type
+      - event wrapper names and component filters match public schema behavior
+  - path: task_create_request.binpb
+    rpc: anduril.taskmanager.v1.TaskManagerAPI.CreateTask
+    capability: grpc.task_create_wire
+    assertions:
+      - task specification Any payload survives create and readback
+      - timestamps and enum fields remain valid
+  - path: task_update_status_request.binpb
+    rpc: anduril.taskmanager.v1.TaskManagerAPI.UpdateStatus
+    capability: grpc.task_update_wire
+    assertions:
+      - status enum and status version round-trip cleanly
+      - Any progress/result payloads survive where present
+  - path: task_cancel_request.binpb
+    rpc: anduril.taskmanager.v1.TaskManagerAPI.CancelTask
+    capability: grpc.task_cancel_wire
+    assertions:
+      - cancellation identity and task state are SDK-compatible
+  - path: task_listen_as_agent_request.binpb
+    rpc: anduril.taskmanager.v1.TaskManagerAPI.ListenAsAgent
+    capability: grpc.task_listen_wire
+    assertions:
+      - ExecuteRequest, CancelRequest, and CompleteRequest wrappers preserve payloads
+

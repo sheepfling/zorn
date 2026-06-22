@@ -45,7 +45,18 @@ zorn-cert = "zorn.cert.cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/zorn"]
-artifacts = ["cert/lattice/*.yaml", "cert/lattice/README.md"]
+artifacts = [
+  "cert/lattice/*.yaml",
+  "cert/lattice/README.md",
+  "cert/ui/*.yaml",
+  "cert/ui/README.md",
+  "docs/design/*.md",
+  "docs/reference/ui/*",
+  "proto/zorn/**/*.proto",
+  "tests/fixtures/**/*.jsonl",
+  "tests/fixtures/**/*.yaml",
+  "tests/fixtures/**/*.md",
+]
 
 [tool.mypy]
 cache_dir = "/private/tmp/zorn/.mypy_cache"

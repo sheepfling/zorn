@@ -1,0 +1,182 @@
+assertion_groups:
+  current_passing_corpus:
+    fixtures:
+      anduril-sample-ais-rest:
+        required_capabilities:
+          - entities.publish
+          - entities.provenance
+          - entities.long_poll
+        assertions:
+          - stable entity identity across repeated updates
+          - provenance source and integration fields survive publish and stream
+          - stream event order matches source update order
+      anduril-sample-ais-grpc:
+        required_capabilities:
+          - entities.publish
+          - entities.provenance
+          - entities.grpc_stream
+        assertions:
+          - gRPC publish preserves entity identity and provenance
+          - generated-client stream event ordering matches publish order
+      anduril-sample-objects:
+        required_capabilities:
+          - objects.upload
+          - objects.metadata
+          - objects.list
+          - objects.download
+          - objects.delete
+        assertions:
+          - downloaded bytes exactly match uploaded bytes
+          - metadata size and last-updated fields match stored object state
+      anduril-sample-thumbnail:
+        required_capabilities:
+          - objects.upload
+          - objects.thumbnail_linkage
+          - entities.media
+        assertions:
+          - thumbnail bytes survive object round-trip
+          - entity media link persists after publish, get, stream, and object metadata lookup
+      anduril-sample-auto-reconnaissance:
+        required_capabilities:
+          - tasks.create
+          - tasks.listen_as_agent
+          - tasks.update_status
+        assertions:
+          - task lifecycle order is create, deliver, update, terminal
+          - no task is delivered twice to the same agent listener
+      lagrange-deep-prove-demo:
+        required_capabilities:
+          - tasks.listen_as_agent
+          - tasks.update_status
+        assertions:
+          - lifecycle ordering matches Auto Recon expectations
+          - duplicate agent delivery is rejected or reported
+      tyler-alfred-agent:
+        required_capabilities:
+          - tasks.create
+          - tasks.listen_as_agent
+        assertions:
+          - local mock assumptions are isolated from strict certification
+          - duplicate agent delivery is rejected or reported
+      daemon-maven:
+        required_capabilities:
+          - entities.grpc_stream
+          - entities.location
+        assertions:
+          - streamed entities retain location, ontology, and provenance where available
+      alphafox-dragonsync:
+        required_capabilities:
+          - entities.relationships
+          - entities.classification
+          - entities.health
+        assertions:
+          - relationship, classification, and health components survive readback
+      philippanda-lattice-adsb-bridge:
+        required_capabilities:
+          - entities.transponder_codes
+          - entities.location
+        assertions:
+          - ADS-B identity, transponder code, and position fields survive readback
+      ark-mavlink-to-lattice:
+        required_capabilities:
+          - entities.velocity_enu
+          - entities.attitude
+          - entities.health
+          - entities.task_catalog
+        assertions:
+          - MAVLink velocity, attitude, health, and task catalog components survive readback
+  weak_proof_upgrades:
+    fixtures:
+      anduril-sample-entity-visualizer:
+        required_capabilities:
+          - ui.map_visualizer
+          - entities.stream
+        assertions:
+          - browser-visible map or entity list evidence is captured
+          - screenshot or DOM proof shows seeded entity identifiers after stream connect
+  negative_and_stress:
+    fixtures:
+      cert-negative-auth:
+        required_capabilities: [auth.bad_token_rejected]
+        assertions:
+          - invalid bearer token returns a clean unauthorized response
+          - missing auth fails when auth mode is enabled
+      cert-negative-stale-entity:
+        required_capabilities: [entities.stale_update_rejected]
+        assertions:
+          - stale source update time does not overwrite newer canonical state
+          - stale update produces compatibility report evidence
+      cert-negative-task-transition:
+        required_capabilities: [tasks.bad_transition_rejected]
+        assertions:
+          - invalid task status transition is rejected or reported as version-rejected
+      cert-stress-stream-reconnect:
+        required_capabilities:
+          - streams.reconnect
+          - streams.heartbeat
+        assertions:
+          - stream resumes with a stable cursor after reconnect
+          - heartbeat behavior is observable and bounded
+      cert-stress-concurrent-publish-stream:
+        required_capabilities:
+          - streams.concurrent_publish_stream
+          - entities.stream
+        assertions:
+          - concurrent publishers do not drop stream-visible updates
+          - stream ordering remains deterministic within one entity id
+  golden_grpc_wire:
+    fixtures:
+      grpc-wire-entity-publish:
+        required_capabilities: [grpc.entity_publish_wire]
+        assertions:
+          - official generated request serializes and Zorn accepts it
+          - response parses through official generated response type
+          - Any, unknown fields, enums, and timestamps survive where expected
+      grpc-wire-entity-get:
+        required_capabilities: [grpc.entity_get_wire]
+        assertions:
+          - official generated request/response round-trips entity identity and components
+      grpc-wire-entity-stream:
+        required_capabilities: [grpc.entity_stream_wire]
+        assertions:
+          - stream request and event wrappers match public generated types
+      grpc-wire-task-create:
+        required_capabilities: [grpc.task_create_wire]
+        assertions:
+          - task specification Any payload survives create and readback
+      grpc-wire-task-update:
+        required_capabilities: [grpc.task_update_wire]
+        assertions:
+          - status enum, status version, timestamps, and Any progress/result fields survive
+      grpc-wire-task-cancel:
+        required_capabilities: [grpc.task_cancel_wire]
+        assertions:
+          - cancel request produces SDK-compatible task state and stream event
+      grpc-wire-task-listen:
+        required_capabilities: [grpc.task_listen_wire]
+        assertions:
+          - ListenAsAgent request produces ExecuteRequest/CancelRequest wrappers without field loss
+  scenario_certification:
+    scenarios:
+      BA-001:
+        required_capabilities:
+          - sensors.ais
+          - entities.publish
+          - entities.location
+          - replay.deterministic
+      BA-007:
+        required_capabilities:
+          - entities.stream
+          - streams.sse
+          - ui.map_visualizer
+      ADS-002:
+        required_capabilities:
+          - tasks.create
+      ADS-003:
+        required_capabilities:
+          - tasks.listen_as_agent
+          - autonomy.intent
+      ADS-004:
+        required_capabilities:
+          - tasks.update_status
+          - autonomy.asset_state

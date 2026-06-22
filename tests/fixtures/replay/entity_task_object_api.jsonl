@@ -1,0 +1,6 @@
+{"surface": "entity", "operation": "publish", "payload": {"entityId": "replay-asset-01", "description": "Replay asset", "isLive": true, "noExpiry": true, "location": {"position": {"latitudeDegrees": 34.1, "longitudeDegrees": -118.2}}, "provenance": {"integrationName": "api-replay-fixture", "sourceId": "api-replay", "sourceUpdateTime": "2026-06-22T00:10:00Z"}}}
+{"surface": "task", "operation": "create", "payload": {"taskId": "replay-task-01", "displayName": "Replay investigate", "assigneeId": "replay-asset-01", "specification": {"@type": "type.example/Investigate", "point": {"lat": 34.2, "lon": -118.3}}}}
+{"surface": "task", "operation": "update_status", "task_id": "replay-task-01", "payload": {"status": "EXECUTING"}}
+{"surface": "object", "operation": "put", "object_path": "replay/report.txt", "content_text": "replay object bytes\n", "content_type": "text/plain"}
+{"surface": "object", "operation": "delete", "object_path": "replay/report.txt"}
+{"surface": "task", "operation": "cancel", "task_id": "replay-task-01", "payload": {"reason": "replay complete"}}

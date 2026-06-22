@@ -7,14 +7,48 @@ capabilities:
     pass_condition: Samples can send sandbox headers without source changes.
   auth.grpc_bearer_metadata:
     pass_condition: Generated gRPC clients can send per-RPC authorization metadata.
+  auth.bad_token_rejected:
+    pass_condition: Invalid or missing credentials fail cleanly when auth is enabled.
+  transport.rest_json:
+    pass_condition: REST/JSON SDK calls interoperate with Zorn without sample-specific behavior.
+  transport.grpc_protobuf:
+    pass_condition: gRPC/protobuf clients interoperate with Zorn using official public schema artifacts.
+  transport.sse:
+    pass_condition: Server-sent event clients receive SDK-compatible events.
+  transport.long_poll:
+    pass_condition: Long-poll clients receive SDK-compatible event batches and session tokens.
+  transport.websocket_surrogate:
+    pass_condition: WebSocket-facing adapters can consume Zorn event/state data through their public bridge.
   entities.publish:
     pass_condition: Zorn accepts publish/upsert calls and stores canonical entity state.
+  entities.get:
+    pass_condition: SDK clients can fetch canonical entity state after publish and override operations.
+  entities.delete_via_is_live_false:
+    pass_condition: Publishing a non-live entity produces the expected delete/final-state behavior.
+  entities.expiry_delete:
+    pass_condition: Expiring entities produce the expected delete/final-state behavior.
+  entities.stale_update_rejected:
+    pass_condition: Older source update times do not overwrite newer canonical entity state.
   entities.stream:
     pass_condition: Zorn emits create/update/delete events in SDK-compatible wrappers.
+  entities.stream_sse:
+    pass_condition: REST SSE clients receive create/update/delete entity events in SDK-compatible wrappers.
+  entities.long_poll:
+    pass_condition: REST long-poll clients receive entity events using SDK-compatible envelopes and cursors.
   entities.grpc_stream:
     pass_condition: Generated gRPC stream clients can consume entity update streams.
+  entities.asset:
+    pass_condition: Asset-shaped entities retain enough components for SDK and UI consumers.
+  entities.track:
+    pass_condition: Track-shaped entities retain enough components for SDK and UI consumers.
+  entities.geo:
+    pass_condition: Geo-entities retain enough components for SDK and UI consumers.
+  entities.partial_state:
+    pass_condition: Clients tolerate missing components and Zorn preserves incomplete real-time state.
   entities.location:
     pass_condition: Entity location survives publish, storage, stream, and readback.
+  entities.velocity:
+    pass_condition: Entity velocity survives publish, storage, stream, and readback.
   entities.velocity_enu:
     pass_condition: ENU velocity survives publish, storage, stream, and readback.
   entities.attitude:
@@ -31,6 +65,8 @@ capabilities:
     pass_condition: Provenance survives publish, storage, stream, and readback.
   entities.relationships:
     pass_condition: Relationships survive publish, storage, stream, and readback.
+  entities.media:
+    pass_condition: Entity media references survive publish, storage, stream, and readback.
   entities.classification:
     pass_condition: Classification survives publish, storage, stream, and readback.
   entities.transponder_codes:
@@ -41,26 +77,58 @@ capabilities:
     pass_condition: Entity TTL/staleness causes expected stream and final-state behavior.
   entities.override:
     pass_condition: mil_view.disposition override updates the effective entity view.
+  entities.overrides.apply:
+    pass_condition: Entity override requests update the effective entity view and emit useful updates.
+  entities.overrides.clear:
+    pass_condition: Clearing overrides restores canonical entity state and emits useful updates.
   tasks.create:
     pass_condition: Samples can create tasks with SDK-compatible request/response shapes.
+  tasks.get:
+    pass_condition: SDK clients can fetch canonical task state after create/update/cancel operations.
+  tasks.query:
+    pass_condition: SDK clients can query tasks with documented filters/selectors.
+  tasks.stream:
+    pass_condition: SDK clients can stream task lifecycle updates.
   tasks.listen_as_agent:
     pass_condition: Taskable agents receive ExecuteRequest/CancelRequest/CompleteRequest wrappers.
+  tasks.stream_as_agent:
+    pass_condition: Streaming agent clients receive task requests and heartbeats with SDK-compatible wrappers.
   tasks.update_status:
     pass_condition: Samples can update task status/version and observe ordered task events.
+  tasks.status_version:
+    pass_condition: Task status version behavior matches SDK expectations across updates.
+  tasks.progress:
+    pass_condition: Task progress survives create/update, stream, and readback.
+  tasks.result:
+    pass_condition: Task result payloads survive update, stream, and readback.
+  tasks.error:
+    pass_condition: Task error payloads survive update, stream, and readback.
+  tasks.allocation:
+    pass_condition: Task allocation/assignee state survives create, stream, and readback.
   tasks.cancel:
     pass_condition: Cancel requests are delivered and task state changes are observable.
+  tasks.manual_control_frames:
+    pass_condition: Manual-control frame streams preserve frame payloads and close predictably.
+  tasks.bad_transition_rejected:
+    pass_condition: Invalid task status transitions fail cleanly or produce SDK-compatible rejection status.
   objects.upload:
     pass_condition: Samples can upload binary object payloads through REST.
   objects.metadata:
     pass_condition: Samples can create and read object metadata.
   objects.list:
     pass_condition: Samples can list objects by prefix.
+  objects.list_deleted:
+    pass_condition: SDK clients can list deleted object metadata when supported by the public surface.
   objects.download:
     pass_condition: Samples can download the uploaded object bytes.
   objects.delete:
     pass_condition: Samples can delete uploaded objects.
+  objects.expire:
+    pass_condition: Object expiry produces expected metadata and fetch behavior.
   objects.thumbnail_linkage:
     pass_condition: Thumbnail object references survive entity publish and readback.
+  objects.entity_media_reset:
+    pass_condition: Entity media links can be replaced or cleared without stale object linkage.
   ui.map_visualizer:
     pass_condition: Map consumers receive enough streamed entity data to render.
   ui.websocket:
@@ -85,6 +153,10 @@ capabilities:
     pass_condition: Server-sent event consumers receive live entity/task updates.
   streams.heartbeat:
     pass_condition: Stream heartbeat behavior is observable and configurable.
+  streams.reconnect:
+    pass_condition: Stream consumers can reconnect and resume without dropped or duplicated required events.
+  streams.concurrent_publish_stream:
+    pass_condition: Concurrent publish and stream consumers observe deterministic per-entity event ordering.
   autonomy.asset_state:
     pass_condition: Assets publish state, health, availability, and progress.
   autonomy.intent:
@@ -113,5 +185,21 @@ capabilities:
     pass_condition: Runs emit replayable event logs.
   replay.event_replay:
     pass_condition: Recorded event logs can reconstruct final state.
+  scenario.task_lifecycle:
+    pass_condition: Scenario task lifecycles produce ordered create, assignment, status, and terminal events.
+  grpc.entity_publish_wire:
+    pass_condition: Official generated PublishEntity wire request/response fixtures round-trip through Zorn.
+  grpc.entity_get_wire:
+    pass_condition: Official generated GetEntity wire request/response fixtures round-trip through Zorn.
+  grpc.entity_stream_wire:
+    pass_condition: Official generated entity stream request and event fixtures match Zorn wire behavior.
+  grpc.task_create_wire:
+    pass_condition: Official generated CreateTask wire fixtures preserve task specification payloads.
+  grpc.task_update_wire:
+    pass_condition: Official generated UpdateTaskStatus wire fixtures preserve status, versions, Any payloads, enums, and timestamps.
+  grpc.task_cancel_wire:
+    pass_condition: Official generated CancelTask wire fixtures preserve task identity and cancellation state.
+  grpc.task_listen_wire:
+    pass_condition: Official generated ListenAsAgent wire fixtures preserve task request wrappers and payloads.
   local_mock:
     pass_condition: Fixture-local mock assumptions are recorded and isolated from strict certification.

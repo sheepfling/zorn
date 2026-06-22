@@ -35,6 +35,9 @@ platform instead of only a Lattice-compatible API sandbox.
 - Namespacing supports multiple DIS exercise IDs.
 - Source identity is present in provenance.
 - Tests cover force/disposition mapping and location/velocity/attitude fields.
+- `zorn replay dis tests/fixtures/dis/entity_state_replay.jsonl --target http://127.0.0.1:8080`
+  publishes the fixture through the existing public Entity API and writes a
+  pass/fail report.
 
 ## Out of Scope
 
@@ -48,3 +51,11 @@ platform instead of only a Lattice-compatible API sandbox.
 
 After this mapping is stable, add a concrete reader backed by Packet-Stoat or
 FastDIS and wire `zorn replay dis fixtures/demo.pcap` into the scenario engine.
+
+## Current Status
+
+Initial JSONL replay is implemented under `src/zorn/adapters/dis/`. It is a
+neutral fixture path, not full PCAP parsing. The command emits an Alpha 1 report
+with passed, failed, missing, entities, and events fields. Normal replay uses
+the existing `/api/v1/entities` and `/api/v1/entities/events` routes; private
+store access is limited to internal tests/helpers.

@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import os
 from pathlib import Path
+import shutil
 import ssl
 import time
 from typing import Any
@@ -14,13 +15,18 @@ from .common import (
     http_json,
     run_command,
     start_dual_transport_zorn_server,
+    start_http_zorn_server,
     start_process,
     stop_dual_transport_zorn_server,
+    stop_https_zorn_server,
     stop_process,
 )
 
 
 def run_node_sample(*, fixture: Any, fixture_dir: Path, target: str, token: str, mode: str) -> dict[str, Any]:
+    if fixture.id == "sdk-javascript-smoke":
+        return _run_sdk_javascript_smoke(fixture=fixture, fixture_dir=fixture_dir, token=token, mode=mode)
+    ####
     if fixture.id == "anduril-sample-entity-visualizer":
         return _run_entity_visualizer(fixture=fixture, fixture_dir=fixture_dir, token=token, mode=mode)
     ####
@@ -34,6 +40,360 @@ def run_node_sample(*, fixture: Any, fixture_dir: Path, target: str, token: str,
         "token_configured": bool(token),
     }
     return report
+####
+
+
+def _run_sdk_javascript_smoke(*, fixture: Any, fixture_dir: Path, token: str, mode: str) -> dict[str, Any]:
+    report = base_report(fixture_id=fixture.id, mode=mode)
+    repo_root = Path(__file__).resolve().parents[4]
+    package_manager = _node_package_manager()
+    if package_manager is None:
+        report["result"] = "failed"
+        report["failed"] = list(fixture.surfaces)
+        report["details"]["install"] = {
+            "reason": "pnpm is required for the official JavaScript SDK lockfile, and neither pnpm nor corepack was found",
+        }
+        return report
+    ####
+
+    pnpm_store = fixture_dir / ".pnpm-store"
+    pnpm_store.mkdir(exist_ok=True)
+    node_env = {
+        **os.environ,
+        "NPM_CONFIG_CACHE": str(fixture_dir / ".npm-cache"),
+        "PNPM_HOME": str(fixture_dir / ".pnpm-home"),
+        "COREPACK_HOME": str(fixture_dir / ".corepack"),
+    }
+    install = run_command([*package_manager, "install", "--frozen-lockfile", "--store-dir", str(pnpm_store)], cwd=fixture_dir, env=node_env, timeout=300.0)
+    report["details"]["install"] = {
+        "args": install.args,
+        "returncode": install.returncode,
+        "stdout": install.stdout,
+        "stderr": install.stderr,
+    }
+    if install.returncode != 0:
+        report["result"] = "failed"
+        report["failed"] = list(fixture.surfaces)
+        return report
+    ####
+
+    build = run_command([*package_manager, "build"], cwd=fixture_dir, env=node_env, timeout=300.0)
+    report["details"]["build"] = {
+        "args": build.args,
+        "returncode": build.returncode,
+        "stdout": build.stdout,
+        "stderr": build.stderr,
+    }
+    if build.returncode != 0:
+        report["result"] = "failed"
+        report["failed"] = list(fixture.surfaces)
+        return report
+    ####
+
+    server = start_http_zorn_server(repo_root=repo_root, token=token)
+    try:
+        sdk_entry = fixture_dir / "dist" / "esm" / "index.mjs"
+        driver = server.workspace / "sdk_javascript_smoke.mjs"
+        output_path = server.workspace / "sdk_javascript_smoke_results.json"
+        driver.write_text(_sdk_javascript_driver(), encoding="utf-8")
+        run = run_command(
+            ["node", str(driver)],
+            cwd=fixture_dir,
+            env={
+                **node_env,
+                "ZORN_BASE_URL": server.base_url,
+                "ZORN_TOKEN": token,
+                "ZORN_SDK_ENTRY": sdk_entry.as_uri(),
+                "ZORN_OUTPUT": str(output_path),
+            },
+            timeout=60.0,
+        )
+        report["details"]["driver"] = {
+            "args": run.args,
+            "returncode": run.returncode,
+            "stdout": run.stdout,
+            "stderr": run.stderr,
+        }
+        if output_path.exists():
+            driver_results = json.loads(output_path.read_text(encoding="utf-8"))
+            report["details"]["driver_results"] = driver_results
+            for surface, result in driver_results.get("results", {}).items():
+                _record(report, surface, bool(result.get("ok")), result.get("evidence", {}))
+            ####
+        ####
+        if run.returncode != 0 and not report["failed"]:
+            report["failed"] = list(fixture.surfaces)
+        ####
+        requested = set(fixture.surfaces)
+        passed = set(report["passed"])
+        failed = set(report["failed"])
+        report["missing"] = sorted(surface for surface in requested if surface not in passed and surface not in failed)
+        report["result"] = "pass" if run.returncode == 0 and not report["failed"] and not report["missing"] else "failed"
+        return report
+    finally:
+        stdout = stop_https_zorn_server(server)
+        report["details"]["server"] = {
+            "base_url": server.base_url,
+            "stdout": stdout,
+        }
+    ####
+####
+
+
+def _node_package_manager() -> list[str] | None:
+    if shutil.which("pnpm"):
+        return ["pnpm"]
+    ####
+    if shutil.which("corepack"):
+        return ["corepack", "pnpm"]
+    ####
+    if shutil.which("npx"):
+        return ["npx", "--yes", "pnpm@10.33.0"]
+    ####
+    return None
+####
+
+
+def _sdk_javascript_driver() -> str:
+    return r'''
+import { Buffer } from "node:buffer";
+import fs from "node:fs/promises";
+
+const { LatticeClient } = await import(process.env.ZORN_SDK_ENTRY);
+
+const baseUrl = process.env.ZORN_BASE_URL;
+const token = process.env.ZORN_TOKEN;
+const outputPath = process.env.ZORN_OUTPUT;
+const results = {};
+
+function record(surface, ok, evidence = {}) {
+  results[surface] = { ok: Boolean(ok), evidence };
+}
+
+function simplify(value) {
+  return JSON.parse(JSON.stringify(value, (_key, candidate) => {
+    if (typeof candidate === "bigint") return candidate.toString();
+    return candidate;
+  }));
+}
+
+async function expect(surface, fn) {
+  try {
+    const evidence = await fn();
+    record(surface, true, simplify(evidence));
+    return evidence;
+  } catch (error) {
+    record(surface, false, {
+      name: error?.name,
+      message: error?.message,
+      statusCode: error?.statusCode,
+      body: error?.body,
+    });
+    return undefined;
+  }
+}
+
+async function firstFromStream(stream, predicate, timeoutMs = 5000) {
+  const deadline = Date.now() + timeoutMs;
+  for await (const event of stream) {
+    if (!predicate || predicate(event)) return event;
+    if (Date.now() > deadline) break;
+  }
+  return undefined;
+}
+
+const headers = {
+  "Anduril-Sandbox-Authorization": `Bearer ${token}`,
+  "x-anduril-sandbox": "zorn-cert",
+};
+const oauthClient = new LatticeClient({
+  baseUrl,
+  clientId: "zorn-client",
+  clientSecret: "zorn-secret",
+  headers,
+  timeoutInSeconds: 10,
+  maxRetries: 0,
+});
+const tokenClient = new LatticeClient({
+  baseUrl,
+  token,
+  headers,
+  timeoutInSeconds: 10,
+  maxRetries: 0,
+});
+
+await expect("auth.oauth_client_credentials", async () => {
+  const response = await oauthClient.oauth.getToken({
+    client_id: "zorn-client",
+    client_secret: "zorn-secret",
+  });
+  if (!response.access_token) throw new Error("missing access_token");
+  return { token_type: response.token_type, expires_in: response.expires_in };
+});
+record("auth.bearer_token", Boolean(tokenClient.entities), { constructed: true });
+record("auth.sandbox_header", true, { headers: Object.keys(headers) });
+record("transport.rest_json", true, { sdk: "@anduril-industries/lattice-sdk" });
+
+const assetId = "sdk-javascript-asset";
+const trackId = "sdk-javascript-track";
+const taskId = "sdk-javascript-task";
+const objectPath = "sdk-javascript-smoke/object.txt";
+const entityBase = {
+  isLive: true,
+  noExpiry: true,
+  location: {
+    position: {
+      latitudeDegrees: 37.7805,
+      longitudeDegrees: -122.4215,
+      altitudeHaeMeters: 42,
+    },
+  },
+  provenance: {
+    sourceId: "sdk-javascript-smoke",
+    integrationName: "sdk-javascript-smoke",
+  },
+};
+
+await expect("entities.publish", async () => {
+  const published = await oauthClient.entities.publishEntity({
+    ...entityBase,
+    entityId: assetId,
+    description: "SDK JavaScript asset",
+    ontology: { template: "TEMPLATE_ASSET", platformType: "UAV" },
+  });
+  if (published.entityId !== assetId) throw new Error(`unexpected entity id ${published.entityId}`);
+  await oauthClient.entities.publishEntity({
+    ...entityBase,
+    entityId: trackId,
+    description: "SDK JavaScript track",
+    ontology: { template: "TEMPLATE_TRACK", platformType: "UAS" },
+    milView: { disposition: "DISPOSITION_ASSUMED_FRIENDLY" },
+  });
+  return { assetId, trackId };
+});
+await expect("entities.get", async () => {
+  const fetched = await oauthClient.entities.getEntity({ entityId: assetId });
+  if (fetched.entityId !== assetId) throw new Error(`unexpected entity id ${fetched.entityId}`);
+  return { entityId: fetched.entityId, template: fetched.ontology?.template };
+});
+await expect("entities.long_poll", async () => {
+  const poll = await oauthClient.entities.longPollEntityEvents({ sessionToken: "" });
+  const entityIds = (poll.events ?? []).map((event) => event.entity?.entityId).filter(Boolean);
+  if (!entityIds.includes(assetId)) throw new Error(`long poll did not include ${assetId}`);
+  return { sessionToken: poll.sessionToken, entityIds };
+});
+await expect("entities.stream_sse", async () => {
+  const controller = new AbortController();
+  const stream = await oauthClient.entities.streamEntities(
+    { preExistingOnly: true, heartbeatIntervalMS: 0 },
+    { abortSignal: controller.signal },
+  );
+  try {
+    const event = await firstFromStream(stream, (candidate) => candidate?.entity?.entityId === assetId);
+    if (!event) throw new Error(`stream did not include ${assetId}`);
+    return { entityId: event.entity.entityId, event: event.event };
+  } finally {
+    controller.abort();
+  }
+});
+
+await expect("tasks.create", async () => {
+  const created = await oauthClient.tasks.createTask({
+    taskId,
+    displayName: "SDK JavaScript smoke task",
+    description: "Created by the Zorn JavaScript SDK smoke fixture",
+    relations: {
+      assignee: { entityId: assetId },
+    },
+    specification: {
+      typeUrl: "type.googleapis.com/zorn.cert.JavaScriptSmoke",
+      value: "eyJzbW9rZSI6dHJ1ZX0=",
+    },
+  });
+  if (created.taskId !== taskId) throw new Error(`unexpected task id ${created.taskId}`);
+  return { taskId: created.taskId, status: created.status?.status };
+});
+await expect("tasks.get", async () => {
+  const fetched = await oauthClient.tasks.getTask({ taskId });
+  if (fetched.taskId !== taskId) throw new Error(`unexpected task id ${fetched.taskId}`);
+  return { taskId: fetched.taskId, statusVersion: fetched.version?.statusVersion };
+});
+await expect("tasks.query", async () => {
+  const response = await oauthClient.tasks.queryTasks({});
+  const taskIds = (response.tasks ?? []).map((task) => task.taskId);
+  if (!taskIds.includes(taskId)) throw new Error(`query did not include ${taskId}`);
+  return { taskIds, nextPageToken: response.nextPageToken };
+});
+const agentRequest = await expect("tasks.listen_as_agent", async () => {
+  const request = await oauthClient.tasks.listenAsAgent({ agentSelector: { entityIds: [assetId] } });
+  const deliveredId = request.executeRequest?.task?.taskId ?? request.task?.taskId;
+  if (deliveredId !== taskId) throw new Error(`agent did not receive ${taskId}`);
+  return { taskId: deliveredId };
+});
+await expect("tasks.update_status", async () => {
+  const updated = await oauthClient.tasks.updateTaskStatus({
+    taskId,
+    statusVersion: agentRequest ? 1 : 0,
+    newStatus: { status: "STATUS_EXECUTING" },
+  });
+  if (updated.taskId !== taskId) throw new Error(`unexpected task id ${updated.taskId}`);
+  return { taskId: updated.taskId, status: updated.status?.status, statusVersion: updated.version?.statusVersion };
+});
+await expect("tasks.cancel", async () => {
+  await oauthClient.tasks.cancelTask({ taskId });
+  return { taskId };
+});
+
+await expect("objects.upload", async () => {
+  const uploaded = await oauthClient.objects.uploadObject(
+    {
+      data: Buffer.from("zorn javascript sdk smoke\n", "utf8"),
+      filename: "object.txt",
+      contentType: "text/plain",
+    },
+    objectPath,
+  );
+  const path = uploaded.path ?? uploaded.contentIdentifier?.path ?? uploaded.content_identifier?.path;
+  if (path !== objectPath) throw new Error(`unexpected object path ${path}`);
+  return { objectPath: path };
+});
+await expect("objects.list", async () => {
+  const page = await oauthClient.objects.listObjects({ prefix: "sdk-javascript-smoke" });
+  const paths = [];
+  for await (const object of page) {
+    const path = object.path ?? object.contentIdentifier?.path ?? object.content_identifier?.path;
+    if (path) paths.push(path);
+  }
+  if (!paths.includes(objectPath)) throw new Error(`list did not include ${objectPath}`);
+  return { paths };
+});
+await expect("objects.metadata", async () => {
+  const headers = await oauthClient.objects.getObjectMetadata({ objectPath });
+  const size = headers.get("content-length") ?? headers.get("Content-Length");
+  if (!size) throw new Error("missing content-length");
+  return { contentLength: size };
+});
+await expect("objects.download", async () => {
+  const body = await oauthClient.objects.getObject({ objectPath });
+  const bytes = Buffer.from(await body.bytes());
+  const text = bytes.toString("utf8");
+  if (!text.includes("javascript sdk smoke")) throw new Error("download body mismatch");
+  return { bytes: bytes.length };
+});
+await expect("objects.delete", async () => {
+  await oauthClient.objects.deleteObject({ objectPath });
+  return { objectPath };
+});
+
+const failed = Object.entries(results)
+  .filter(([, result]) => !result.ok)
+  .map(([surface]) => surface);
+await fs.writeFile(outputPath, JSON.stringify({ results, failed }, null, 2));
+if (failed.length > 0) {
+  console.error(JSON.stringify({ failed, results }, null, 2));
+  process.exit(1);
+}
+'''.lstrip()
 ####
 
 

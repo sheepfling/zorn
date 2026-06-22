@@ -1,0 +1,2175 @@
+{
+  "details": {
+    "auth.bearer_token": {
+      "client": "constructed"
+    },
+    "auth.oauth_client_credentials": {
+      "token_prefix": "dev-toke"
+    },
+    "auth.sandbox_header": {
+      "header": "Anduril-Sandbox-Authorization"
+    },
+    "command": [
+      "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/sdk-python-smoke/.venv/bin/python",
+      "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-cps8t6rw/sdk_python_smoke.py"
+    ],
+    "entities.asset": {
+      "_compat": {
+        "eventType": "CREATE",
+        "sequence": 1
+      },
+      "description": "SDK Python asset",
+      "entityId": "sdk-python-asset",
+      "health": {
+        "healthStatus": "HEALTH_STATUS_HEALTHY"
+      },
+      "isLive": true,
+      "location": {
+        "attitudeEnu": {
+          "w": 1.0,
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "position": {
+          "altitudeHaeMeters": 50.0,
+          "latitudeDegrees": 37.7701,
+          "longitudeDegrees": -122.4102
+        },
+        "velocityEnu": {
+          "e": 3.0,
+          "n": 4.0,
+          "u": 0.2
+        }
+      },
+      "noExpiry": true,
+      "ontology": {
+        "platformType": "UAV",
+        "template": "TEMPLATE_ASSET"
+      },
+      "provenance": {
+        "integrationName": "sdk-python-smoke",
+        "sourceId": "sdk-python-smoke"
+      },
+      "taskCatalog": {
+        "taskDefinitions": [
+          {
+            "typeUrl": "type.googleapis.com/zorn.cert.Investigate"
+          }
+        ]
+      }
+    },
+    "entities.geo": {
+      "_compat": {
+        "eventType": "CREATE",
+        "sequence": 3
+      },
+      "description": "SDK Python geo",
+      "entityId": "sdk-python-geo",
+      "geoShape": {
+        "point": {
+          "latitudeDegrees": 37.771,
+          "longitudeDegrees": -122.412
+        }
+      },
+      "isLive": true,
+      "noExpiry": true,
+      "ontology": {
+        "platformType": "UNKNOWN",
+        "template": "TEMPLATE_GEO"
+      },
+      "provenance": {
+        "integrationName": "sdk-python-smoke",
+        "sourceId": "sdk-python-smoke"
+      }
+    },
+    "entities.get": {
+      "description": "SDK Python asset",
+      "entityId": "sdk-python-asset",
+      "health": {
+        "healthStatus": "HEALTH_STATUS_HEALTHY"
+      },
+      "isLive": true,
+      "location": {
+        "attitudeEnu": {
+          "w": 1.0,
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "position": {
+          "altitudeHaeMeters": 50.0,
+          "latitudeDegrees": 37.7701,
+          "longitudeDegrees": -122.4102
+        },
+        "velocityEnu": {
+          "e": 3.0,
+          "n": 4.0,
+          "u": 0.2
+        }
+      },
+      "noExpiry": true,
+      "ontology": {
+        "platformType": "UAV",
+        "template": "TEMPLATE_ASSET"
+      },
+      "provenance": {
+        "integrationName": "sdk-python-smoke",
+        "sourceId": "sdk-python-smoke"
+      },
+      "taskCatalog": {
+        "taskDefinitions": [
+          {
+            "typeUrl": "type.googleapis.com/zorn.cert.Investigate"
+          }
+        ]
+      }
+    },
+    "entities.long_poll": {
+      "entityEvents": [
+        {
+          "entity": {
+            "description": "SDK Python asset",
+            "entityId": "sdk-python-asset",
+            "entity_id": "sdk-python-asset",
+            "health": {
+              "healthStatus": "HEALTH_STATUS_HEALTHY"
+            },
+            "isLive": true,
+            "is_live": true,
+            "location": {
+              "attitudeEnu": {
+                "w": 1.0,
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "position": {
+                "altitudeHaeMeters": 50.0,
+                "latitudeDegrees": 37.7701,
+                "longitudeDegrees": -122.4102
+              },
+              "velocityEnu": {
+                "e": 3.0,
+                "n": 4.0,
+                "u": 0.2
+              }
+            },
+            "noExpiry": true,
+            "ontology": {
+              "platformType": "UAV",
+              "template": "TEMPLATE_ASSET"
+            },
+            "provenance": {
+              "integrationName": "sdk-python-smoke",
+              "sourceId": "sdk-python-smoke"
+            },
+            "taskCatalog": {
+              "taskDefinitions": [
+                {
+                  "typeUrl": "type.googleapis.com/zorn.cert.Investigate"
+                }
+              ]
+            }
+          },
+          "eventType": "CREATE",
+          "occurredTime": "2026-06-22T04:30:04.240981Z",
+          "sequence": 1,
+          "time": "2026-06-22T04:30:04.236514Z"
+        },
+        {
+          "entity": {
+            "description": "SDK Python track",
+            "entityId": "sdk-python-track",
+            "entity_id": "sdk-python-track",
+            "isLive": true,
+            "is_live": true,
+            "location": {
+              "attitudeEnu": {
+                "w": 1.0,
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "position": {
+                "altitudeHaeMeters": 50.0,
+                "latitudeDegrees": 37.7701,
+                "longitudeDegrees": -122.411
+              },
+              "velocityEnu": {
+                "e": 3.0,
+                "n": 4.0,
+                "u": 0.2
+              }
+            },
+            "milView": {
+              "disposition": "DISPOSITION_ASSUMED_FRIENDLY"
+            },
+            "noExpiry": true,
+            "ontology": {
+              "platformType": "UAS",
+              "template": "TEMPLATE_TRACK"
+            },
+            "provenance": {
+              "integrationName": "sdk-python-smoke",
+              "sourceId": "sdk-python-smoke"
+            }
+          },
+          "eventType": "CREATE",
+          "occurredTime": "2026-06-22T04:30:04.250510Z",
+          "sequence": 2,
+          "time": "2026-06-22T04:30:04.249051Z"
+        },
+        {
+          "entity": {
+            "description": "SDK Python geo",
+            "entityId": "sdk-python-geo",
+            "entity_id": "sdk-python-geo",
+            "geoShape": {
+              "point": {
+                "latitudeDegrees": 37.771,
+                "longitudeDegrees": -122.412
+              }
+            },
+            "isLive": true,
+            "is_live": true,
+            "noExpiry": true,
+            "ontology": {
+              "platformType": "UNKNOWN",
+              "template": "TEMPLATE_GEO"
+            },
+            "provenance": {
+              "integrationName": "sdk-python-smoke",
+              "sourceId": "sdk-python-smoke"
+            }
+          },
+          "eventType": "CREATE",
+          "occurredTime": "2026-06-22T04:30:04.262492Z",
+          "sequence": 3,
+          "time": "2026-06-22T04:30:04.261377Z"
+        }
+      ],
+      "events": [
+        {
+          "entity": {
+            "description": "SDK Python asset",
+            "entityId": "sdk-python-asset",
+            "entity_id": "sdk-python-asset",
+            "health": {
+              "healthStatus": "HEALTH_STATUS_HEALTHY"
+            },
+            "isLive": true,
+            "is_live": true,
+            "location": {
+              "attitudeEnu": {
+                "w": 1.0,
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "position": {
+                "altitudeHaeMeters": 50.0,
+                "latitudeDegrees": 37.7701,
+                "longitudeDegrees": -122.4102
+              },
+              "velocityEnu": {
+                "e": 3.0,
+                "n": 4.0,
+                "u": 0.2
+              }
+            },
+            "noExpiry": true,
+            "ontology": {
+              "platformType": "UAV",
+              "template": "TEMPLATE_ASSET"
+            },
+            "provenance": {
+              "integrationName": "sdk-python-smoke",
+              "sourceId": "sdk-python-smoke"
+            },
+            "taskCatalog": {
+              "taskDefinitions": [
+                {
+                  "typeUrl": "type.googleapis.com/zorn.cert.Investigate"
+                }
+              ]
+            }
+          },
+          "eventType": "CREATE",
+          "occurredTime": "2026-06-22T04:30:04.240981Z",
+          "sequence": 1,
+          "time": "2026-06-22T04:30:04.236514Z"
+        },
+        {
+          "entity": {
+            "description": "SDK Python track",
+            "entityId": "sdk-python-track",
+            "entity_id": "sdk-python-track",
+            "isLive": true,
+            "is_live": true,
+            "location": {
+              "attitudeEnu": {
+                "w": 1.0,
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "position": {
+                "altitudeHaeMeters": 50.0,
+                "latitudeDegrees": 37.7701,
+                "longitudeDegrees": -122.411
+              },
+              "velocityEnu": {
+                "e": 3.0,
+                "n": 4.0,
+                "u": 0.2
+              }
+            },
+            "milView": {
+              "disposition": "DISPOSITION_ASSUMED_FRIENDLY"
+            },
+            "noExpiry": true,
+            "ontology": {
+              "platformType": "UAS",
+              "template": "TEMPLATE_TRACK"
+            },
+            "provenance": {
+              "integrationName": "sdk-python-smoke",
+              "sourceId": "sdk-python-smoke"
+            }
+          },
+          "eventType": "CREATE",
+          "occurredTime": "2026-06-22T04:30:04.250510Z",
+          "sequence": 2,
+          "time": "2026-06-22T04:30:04.249051Z"
+        },
+        {
+          "entity": {
+            "description": "SDK Python geo",
+            "entityId": "sdk-python-geo",
+            "entity_id": "sdk-python-geo",
+            "geoShape": {
+              "point": {
+                "latitudeDegrees": 37.771,
+                "longitudeDegrees": -122.412
+              }
+            },
+            "isLive": true,
+            "is_live": true,
+            "noExpiry": true,
+            "ontology": {
+              "platformType": "UNKNOWN",
+              "template": "TEMPLATE_GEO"
+            },
+            "provenance": {
+              "integrationName": "sdk-python-smoke",
+              "sourceId": "sdk-python-smoke"
+            }
+          },
+          "eventType": "CREATE",
+          "occurredTime": "2026-06-22T04:30:04.262492Z",
+          "sequence": 3,
+          "time": "2026-06-22T04:30:04.261377Z"
+        }
+      ],
+      "sessionToken": "3"
+    },
+    "entities.overrides.apply": {
+      "description": "SDK Python track",
+      "entityId": "sdk-python-track",
+      "isLive": true,
+      "location": {
+        "attitudeEnu": {
+          "w": 1.0,
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "position": {
+          "altitudeHaeMeters": 50.0,
+          "latitudeDegrees": 37.7701,
+          "longitudeDegrees": -122.411
+        },
+        "velocityEnu": {
+          "e": 3.0,
+          "n": 4.0,
+          "u": 0.2
+        }
+      },
+      "milView": {
+        "disposition": "DISPOSITION_HOSTILE"
+      },
+      "noExpiry": true,
+      "ontology": {
+        "platformType": "UAS",
+        "template": "TEMPLATE_TRACK"
+      },
+      "overrides": {
+        "mil_view.disposition": "DISPOSITION_HOSTILE"
+      },
+      "provenance": {
+        "integrationName": "sdk-python-smoke",
+        "sourceId": "sdk-python-smoke"
+      }
+    },
+    "entities.overrides.clear": {
+      "description": "SDK Python track",
+      "entityId": "sdk-python-track",
+      "isLive": true,
+      "location": {
+        "attitudeEnu": {
+          "w": 1.0,
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "position": {
+          "altitudeHaeMeters": 50.0,
+          "latitudeDegrees": 37.7701,
+          "longitudeDegrees": -122.411
+        },
+        "velocityEnu": {
+          "e": 3.0,
+          "n": 4.0,
+          "u": 0.2
+        }
+      },
+      "milView": {
+        "disposition": "DISPOSITION_HOSTILE"
+      },
+      "noExpiry": true,
+      "ontology": {
+        "platformType": "UAS",
+        "template": "TEMPLATE_TRACK"
+      },
+      "overrides": {},
+      "provenance": {
+        "integrationName": "sdk-python-smoke",
+        "sourceId": "sdk-python-smoke"
+      }
+    },
+    "entities.publish": {
+      "asset": {
+        "_compat": {
+          "eventType": "CREATE",
+          "sequence": 1
+        },
+        "description": "SDK Python asset",
+        "entityId": "sdk-python-asset",
+        "health": {
+          "healthStatus": "HEALTH_STATUS_HEALTHY"
+        },
+        "isLive": true,
+        "location": {
+          "attitudeEnu": {
+            "w": 1.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "position": {
+            "altitudeHaeMeters": 50.0,
+            "latitudeDegrees": 37.7701,
+            "longitudeDegrees": -122.4102
+          },
+          "velocityEnu": {
+            "e": 3.0,
+            "n": 4.0,
+            "u": 0.2
+          }
+        },
+        "noExpiry": true,
+        "ontology": {
+          "platformType": "UAV",
+          "template": "TEMPLATE_ASSET"
+        },
+        "provenance": {
+          "integrationName": "sdk-python-smoke",
+          "sourceId": "sdk-python-smoke"
+        },
+        "taskCatalog": {
+          "taskDefinitions": [
+            {
+              "typeUrl": "type.googleapis.com/zorn.cert.Investigate"
+            }
+          ]
+        }
+      },
+      "track": {
+        "_compat": {
+          "eventType": "CREATE",
+          "sequence": 2
+        },
+        "description": "SDK Python track",
+        "entityId": "sdk-python-track",
+        "isLive": true,
+        "location": {
+          "attitudeEnu": {
+            "w": 1.0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "position": {
+            "altitudeHaeMeters": 50.0,
+            "latitudeDegrees": 37.7701,
+            "longitudeDegrees": -122.411
+          },
+          "velocityEnu": {
+            "e": 3.0,
+            "n": 4.0,
+            "u": 0.2
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_ASSUMED_FRIENDLY"
+        },
+        "noExpiry": true,
+        "ontology": {
+          "platformType": "UAS",
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "integrationName": "sdk-python-smoke",
+          "sourceId": "sdk-python-smoke"
+        }
+      }
+    },
+    "entities.stream_sse": {
+      "events": [
+        {
+          "data": "{\"event\":\"entity\",\"eventType\":\"EVENT_TYPE_PREEXISTING\",\"time\":\"2026-06-22T04:30:04.287598Z\",\"entity\":{\"entityId\":\"sdk-python-asset\",\"description\":\"SDK Python asset\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7701,\"longitudeDegrees\":-122.4102,\"altitudeHaeMeters\":50.0},\"velocityEnu\":{\"e\":3.0,\"n\":4.0,\"u\":0.2},\"attitudeEnu\":{\"w\":1.0,\"x\":0.0,\"y\":0.0,\"z\":0.0}},\"ontology\":{\"template\":\"TEMPLATE_ASSET\",\"platformType\":\"UAV\"},\"provenance\":{\"sourceId\":\"sdk-python-smoke\",\"integrationName\":\"sdk-python-smoke\"},\"taskCatalog\":{\"taskDefinitions\":[{\"typeUrl\":\"type.googleapis.com/zorn.cert.Investigate\"}]},\"health\":{\"healthStatus\":\"HEALTH_STATUS_HEALTHY\"},\"entity_id\":\"sdk-python-asset\",\"is_live\":true}}",
+          "entity": {
+            "description": "SDK Python asset",
+            "entityId": "sdk-python-asset",
+            "health": {
+              "healthStatus": "HEALTH_STATUS_HEALTHY"
+            },
+            "isLive": true,
+            "location": {
+              "attitudeEnu": {
+                "w": 1.0,
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "position": {
+                "altitudeHaeMeters": 50.0,
+                "latitudeDegrees": 37.7701,
+                "longitudeDegrees": -122.4102
+              },
+              "velocityEnu": {
+                "e": 3.0,
+                "n": 4.0,
+                "u": 0.2
+              }
+            },
+            "noExpiry": true,
+            "ontology": {
+              "platformType": "UAV",
+              "template": "TEMPLATE_ASSET"
+            },
+            "provenance": {
+              "integrationName": "sdk-python-smoke",
+              "sourceId": "sdk-python-smoke"
+            },
+            "taskCatalog": {
+              "taskDefinitions": [
+                {
+                  "typeUrl": "type.googleapis.com/zorn.cert.Investigate"
+                }
+              ]
+            }
+          },
+          "event": "entity",
+          "eventType": "EVENT_TYPE_PREEXISTING",
+          "time": "2026-06-22T04:30:04.287598Z"
+        },
+        {
+          "data": "{\"event\":\"entity\",\"eventType\":\"EVENT_TYPE_PREEXISTING\",\"time\":\"2026-06-22T04:30:04.287712Z\",\"entity\":{\"entityId\":\"sdk-python-track\",\"description\":\"SDK Python track\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7701,\"longitudeDegrees\":-122.411,\"altitudeHaeMeters\":50.0},\"velocityEnu\":{\"e\":3.0,\"n\":4.0,\"u\":0.2},\"attitudeEnu\":{\"w\":1.0,\"x\":0.0,\"y\":0.0,\"z\":0.0}},\"milView\":{\"disposition\":\"DISPOSITION_ASSUMED_FRIENDLY\"},\"ontology\":{\"template\":\"TEMPLATE_TRACK\",\"platformType\":\"UAS\"},\"provenance\":{\"sourceId\":\"sdk-python-smoke\",\"integrationName\":\"sdk-python-smoke\"},\"entity_id\":\"sdk-python-track\",\"is_live\":true}}",
+          "entity": {
+            "description": "SDK Python track",
+            "entityId": "sdk-python-track",
+            "isLive": true,
+            "location": {
+              "attitudeEnu": {
+                "w": 1.0,
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "position": {
+                "altitudeHaeMeters": 50.0,
+                "latitudeDegrees": 37.7701,
+                "longitudeDegrees": -122.411
+              },
+              "velocityEnu": {
+                "e": 3.0,
+                "n": 4.0,
+                "u": 0.2
+              }
+            },
+            "milView": {
+              "disposition": "DISPOSITION_ASSUMED_FRIENDLY"
+            },
+            "noExpiry": true,
+            "ontology": {
+              "platformType": "UAS",
+              "template": "TEMPLATE_TRACK"
+            },
+            "provenance": {
+              "integrationName": "sdk-python-smoke",
+              "sourceId": "sdk-python-smoke"
+            }
+          },
+          "event": "entity",
+          "eventType": "EVENT_TYPE_PREEXISTING",
+          "time": "2026-06-22T04:30:04.287712Z"
+        }
+      ]
+    },
+    "entities.track": {
+      "_compat": {
+        "eventType": "CREATE",
+        "sequence": 2
+      },
+      "description": "SDK Python track",
+      "entityId": "sdk-python-track",
+      "isLive": true,
+      "location": {
+        "attitudeEnu": {
+          "w": 1.0,
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "position": {
+          "altitudeHaeMeters": 50.0,
+          "latitudeDegrees": 37.7701,
+          "longitudeDegrees": -122.411
+        },
+        "velocityEnu": {
+          "e": 3.0,
+          "n": 4.0,
+          "u": 0.2
+        }
+      },
+      "milView": {
+        "disposition": "DISPOSITION_ASSUMED_FRIENDLY"
+      },
+      "noExpiry": true,
+      "ontology": {
+        "platformType": "UAS",
+        "template": "TEMPLATE_TRACK"
+      },
+      "provenance": {
+        "integrationName": "sdk-python-smoke",
+        "sourceId": "sdk-python-smoke"
+      }
+    },
+    "install": {
+      "args": [
+        "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/sdk-python-smoke/.venv/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "-e",
+        "."
+      ],
+      "returncode": 0,
+      "stderr": "WARNING: The directory '/Users/rick/Library/Caches/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.\n\n[notice] A new release of pip is available: 24.0 -> 26.1.2\n[notice] To update, run: /Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/sdk-python-smoke/.venv/bin/python -m pip install --upgrade pip\n",
+      "stdout": "Obtaining file:///Users/rick/Library/Mobile%20Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/sdk-python-smoke\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nRequirement already satisfied: httpx>=0.21.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk==4.14.0) (0.28.1)\nRequirement already satisfied: pydantic>=1.9.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk==4.14.0) (2.13.4)\nRequirement already satisfied: pydantic-core<3.0.0,>=2.18.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk==4.14.0) (2.46.4)\nRequirement already satisfied: typing_extensions>=4.0.0 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk==4.14.0) (4.15.0)\nRequirement already satisfied: anyio in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==4.14.0) (4.14.0)\nRequirement already satisfied: certifi in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==4.14.0) (2026.6.17)\nRequirement already satisfied: httpcore==1.* in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==4.14.0) (1.0.9)\nRequirement already satisfied: idna in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==4.14.0) (3.18)\nRequirement already satisfied: h11>=0.16 in ./.venv/lib/python3.12/site-packages (from httpcore==1.*->httpx>=0.21.2->anduril-lattice-sdk==4.14.0) (0.16.0)\nRequirement already satisfied: annotated-types>=0.6.0 in ./.venv/lib/python3.12/site-packages (from pydantic>=1.9.2->anduril-lattice-sdk==4.14.0) (0.7.0)\nRequirement already satisfied: typing-inspection>=0.4.2 in ./.venv/lib/python3.12/site-packages (from pydantic>=1.9.2->anduril-lattice-sdk==4.14.0) (0.4.2)\nBuilding wheels for collected packages: anduril-lattice-sdk\n  Building editable for anduril-lattice-sdk (pyproject.toml): started\n  Building editable for anduril-lattice-sdk (pyproject.toml): finished with status 'done'\n  Created wheel for anduril-lattice-sdk: filename=anduril_lattice_sdk-4.14.0-py3-none-any.whl size=9559 sha256=b477d4d97b1093166c9346b480c2ea9ea0b0b212685e9c7487fa7f9c98740d02\n  Stored in directory: /private/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/pip-ephem-wheel-cache-g1kbi2a8/wheels/53/bc/7d/929f5cc003958947b861999dbab5dca21c3ad631f97f7c25d5\nSuccessfully built anduril-lattice-sdk\nInstalling collected packages: anduril-lattice-sdk\n  Attempting uninstall: anduril-lattice-sdk\n    Found existing installation: anduril-lattice-sdk 4.14.0\n    Uninstalling anduril-lattice-sdk-4.14.0:\n      Successfully uninstalled anduril-lattice-sdk-4.14.0\nSuccessfully installed anduril-lattice-sdk-4.14.0\n"
+    },
+    "objects.delete": {
+      "error": "headers: {'date': 'Mon, 22 Jun 2026 04:30:03 GMT', 'server': 'uvicorn', 'content-length': '29', 'content-type': 'application/json'}, status_code: 404, body: ",
+      "status_code": 404
+    },
+    "objects.download": {
+      "downloaded": "zorn sdk python smoke\n"
+    },
+    "objects.list": [
+      {
+        "checksumSha256": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
+        "contentType": "application/octet-stream",
+        "content_identifier": {
+          "checksum": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
+          "path": "sdk-python-smoke/object.txt"
+        },
+        "createdTime": "2026-06-22T04:30:04.457939Z",
+        "expiry_time": null,
+        "last_updated_at": "2026-06-22T04:30:04.457939Z",
+        "metadata": {},
+        "objectPath": "sdk-python-smoke/object.txt",
+        "sizeBytes": 22,
+        "size_bytes": 22,
+        "updatedTime": "2026-06-22T04:30:04.457939Z"
+      }
+    ],
+    "objects.metadata": {
+      "checksum": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
+      "content-length": "22",
+      "content-type": "application/octet-stream",
+      "date": "Mon, 22 Jun 2026 04:30:03 GMT",
+      "etag": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
+      "last-modified": "2026-06-22T04:30:04.457939Z",
+      "path": "sdk-python-smoke/object.txt",
+      "server": "uvicorn",
+      "x-checksum-sha256": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
+      "x-object-path": "sdk-python-smoke/object.txt"
+    },
+    "objects.upload": {
+      "checksumSha256": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
+      "contentType": "application/octet-stream",
+      "content_identifier": {
+        "checksum": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
+        "path": "sdk-python-smoke/object.txt"
+      },
+      "createdTime": "2026-06-22T04:30:04.457939Z",
+      "expiry_time": null,
+      "last_updated_at": "2026-06-22T04:30:04.457939Z",
+      "metadata": {},
+      "objectPath": "sdk-python-smoke/object.txt",
+      "sizeBytes": 22,
+      "size_bytes": 22,
+      "updatedTime": "2026-06-22T04:30:04.457939Z"
+    },
+    "process": {
+      "args": [
+        "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/sdk-python-smoke/.venv/bin/python",
+        "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-cps8t6rw/sdk_python_smoke.py"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    "sdk_results": {
+      "auth.bearer_token": {
+        "evidence": {
+          "client": "constructed"
+        },
+        "ok": true
+      },
+      "auth.oauth_client_credentials": {
+        "evidence": {
+          "token_prefix": "dev-toke"
+        },
+        "ok": true
+      },
+      "auth.sandbox_header": {
+        "evidence": {
+          "header": "Anduril-Sandbox-Authorization"
+        },
+        "ok": true
+      },
+      "entities.asset": {
+        "evidence": {
+          "_compat": {
+            "eventType": "CREATE",
+            "sequence": 1
+          },
+          "description": "SDK Python asset",
+          "entityId": "sdk-python-asset",
+          "health": {
+            "healthStatus": "HEALTH_STATUS_HEALTHY"
+          },
+          "isLive": true,
+          "location": {
+            "attitudeEnu": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "position": {
+              "altitudeHaeMeters": 50.0,
+              "latitudeDegrees": 37.7701,
+              "longitudeDegrees": -122.4102
+            },
+            "velocityEnu": {
+              "e": 3.0,
+              "n": 4.0,
+              "u": 0.2
+            }
+          },
+          "noExpiry": true,
+          "ontology": {
+            "platformType": "UAV",
+            "template": "TEMPLATE_ASSET"
+          },
+          "provenance": {
+            "integrationName": "sdk-python-smoke",
+            "sourceId": "sdk-python-smoke"
+          },
+          "taskCatalog": {
+            "taskDefinitions": [
+              {
+                "typeUrl": "type.googleapis.com/zorn.cert.Investigate"
+              }
+            ]
+          }
+        },
+        "ok": true
+      },
+      "entities.geo": {
+        "evidence": {
+          "_compat": {
+            "eventType": "CREATE",
+            "sequence": 3
+          },
+          "description": "SDK Python geo",
+          "entityId": "sdk-python-geo",
+          "geoShape": {
+            "point": {
+              "latitudeDegrees": 37.771,
+              "longitudeDegrees": -122.412
+            }
+          },
+          "isLive": true,
+          "noExpiry": true,
+          "ontology": {
+            "platformType": "UNKNOWN",
+            "template": "TEMPLATE_GEO"
+          },
+          "provenance": {
+            "integrationName": "sdk-python-smoke",
+            "sourceId": "sdk-python-smoke"
+          }
+        },
+        "ok": true
+      },
+      "entities.get": {
+        "evidence": {
+          "description": "SDK Python asset",
+          "entityId": "sdk-python-asset",
+          "health": {
+            "healthStatus": "HEALTH_STATUS_HEALTHY"
+          },
+          "isLive": true,
+          "location": {
+            "attitudeEnu": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "position": {
+              "altitudeHaeMeters": 50.0,
+              "latitudeDegrees": 37.7701,
+              "longitudeDegrees": -122.4102
+            },
+            "velocityEnu": {
+              "e": 3.0,
+              "n": 4.0,
+              "u": 0.2
+            }
+          },
+          "noExpiry": true,
+          "ontology": {
+            "platformType": "UAV",
+            "template": "TEMPLATE_ASSET"
+          },
+          "provenance": {
+            "integrationName": "sdk-python-smoke",
+            "sourceId": "sdk-python-smoke"
+          },
+          "taskCatalog": {
+            "taskDefinitions": [
+              {
+                "typeUrl": "type.googleapis.com/zorn.cert.Investigate"
+              }
+            ]
+          }
+        },
+        "ok": true
+      },
+      "entities.long_poll": {
+        "evidence": {
+          "entityEvents": [
+            {
+              "entity": {
+                "description": "SDK Python asset",
+                "entityId": "sdk-python-asset",
+                "entity_id": "sdk-python-asset",
+                "health": {
+                  "healthStatus": "HEALTH_STATUS_HEALTHY"
+                },
+                "isLive": true,
+                "is_live": true,
+                "location": {
+                  "attitudeEnu": {
+                    "w": 1.0,
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  },
+                  "position": {
+                    "altitudeHaeMeters": 50.0,
+                    "latitudeDegrees": 37.7701,
+                    "longitudeDegrees": -122.4102
+                  },
+                  "velocityEnu": {
+                    "e": 3.0,
+                    "n": 4.0,
+                    "u": 0.2
+                  }
+                },
+                "noExpiry": true,
+                "ontology": {
+                  "platformType": "UAV",
+                  "template": "TEMPLATE_ASSET"
+                },
+                "provenance": {
+                  "integrationName": "sdk-python-smoke",
+                  "sourceId": "sdk-python-smoke"
+                },
+                "taskCatalog": {
+                  "taskDefinitions": [
+                    {
+                      "typeUrl": "type.googleapis.com/zorn.cert.Investigate"
+                    }
+                  ]
+                }
+              },
+              "eventType": "CREATE",
+              "occurredTime": "2026-06-22T04:30:04.240981Z",
+              "sequence": 1,
+              "time": "2026-06-22T04:30:04.236514Z"
+            },
+            {
+              "entity": {
+                "description": "SDK Python track",
+                "entityId": "sdk-python-track",
+                "entity_id": "sdk-python-track",
+                "isLive": true,
+                "is_live": true,
+                "location": {
+                  "attitudeEnu": {
+                    "w": 1.0,
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  },
+                  "position": {
+                    "altitudeHaeMeters": 50.0,
+                    "latitudeDegrees": 37.7701,
+                    "longitudeDegrees": -122.411
+                  },
+                  "velocityEnu": {
+                    "e": 3.0,
+                    "n": 4.0,
+                    "u": 0.2
+                  }
+                },
+                "milView": {
+                  "disposition": "DISPOSITION_ASSUMED_FRIENDLY"
+                },
+                "noExpiry": true,
+                "ontology": {
+                  "platformType": "UAS",
+                  "template": "TEMPLATE_TRACK"
+                },
+                "provenance": {
+                  "integrationName": "sdk-python-smoke",
+                  "sourceId": "sdk-python-smoke"
+                }
+              },
+              "eventType": "CREATE",
+              "occurredTime": "2026-06-22T04:30:04.250510Z",
+              "sequence": 2,
+              "time": "2026-06-22T04:30:04.249051Z"
+            },
+            {
+              "entity": {
+                "description": "SDK Python geo",
+                "entityId": "sdk-python-geo",
+                "entity_id": "sdk-python-geo",
+                "geoShape": {
+                  "point": {
+                    "latitudeDegrees": 37.771,
+                    "longitudeDegrees": -122.412
+                  }
+                },
+                "isLive": true,
+                "is_live": true,
+                "noExpiry": true,
+                "ontology": {
+                  "platformType": "UNKNOWN",
+                  "template": "TEMPLATE_GEO"
+                },
+                "provenance": {
+                  "integrationName": "sdk-python-smoke",
+                  "sourceId": "sdk-python-smoke"
+                }
+              },
+              "eventType": "CREATE",
+              "occurredTime": "2026-06-22T04:30:04.262492Z",
+              "sequence": 3,
+              "time": "2026-06-22T04:30:04.261377Z"
+            }
+          ],
+          "events": [
+            {
+              "entity": {
+                "description": "SDK Python asset",
+                "entityId": "sdk-python-asset",
+                "entity_id": "sdk-python-asset",
+                "health": {
+                  "healthStatus": "HEALTH_STATUS_HEALTHY"
+                },
+                "isLive": true,
+                "is_live": true,
+                "location": {
+                  "attitudeEnu": {
+                    "w": 1.0,
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  },
+                  "position": {
+                    "altitudeHaeMeters": 50.0,
+                    "latitudeDegrees": 37.7701,
+                    "longitudeDegrees": -122.4102
+                  },
+                  "velocityEnu": {
+                    "e": 3.0,
+                    "n": 4.0,
+                    "u": 0.2
+                  }
+                },
+                "noExpiry": true,
+                "ontology": {
+                  "platformType": "UAV",
+                  "template": "TEMPLATE_ASSET"
+                },
+                "provenance": {
+                  "integrationName": "sdk-python-smoke",
+                  "sourceId": "sdk-python-smoke"
+                },
+                "taskCatalog": {
+                  "taskDefinitions": [
+                    {
+                      "typeUrl": "type.googleapis.com/zorn.cert.Investigate"
+                    }
+                  ]
+                }
+              },
+              "eventType": "CREATE",
+              "occurredTime": "2026-06-22T04:30:04.240981Z",
+              "sequence": 1,
+              "time": "2026-06-22T04:30:04.236514Z"
+            },
+            {
+              "entity": {
+                "description": "SDK Python track",
+                "entityId": "sdk-python-track",
+                "entity_id": "sdk-python-track",
+                "isLive": true,
+                "is_live": true,
+                "location": {
+                  "attitudeEnu": {
+                    "w": 1.0,
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  },
+                  "position": {
+                    "altitudeHaeMeters": 50.0,
+                    "latitudeDegrees": 37.7701,
+                    "longitudeDegrees": -122.411
+                  },
+                  "velocityEnu": {
+                    "e": 3.0,
+                    "n": 4.0,
+                    "u": 0.2
+                  }
+                },
+                "milView": {
+                  "disposition": "DISPOSITION_ASSUMED_FRIENDLY"
+                },
+                "noExpiry": true,
+                "ontology": {
+                  "platformType": "UAS",
+                  "template": "TEMPLATE_TRACK"
+                },
+                "provenance": {
+                  "integrationName": "sdk-python-smoke",
+                  "sourceId": "sdk-python-smoke"
+                }
+              },
+              "eventType": "CREATE",
+              "occurredTime": "2026-06-22T04:30:04.250510Z",
+              "sequence": 2,
+              "time": "2026-06-22T04:30:04.249051Z"
+            },
+            {
+              "entity": {
+                "description": "SDK Python geo",
+                "entityId": "sdk-python-geo",
+                "entity_id": "sdk-python-geo",
+                "geoShape": {
+                  "point": {
+                    "latitudeDegrees": 37.771,
+                    "longitudeDegrees": -122.412
+                  }
+                },
+                "isLive": true,
+                "is_live": true,
+                "noExpiry": true,
+                "ontology": {
+                  "platformType": "UNKNOWN",
+                  "template": "TEMPLATE_GEO"
+                },
+                "provenance": {
+                  "integrationName": "sdk-python-smoke",
+                  "sourceId": "sdk-python-smoke"
+                }
+              },
+              "eventType": "CREATE",
+              "occurredTime": "2026-06-22T04:30:04.262492Z",
+              "sequence": 3,
+              "time": "2026-06-22T04:30:04.261377Z"
+            }
+          ],
+          "sessionToken": "3"
+        },
+        "ok": true
+      },
+      "entities.overrides.apply": {
+        "evidence": {
+          "description": "SDK Python track",
+          "entityId": "sdk-python-track",
+          "isLive": true,
+          "location": {
+            "attitudeEnu": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "position": {
+              "altitudeHaeMeters": 50.0,
+              "latitudeDegrees": 37.7701,
+              "longitudeDegrees": -122.411
+            },
+            "velocityEnu": {
+              "e": 3.0,
+              "n": 4.0,
+              "u": 0.2
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_HOSTILE"
+          },
+          "noExpiry": true,
+          "ontology": {
+            "platformType": "UAS",
+            "template": "TEMPLATE_TRACK"
+          },
+          "overrides": {
+            "mil_view.disposition": "DISPOSITION_HOSTILE"
+          },
+          "provenance": {
+            "integrationName": "sdk-python-smoke",
+            "sourceId": "sdk-python-smoke"
+          }
+        },
+        "ok": true
+      },
+      "entities.overrides.clear": {
+        "evidence": {
+          "description": "SDK Python track",
+          "entityId": "sdk-python-track",
+          "isLive": true,
+          "location": {
+            "attitudeEnu": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "position": {
+              "altitudeHaeMeters": 50.0,
+              "latitudeDegrees": 37.7701,
+              "longitudeDegrees": -122.411
+            },
+            "velocityEnu": {
+              "e": 3.0,
+              "n": 4.0,
+              "u": 0.2
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_HOSTILE"
+          },
+          "noExpiry": true,
+          "ontology": {
+            "platformType": "UAS",
+            "template": "TEMPLATE_TRACK"
+          },
+          "overrides": {},
+          "provenance": {
+            "integrationName": "sdk-python-smoke",
+            "sourceId": "sdk-python-smoke"
+          }
+        },
+        "ok": true
+      },
+      "entities.publish": {
+        "evidence": {
+          "asset": {
+            "_compat": {
+              "eventType": "CREATE",
+              "sequence": 1
+            },
+            "description": "SDK Python asset",
+            "entityId": "sdk-python-asset",
+            "health": {
+              "healthStatus": "HEALTH_STATUS_HEALTHY"
+            },
+            "isLive": true,
+            "location": {
+              "attitudeEnu": {
+                "w": 1.0,
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "position": {
+                "altitudeHaeMeters": 50.0,
+                "latitudeDegrees": 37.7701,
+                "longitudeDegrees": -122.4102
+              },
+              "velocityEnu": {
+                "e": 3.0,
+                "n": 4.0,
+                "u": 0.2
+              }
+            },
+            "noExpiry": true,
+            "ontology": {
+              "platformType": "UAV",
+              "template": "TEMPLATE_ASSET"
+            },
+            "provenance": {
+              "integrationName": "sdk-python-smoke",
+              "sourceId": "sdk-python-smoke"
+            },
+            "taskCatalog": {
+              "taskDefinitions": [
+                {
+                  "typeUrl": "type.googleapis.com/zorn.cert.Investigate"
+                }
+              ]
+            }
+          },
+          "track": {
+            "_compat": {
+              "eventType": "CREATE",
+              "sequence": 2
+            },
+            "description": "SDK Python track",
+            "entityId": "sdk-python-track",
+            "isLive": true,
+            "location": {
+              "attitudeEnu": {
+                "w": 1.0,
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "position": {
+                "altitudeHaeMeters": 50.0,
+                "latitudeDegrees": 37.7701,
+                "longitudeDegrees": -122.411
+              },
+              "velocityEnu": {
+                "e": 3.0,
+                "n": 4.0,
+                "u": 0.2
+              }
+            },
+            "milView": {
+              "disposition": "DISPOSITION_ASSUMED_FRIENDLY"
+            },
+            "noExpiry": true,
+            "ontology": {
+              "platformType": "UAS",
+              "template": "TEMPLATE_TRACK"
+            },
+            "provenance": {
+              "integrationName": "sdk-python-smoke",
+              "sourceId": "sdk-python-smoke"
+            }
+          }
+        },
+        "ok": true
+      },
+      "entities.stream_sse": {
+        "evidence": {
+          "events": [
+            {
+              "data": "{\"event\":\"entity\",\"eventType\":\"EVENT_TYPE_PREEXISTING\",\"time\":\"2026-06-22T04:30:04.287598Z\",\"entity\":{\"entityId\":\"sdk-python-asset\",\"description\":\"SDK Python asset\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7701,\"longitudeDegrees\":-122.4102,\"altitudeHaeMeters\":50.0},\"velocityEnu\":{\"e\":3.0,\"n\":4.0,\"u\":0.2},\"attitudeEnu\":{\"w\":1.0,\"x\":0.0,\"y\":0.0,\"z\":0.0}},\"ontology\":{\"template\":\"TEMPLATE_ASSET\",\"platformType\":\"UAV\"},\"provenance\":{\"sourceId\":\"sdk-python-smoke\",\"integrationName\":\"sdk-python-smoke\"},\"taskCatalog\":{\"taskDefinitions\":[{\"typeUrl\":\"type.googleapis.com/zorn.cert.Investigate\"}]},\"health\":{\"healthStatus\":\"HEALTH_STATUS_HEALTHY\"},\"entity_id\":\"sdk-python-asset\",\"is_live\":true}}",
+              "entity": {
+                "description": "SDK Python asset",
+                "entityId": "sdk-python-asset",
+                "health": {
+                  "healthStatus": "HEALTH_STATUS_HEALTHY"
+                },
+                "isLive": true,
+                "location": {
+                  "attitudeEnu": {
+                    "w": 1.0,
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  },
+                  "position": {
+                    "altitudeHaeMeters": 50.0,
+                    "latitudeDegrees": 37.7701,
+                    "longitudeDegrees": -122.4102
+                  },
+                  "velocityEnu": {
+                    "e": 3.0,
+                    "n": 4.0,
+                    "u": 0.2
+                  }
+                },
+                "noExpiry": true,
+                "ontology": {
+                  "platformType": "UAV",
+                  "template": "TEMPLATE_ASSET"
+                },
+                "provenance": {
+                  "integrationName": "sdk-python-smoke",
+                  "sourceId": "sdk-python-smoke"
+                },
+                "taskCatalog": {
+                  "taskDefinitions": [
+                    {
+                      "typeUrl": "type.googleapis.com/zorn.cert.Investigate"
+                    }
+                  ]
+                }
+              },
+              "event": "entity",
+              "eventType": "EVENT_TYPE_PREEXISTING",
+              "time": "2026-06-22T04:30:04.287598Z"
+            },
+            {
+              "data": "{\"event\":\"entity\",\"eventType\":\"EVENT_TYPE_PREEXISTING\",\"time\":\"2026-06-22T04:30:04.287712Z\",\"entity\":{\"entityId\":\"sdk-python-track\",\"description\":\"SDK Python track\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7701,\"longitudeDegrees\":-122.411,\"altitudeHaeMeters\":50.0},\"velocityEnu\":{\"e\":3.0,\"n\":4.0,\"u\":0.2},\"attitudeEnu\":{\"w\":1.0,\"x\":0.0,\"y\":0.0,\"z\":0.0}},\"milView\":{\"disposition\":\"DISPOSITION_ASSUMED_FRIENDLY\"},\"ontology\":{\"template\":\"TEMPLATE_TRACK\",\"platformType\":\"UAS\"},\"provenance\":{\"sourceId\":\"sdk-python-smoke\",\"integrationName\":\"sdk-python-smoke\"},\"entity_id\":\"sdk-python-track\",\"is_live\":true}}",
+              "entity": {
+                "description": "SDK Python track",
+                "entityId": "sdk-python-track",
+                "isLive": true,
+                "location": {
+                  "attitudeEnu": {
+                    "w": 1.0,
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  },
+                  "position": {
+                    "altitudeHaeMeters": 50.0,
+                    "latitudeDegrees": 37.7701,
+                    "longitudeDegrees": -122.411
+                  },
+                  "velocityEnu": {
+                    "e": 3.0,
+                    "n": 4.0,
+                    "u": 0.2
+                  }
+                },
+                "milView": {
+                  "disposition": "DISPOSITION_ASSUMED_FRIENDLY"
+                },
+                "noExpiry": true,
+                "ontology": {
+                  "platformType": "UAS",
+                  "template": "TEMPLATE_TRACK"
+                },
+                "provenance": {
+                  "integrationName": "sdk-python-smoke",
+                  "sourceId": "sdk-python-smoke"
+                }
+              },
+              "event": "entity",
+              "eventType": "EVENT_TYPE_PREEXISTING",
+              "time": "2026-06-22T04:30:04.287712Z"
+            }
+          ]
+        },
+        "ok": true
+      },
+      "entities.track": {
+        "evidence": {
+          "_compat": {
+            "eventType": "CREATE",
+            "sequence": 2
+          },
+          "description": "SDK Python track",
+          "entityId": "sdk-python-track",
+          "isLive": true,
+          "location": {
+            "attitudeEnu": {
+              "w": 1.0,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "position": {
+              "altitudeHaeMeters": 50.0,
+              "latitudeDegrees": 37.7701,
+              "longitudeDegrees": -122.411
+            },
+            "velocityEnu": {
+              "e": 3.0,
+              "n": 4.0,
+              "u": 0.2
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_ASSUMED_FRIENDLY"
+          },
+          "noExpiry": true,
+          "ontology": {
+            "platformType": "UAS",
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "integrationName": "sdk-python-smoke",
+            "sourceId": "sdk-python-smoke"
+          }
+        },
+        "ok": true
+      },
+      "objects.delete": {
+        "evidence": {
+          "error": "headers: {'date': 'Mon, 22 Jun 2026 04:30:03 GMT', 'server': 'uvicorn', 'content-length': '29', 'content-type': 'application/json'}, status_code: 404, body: ",
+          "status_code": 404
+        },
+        "ok": true
+      },
+      "objects.download": {
+        "evidence": {
+          "downloaded": "zorn sdk python smoke\n"
+        },
+        "ok": true
+      },
+      "objects.list": {
+        "evidence": [
+          {
+            "checksumSha256": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
+            "contentType": "application/octet-stream",
+            "content_identifier": {
+              "checksum": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
+              "path": "sdk-python-smoke/object.txt"
+            },
+            "createdTime": "2026-06-22T04:30:04.457939Z",
+            "expiry_time": null,
+            "last_updated_at": "2026-06-22T04:30:04.457939Z",
+            "metadata": {},
+            "objectPath": "sdk-python-smoke/object.txt",
+            "sizeBytes": 22,
+            "size_bytes": 22,
+            "updatedTime": "2026-06-22T04:30:04.457939Z"
+          }
+        ],
+        "ok": true
+      },
+      "objects.metadata": {
+        "evidence": {
+          "checksum": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
+          "content-length": "22",
+          "content-type": "application/octet-stream",
+          "date": "Mon, 22 Jun 2026 04:30:03 GMT",
+          "etag": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
+          "last-modified": "2026-06-22T04:30:04.457939Z",
+          "path": "sdk-python-smoke/object.txt",
+          "server": "uvicorn",
+          "x-checksum-sha256": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
+          "x-object-path": "sdk-python-smoke/object.txt"
+        },
+        "ok": true
+      },
+      "objects.upload": {
+        "evidence": {
+          "checksumSha256": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
+          "contentType": "application/octet-stream",
+          "content_identifier": {
+            "checksum": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
+            "path": "sdk-python-smoke/object.txt"
+          },
+          "createdTime": "2026-06-22T04:30:04.457939Z",
+          "expiry_time": null,
+          "last_updated_at": "2026-06-22T04:30:04.457939Z",
+          "metadata": {},
+          "objectPath": "sdk-python-smoke/object.txt",
+          "sizeBytes": 22,
+          "size_bytes": 22,
+          "updatedTime": "2026-06-22T04:30:04.457939Z"
+        },
+        "ok": true
+      },
+      "tasks.cancel": {
+        "evidence": {
+          "createTime": "2026-06-22T04:30:04.385012Z",
+          "createdBy": {
+            "system": {
+              "serviceName": "local-compat-sandbox"
+            }
+          },
+          "description": "Direct SDK conformance smoke",
+          "displayName": "SDK Python task",
+          "lastUpdateTime": "2026-06-22T04:30:04.423003Z",
+          "lastUpdatedBy": {
+            "system": {
+              "serviceName": "local-compat-sandbox"
+            }
+          },
+          "relations": {
+            "assignee": {
+              "system": {
+                "entityId": "sdk-python-asset"
+              }
+            }
+          },
+          "specification": {
+            "typeUrl": "type.googleapis.com/zorn.cert.Investigate",
+            "value": ""
+          },
+          "status": {
+            "cancel": {},
+            "status": "STATUS_CANCELED"
+          },
+          "taskId": "sdk-python-task",
+          "task_id": "sdk-python-task",
+          "version": {
+            "definitionVersion": 1,
+            "statusVersion": 3,
+            "taskId": "sdk-python-task"
+          }
+        },
+        "ok": true
+      },
+      "tasks.create": {
+        "evidence": {
+          "_compat": {
+            "eventType": "CREATE",
+            "sequence": 6
+          },
+          "createTime": "2026-06-22T04:30:04.385012Z",
+          "createdBy": {
+            "system": {
+              "serviceName": "local-compat-sandbox"
+            }
+          },
+          "description": "Direct SDK conformance smoke",
+          "displayName": "SDK Python task",
+          "lastUpdateTime": "2026-06-22T04:30:04.385012Z",
+          "lastUpdatedBy": {
+            "system": {
+              "serviceName": "local-compat-sandbox"
+            }
+          },
+          "relations": {
+            "assignee": {
+              "system": {
+                "entityId": "sdk-python-asset"
+              }
+            }
+          },
+          "specification": {
+            "typeUrl": "type.googleapis.com/zorn.cert.Investigate",
+            "value": ""
+          },
+          "status": {
+            "status": "STATUS_CREATED"
+          },
+          "taskId": "sdk-python-task",
+          "task_id": "sdk-python-task",
+          "version": {
+            "definitionVersion": 1,
+            "statusVersion": 1,
+            "taskId": "sdk-python-task"
+          }
+        },
+        "ok": true
+      },
+      "tasks.get": {
+        "evidence": {
+          "createTime": "2026-06-22T04:30:04.385012Z",
+          "createdBy": {
+            "system": {
+              "serviceName": "local-compat-sandbox"
+            }
+          },
+          "description": "Direct SDK conformance smoke",
+          "displayName": "SDK Python task",
+          "lastUpdateTime": "2026-06-22T04:30:04.385012Z",
+          "lastUpdatedBy": {
+            "system": {
+              "serviceName": "local-compat-sandbox"
+            }
+          },
+          "relations": {
+            "assignee": {
+              "system": {
+                "entityId": "sdk-python-asset"
+              }
+            }
+          },
+          "specification": {
+            "typeUrl": "type.googleapis.com/zorn.cert.Investigate",
+            "value": ""
+          },
+          "status": {
+            "status": "STATUS_CREATED"
+          },
+          "taskId": "sdk-python-task",
+          "task_id": "sdk-python-task",
+          "version": {
+            "definitionVersion": 1,
+            "statusVersion": 1,
+            "taskId": "sdk-python-task"
+          }
+        },
+        "ok": true
+      },
+      "tasks.listen_as_agent": {
+        "evidence": {
+          "assigneeId": "sdk-python-asset",
+          "assignee_id": "sdk-python-asset",
+          "eventType": "ExecuteRequest",
+          "executeRequest": {
+            "task": {
+              "createTime": "2026-06-22T04:30:04.385012Z",
+              "createdBy": {
+                "system": {
+                  "serviceName": "local-compat-sandbox"
+                }
+              },
+              "description": "Direct SDK conformance smoke",
+              "displayName": "SDK Python task",
+              "lastUpdateTime": "2026-06-22T04:30:04.385012Z",
+              "lastUpdatedBy": {
+                "system": {
+                  "serviceName": "local-compat-sandbox"
+                }
+              },
+              "relations": {
+                "assignee": {
+                  "system": {
+                    "entityId": "sdk-python-asset"
+                  }
+                }
+              },
+              "specification": {
+                "typeUrl": "type.googleapis.com/zorn.cert.Investigate",
+                "value": ""
+              },
+              "status": {
+                "status": "STATUS_CREATED"
+              },
+              "taskId": "sdk-python-task",
+              "task_id": "sdk-python-task",
+              "version": {
+                "definitionVersion": 1,
+                "statusVersion": 1,
+                "taskId": "sdk-python-task"
+              }
+            }
+          },
+          "occurredTime": "2026-06-22T04:30:04.389201Z",
+          "requestType": "ExecuteRequest",
+          "request_type": "ExecuteRequest",
+          "sequence": 7,
+          "task": {
+            "createTime": "2026-06-22T04:30:04.385012Z",
+            "create_time": "2026-06-22T04:30:04.385012Z",
+            "createdBy": {
+              "system": {
+                "serviceName": "local-compat-sandbox",
+                "service_name": "local-compat-sandbox"
+              }
+            },
+            "created_by": {
+              "system": {
+                "serviceName": "local-compat-sandbox",
+                "service_name": "local-compat-sandbox"
+              }
+            },
+            "description": "Direct SDK conformance smoke",
+            "displayName": "SDK Python task",
+            "display_name": "SDK Python task",
+            "lastUpdateTime": "2026-06-22T04:30:04.385012Z",
+            "lastUpdatedBy": {
+              "system": {
+                "serviceName": "local-compat-sandbox",
+                "service_name": "local-compat-sandbox"
+              }
+            },
+            "last_update_time": "2026-06-22T04:30:04.385012Z",
+            "last_updated_by": {
+              "system": {
+                "serviceName": "local-compat-sandbox",
+                "service_name": "local-compat-sandbox"
+              }
+            },
+            "relations": {
+              "assignee": {
+                "system": {
+                  "entityId": "sdk-python-asset",
+                  "entity_id": "sdk-python-asset"
+                }
+              }
+            },
+            "specification": {
+              "typeUrl": "type.googleapis.com/zorn.cert.Investigate",
+              "value": ""
+            },
+            "status": {
+              "status": "STATUS_CREATED"
+            },
+            "taskId": "sdk-python-task",
+            "task_id": "sdk-python-task",
+            "version": {
+              "definitionVersion": 1,
+              "definition_version": 1,
+              "statusVersion": 1,
+              "status_version": 1,
+              "taskId": "sdk-python-task",
+              "task_id": "sdk-python-task"
+            }
+          }
+        },
+        "ok": true
+      },
+      "tasks.query": {
+        "evidence": {
+          "tasks": [
+            {
+              "createTime": "2026-06-22T04:30:04.385012Z",
+              "createdBy": {
+                "system": {
+                  "serviceName": "local-compat-sandbox"
+                }
+              },
+              "description": "Direct SDK conformance smoke",
+              "displayName": "SDK Python task",
+              "lastUpdateTime": "2026-06-22T04:30:04.385012Z",
+              "lastUpdatedBy": {
+                "system": {
+                  "serviceName": "local-compat-sandbox"
+                }
+              },
+              "relations": {
+                "assignee": {
+                  "system": {
+                    "entityId": "sdk-python-asset"
+                  }
+                }
+              },
+              "specification": {
+                "typeUrl": "type.googleapis.com/zorn.cert.Investigate",
+                "value": ""
+              },
+              "status": {
+                "status": "STATUS_CREATED"
+              },
+              "taskId": "sdk-python-task",
+              "task_id": "sdk-python-task",
+              "version": {
+                "definitionVersion": 1,
+                "statusVersion": 1,
+                "taskId": "sdk-python-task"
+              }
+            }
+          ]
+        },
+        "ok": true
+      },
+      "tasks.update_status": {
+        "evidence": {
+          "createTime": "2026-06-22T04:30:04.385012Z",
+          "createdBy": {
+            "system": {
+              "serviceName": "local-compat-sandbox"
+            }
+          },
+          "description": "Direct SDK conformance smoke",
+          "displayName": "SDK Python task",
+          "lastUpdateTime": "2026-06-22T04:30:04.416172Z",
+          "lastUpdatedBy": {
+            "system": {
+              "serviceName": "local-compat-sandbox"
+            }
+          },
+          "relations": {
+            "assignee": {
+              "system": {
+                "entityId": "sdk-python-asset"
+              }
+            }
+          },
+          "specification": {
+            "typeUrl": "type.googleapis.com/zorn.cert.Investigate",
+            "value": ""
+          },
+          "status": {
+            "status": "STATUS_EXECUTING"
+          },
+          "taskId": "sdk-python-task",
+          "task_id": "sdk-python-task",
+          "version": {
+            "definitionVersion": 1,
+            "statusVersion": 2,
+            "taskId": "sdk-python-task"
+          }
+        },
+        "ok": true
+      },
+      "transport.rest_json": {
+        "evidence": {
+          "sdk": "anduril-lattice-sdk-python"
+        },
+        "ok": true
+      }
+    },
+    "server_log": "INFO:     Started server process [74464]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on https://127.0.0.1:53140 (Press CTRL+C to quit)\nINFO:     127.0.0.1:53148 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53150 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53150 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53150 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53150 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53150 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53150 - \"GET /api/v1/entities/sdk-python-asset HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53150 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53150 - \"POST /api/v1/entities/stream HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"PUT /api/v1/entities/sdk-python-track/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"DELETE /api/v1/entities/sdk-python-track/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"POST /api/v1/tasks HTTP/1.1\" 201 Created\nINFO:     127.0.0.1:53152 - \"GET /api/v1/tasks/sdk-python-task HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"PUT /api/v1/tasks/sdk-python-task/status HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"PUT /api/v1/tasks/sdk-python-task/cancel HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"POST /api/v1/objects/sdk-python-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"HEAD /api/v1/objects/sdk-python-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"GET /api/v1/objects?prefix=sdk-python-smoke HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"GET /api/v1/objects/sdk-python-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"DELETE /api/v1/objects/sdk-python-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"HEAD /api/v1/objects/sdk-python-smoke/object.txt HTTP/1.1\" 404 Not Found\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [74464]\n",
+    "tasks.cancel": {
+      "createTime": "2026-06-22T04:30:04.385012Z",
+      "createdBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox"
+        }
+      },
+      "description": "Direct SDK conformance smoke",
+      "displayName": "SDK Python task",
+      "lastUpdateTime": "2026-06-22T04:30:04.423003Z",
+      "lastUpdatedBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox"
+        }
+      },
+      "relations": {
+        "assignee": {
+          "system": {
+            "entityId": "sdk-python-asset"
+          }
+        }
+      },
+      "specification": {
+        "typeUrl": "type.googleapis.com/zorn.cert.Investigate",
+        "value": ""
+      },
+      "status": {
+        "cancel": {},
+        "status": "STATUS_CANCELED"
+      },
+      "taskId": "sdk-python-task",
+      "task_id": "sdk-python-task",
+      "version": {
+        "definitionVersion": 1,
+        "statusVersion": 3,
+        "taskId": "sdk-python-task"
+      }
+    },
+    "tasks.create": {
+      "_compat": {
+        "eventType": "CREATE",
+        "sequence": 6
+      },
+      "createTime": "2026-06-22T04:30:04.385012Z",
+      "createdBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox"
+        }
+      },
+      "description": "Direct SDK conformance smoke",
+      "displayName": "SDK Python task",
+      "lastUpdateTime": "2026-06-22T04:30:04.385012Z",
+      "lastUpdatedBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox"
+        }
+      },
+      "relations": {
+        "assignee": {
+          "system": {
+            "entityId": "sdk-python-asset"
+          }
+        }
+      },
+      "specification": {
+        "typeUrl": "type.googleapis.com/zorn.cert.Investigate",
+        "value": ""
+      },
+      "status": {
+        "status": "STATUS_CREATED"
+      },
+      "taskId": "sdk-python-task",
+      "task_id": "sdk-python-task",
+      "version": {
+        "definitionVersion": 1,
+        "statusVersion": 1,
+        "taskId": "sdk-python-task"
+      }
+    },
+    "tasks.get": {
+      "createTime": "2026-06-22T04:30:04.385012Z",
+      "createdBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox"
+        }
+      },
+      "description": "Direct SDK conformance smoke",
+      "displayName": "SDK Python task",
+      "lastUpdateTime": "2026-06-22T04:30:04.385012Z",
+      "lastUpdatedBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox"
+        }
+      },
+      "relations": {
+        "assignee": {
+          "system": {
+            "entityId": "sdk-python-asset"
+          }
+        }
+      },
+      "specification": {
+        "typeUrl": "type.googleapis.com/zorn.cert.Investigate",
+        "value": ""
+      },
+      "status": {
+        "status": "STATUS_CREATED"
+      },
+      "taskId": "sdk-python-task",
+      "task_id": "sdk-python-task",
+      "version": {
+        "definitionVersion": 1,
+        "statusVersion": 1,
+        "taskId": "sdk-python-task"
+      }
+    },
+    "tasks.listen_as_agent": {
+      "assigneeId": "sdk-python-asset",
+      "assignee_id": "sdk-python-asset",
+      "eventType": "ExecuteRequest",
+      "executeRequest": {
+        "task": {
+          "createTime": "2026-06-22T04:30:04.385012Z",
+          "createdBy": {
+            "system": {
+              "serviceName": "local-compat-sandbox"
+            }
+          },
+          "description": "Direct SDK conformance smoke",
+          "displayName": "SDK Python task",
+          "lastUpdateTime": "2026-06-22T04:30:04.385012Z",
+          "lastUpdatedBy": {
+            "system": {
+              "serviceName": "local-compat-sandbox"
+            }
+          },
+          "relations": {
+            "assignee": {
+              "system": {
+                "entityId": "sdk-python-asset"
+              }
+            }
+          },
+          "specification": {
+            "typeUrl": "type.googleapis.com/zorn.cert.Investigate",
+            "value": ""
+          },
+          "status": {
+            "status": "STATUS_CREATED"
+          },
+          "taskId": "sdk-python-task",
+          "task_id": "sdk-python-task",
+          "version": {
+            "definitionVersion": 1,
+            "statusVersion": 1,
+            "taskId": "sdk-python-task"
+          }
+        }
+      },
+      "occurredTime": "2026-06-22T04:30:04.389201Z",
+      "requestType": "ExecuteRequest",
+      "request_type": "ExecuteRequest",
+      "sequence": 7,
+      "task": {
+        "createTime": "2026-06-22T04:30:04.385012Z",
+        "create_time": "2026-06-22T04:30:04.385012Z",
+        "createdBy": {
+          "system": {
+            "serviceName": "local-compat-sandbox",
+            "service_name": "local-compat-sandbox"
+          }
+        },
+        "created_by": {
+          "system": {
+            "serviceName": "local-compat-sandbox",
+            "service_name": "local-compat-sandbox"
+          }
+        },
+        "description": "Direct SDK conformance smoke",
+        "displayName": "SDK Python task",
+        "display_name": "SDK Python task",
+        "lastUpdateTime": "2026-06-22T04:30:04.385012Z",
+        "lastUpdatedBy": {
+          "system": {
+            "serviceName": "local-compat-sandbox",
+            "service_name": "local-compat-sandbox"
+          }
+        },
+        "last_update_time": "2026-06-22T04:30:04.385012Z",
+        "last_updated_by": {
+          "system": {
+            "serviceName": "local-compat-sandbox",
+            "service_name": "local-compat-sandbox"
+          }
+        },
+        "relations": {
+          "assignee": {
+            "system": {
+              "entityId": "sdk-python-asset",
+              "entity_id": "sdk-python-asset"
+            }
+          }
+        },
+        "specification": {
+          "typeUrl": "type.googleapis.com/zorn.cert.Investigate",
+          "value": ""
+        },
+        "status": {
+          "status": "STATUS_CREATED"
+        },
+        "taskId": "sdk-python-task",
+        "task_id": "sdk-python-task",
+        "version": {
+          "definitionVersion": 1,
+          "definition_version": 1,
+          "statusVersion": 1,
+          "status_version": 1,
+          "taskId": "sdk-python-task",
+          "task_id": "sdk-python-task"
+        }
+      }
+    },
+    "tasks.query": {
+      "tasks": [
+        {
+          "createTime": "2026-06-22T04:30:04.385012Z",
+          "createdBy": {
+            "system": {
+              "serviceName": "local-compat-sandbox"
+            }
+          },
+          "description": "Direct SDK conformance smoke",
+          "displayName": "SDK Python task",
+          "lastUpdateTime": "2026-06-22T04:30:04.385012Z",
+          "lastUpdatedBy": {
+            "system": {
+              "serviceName": "local-compat-sandbox"
+            }
+          },
+          "relations": {
+            "assignee": {
+              "system": {
+                "entityId": "sdk-python-asset"
+              }
+            }
+          },
+          "specification": {
+            "typeUrl": "type.googleapis.com/zorn.cert.Investigate",
+            "value": ""
+          },
+          "status": {
+            "status": "STATUS_CREATED"
+          },
+          "taskId": "sdk-python-task",
+          "task_id": "sdk-python-task",
+          "version": {
+            "definitionVersion": 1,
+            "statusVersion": 1,
+            "taskId": "sdk-python-task"
+          }
+        }
+      ]
+    },
+    "tasks.update_status": {
+      "createTime": "2026-06-22T04:30:04.385012Z",
+      "createdBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox"
+        }
+      },
+      "description": "Direct SDK conformance smoke",
+      "displayName": "SDK Python task",
+      "lastUpdateTime": "2026-06-22T04:30:04.416172Z",
+      "lastUpdatedBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox"
+        }
+      },
+      "relations": {
+        "assignee": {
+          "system": {
+            "entityId": "sdk-python-asset"
+          }
+        }
+      },
+      "specification": {
+        "typeUrl": "type.googleapis.com/zorn.cert.Investigate",
+        "value": ""
+      },
+      "status": {
+        "status": "STATUS_EXECUTING"
+      },
+      "taskId": "sdk-python-task",
+      "task_id": "sdk-python-task",
+      "version": {
+        "definitionVersion": 1,
+        "statusVersion": 2,
+        "taskId": "sdk-python-task"
+      }
+    },
+    "transport.rest_json": {
+      "sdk": "anduril-lattice-sdk-python"
+    }
+  },
+  "failed": [],
+  "fixture": "sdk-python-smoke",
+  "missing": [],
+  "mode": "strict",
+  "passed": [
+    "auth.bearer_token",
+    "auth.oauth_client_credentials",
+    "auth.sandbox_header",
+    "entities.asset",
+    "entities.geo",
+    "entities.get",
+    "entities.long_poll",
+    "entities.overrides.apply",
+    "entities.overrides.clear",
+    "entities.publish",
+    "entities.stream_sse",
+    "entities.track",
+    "objects.delete",
+    "objects.download",
+    "objects.list",
+    "objects.metadata",
+    "objects.upload",
+    "tasks.cancel",
+    "tasks.create",
+    "tasks.get",
+    "tasks.listen_as_agent",
+    "tasks.query",
+    "tasks.update_status",
+    "transport.rest_json"
+  ],
+  "result": "pass",
+  "zorn_version": "0.1.0"
+}

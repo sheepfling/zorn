@@ -32,6 +32,7 @@ def test_java_runner_reports_missing_prerequisites(tmp_path: Path, monkeypatch: 
         category="third_party_real",
         runner="java_sample",
         license_status="no_license_found",
+        adaptation_tier="runtime_env_translation",
         surfaces=("auth.bearer_token", "entities.publish", "entities.transponder_codes", "ui.sse"),
         modes=("strict", "stress"),
         install_command=("mvn", "-q", "-DskipTests", "package"),

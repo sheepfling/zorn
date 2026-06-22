@@ -1,0 +1,639 @@
+{
+  "adaptation_tier": "runtime_shim",
+  "details": {
+    "artifact_kind": "postman",
+    "artifacts": [
+      "collections/anduril.opencollection.json",
+      "collections/anduril.postman_collection.json"
+    ],
+    "auth.bearer_token": {
+      "compatibilityTarget": "Public SDK-style workflows",
+      "ok": true,
+      "productName": "Zorn"
+    },
+    "auth.oauth_client_credentials": {
+      "access_token": "dev-token",
+      "expires_in": 3600,
+      "scope": "local-dev",
+      "token_type": "Bearer"
+    },
+    "entities.get": {
+      "description": "api-evangelist-postman-rest REST conformance entity",
+      "entityId": "api-evangelist-postman-rest-entity",
+      "entity_id": "api-evangelist-postman-rest-entity",
+      "isLive": true,
+      "is_live": true,
+      "location": {
+        "position": {
+          "altitudeHaeMeters": 45,
+          "latitudeDegrees": 37.781,
+          "longitudeDegrees": -122.422
+        }
+      },
+      "milView": {
+        "disposition": "DISPOSITION_ASSUMED_FRIENDLY"
+      },
+      "noExpiry": true,
+      "ontology": {
+        "platformType": "UAS",
+        "template": "TEMPLATE_TRACK"
+      },
+      "provenance": {
+        "integrationName": "api-evangelist-postman-rest",
+        "sourceId": "api-evangelist-postman-rest"
+      }
+    },
+    "entities.long_poll": {
+      "entityEvents": [
+        {
+          "entity": {
+            "description": "api-evangelist-postman-rest REST conformance entity",
+            "entityId": "api-evangelist-postman-rest-entity",
+            "entity_id": "api-evangelist-postman-rest-entity",
+            "isLive": true,
+            "is_live": true,
+            "location": {
+              "position": {
+                "altitudeHaeMeters": 45,
+                "latitudeDegrees": 37.781,
+                "longitudeDegrees": -122.422
+              }
+            },
+            "milView": {
+              "disposition": "DISPOSITION_ASSUMED_FRIENDLY"
+            },
+            "noExpiry": true,
+            "ontology": {
+              "platformType": "UAS",
+              "template": "TEMPLATE_TRACK"
+            },
+            "provenance": {
+              "integrationName": "api-evangelist-postman-rest",
+              "sourceId": "api-evangelist-postman-rest"
+            }
+          },
+          "eventType": "CREATE",
+          "occurredTime": "2026-06-22T05:01:23.337614Z",
+          "sequence": 1,
+          "time": "2026-06-22T05:01:23.333538Z"
+        },
+        {
+          "entity": {
+            "description": "api-evangelist-postman-rest REST conformance entity",
+            "entityId": "api-evangelist-postman-rest-entity",
+            "entity_id": "api-evangelist-postman-rest-entity",
+            "isLive": true,
+            "is_live": true,
+            "location": {
+              "position": {
+                "altitudeHaeMeters": 45,
+                "latitudeDegrees": 37.781,
+                "longitudeDegrees": -122.422
+              }
+            },
+            "milView": {
+              "disposition": "DISPOSITION_HOSTILE"
+            },
+            "noExpiry": true,
+            "ontology": {
+              "platformType": "UAS",
+              "template": "TEMPLATE_TRACK"
+            },
+            "overrides": {
+              "mil_view.disposition": "DISPOSITION_HOSTILE"
+            },
+            "provenance": {
+              "integrationName": "api-evangelist-postman-rest",
+              "sourceId": "api-evangelist-postman-rest"
+            }
+          },
+          "eventType": "UPDATE",
+          "occurredTime": "2026-06-22T05:01:23.364003Z",
+          "overrideFieldPath": "mil_view.disposition",
+          "sequence": 2
+        },
+        {
+          "entity": {
+            "description": "api-evangelist-postman-rest REST conformance entity",
+            "entityId": "api-evangelist-postman-rest-entity",
+            "entity_id": "api-evangelist-postman-rest-entity",
+            "isLive": true,
+            "is_live": true,
+            "location": {
+              "position": {
+                "altitudeHaeMeters": 45,
+                "latitudeDegrees": 37.781,
+                "longitudeDegrees": -122.422
+              }
+            },
+            "milView": {
+              "disposition": "DISPOSITION_HOSTILE"
+            },
+            "noExpiry": true,
+            "ontology": {
+              "platformType": "UAS",
+              "template": "TEMPLATE_TRACK"
+            },
+            "overrides": {},
+            "provenance": {
+              "integrationName": "api-evangelist-postman-rest",
+              "sourceId": "api-evangelist-postman-rest"
+            }
+          },
+          "eventType": "UPDATE",
+          "occurredTime": "2026-06-22T05:01:23.370591Z",
+          "removedOverrideFieldPath": "mil_view.disposition",
+          "sequence": 3
+        }
+      ],
+      "events": [
+        {
+          "entity": {
+            "description": "api-evangelist-postman-rest REST conformance entity",
+            "entityId": "api-evangelist-postman-rest-entity",
+            "entity_id": "api-evangelist-postman-rest-entity",
+            "isLive": true,
+            "is_live": true,
+            "location": {
+              "position": {
+                "altitudeHaeMeters": 45,
+                "latitudeDegrees": 37.781,
+                "longitudeDegrees": -122.422
+              }
+            },
+            "milView": {
+              "disposition": "DISPOSITION_ASSUMED_FRIENDLY"
+            },
+            "noExpiry": true,
+            "ontology": {
+              "platformType": "UAS",
+              "template": "TEMPLATE_TRACK"
+            },
+            "provenance": {
+              "integrationName": "api-evangelist-postman-rest",
+              "sourceId": "api-evangelist-postman-rest"
+            }
+          },
+          "eventType": "CREATE",
+          "occurredTime": "2026-06-22T05:01:23.337614Z",
+          "sequence": 1,
+          "time": "2026-06-22T05:01:23.333538Z"
+        },
+        {
+          "entity": {
+            "description": "api-evangelist-postman-rest REST conformance entity",
+            "entityId": "api-evangelist-postman-rest-entity",
+            "entity_id": "api-evangelist-postman-rest-entity",
+            "isLive": true,
+            "is_live": true,
+            "location": {
+              "position": {
+                "altitudeHaeMeters": 45,
+                "latitudeDegrees": 37.781,
+                "longitudeDegrees": -122.422
+              }
+            },
+            "milView": {
+              "disposition": "DISPOSITION_HOSTILE"
+            },
+            "noExpiry": true,
+            "ontology": {
+              "platformType": "UAS",
+              "template": "TEMPLATE_TRACK"
+            },
+            "overrides": {
+              "mil_view.disposition": "DISPOSITION_HOSTILE"
+            },
+            "provenance": {
+              "integrationName": "api-evangelist-postman-rest",
+              "sourceId": "api-evangelist-postman-rest"
+            }
+          },
+          "eventType": "UPDATE",
+          "occurredTime": "2026-06-22T05:01:23.364003Z",
+          "overrideFieldPath": "mil_view.disposition",
+          "sequence": 2
+        },
+        {
+          "entity": {
+            "description": "api-evangelist-postman-rest REST conformance entity",
+            "entityId": "api-evangelist-postman-rest-entity",
+            "entity_id": "api-evangelist-postman-rest-entity",
+            "isLive": true,
+            "is_live": true,
+            "location": {
+              "position": {
+                "altitudeHaeMeters": 45,
+                "latitudeDegrees": 37.781,
+                "longitudeDegrees": -122.422
+              }
+            },
+            "milView": {
+              "disposition": "DISPOSITION_HOSTILE"
+            },
+            "noExpiry": true,
+            "ontology": {
+              "platformType": "UAS",
+              "template": "TEMPLATE_TRACK"
+            },
+            "overrides": {},
+            "provenance": {
+              "integrationName": "api-evangelist-postman-rest",
+              "sourceId": "api-evangelist-postman-rest"
+            }
+          },
+          "eventType": "UPDATE",
+          "occurredTime": "2026-06-22T05:01:23.370591Z",
+          "removedOverrideFieldPath": "mil_view.disposition",
+          "sequence": 3
+        }
+      ],
+      "sessionToken": "3"
+    },
+    "entities.overrides.apply": {
+      "description": "api-evangelist-postman-rest REST conformance entity",
+      "entityId": "api-evangelist-postman-rest-entity",
+      "entity_id": "api-evangelist-postman-rest-entity",
+      "isLive": true,
+      "is_live": true,
+      "location": {
+        "position": {
+          "altitudeHaeMeters": 45,
+          "latitudeDegrees": 37.781,
+          "longitudeDegrees": -122.422
+        }
+      },
+      "milView": {
+        "disposition": "DISPOSITION_HOSTILE"
+      },
+      "noExpiry": true,
+      "ontology": {
+        "platformType": "UAS",
+        "template": "TEMPLATE_TRACK"
+      },
+      "overrides": {
+        "mil_view.disposition": "DISPOSITION_HOSTILE"
+      },
+      "provenance": {
+        "integrationName": "api-evangelist-postman-rest",
+        "sourceId": "api-evangelist-postman-rest"
+      }
+    },
+    "entities.overrides.clear": {
+      "description": "api-evangelist-postman-rest REST conformance entity",
+      "entityId": "api-evangelist-postman-rest-entity",
+      "entity_id": "api-evangelist-postman-rest-entity",
+      "isLive": true,
+      "is_live": true,
+      "location": {
+        "position": {
+          "altitudeHaeMeters": 45,
+          "latitudeDegrees": 37.781,
+          "longitudeDegrees": -122.422
+        }
+      },
+      "milView": {
+        "disposition": "DISPOSITION_HOSTILE"
+      },
+      "noExpiry": true,
+      "ontology": {
+        "platformType": "UAS",
+        "template": "TEMPLATE_TRACK"
+      },
+      "overrides": {},
+      "provenance": {
+        "integrationName": "api-evangelist-postman-rest",
+        "sourceId": "api-evangelist-postman-rest"
+      }
+    },
+    "entities.publish": {
+      "_compat": {
+        "eventType": "CREATE",
+        "sequence": 1
+      },
+      "description": "api-evangelist-postman-rest REST conformance entity",
+      "entityId": "api-evangelist-postman-rest-entity",
+      "entity_id": "api-evangelist-postman-rest-entity",
+      "isLive": true,
+      "is_live": true,
+      "location": {
+        "position": {
+          "altitudeHaeMeters": 45,
+          "latitudeDegrees": 37.781,
+          "longitudeDegrees": -122.422
+        }
+      },
+      "milView": {
+        "disposition": "DISPOSITION_ASSUMED_FRIENDLY"
+      },
+      "noExpiry": true,
+      "ontology": {
+        "platformType": "UAS",
+        "template": "TEMPLATE_TRACK"
+      },
+      "provenance": {
+        "integrationName": "api-evangelist-postman-rest",
+        "sourceId": "api-evangelist-postman-rest"
+      }
+    },
+    "fixture_dir": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/api-evangelist-postman-rest",
+    "objects.delete": {
+      "deleted": true,
+      "objectPath": "api-evangelist-postman-rest/object.txt"
+    },
+    "objects.download": {
+      "bytes": 21
+    },
+    "objects.list": {
+      "next_page_token": null,
+      "objects": [
+        {
+          "checksumSha256": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
+          "contentType": "application/octet-stream",
+          "createdTime": "2026-06-22T05:01:23.430300Z",
+          "expiryTime": null,
+          "metadata": {},
+          "objectPath": "api-evangelist-postman-rest/object.txt",
+          "sizeBytes": 21,
+          "updatedTime": "2026-06-22T05:01:23.430300Z"
+        }
+      ],
+      "path_metadatas": [
+        {
+          "checksumSha256": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
+          "contentType": "application/octet-stream",
+          "content_identifier": {
+            "checksum": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
+            "path": "api-evangelist-postman-rest/object.txt"
+          },
+          "createdTime": "2026-06-22T05:01:23.430300Z",
+          "expiry_time": null,
+          "last_updated_at": "2026-06-22T05:01:23.430300Z",
+          "metadata": {},
+          "objectPath": "api-evangelist-postman-rest/object.txt",
+          "sizeBytes": 21,
+          "size_bytes": 21,
+          "updatedTime": "2026-06-22T05:01:23.430300Z"
+        }
+      ]
+    },
+    "objects.metadata": {
+      "headers": {
+        "checksum": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
+        "connection": "close",
+        "content-length": "21",
+        "content-type": "application/octet-stream",
+        "date": "Mon, 22 Jun 2026 05:01:23 GMT",
+        "etag": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
+        "last-modified": "2026-06-22T05:01:23.430300Z",
+        "path": "api-evangelist-postman-rest/object.txt",
+        "server": "uvicorn",
+        "x-checksum-sha256": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
+        "x-object-path": "api-evangelist-postman-rest/object.txt"
+      }
+    },
+    "objects.upload": {
+      "checksumSha256": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
+      "contentType": "application/octet-stream",
+      "content_identifier": {
+        "checksum": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
+        "path": "api-evangelist-postman-rest/object.txt"
+      },
+      "createdTime": "2026-06-22T05:01:23.430300Z",
+      "expiry_time": null,
+      "last_updated_at": "2026-06-22T05:01:23.430300Z",
+      "metadata": {},
+      "objectPath": "api-evangelist-postman-rest/object.txt",
+      "sizeBytes": 21,
+      "size_bytes": 21,
+      "updatedTime": "2026-06-22T05:01:23.430300Z"
+    },
+    "reason": "postman conformance executor is not implemented yet",
+    "server_log": "INFO:     Started server process [31861]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://127.0.0.1:54033 (Press CTRL+C to quit)\nINFO:     127.0.0.1:54047 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54048 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54049 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54051 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54055 - \"GET /api/v1/entities/api-evangelist-postman-rest-entity HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54057 - \"PUT /api/v1/entities/api-evangelist-postman-rest-entity/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54058 - \"DELETE /api/v1/entities/api-evangelist-postman-rest-entity/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54059 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54060 - \"POST /api/v1/tasks HTTP/1.1\" 201 Created\nINFO:     127.0.0.1:54062 - \"GET /api/v1/tasks/api-evangelist-postman-rest-task HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54064 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54065 - \"PUT /api/v1/tasks/api-evangelist-postman-rest-task/status HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54067 - \"PUT /api/v1/tasks/api-evangelist-postman-rest-task/cancel HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54069 - \"POST /api/v1/objects/api-evangelist-postman-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54071 - \"HEAD /api/v1/objects/api-evangelist-postman-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54072 - \"GET /api/v1/objects?prefix=api-evangelist-postman-rest HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54074 - \"GET /api/v1/objects/api-evangelist-postman-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54076 - \"DELETE /api/v1/objects/api-evangelist-postman-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [31861]\n",
+    "target": "http://localhost:8080",
+    "tasks.cancel": {
+      "createTime": "2026-06-22T05:01:23.394585Z",
+      "create_time": "2026-06-22T05:01:23.394585Z",
+      "createdBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "created_by": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "displayName": "Spec REST task",
+      "display_name": "Spec REST task",
+      "lastUpdateTime": "2026-06-22T05:01:23.415371Z",
+      "lastUpdatedBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "last_update_time": "2026-06-22T05:01:23.415371Z",
+      "last_updated_by": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "status": {
+        "cancel": {},
+        "status": "STATUS_CANCELED"
+      },
+      "taskId": "api-evangelist-postman-rest-task",
+      "task_id": "api-evangelist-postman-rest-task",
+      "version": {
+        "definitionVersion": 1,
+        "definition_version": 1,
+        "statusVersion": 3,
+        "status_version": 3,
+        "taskId": "api-evangelist-postman-rest-task",
+        "task_id": "api-evangelist-postman-rest-task"
+      }
+    },
+    "tasks.create": {
+      "_compat": {
+        "eventType": "CREATE",
+        "sequence": 4
+      },
+      "createTime": "2026-06-22T05:01:23.394585Z",
+      "create_time": "2026-06-22T05:01:23.394585Z",
+      "createdBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "created_by": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "displayName": "Spec REST task",
+      "display_name": "Spec REST task",
+      "lastUpdateTime": "2026-06-22T05:01:23.394585Z",
+      "lastUpdatedBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "last_update_time": "2026-06-22T05:01:23.394585Z",
+      "last_updated_by": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "status": {
+        "status": "STATUS_CREATED"
+      },
+      "taskId": "api-evangelist-postman-rest-task",
+      "task_id": "api-evangelist-postman-rest-task",
+      "version": {
+        "definitionVersion": 1,
+        "definition_version": 1,
+        "statusVersion": 1,
+        "status_version": 1,
+        "taskId": "api-evangelist-postman-rest-task",
+        "task_id": "api-evangelist-postman-rest-task"
+      }
+    },
+    "tasks.get": {
+      "createTime": "2026-06-22T05:01:23.394585Z",
+      "create_time": "2026-06-22T05:01:23.394585Z",
+      "createdBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "created_by": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "displayName": "Spec REST task",
+      "display_name": "Spec REST task",
+      "lastUpdateTime": "2026-06-22T05:01:23.394585Z",
+      "lastUpdatedBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "last_update_time": "2026-06-22T05:01:23.394585Z",
+      "last_updated_by": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "status": {
+        "status": "STATUS_CREATED"
+      },
+      "taskId": "api-evangelist-postman-rest-task",
+      "task_id": "api-evangelist-postman-rest-task",
+      "version": {
+        "definitionVersion": 1,
+        "definition_version": 1,
+        "statusVersion": 1,
+        "status_version": 1,
+        "taskId": "api-evangelist-postman-rest-task",
+        "task_id": "api-evangelist-postman-rest-task"
+      }
+    },
+    "tasks.query": {
+      "taskIds": [
+        "api-evangelist-postman-rest-task"
+      ]
+    },
+    "tasks.update_status": {
+      "createTime": "2026-06-22T05:01:23.394585Z",
+      "create_time": "2026-06-22T05:01:23.394585Z",
+      "createdBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "created_by": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "displayName": "Spec REST task",
+      "display_name": "Spec REST task",
+      "lastUpdateTime": "2026-06-22T05:01:23.409531Z",
+      "lastUpdatedBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "last_update_time": "2026-06-22T05:01:23.409531Z",
+      "last_updated_by": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "status": {
+        "status": "STATUS_EXECUTING"
+      },
+      "taskId": "api-evangelist-postman-rest-task",
+      "task_id": "api-evangelist-postman-rest-task",
+      "version": {
+        "definitionVersion": 1,
+        "definition_version": 1,
+        "statusVersion": 2,
+        "status_version": 2,
+        "taskId": "api-evangelist-postman-rest-task",
+        "task_id": "api-evangelist-postman-rest-task"
+      }
+    },
+    "token_configured": true,
+    "transport.rest_json": {
+      "artifact_kind": "postman",
+      "artifacts": [
+        "collections/anduril.opencollection.json",
+        "collections/anduril.postman_collection.json"
+      ]
+    }
+  },
+  "failed": [],
+  "fixture": "api-evangelist-postman-rest",
+  "missing": [],
+  "mode": "strict",
+  "passed": [
+    "auth.oauth_client_credentials",
+    "auth.bearer_token",
+    "transport.rest_json",
+    "entities.publish",
+    "entities.get",
+    "entities.overrides.apply",
+    "entities.overrides.clear",
+    "entities.long_poll",
+    "tasks.create",
+    "tasks.get",
+    "tasks.query",
+    "tasks.update_status",
+    "tasks.cancel",
+    "objects.upload",
+    "objects.metadata",
+    "objects.list",
+    "objects.download",
+    "objects.delete"
+  ],
+  "result": "pass",
+  "zorn_version": "0.1.0"
+}

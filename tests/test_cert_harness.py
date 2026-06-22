@@ -21,6 +21,7 @@ def _fixture(*, fixture_id: str, runner: str) -> Fixture:
         category="test_fixture",
         runner=runner,
         license_status="unknown",
+        adaptation_tier="endpoint_token_only",
         surfaces=("entities.publish",),
         modes=("strict",),
         install_command=None,
@@ -48,6 +49,7 @@ def test_inspect_fixture_detects_python_workspace(tmp_path: Path) -> None:
     assert inspection["install_command"] == ["python", "-m", "pip", "install", "-r", "requirements.txt"]
     assert inspection["run_command"] == ["python", "src/main.py", "--config", "var/config.yml"]
     assert inspection["run_commands"] == [["python", "src/main.py", "--config", "var/config.yml"]]
+    assert inspection["adaptation_tier"] == "endpoint_token_only"
     assert "var/config.yml" in inspection["config_files"]
     assert "LATTICE_ENDPOINT" in inspection["required_env"]
     assert inspection["placeholder_tokens"] == ["ENVIRONMENT_TOKEN", "SANDBOXES_TOKEN"]
@@ -188,6 +190,7 @@ def test_install_fixture_uses_fixture_venv_for_python(monkeypatch: pytest.Monkey
         category="test_fixture",
         runner="python_sample",
         license_status="unknown",
+        adaptation_tier="endpoint_token_only",
         surfaces=("entities.publish",),
         modes=("strict",),
         install_command=("python", "-m", "pip", "install", "-r", "requirements.txt"),

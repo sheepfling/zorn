@@ -1,0 +1,644 @@
+{
+  "adaptation_tier": "runtime_shim",
+  "details": {
+    "artifact_kind": "openapi",
+    "artifacts": [
+      "openapi/anduril-openapi.yml"
+    ],
+    "auth.bearer_token": {
+      "compatibilityTarget": "Public SDK-style workflows",
+      "ok": true,
+      "productName": "Zorn"
+    },
+    "auth.oauth_client_credentials": {
+      "access_token": "dev-token",
+      "expires_in": 3600,
+      "scope": "local-dev",
+      "token_type": "Bearer"
+    },
+    "entities.get": {
+      "description": "api-evangelist-openapi-rest REST conformance entity",
+      "entityId": "api-evangelist-openapi-rest-entity",
+      "entity_id": "api-evangelist-openapi-rest-entity",
+      "isLive": true,
+      "is_live": true,
+      "location": {
+        "position": {
+          "altitudeHaeMeters": 45,
+          "latitudeDegrees": 37.781,
+          "longitudeDegrees": -122.422
+        }
+      },
+      "milView": {
+        "disposition": "DISPOSITION_ASSUMED_FRIENDLY"
+      },
+      "noExpiry": true,
+      "ontology": {
+        "platformType": "UAS",
+        "template": "TEMPLATE_TRACK"
+      },
+      "provenance": {
+        "integrationName": "api-evangelist-openapi-rest",
+        "sourceId": "api-evangelist-openapi-rest"
+      }
+    },
+    "entities.long_poll": {
+      "entityEvents": [
+        {
+          "entity": {
+            "description": "api-evangelist-openapi-rest REST conformance entity",
+            "entityId": "api-evangelist-openapi-rest-entity",
+            "entity_id": "api-evangelist-openapi-rest-entity",
+            "isLive": true,
+            "is_live": true,
+            "location": {
+              "position": {
+                "altitudeHaeMeters": 45,
+                "latitudeDegrees": 37.781,
+                "longitudeDegrees": -122.422
+              }
+            },
+            "milView": {
+              "disposition": "DISPOSITION_ASSUMED_FRIENDLY"
+            },
+            "noExpiry": true,
+            "ontology": {
+              "platformType": "UAS",
+              "template": "TEMPLATE_TRACK"
+            },
+            "provenance": {
+              "integrationName": "api-evangelist-openapi-rest",
+              "sourceId": "api-evangelist-openapi-rest"
+            }
+          },
+          "eventType": "CREATE",
+          "occurredTime": "2026-06-22T05:01:23.316106Z",
+          "sequence": 1,
+          "time": "2026-06-22T05:01:23.307379Z"
+        },
+        {
+          "entity": {
+            "description": "api-evangelist-openapi-rest REST conformance entity",
+            "entityId": "api-evangelist-openapi-rest-entity",
+            "entity_id": "api-evangelist-openapi-rest-entity",
+            "isLive": true,
+            "is_live": true,
+            "location": {
+              "position": {
+                "altitudeHaeMeters": 45,
+                "latitudeDegrees": 37.781,
+                "longitudeDegrees": -122.422
+              }
+            },
+            "milView": {
+              "disposition": "DISPOSITION_HOSTILE"
+            },
+            "noExpiry": true,
+            "ontology": {
+              "platformType": "UAS",
+              "template": "TEMPLATE_TRACK"
+            },
+            "overrides": {
+              "mil_view.disposition": "DISPOSITION_HOSTILE"
+            },
+            "provenance": {
+              "integrationName": "api-evangelist-openapi-rest",
+              "sourceId": "api-evangelist-openapi-rest"
+            }
+          },
+          "eventType": "UPDATE",
+          "occurredTime": "2026-06-22T05:01:23.330240Z",
+          "overrideFieldPath": "mil_view.disposition",
+          "sequence": 2
+        },
+        {
+          "entity": {
+            "description": "api-evangelist-openapi-rest REST conformance entity",
+            "entityId": "api-evangelist-openapi-rest-entity",
+            "entity_id": "api-evangelist-openapi-rest-entity",
+            "isLive": true,
+            "is_live": true,
+            "location": {
+              "position": {
+                "altitudeHaeMeters": 45,
+                "latitudeDegrees": 37.781,
+                "longitudeDegrees": -122.422
+              }
+            },
+            "milView": {
+              "disposition": "DISPOSITION_HOSTILE"
+            },
+            "noExpiry": true,
+            "ontology": {
+              "platformType": "UAS",
+              "template": "TEMPLATE_TRACK"
+            },
+            "overrides": {},
+            "provenance": {
+              "integrationName": "api-evangelist-openapi-rest",
+              "sourceId": "api-evangelist-openapi-rest"
+            }
+          },
+          "eventType": "UPDATE",
+          "occurredTime": "2026-06-22T05:01:23.339395Z",
+          "removedOverrideFieldPath": "mil_view.disposition",
+          "sequence": 3
+        }
+      ],
+      "events": [
+        {
+          "entity": {
+            "description": "api-evangelist-openapi-rest REST conformance entity",
+            "entityId": "api-evangelist-openapi-rest-entity",
+            "entity_id": "api-evangelist-openapi-rest-entity",
+            "isLive": true,
+            "is_live": true,
+            "location": {
+              "position": {
+                "altitudeHaeMeters": 45,
+                "latitudeDegrees": 37.781,
+                "longitudeDegrees": -122.422
+              }
+            },
+            "milView": {
+              "disposition": "DISPOSITION_ASSUMED_FRIENDLY"
+            },
+            "noExpiry": true,
+            "ontology": {
+              "platformType": "UAS",
+              "template": "TEMPLATE_TRACK"
+            },
+            "provenance": {
+              "integrationName": "api-evangelist-openapi-rest",
+              "sourceId": "api-evangelist-openapi-rest"
+            }
+          },
+          "eventType": "CREATE",
+          "occurredTime": "2026-06-22T05:01:23.316106Z",
+          "sequence": 1,
+          "time": "2026-06-22T05:01:23.307379Z"
+        },
+        {
+          "entity": {
+            "description": "api-evangelist-openapi-rest REST conformance entity",
+            "entityId": "api-evangelist-openapi-rest-entity",
+            "entity_id": "api-evangelist-openapi-rest-entity",
+            "isLive": true,
+            "is_live": true,
+            "location": {
+              "position": {
+                "altitudeHaeMeters": 45,
+                "latitudeDegrees": 37.781,
+                "longitudeDegrees": -122.422
+              }
+            },
+            "milView": {
+              "disposition": "DISPOSITION_HOSTILE"
+            },
+            "noExpiry": true,
+            "ontology": {
+              "platformType": "UAS",
+              "template": "TEMPLATE_TRACK"
+            },
+            "overrides": {
+              "mil_view.disposition": "DISPOSITION_HOSTILE"
+            },
+            "provenance": {
+              "integrationName": "api-evangelist-openapi-rest",
+              "sourceId": "api-evangelist-openapi-rest"
+            }
+          },
+          "eventType": "UPDATE",
+          "occurredTime": "2026-06-22T05:01:23.330240Z",
+          "overrideFieldPath": "mil_view.disposition",
+          "sequence": 2
+        },
+        {
+          "entity": {
+            "description": "api-evangelist-openapi-rest REST conformance entity",
+            "entityId": "api-evangelist-openapi-rest-entity",
+            "entity_id": "api-evangelist-openapi-rest-entity",
+            "isLive": true,
+            "is_live": true,
+            "location": {
+              "position": {
+                "altitudeHaeMeters": 45,
+                "latitudeDegrees": 37.781,
+                "longitudeDegrees": -122.422
+              }
+            },
+            "milView": {
+              "disposition": "DISPOSITION_HOSTILE"
+            },
+            "noExpiry": true,
+            "ontology": {
+              "platformType": "UAS",
+              "template": "TEMPLATE_TRACK"
+            },
+            "overrides": {},
+            "provenance": {
+              "integrationName": "api-evangelist-openapi-rest",
+              "sourceId": "api-evangelist-openapi-rest"
+            }
+          },
+          "eventType": "UPDATE",
+          "occurredTime": "2026-06-22T05:01:23.339395Z",
+          "removedOverrideFieldPath": "mil_view.disposition",
+          "sequence": 3
+        }
+      ],
+      "sessionToken": "3"
+    },
+    "entities.overrides.apply": {
+      "description": "api-evangelist-openapi-rest REST conformance entity",
+      "entityId": "api-evangelist-openapi-rest-entity",
+      "entity_id": "api-evangelist-openapi-rest-entity",
+      "isLive": true,
+      "is_live": true,
+      "location": {
+        "position": {
+          "altitudeHaeMeters": 45,
+          "latitudeDegrees": 37.781,
+          "longitudeDegrees": -122.422
+        }
+      },
+      "milView": {
+        "disposition": "DISPOSITION_HOSTILE"
+      },
+      "noExpiry": true,
+      "ontology": {
+        "platformType": "UAS",
+        "template": "TEMPLATE_TRACK"
+      },
+      "overrides": {
+        "mil_view.disposition": "DISPOSITION_HOSTILE"
+      },
+      "provenance": {
+        "integrationName": "api-evangelist-openapi-rest",
+        "sourceId": "api-evangelist-openapi-rest"
+      }
+    },
+    "entities.overrides.clear": {
+      "description": "api-evangelist-openapi-rest REST conformance entity",
+      "entityId": "api-evangelist-openapi-rest-entity",
+      "entity_id": "api-evangelist-openapi-rest-entity",
+      "isLive": true,
+      "is_live": true,
+      "location": {
+        "position": {
+          "altitudeHaeMeters": 45,
+          "latitudeDegrees": 37.781,
+          "longitudeDegrees": -122.422
+        }
+      },
+      "milView": {
+        "disposition": "DISPOSITION_HOSTILE"
+      },
+      "noExpiry": true,
+      "ontology": {
+        "platformType": "UAS",
+        "template": "TEMPLATE_TRACK"
+      },
+      "overrides": {},
+      "provenance": {
+        "integrationName": "api-evangelist-openapi-rest",
+        "sourceId": "api-evangelist-openapi-rest"
+      }
+    },
+    "entities.publish": {
+      "_compat": {
+        "eventType": "CREATE",
+        "sequence": 1
+      },
+      "description": "api-evangelist-openapi-rest REST conformance entity",
+      "entityId": "api-evangelist-openapi-rest-entity",
+      "entity_id": "api-evangelist-openapi-rest-entity",
+      "isLive": true,
+      "is_live": true,
+      "location": {
+        "position": {
+          "altitudeHaeMeters": 45,
+          "latitudeDegrees": 37.781,
+          "longitudeDegrees": -122.422
+        }
+      },
+      "milView": {
+        "disposition": "DISPOSITION_ASSUMED_FRIENDLY"
+      },
+      "noExpiry": true,
+      "ontology": {
+        "platformType": "UAS",
+        "template": "TEMPLATE_TRACK"
+      },
+      "provenance": {
+        "integrationName": "api-evangelist-openapi-rest",
+        "sourceId": "api-evangelist-openapi-rest"
+      }
+    },
+    "fixture_dir": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/api-evangelist-openapi-rest",
+    "objects.delete": {
+      "deleted": true,
+      "objectPath": "api-evangelist-openapi-rest/object.txt"
+    },
+    "objects.download": {
+      "bytes": 21
+    },
+    "objects.list": {
+      "next_page_token": null,
+      "objects": [
+        {
+          "checksumSha256": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
+          "contentType": "application/octet-stream",
+          "createdTime": "2026-06-22T05:01:23.436945Z",
+          "expiryTime": null,
+          "metadata": {},
+          "objectPath": "api-evangelist-openapi-rest/object.txt",
+          "sizeBytes": 21,
+          "updatedTime": "2026-06-22T05:01:23.436945Z"
+        }
+      ],
+      "path_metadatas": [
+        {
+          "checksumSha256": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
+          "contentType": "application/octet-stream",
+          "content_identifier": {
+            "checksum": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
+            "path": "api-evangelist-openapi-rest/object.txt"
+          },
+          "createdTime": "2026-06-22T05:01:23.436945Z",
+          "expiry_time": null,
+          "last_updated_at": "2026-06-22T05:01:23.436945Z",
+          "metadata": {},
+          "objectPath": "api-evangelist-openapi-rest/object.txt",
+          "sizeBytes": 21,
+          "size_bytes": 21,
+          "updatedTime": "2026-06-22T05:01:23.436945Z"
+        }
+      ]
+    },
+    "objects.metadata": {
+      "headers": {
+        "checksum": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
+        "connection": "close",
+        "content-length": "21",
+        "content-type": "application/octet-stream",
+        "date": "Mon, 22 Jun 2026 05:01:23 GMT",
+        "etag": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
+        "last-modified": "2026-06-22T05:01:23.436945Z",
+        "path": "api-evangelist-openapi-rest/object.txt",
+        "server": "uvicorn",
+        "x-checksum-sha256": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
+        "x-object-path": "api-evangelist-openapi-rest/object.txt"
+      }
+    },
+    "objects.upload": {
+      "checksumSha256": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
+      "contentType": "application/octet-stream",
+      "content_identifier": {
+        "checksum": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
+        "path": "api-evangelist-openapi-rest/object.txt"
+      },
+      "createdTime": "2026-06-22T05:01:23.436945Z",
+      "expiry_time": null,
+      "last_updated_at": "2026-06-22T05:01:23.436945Z",
+      "metadata": {},
+      "objectPath": "api-evangelist-openapi-rest/object.txt",
+      "sizeBytes": 21,
+      "size_bytes": 21,
+      "updatedTime": "2026-06-22T05:01:23.436945Z"
+    },
+    "reason": "openapi conformance executor is not implemented yet",
+    "server_log": "INFO:     Started server process [31860]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://127.0.0.1:54032 (Press CTRL+C to quit)\nINFO:     127.0.0.1:54043 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54044 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54045 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54046 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54050 - \"GET /api/v1/entities/api-evangelist-openapi-rest-entity HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54052 - \"PUT /api/v1/entities/api-evangelist-openapi-rest-entity/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54053 - \"DELETE /api/v1/entities/api-evangelist-openapi-rest-entity/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54054 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54056 - \"POST /api/v1/tasks HTTP/1.1\" 201 Created\nINFO:     127.0.0.1:54061 - \"GET /api/v1/tasks/api-evangelist-openapi-rest-task HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54063 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54066 - \"PUT /api/v1/tasks/api-evangelist-openapi-rest-task/status HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54068 - \"PUT /api/v1/tasks/api-evangelist-openapi-rest-task/cancel HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54070 - \"POST /api/v1/objects/api-evangelist-openapi-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54073 - \"HEAD /api/v1/objects/api-evangelist-openapi-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54075 - \"GET /api/v1/objects?prefix=api-evangelist-openapi-rest HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54077 - \"GET /api/v1/objects/api-evangelist-openapi-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54078 - \"DELETE /api/v1/objects/api-evangelist-openapi-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [31860]\n",
+    "target": "http://localhost:8080",
+    "tasks.cancel": {
+      "createTime": "2026-06-22T05:01:23.390356Z",
+      "create_time": "2026-06-22T05:01:23.390356Z",
+      "createdBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "created_by": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "displayName": "Spec REST task",
+      "display_name": "Spec REST task",
+      "lastUpdateTime": "2026-06-22T05:01:23.417276Z",
+      "lastUpdatedBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "last_update_time": "2026-06-22T05:01:23.417276Z",
+      "last_updated_by": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "status": {
+        "cancel": {},
+        "status": "STATUS_CANCELED"
+      },
+      "taskId": "api-evangelist-openapi-rest-task",
+      "task_id": "api-evangelist-openapi-rest-task",
+      "version": {
+        "definitionVersion": 1,
+        "definition_version": 1,
+        "statusVersion": 3,
+        "status_version": 3,
+        "taskId": "api-evangelist-openapi-rest-task",
+        "task_id": "api-evangelist-openapi-rest-task"
+      }
+    },
+    "tasks.create": {
+      "_compat": {
+        "eventType": "CREATE",
+        "sequence": 4
+      },
+      "createTime": "2026-06-22T05:01:23.390356Z",
+      "create_time": "2026-06-22T05:01:23.390356Z",
+      "createdBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "created_by": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "displayName": "Spec REST task",
+      "display_name": "Spec REST task",
+      "lastUpdateTime": "2026-06-22T05:01:23.390356Z",
+      "lastUpdatedBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "last_update_time": "2026-06-22T05:01:23.390356Z",
+      "last_updated_by": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "status": {
+        "status": "STATUS_CREATED"
+      },
+      "taskId": "api-evangelist-openapi-rest-task",
+      "task_id": "api-evangelist-openapi-rest-task",
+      "version": {
+        "definitionVersion": 1,
+        "definition_version": 1,
+        "statusVersion": 1,
+        "status_version": 1,
+        "taskId": "api-evangelist-openapi-rest-task",
+        "task_id": "api-evangelist-openapi-rest-task"
+      }
+    },
+    "tasks.get": {
+      "createTime": "2026-06-22T05:01:23.390356Z",
+      "create_time": "2026-06-22T05:01:23.390356Z",
+      "createdBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "created_by": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "displayName": "Spec REST task",
+      "display_name": "Spec REST task",
+      "lastUpdateTime": "2026-06-22T05:01:23.390356Z",
+      "lastUpdatedBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "last_update_time": "2026-06-22T05:01:23.390356Z",
+      "last_updated_by": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "status": {
+        "status": "STATUS_CREATED"
+      },
+      "taskId": "api-evangelist-openapi-rest-task",
+      "task_id": "api-evangelist-openapi-rest-task",
+      "version": {
+        "definitionVersion": 1,
+        "definition_version": 1,
+        "statusVersion": 1,
+        "status_version": 1,
+        "taskId": "api-evangelist-openapi-rest-task",
+        "task_id": "api-evangelist-openapi-rest-task"
+      }
+    },
+    "tasks.query": {
+      "taskIds": [
+        "api-evangelist-openapi-rest-task"
+      ]
+    },
+    "tasks.update_status": {
+      "createTime": "2026-06-22T05:01:23.390356Z",
+      "create_time": "2026-06-22T05:01:23.390356Z",
+      "createdBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "created_by": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "displayName": "Spec REST task",
+      "display_name": "Spec REST task",
+      "lastUpdateTime": "2026-06-22T05:01:23.411546Z",
+      "lastUpdatedBy": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "last_update_time": "2026-06-22T05:01:23.411546Z",
+      "last_updated_by": {
+        "system": {
+          "serviceName": "local-compat-sandbox",
+          "service_name": "local-compat-sandbox"
+        }
+      },
+      "status": {
+        "status": "STATUS_EXECUTING"
+      },
+      "taskId": "api-evangelist-openapi-rest-task",
+      "task_id": "api-evangelist-openapi-rest-task",
+      "version": {
+        "definitionVersion": 1,
+        "definition_version": 1,
+        "statusVersion": 2,
+        "status_version": 2,
+        "taskId": "api-evangelist-openapi-rest-task",
+        "task_id": "api-evangelist-openapi-rest-task"
+      }
+    },
+    "token_configured": true,
+    "transport.rest_json": {
+      "artifact_kind": "openapi",
+      "artifacts": [
+        "openapi/anduril-openapi.yml"
+      ]
+    }
+  },
+  "failed": [],
+  "fixture": "api-evangelist-openapi-rest",
+  "missing": [
+    "entities.stream_sse",
+    "objects.list_deleted",
+    "tasks.listen_as_agent",
+    "tasks.manual_control_frames",
+    "tasks.stream",
+    "tasks.stream_as_agent"
+  ],
+  "mode": "strict",
+  "passed": [
+    "auth.oauth_client_credentials",
+    "auth.bearer_token",
+    "transport.rest_json",
+    "entities.publish",
+    "entities.get",
+    "entities.overrides.apply",
+    "entities.overrides.clear",
+    "entities.long_poll",
+    "tasks.create",
+    "tasks.get",
+    "tasks.query",
+    "tasks.update_status",
+    "tasks.cancel",
+    "objects.upload",
+    "objects.metadata",
+    "objects.list",
+    "objects.download",
+    "objects.delete"
+  ],
+  "result": "partial",
+  "zorn_version": "0.1.0"
+}

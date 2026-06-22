@@ -1,0 +1,37 @@
+{
+  "adaptation_tier": "runtime_shim",
+  "details": {
+    "expected_binpb": [
+      "entity_publish_request.binpb",
+      "entity_get_request.binpb",
+      "entity_stream_request.binpb",
+      "task_create_request.binpb",
+      "task_update_status_request.binpb",
+      "task_cancel_request.binpb",
+      "task_listen_as_agent_request.binpb"
+    ],
+    "fixture_dir": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/raw-proto-generation-matrix",
+    "manifest": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/tests/fixtures/grpc/manifest.yaml",
+    "missing_binpb": [
+      "entity_publish_request.binpb",
+      "entity_get_request.binpb",
+      "entity_stream_request.binpb",
+      "task_create_request.binpb",
+      "task_update_status_request.binpb",
+      "task_cancel_request.binpb",
+      "task_listen_as_agent_request.binpb"
+    ],
+    "reason": "golden gRPC wire fixture generator is not implemented yet"
+  },
+  "failed": [],
+  "fixture": "raw-proto-generation-matrix",
+  "missing": [
+    "transport.grpc_protobuf",
+    "auth.grpc_bearer_metadata",
+    "entities.grpc_stream"
+  ],
+  "mode": "strict",
+  "passed": [],
+  "result": "missing",
+  "zorn_version": "0.1.0"
+}

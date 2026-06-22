@@ -1,0 +1,16 @@
+adaptation_tiers:
+  endpoint_token_only:
+    label: endpoint/token only
+    meaning: Fixture runs unmodified with only endpoint, token, sandbox, or OAuth credential changes.
+  runtime_env_translation:
+    label: runtime env translation
+    meaning: Fixture code remains unmodified, but the runner translates environment/config names or local runtime setup.
+  transport_proxy:
+    label: transport proxy
+    meaning: Fixture code remains unmodified, but a local bridge/proxy adapts transport such as HTTPS, gRPC-Web, SSE, or host routing.
+  runtime_shim:
+    label: runtime shim
+    meaning: Fixture requires injected runtime behavior such as monkeypatching, generated driver code, or SDK wrapper setup.
+  local_overlay:
+    label: local overlay
+    meaning: Fixture requires local overlay behavior or mocked dependency surfaces beyond endpoint/config changes.

@@ -1,0 +1,1175 @@
+{
+  "generated_at": "2026-06-21T23:27:43.120969+00:00",
+  "purpose": "Catalog public Lattice UI evidence and convert it into preliminary Zorn UI/proto requirements.",
+  "confidence_scale": {
+    "high": "Official Anduril docs or screenshots tied directly to official developer workflows.",
+    "medium_high": "Official company news/exercise imagery with visible UI but limited documentation context.",
+    "medium": "Partner articles or sanitized portfolio material.",
+    "low": "Public social screenshots; supporting evidence only."
+  },
+  "sources": [
+    {
+      "id": "SRC-001",
+      "title": "Anduril developer docs \u2014 Watch entities",
+      "url": "https://developer.anduril.com/guides/entities/watch",
+      "source_type": "official_docs",
+      "evidence_type": [
+        "documentation",
+        "screenshot"
+      ],
+      "reliability": "high",
+      "observed_images": [
+        "IMG-001",
+        "IMG-002"
+      ],
+      "notes": "Official docs page for getting an entity from the UI and streaming entity events. Includes Lattice UI asset details imagery.",
+      "key_claims": [
+        "The Lattice UI has an Entity Explorer and an Entity ID column.",
+        "SDK consumers can GetEntity and StreamEntities for real-time entity component updates."
+      ]
+    },
+    {
+      "id": "SRC-002",
+      "title": "Anduril developer docs \u2014 Sample apps",
+      "url": "https://developer.anduril.com/samples/overview",
+      "source_type": "official_docs",
+      "evidence_type": [
+        "documentation",
+        "screenshot"
+      ],
+      "reliability": "high",
+      "observed_images": [
+        "IMG-003"
+      ],
+      "notes": "Official sample app overview. Includes entity visualizer, objects CLI, AIS integration, entity thumbnail, and task-an-asset samples.",
+      "key_claims": [
+        "The entity visualizer renders all entities in an environment on a map.",
+        "Sample screenshots show tasking and bearing/range visualization."
+      ]
+    },
+    {
+      "id": "SRC-003",
+      "title": "Anduril developer docs \u2014 Entities overview",
+      "url": "https://developer.anduril.com/guides/entities/overview",
+      "source_type": "official_docs",
+      "evidence_type": [
+        "documentation"
+      ],
+      "reliability": "high",
+      "observed_images": [],
+      "notes": "Official data-model source for entities, templates, lifecycle, assets, tracks, and geo-entities.",
+      "key_claims": [
+        "Entities power the common operating picture.",
+        "Entities are component-based and may be partial in real time.",
+        "UI may group entities by ontology component.",
+        "Asset, Track, and Geo-entity are the three top-level shapes."
+      ]
+    },
+    {
+      "id": "SRC-004",
+      "title": "Anduril developer docs \u2014 Tasks overview",
+      "url": "https://developer.anduril.com/guides/tasks/overview",
+      "source_type": "official_docs",
+      "evidence_type": [
+        "documentation"
+      ],
+      "reliability": "high",
+      "observed_images": [],
+      "notes": "Official source for task model, task catalog, task status, and task lifecycle semantics.",
+      "key_claims": [
+        "Tasks model deliberate sequential actions an operator can execute on an asset or team of assets.",
+        "Taskable agents can be services, assets, groups, or humans.",
+        "Task catalog advertises task definitions an agent can perform.",
+        "Task Manager routes, persists, monitors, and maintains task state across the COP."
+      ]
+    },
+    {
+      "id": "SRC-005",
+      "title": "Anduril developer docs \u2014 Update tasks",
+      "url": "https://developer.anduril.com/guides/tasks/update",
+      "source_type": "official_docs",
+      "evidence_type": [
+        "documentation",
+        "screenshot"
+      ],
+      "reliability": "high",
+      "observed_images": [
+        "IMG-004",
+        "IMG-005"
+      ],
+      "notes": "Official task status update guide with screenshot evidence of task selection/execution UI.",
+      "key_claims": [
+        "Task status represents lifecycle stage.",
+        "Agents report real-time status updates with UpdateStatus."
+      ]
+    },
+    {
+      "id": "SRC-006",
+      "title": "Anduril developer docs \u2014 Objects overview",
+      "url": "https://developer.anduril.com/guides/objects/overview",
+      "source_type": "official_docs",
+      "evidence_type": [
+        "documentation"
+      ],
+      "reliability": "high",
+      "observed_images": [],
+      "notes": "Official object-store source for file/data storage, object lifecycle, CDN/mesh behavior, and entity/object use cases.",
+      "key_claims": [
+        "Objects represent a single file or piece of data.",
+        "Objects can be used with Entities for track thumbnails and vessel manifests.",
+        "Object lifecycle includes create, expire, and delete."
+      ]
+    },
+    {
+      "id": "SRC-007",
+      "title": "Lauren Park portfolio \u2014 Anduril Lattice UI",
+      "url": "https://www.laurenjpark.com/work/anduril",
+      "source_type": "designer_portfolio",
+      "evidence_type": [
+        "screenshot",
+        "design_notes"
+      ],
+      "reliability": "medium",
+      "observed_images": [
+        "IMG-006",
+        "IMG-007"
+      ],
+      "notes": "Sanitized designer portfolio describing Lattice Live COP, object multi-selection, grouping, bulk editing, and starring.",
+      "key_claims": [
+        "Lattice Live COP provides a real-time battlespace overview by integrating sensors into one interface.",
+        "Object multi-selection supports shift-click from object cards and dragging over map objects.",
+        "Multi-selection panel, refine-selection filters, bulk metadata editing, grouping, ungrouping, confirmation snackbar, and starred panel are described."
+      ]
+    },
+    {
+      "id": "SRC-008",
+      "title": "Wind River blog \u2014 Lattice Sandbox integration",
+      "url": "https://www.windriver.com/blog/Accelerating-Safety-Critical-Innovation-Wind-River-Anduril",
+      "source_type": "partner_blog",
+      "evidence_type": [
+        "screenshot",
+        "article"
+      ],
+      "reliability": "medium",
+      "observed_images": [
+        "IMG-008",
+        "IMG-009"
+      ],
+      "notes": "Partner blog about early Lattice Sandbox access and integration with Lattice SDK. Includes sandbox UI screenshots with simulated assets and tasks.",
+      "key_claims": [
+        "Lattice C2/mesh integration imports telemetry such as lat/lon, heading, altitude, velocity, and sensor readings.",
+        "Screenshots show asset details, payloads, data overrides, task dropdown, and task execute/discard workflow."
+      ]
+    },
+    {
+      "id": "SRC-009",
+      "title": "Anduril news \u2014 Desert Guardian 1.0",
+      "url": "https://www.anduril.com/news/anduril-s-lattice-showcased-in-u-s-central-command-s-desert-guardian-1-0",
+      "source_type": "company_news",
+      "evidence_type": [
+        "screenshot"
+      ],
+      "reliability": "medium_high",
+      "observed_images": [
+        "IMG-010"
+      ],
+      "notes": "Public exercise screenshot showing satellite map, hostile air vehicle tracks, loiter/engagement regions, and Roadrunner task cards.",
+      "key_claims": [
+        "Operational UI includes layers/search/analytics/map options, active threat tracks, mission zones, and asset task cards."
+      ]
+    },
+    {
+      "id": "SRC-010",
+      "title": "Hartpunkt article \u2014 Anduril Lattice selected for U.S. Army IBCS-M",
+      "url": "https://www.hartpunkt.de/u-s-army-waehlt-anduril-lattice-als-software-zentrierte-feuerleitarchitektur-fuer-die-drohnenabwehr/",
+      "source_type": "media_article",
+      "evidence_type": [
+        "screenshot",
+        "article"
+      ],
+      "reliability": "medium",
+      "observed_images": [
+        "IMG-011"
+      ],
+      "notes": "German article with Anduril-attributed C-UAS/fire-control UI screenshot. Use as supporting visual evidence only.",
+      "key_claims": [
+        "Image shows defended areas, sensor cones, hostile tracks, triage states, pending/current/complete task columns, and emergency stop controls."
+      ]
+    },
+    {
+      "id": "SRC-011",
+      "title": "Public social screenshot \u2014 Lattice Live drone tracking",
+      "url": "https://x.com/cemaxecuter/status/1989142204070391895",
+      "source_type": "social_media",
+      "evidence_type": [
+        "screenshot"
+      ],
+      "reliability": "low",
+      "observed_images": [
+        "IMG-012"
+      ],
+      "notes": "Unverified public screenshot of Lattice Live showing wardragon-detection track details. Keep as low-confidence supporting evidence.",
+      "key_claims": [
+        "Image shows selected map track with inline telemetry popup and matching detail fields."
+      ]
+    }
+  ],
+  "images": [
+    {
+      "id": "IMG-001",
+      "source_id": "SRC-001",
+      "title": "Entity details panel with asset actions",
+      "public_image_ref": "turn536822image0 / turn536822image5",
+      "observed_ui": [
+        "Dark-theme map-first shell",
+        "Left entity detail panel",
+        "Online badge",
+        "Entity template/platform label",
+        "Disposition dropdown-like label",
+        "Data type and ID fields",
+        "Simulated badge",
+        "Battery/health-like indicator",
+        "Timeline/playback-like controls",
+        "Asset data section",
+        "Top action bar with focus/visibility/star/more",
+        "Actions menu: Follow, Manual, Anchor to Map Center, Copy Content, Manage Asset",
+        "Copy Asset URL and Copy Asset Location submenu"
+      ],
+      "observed_data_fields": [
+        "activity",
+        "domain",
+        "last_updated",
+        "created_time",
+        "altitude_msl",
+        "location",
+        "time_since_creation",
+        "disposition",
+        "data_type",
+        "entity_id"
+      ],
+      "implied_requirements": [
+        "REQ-ENT-DETAIL-001",
+        "REQ-ENT-ACTIONS-001",
+        "REQ-ENT-COPY-001",
+        "REQ-STAR-001"
+      ],
+      "priority": "P0",
+      "confidence": "high"
+    },
+    {
+      "id": "IMG-002",
+      "source_id": "SRC-001",
+      "title": "Entity Explorer / get entity context",
+      "public_image_ref": "documentation embedded screenshot",
+      "observed_ui": [
+        "Entity Explorer table/list implied by official docs",
+        "Entity ID column for copy/use in SDK calls"
+      ],
+      "observed_data_fields": [
+        "entity_id"
+      ],
+      "implied_requirements": [
+        "REQ-EXPLORER-001",
+        "REQ-EXPLORER-002"
+      ],
+      "priority": "P0",
+      "confidence": "high"
+    },
+    {
+      "id": "IMG-003",
+      "source_id": "SRC-002",
+      "title": "Tasking interface with bearing/range line",
+      "public_image_ref": "turn536822image1",
+      "observed_ui": [
+        "Selected asset detail panel",
+        "Central map with bearing/range geometry",
+        "Target/asset connection line",
+        "Task details panel for Investigate",
+        "Edit / complete / cancel task controls",
+        "Bottom map scale and cursor coordinate display"
+      ],
+      "observed_data_fields": [
+        "speed",
+        "heading",
+        "altitude",
+        "location",
+        "time_since_creation",
+        "task_type",
+        "target_entity_id",
+        "range",
+        "bearing"
+      ],
+      "implied_requirements": [
+        "REQ-TASK-PANEL-001",
+        "REQ-TASK-GEOMETRY-001",
+        "REQ-MAP-CURSOR-001"
+      ],
+      "priority": "P0",
+      "confidence": "high"
+    },
+    {
+      "id": "IMG-004",
+      "source_id": "SRC-005",
+      "title": "Task assignment workflow on satellite map",
+      "public_image_ref": "turn536822image4",
+      "observed_ui": [
+        "Satellite basemap",
+        "Anchored-to-asset banner",
+        "Selected asset/track popup",
+        "Right-side Task Details panel",
+        "Select track from map prompt",
+        "Discard and Execute Task actions"
+      ],
+      "observed_data_fields": [
+        "task_type",
+        "asset",
+        "target",
+        "position",
+        "heading",
+        "speed",
+        "altitude",
+        "last_updated"
+      ],
+      "implied_requirements": [
+        "REQ-TASK-CREATE-001",
+        "REQ-TASK-EXECUTE-001",
+        "REQ-MAP-PROMPT-001"
+      ],
+      "priority": "P0",
+      "confidence": "high"
+    },
+    {
+      "id": "IMG-005",
+      "source_id": "SRC-005",
+      "title": "Task dropdown from asset panel",
+      "public_image_ref": "turn536822image6",
+      "observed_ui": [
+        "Asset detail panel task dropdown",
+        "Task list includes BDA, Follow, Investigate, Manual, Smack, Target",
+        "Task menu items include info/help icons",
+        "Payloads / Task Catalog / Tags sections visible"
+      ],
+      "observed_data_fields": [
+        "task_catalog",
+        "payloads",
+        "tags",
+        "task_definition_names"
+      ],
+      "implied_requirements": [
+        "REQ-TASK-CATALOG-001",
+        "REQ-TASK-LAUNCHER-001",
+        "REQ-ENT-SECTIONS-001"
+      ],
+      "priority": "P0",
+      "confidence": "high"
+    },
+    {
+      "id": "IMG-006",
+      "source_id": "SRC-007",
+      "title": "Object map visualization and object list",
+      "public_image_ref": "turn536822image7",
+      "observed_ui": [
+        "Interactive map with clustered/numbered markers",
+        "Left Objects panel",
+        "Search and sort controls",
+        "Object cards with metadata/creator-like fields",
+        "Object map visualization empty/intro state"
+      ],
+      "observed_data_fields": [
+        "object_count",
+        "object_id",
+        "status",
+        "metadata",
+        "creator",
+        "cluster_count"
+      ],
+      "implied_requirements": [
+        "REQ-OBJECT-LIST-001",
+        "REQ-MAP-CLUSTER-001",
+        "REQ-SEARCH-SORT-001"
+      ],
+      "priority": "P1",
+      "confidence": "medium"
+    },
+    {
+      "id": "IMG-007",
+      "source_id": "SRC-007",
+      "title": "Multi-selection, bulk action, grouping, ungroup confirmation",
+      "public_image_ref": "turn536822image2",
+      "observed_ui": [
+        "Multi-selection panel",
+        "Selected count",
+        "Search and sort selected objects",
+        "Bulk Action button",
+        "Group/Ungroup controls",
+        "Confirmation modal with destructive action",
+        "Snackbar confirmation behavior described"
+      ],
+      "observed_data_fields": [
+        "selection_set_id",
+        "selected_entity_ids",
+        "group_id",
+        "bulk_action",
+        "filter_state"
+      ],
+      "implied_requirements": [
+        "REQ-SELECT-001",
+        "REQ-SELECT-002",
+        "REQ-BULK-001",
+        "REQ-GROUP-001",
+        "REQ-GROUP-UNGROUP-001",
+        "REQ-FEEDBACK-001"
+      ],
+      "priority": "P1",
+      "confidence": "medium"
+    },
+    {
+      "id": "IMG-008",
+      "source_id": "SRC-008",
+      "title": "Sandbox UAV task details interface",
+      "public_image_ref": "turn536822image3",
+      "observed_ui": [
+        "Blue bounded task/selection frame on map",
+        "Task Details panel for BDA-like mission",
+        "Target selection prompt",
+        "Conflict resolution prompt",
+        "Discard and Execute Task buttons",
+        "Inline hover/selected entity popup"
+      ],
+      "observed_data_fields": [
+        "task_type",
+        "required_asset",
+        "standoff_distance",
+        "target",
+        "conflict_state",
+        "entity_heading",
+        "entity_speed",
+        "entity_position"
+      ],
+      "implied_requirements": [
+        "REQ-TASK-DETAILS-001",
+        "REQ-TASK-CONFLICT-001",
+        "REQ-ENT-HOVER-001"
+      ],
+      "priority": "P1",
+      "confidence": "medium"
+    },
+    {
+      "id": "IMG-009",
+      "source_id": "SRC-008",
+      "title": "Sandbox simulated asset with payloads and data overrides",
+      "public_image_ref": "turn536822image8",
+      "observed_ui": [
+        "Left panel with SPI/asset data",
+        "Payloads section with operational status and count",
+        "Add Payload action",
+        "Data Overrides section with validation/check state",
+        "Task dropdown",
+        "Bottom live timestamp/cursor status bar"
+      ],
+      "observed_data_fields": [
+        "payloads",
+        "payload_status",
+        "payload_count",
+        "data_overrides",
+        "domain",
+        "altitude",
+        "location",
+        "created_time",
+        "last_updated"
+      ],
+      "implied_requirements": [
+        "REQ-PAYLOAD-001",
+        "REQ-OVERRIDE-001",
+        "REQ-STATUSBAR-001"
+      ],
+      "priority": "P1",
+      "confidence": "medium"
+    },
+    {
+      "id": "IMG-010",
+      "source_id": "SRC-009",
+      "title": "Desert Guardian operational C2 screenshot",
+      "public_image_ref": "turn536822image9",
+      "observed_ui": [
+        "Satellite map with hostile air tracks",
+        "Layers/Search/Analytics/Map Options controls",
+        "Left track list/detail panel",
+        "Right mission/task cards",
+        "Loiter zone polygon/circle",
+        "Engagement corridor overlay",
+        "Progress/readiness percentages",
+        "Action buttons such as scuttle / RTB / loiter visible in public image summary"
+      ],
+      "observed_data_fields": [
+        "threat_disposition",
+        "track_heading",
+        "track_path",
+        "zone_geometry",
+        "asset_task_status",
+        "task_progress",
+        "readiness",
+        "weapon_or_payload_status"
+      ],
+      "implied_requirements": [
+        "REQ-TOOLBAR-001",
+        "REQ-THREAT-001",
+        "REQ-ZONE-001",
+        "REQ-TASK-CARDS-001"
+      ],
+      "priority": "P1",
+      "confidence": "medium_high"
+    },
+    {
+      "id": "IMG-011",
+      "source_id": "SRC-010",
+      "title": "C-UAS/fire-control screenshot",
+      "public_image_ref": "turn536822image10",
+      "observed_ui": [
+        "3D/satellite tactical map",
+        "Multiple track categories/colors",
+        "Sensor cones/coverage sectors",
+        "Defended area polygon",
+        "Triage/status categories such as pending/current/complete",
+        "Right engagement queue",
+        "Emergency stop-like controls"
+      ],
+      "observed_data_fields": [
+        "threat_priority",
+        "queue_state",
+        "asset_id",
+        "time_to_target",
+        "sensor_coverage",
+        "defended_area",
+        "engagement_status"
+      ],
+      "implied_requirements": [
+        "REQ-CUAS-QUEUE-001",
+        "REQ-SENSOR-COVERAGE-001",
+        "REQ-SAFETY-STOP-001"
+      ],
+      "priority": "P2",
+      "confidence": "medium"
+    },
+    {
+      "id": "IMG-012",
+      "source_id": "SRC-011",
+      "title": "Public social Lattice Live drone tracking screenshot",
+      "public_image_ref": "turn536822image11",
+      "observed_ui": [
+        "Dark map with multiple drone/track markers",
+        "Inline selected-track popup",
+        "Left panel/details implied by selected route URL",
+        "Bottom UTC timestamp/live status bar"
+      ],
+      "observed_data_fields": [
+        "serial_number",
+        "data_type",
+        "disposition",
+        "altitude",
+        "speed",
+        "heading",
+        "position",
+        "last_updated"
+      ],
+      "implied_requirements": [
+        "REQ-ENT-HOVER-001",
+        "REQ-REMOTEID-001",
+        "REQ-STATUSBAR-001"
+      ],
+      "priority": "P2",
+      "confidence": "low"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-COP-001",
+      "title": "Map-first Live COP shell",
+      "priority": "P0",
+      "type": "ui",
+      "requirement": "Zorn shall provide a map-first, dark-theme Live COP shell with live status, map toolbar, entity layers, and selected-object panels.",
+      "evidence": [
+        "IMG-001",
+        "IMG-003",
+        "IMG-004",
+        "IMG-010"
+      ],
+      "acceptance": [
+        "An operator can open the COP and see a live map canvas with entity markers.",
+        "The UI shows live/disconnected state and at least one top toolbar row.",
+        "The UI can render both dark/vector-like and satellite basemap modes."
+      ]
+    },
+    {
+      "id": "REQ-TOOLBAR-001",
+      "title": "Global toolbar",
+      "priority": "P1",
+      "type": "ui",
+      "requirement": "Zorn should expose global map controls for layers, search, analytics, and map options.",
+      "evidence": [
+        "IMG-010"
+      ],
+      "acceptance": [
+        "Toolbar includes layer visibility controls and search.",
+        "Analytics/map options can initially be stubs with disabled or placeholder states."
+      ]
+    },
+    {
+      "id": "REQ-EXPLORER-001",
+      "title": "Entity Explorer",
+      "priority": "P0",
+      "type": "ui",
+      "requirement": "Zorn shall provide an Entity Explorer/Object list that supports browsing, selecting, searching, and sorting entities.",
+      "evidence": [
+        "IMG-002",
+        "IMG-006"
+      ],
+      "acceptance": [
+        "Entity list includes name, template/type, disposition/status, and entity ID access.",
+        "Search filters by name and ID.",
+        "Sorting is available for at least name, status, and last update."
+      ]
+    },
+    {
+      "id": "REQ-EXPLORER-002",
+      "title": "Copy entity ID",
+      "priority": "P0",
+      "type": "ui",
+      "requirement": "Zorn shall allow operators/developers to copy an entity ID from the Entity Explorer or detail panel.",
+      "evidence": [
+        "SRC-001",
+        "IMG-002"
+      ],
+      "acceptance": [
+        "A copy action writes the entity ID to clipboard.",
+        "Copied entity ID matches the entity ID used by API GetEntity/StreamEvents."
+      ]
+    },
+    {
+      "id": "REQ-ENT-DETAIL-001",
+      "title": "Entity detail panel",
+      "priority": "P0",
+      "type": "ui",
+      "requirement": "Zorn shall show a detail panel for selected entities containing status, template/platform, disposition, data type, ID, simulation/live state, kinematics, location, timestamps, provenance, and health where present.",
+      "evidence": [
+        "IMG-001",
+        "IMG-003",
+        "IMG-004",
+        "IMG-009",
+        "IMG-012"
+      ],
+      "acceptance": [
+        "Missing components render as 'No <field>' or similar, not as UI errors.",
+        "Fields update live when entity stream updates arrive.",
+        "Time since last update is visible and recalculates."
+      ]
+    },
+    {
+      "id": "REQ-ENT-SECTIONS-001",
+      "title": "Expandable entity component sections",
+      "priority": "P1",
+      "type": "ui",
+      "requirement": "Zorn should group selected entity details into expandable sections such as Asset Data, Payloads, Data Overrides, Task Catalog, Tags, and Media.",
+      "evidence": [
+        "IMG-005",
+        "IMG-009"
+      ],
+      "acceptance": [
+        "At least Asset Data and Task Catalog sections are supported in P0/P1.",
+        "Payloads and Data Overrides render if present."
+      ]
+    },
+    {
+      "id": "REQ-ENT-ACTIONS-001",
+      "title": "Entity action menu",
+      "priority": "P0",
+      "type": "ui",
+      "requirement": "Zorn shall provide an entity action menu with Follow, Manual/control placeholder, Anchor to Map Center, Copy Content, and Manage Asset actions.",
+      "evidence": [
+        "IMG-001"
+      ],
+      "acceptance": [
+        "Follow pins the camera or selection to the entity.",
+        "Anchor to Map Center opens/creates a map anchor state.",
+        "Manual and Manage Asset may be disabled until backed by Zorn control APIs."
+      ]
+    },
+    {
+      "id": "REQ-ENT-COPY-001",
+      "title": "Copy asset URL/location/content",
+      "priority": "P1",
+      "type": "ui",
+      "requirement": "Zorn should support copy actions for asset URL, asset location, and serialized content.",
+      "evidence": [
+        "IMG-001"
+      ],
+      "acceptance": [
+        "Copy URL and location clipboard actions produce stable strings.",
+        "Copy Content produces a JSON representation of the effective entity view."
+      ]
+    },
+    {
+      "id": "REQ-ENT-HOVER-001",
+      "title": "Inline map entity popup",
+      "priority": "P1",
+      "type": "ui",
+      "requirement": "Zorn should show a compact inline popup when hovering or selecting a map entity, repeating key details from the side panel.",
+      "evidence": [
+        "IMG-008",
+        "IMG-012"
+      ],
+      "acceptance": [
+        "Popup shows name/ID, status, disposition, speed/heading/altitude/location, and last update when present."
+      ]
+    },
+    {
+      "id": "REQ-MAP-CLUSTER-001",
+      "title": "Entity clustering",
+      "priority": "P1",
+      "type": "ui",
+      "requirement": "Zorn should cluster high-density entities and show count markers on the map.",
+      "evidence": [
+        "IMG-006"
+      ],
+      "acceptance": [
+        "Clusters expand or zoom on click.",
+        "Cluster count matches number of contained entities."
+      ]
+    },
+    {
+      "id": "REQ-MAP-CURSOR-001",
+      "title": "Cursor coordinates and scale",
+      "priority": "P0",
+      "type": "ui",
+      "requirement": "Zorn shall show map scale and cursor coordinate/readout status.",
+      "evidence": [
+        "IMG-003",
+        "IMG-009",
+        "IMG-012"
+      ],
+      "acceptance": [
+        "Bottom status bar includes cursor coordinate and scale or zoom reference.",
+        "Coordinate format can be configured later."
+      ]
+    },
+    {
+      "id": "REQ-STATUSBAR-001",
+      "title": "Live status bar",
+      "priority": "P0",
+      "type": "ui",
+      "requirement": "Zorn shall show a bottom or persistent status bar indicating live state, current/UTC time, and last event timing.",
+      "evidence": [
+        "IMG-009",
+        "IMG-012"
+      ],
+      "acceptance": [
+        "Live/disconnected state is visible.",
+        "Last event received time is visible."
+      ]
+    },
+    {
+      "id": "REQ-TASK-CATALOG-001",
+      "title": "Task catalog-derived task menu",
+      "priority": "P0",
+      "type": "ui_and_data",
+      "requirement": "Zorn shall derive available task actions from the selected asset's task catalog where available, with fallbacks for sample fixtures.",
+      "evidence": [
+        "IMG-005",
+        "SRC-004"
+      ],
+      "acceptance": [
+        "Task menu renders only capabilities advertised by the selected asset when taskCatalog is present.",
+        "Task definitions keep their type.googleapis.com URLs in the underlying model."
+      ]
+    },
+    {
+      "id": "REQ-TASK-LAUNCHER-001",
+      "title": "Task launcher dropdown",
+      "priority": "P0",
+      "type": "ui",
+      "requirement": "Zorn shall provide a task dropdown/action launcher from the selected asset detail panel.",
+      "evidence": [
+        "IMG-005",
+        "IMG-009"
+      ],
+      "acceptance": [
+        "Operator can choose a task type from a selected asset.",
+        "Choosing a task opens task details or map-prompt mode."
+      ]
+    },
+    {
+      "id": "REQ-TASK-DETAILS-001",
+      "title": "Task details panel",
+      "priority": "P0",
+      "type": "ui",
+      "requirement": "Zorn shall provide a Task Details panel with task type, assigned asset(s), objective/target, parameters, conflict state, and execute/discard controls.",
+      "evidence": [
+        "IMG-003",
+        "IMG-004",
+        "IMG-008"
+      ],
+      "acceptance": [
+        "Panel supports target selection from the map.",
+        "Panel supports execute and discard states.",
+        "Panel can show parameter fields such as standoff distance."
+      ]
+    },
+    {
+      "id": "REQ-TASK-CREATE-001",
+      "title": "Create task from map selection",
+      "priority": "P0",
+      "type": "workflow",
+      "requirement": "Zorn shall allow operators to create a task from an asset and a map-selected target or point.",
+      "evidence": [
+        "IMG-003",
+        "IMG-004",
+        "SRC-004"
+      ],
+      "acceptance": [
+        "Create task stores description, specification, assignee relation, author, and initial entities where available.",
+        "Map target prompt is visible while target is required."
+      ]
+    },
+    {
+      "id": "REQ-TASK-EXECUTE-001",
+      "title": "Execute/discard task workflow",
+      "priority": "P0",
+      "type": "workflow",
+      "requirement": "Zorn shall support task draft, execute, discard, status update, complete, and cancel workflows.",
+      "evidence": [
+        "IMG-003",
+        "IMG-004",
+        "IMG-008",
+        "SRC-004",
+        "SRC-005"
+      ],
+      "acceptance": [
+        "Task status starts with a sent/draft-like state and updates through executing/completed/cancelled states.",
+        "Status updates are visible to the operator without refreshing."
+      ]
+    },
+    {
+      "id": "REQ-TASK-GEOMETRY-001",
+      "title": "Task geometry overlays",
+      "priority": "P0",
+      "type": "ui_and_data",
+      "requirement": "Zorn shall render bearing/range lines and task-related geometry between assigned assets and objectives.",
+      "evidence": [
+        "IMG-003",
+        "IMG-004",
+        "IMG-010"
+      ],
+      "acceptance": [
+        "Range and bearing are displayed for asset-to-target tasking.",
+        "Task geometry updates if asset or target location changes."
+      ]
+    },
+    {
+      "id": "REQ-TASK-CONFLICT-001",
+      "title": "Task conflict prompt",
+      "priority": "P1",
+      "type": "ui",
+      "requirement": "Zorn should expose task conflict state and prompt operators to resolve conflicts before execution.",
+      "evidence": [
+        "IMG-008"
+      ],
+      "acceptance": [
+        "Conflicting tasks show a warning/prompt.",
+        "Execute is blocked or clearly warned when conflict is unresolved."
+      ]
+    },
+    {
+      "id": "REQ-TASK-CARDS-001",
+      "title": "Mission/task cards",
+      "priority": "P1",
+      "type": "ui",
+      "requirement": "Zorn should show active/pending/current/completed task cards with progress/readiness and context actions.",
+      "evidence": [
+        "IMG-010",
+        "IMG-011"
+      ],
+      "acceptance": [
+        "Task card shows asset, task, status, progress/readiness, and available actions.",
+        "Cards can be grouped by pending/current/complete."
+      ]
+    },
+    {
+      "id": "REQ-ZONE-001",
+      "title": "Geo-zone overlays",
+      "priority": "P1",
+      "type": "ui_and_data",
+      "requirement": "Zorn should render geo-entity shapes and task/mission zones such as loiter zones, corridors, defended areas, and polygons.",
+      "evidence": [
+        "IMG-010",
+        "IMG-011",
+        "SRC-003"
+      ],
+      "acceptance": [
+        "Point, polygon, and ellipse/circle shapes can be rendered.",
+        "Zones can be associated with tasks or geo-entities."
+      ]
+    },
+    {
+      "id": "REQ-SENSOR-COVERAGE-001",
+      "title": "Sensor coverage overlays",
+      "priority": "P2",
+      "type": "ui_and_data",
+      "requirement": "Zorn may render sensor cones/coverage sectors as map overlays.",
+      "evidence": [
+        "IMG-011"
+      ],
+      "acceptance": [
+        "Coverage overlays are separately toggleable by layer."
+      ]
+    },
+    {
+      "id": "REQ-THREAT-001",
+      "title": "Threat/disposition visualization",
+      "priority": "P0",
+      "type": "ui",
+      "requirement": "Zorn shall visualize disposition/threat using distinct map marker styles and detail-panel labels.",
+      "evidence": [
+        "IMG-003",
+        "IMG-010",
+        "IMG-011",
+        "SRC-003"
+      ],
+      "acceptance": [
+        "Friendly, neutral, unknown/suspect/suspicious, and hostile states are visually distinguishable.",
+        "Disposition changes are reflected live when override/update events arrive."
+      ]
+    },
+    {
+      "id": "REQ-PAYLOAD-001",
+      "title": "Payload panel",
+      "priority": "P1",
+      "type": "ui",
+      "requirement": "Zorn should display payload components/statuses for assets when available.",
+      "evidence": [
+        "IMG-009"
+      ],
+      "acceptance": [
+        "Payload count and operational status render if present.",
+        "Add Payload action may be placeholder until mutation semantics are defined."
+      ]
+    },
+    {
+      "id": "REQ-OVERRIDE-001",
+      "title": "Data overrides panel",
+      "priority": "P1",
+      "type": "ui_and_data",
+      "requirement": "Zorn should show and eventually manage field-level data overrides, including override status/validity.",
+      "evidence": [
+        "IMG-009"
+      ],
+      "acceptance": [
+        "Existing overrides appear under selected entity.",
+        "Override source/provenance is preserved."
+      ]
+    },
+    {
+      "id": "REQ-OBJECT-LIST-001",
+      "title": "Objects panel",
+      "priority": "P1",
+      "type": "ui",
+      "requirement": "Zorn should provide an Objects panel for object/media records and entity-associated object references.",
+      "evidence": [
+        "IMG-006",
+        "SRC-006"
+      ],
+      "acceptance": [
+        "Objects list shows path/id, size, last updated, expiry if available.",
+        "Object-to-entity media associations render in entity details."
+      ]
+    },
+    {
+      "id": "REQ-MEDIA-001",
+      "title": "Track thumbnails and manifests",
+      "priority": "P1",
+      "type": "ui_and_data",
+      "requirement": "Zorn should support rendering media/object references such as track thumbnails and vessel manifests through the entity media component.",
+      "evidence": [
+        "SRC-006"
+      ],
+      "acceptance": [
+        "Thumbnail object path resolves to preview image if available.",
+        "Expired/deleted object references show a broken/unavailable state and can be cleared."
+      ]
+    },
+    {
+      "id": "REQ-SELECT-001",
+      "title": "Multi-select entrypoints",
+      "priority": "P1",
+      "type": "ui",
+      "requirement": "Zorn should allow multi-selection through shift-click on object/entity cards and map-area selection.",
+      "evidence": [
+        "IMG-007",
+        "SRC-007"
+      ],
+      "acceptance": [
+        "Shift-click adds/removes entity from selection set.",
+        "Box/lasso selection adds visible map entities to selection set."
+      ]
+    },
+    {
+      "id": "REQ-SELECT-002",
+      "title": "Multi-selection panel",
+      "priority": "P1",
+      "type": "ui",
+      "requirement": "Zorn should provide a multi-selection panel with selected count, search, sort, filters, and clear/remove actions.",
+      "evidence": [
+        "IMG-007",
+        "SRC-007"
+      ],
+      "acceptance": [
+        "Panel reflects current selection set.",
+        "Filters refine selected entities without losing underlying selection membership."
+      ]
+    },
+    {
+      "id": "REQ-BULK-001",
+      "title": "Bulk metadata edit",
+      "priority": "P1",
+      "type": "workflow",
+      "requirement": "Zorn should support bulk metadata edit actions over a selection set.",
+      "evidence": [
+        "IMG-007",
+        "SRC-007"
+      ],
+      "acceptance": [
+        "Bulk edit draft shows affected count.",
+        "Save emits a confirmation snackbar and records an operator action log."
+      ]
+    },
+    {
+      "id": "REQ-GROUP-001",
+      "title": "Create and manage entity groups",
+      "priority": "P1",
+      "type": "workflow",
+      "requirement": "Zorn should allow creating groups from selected entities and adding entities to existing groups.",
+      "evidence": [
+        "IMG-007",
+        "SRC-007",
+        "SRC-004"
+      ],
+      "acceptance": [
+        "Group has ID, name, member entity IDs, creator, created time.",
+        "Groups can be selected/taskable later as agents where supported."
+      ]
+    },
+    {
+      "id": "REQ-GROUP-UNGROUP-001",
+      "title": "Ungroup confirmation",
+      "priority": "P1",
+      "type": "ui",
+      "requirement": "Zorn should require confirmation before ungrouping/removing a group.",
+      "evidence": [
+        "IMG-007",
+        "SRC-007"
+      ],
+      "acceptance": [
+        "Destructive ungrouping uses a modal with cancel and confirm.",
+        "Confirmation snackbar appears after success."
+      ]
+    },
+    {
+      "id": "REQ-STAR-001",
+      "title": "Starred entities",
+      "priority": "P1",
+      "type": "ui_and_data",
+      "requirement": "Zorn should let operators star objects/entities from cards, details panels, and map context menus, then access them from a Starred panel.",
+      "evidence": [
+        "IMG-001",
+        "SRC-007"
+      ],
+      "acceptance": [
+        "Star state persists per operator/session.",
+        "Starred panel lists all starred entities and enables quick selection/fly-to."
+      ]
+    },
+    {
+      "id": "REQ-FEEDBACK-001",
+      "title": "Operator feedback snackbar",
+      "priority": "P1",
+      "type": "ui",
+      "requirement": "Zorn should show confirmation/error snackbars after bulk edit, group add/remove, star, and task actions.",
+      "evidence": [
+        "SRC-007"
+      ],
+      "acceptance": [
+        "Snackbar includes action result and optional undo where safe."
+      ]
+    },
+    {
+      "id": "REQ-CUAS-QUEUE-001",
+      "title": "Threat engagement queue",
+      "priority": "P2",
+      "type": "ui",
+      "requirement": "Zorn may provide a pending/current/complete queue for C-UAS or fire-control workflows.",
+      "evidence": [
+        "IMG-011"
+      ],
+      "acceptance": [
+        "Queue states are separable from generic task cards.",
+        "Emergency stop state is clearly visible when enabled."
+      ]
+    },
+    {
+      "id": "REQ-SAFETY-STOP-001",
+      "title": "Emergency stop / abort action affordance",
+      "priority": "P2",
+      "type": "ui",
+      "requirement": "Zorn may expose high-salience abort/emergency-stop controls for simulated engagements only.",
+      "evidence": [
+        "IMG-011"
+      ],
+      "acceptance": [
+        "Safety actions require confirmation or privileged role.",
+        "Initial implementation is mock-only and does not control physical systems."
+      ]
+    },
+    {
+      "id": "REQ-REMOTEID-001",
+      "title": "Remote ID / drone detection track fields",
+      "priority": "P2",
+      "type": "ui_and_data",
+      "requirement": "Zorn may provide specific rendering for Remote ID / small UAS detection fields such as serial number, ANSI/CTA ID, operator/home point, and wardragon-detection provenance.",
+      "evidence": [
+        "IMG-012"
+      ],
+      "acceptance": [
+        "Remote ID fields render as metadata when present without needing dedicated schema in P0."
+      ]
+    }
+  ],
+  "requirement_groups": {
+    "P0": [
+      "Live COP map shell",
+      "Entity Explorer",
+      "Entity detail panel",
+      "Entity action menu",
+      "Task catalog-derived task launcher",
+      "Task Details panel",
+      "Task status/execution workflow",
+      "Task geometry overlays",
+      "Disposition/threat visualization",
+      "Status/cursor bar"
+    ],
+    "P1": [
+      "Multi-selection",
+      "Bulk edit",
+      "Grouping",
+      "Starred panel",
+      "Payloads and data overrides",
+      "Object/media panel",
+      "Geo-zone overlays",
+      "Task conflict prompts"
+    ],
+    "P2": [
+      "C-UAS queue",
+      "Sensor coverage overlays",
+      "Emergency stop/abort UI for simulated flows",
+      "Remote ID-specific metadata cards"
+    ]
+  }
+}

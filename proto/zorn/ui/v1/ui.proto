@@ -1,0 +1,274 @@
+syntax = "proto3";
+
+package zorn.ui.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/sheepfling/zorn/proto/zorn/ui/v1;uiv1";
+
+// Draft UI-state contract for Zorn's local product apps. This is intentionally
+// UI-facing, derived from the data plane, and should not be confused with
+// Anduril's Lattice API protos or Zorn's Lattice-compatible backend surface.
+
+enum RequirementPriority {
+  REQUIREMENT_PRIORITY_UNSPECIFIED = 0;
+  REQUIREMENT_PRIORITY_P0 = 1;
+  REQUIREMENT_PRIORITY_P1 = 2;
+  REQUIREMENT_PRIORITY_P2 = 3;
+}
+
+enum EntityTemplate {
+  ENTITY_TEMPLATE_UNSPECIFIED = 0;
+  ENTITY_TEMPLATE_ASSET = 1;
+  ENTITY_TEMPLATE_TRACK = 2;
+  ENTITY_TEMPLATE_GEO = 3;
+}
+
+enum Disposition {
+  DISPOSITION_UNSPECIFIED = 0;
+  DISPOSITION_FRIENDLY = 1;
+  DISPOSITION_ASSUMED_FRIENDLY = 2;
+  DISPOSITION_NEUTRAL = 3;
+  DISPOSITION_UNKNOWN = 4;
+  DISPOSITION_SUSPICIOUS = 5;
+  DISPOSITION_SUSPECT = 6;
+  DISPOSITION_HOSTILE = 7;
+  DISPOSITION_ASSUMED_HOSTILE = 8;
+  DISPOSITION_PENDING = 9;
+}
+
+enum Domain {
+  DOMAIN_UNSPECIFIED = 0;
+  DOMAIN_AIR = 1;
+  DOMAIN_SURFACE = 2;
+  DOMAIN_SUBSURFACE = 3;
+  DOMAIN_LAND = 4;
+  DOMAIN_SPACE = 5;
+  DOMAIN_GROUND = 6;
+}
+
+enum LiveState {
+  LIVE_STATE_UNSPECIFIED = 0;
+  LIVE_STATE_LIVE = 1;
+  LIVE_STATE_OFFLINE = 2;
+  LIVE_STATE_EXPIRED = 3;
+  LIVE_STATE_DELETED = 4;
+  LIVE_STATE_SIMULATED = 5;
+}
+
+enum TaskLifecycleState {
+  TASK_LIFECYCLE_STATE_UNSPECIFIED = 0;
+  TASK_LIFECYCLE_STATE_DRAFT = 1;
+  TASK_LIFECYCLE_STATE_SENT = 2;
+  TASK_LIFECYCLE_STATE_RECEIVED = 3;
+  TASK_LIFECYCLE_STATE_EXECUTING = 4;
+  TASK_LIFECYCLE_STATE_DONE_OK = 5;
+  TASK_LIFECYCLE_STATE_DONE_NOT_OK = 6;
+  TASK_LIFECYCLE_STATE_CANCELLED = 7;
+  TASK_LIFECYCLE_STATE_DELETED = 8;
+}
+
+message GeoPoint {
+  double latitude_degrees = 1;
+  double longitude_degrees = 2;
+  optional double altitude_hae_meters = 3;
+  optional double altitude_agl_meters = 4;
+}
+
+message VelocityEnu {
+  optional double east_mps = 1;
+  optional double north_mps = 2;
+  optional double up_mps = 3;
+}
+
+message AttitudeQuaternion {
+  optional double w = 1;
+  optional double x = 2;
+  optional double y = 3;
+  optional double z = 4;
+}
+
+message TelemetrySummary {
+  optional GeoPoint position = 1;
+  optional double speed_mps = 2;
+  optional double heading_degrees = 3;
+  optional VelocityEnu velocity_enu = 4;
+  optional AttitudeQuaternion attitude_enu = 5;
+  optional double altitude_msl_feet = 6;
+  optional double rcs = 7;
+}
+
+message ProvenanceSummary {
+  string integration_name = 1;
+  string data_type = 2;
+  string source_id = 3;
+  string source_description = 4;
+  google.protobuf.Timestamp source_update_time = 5;
+}
+
+message HealthSummary {
+  string connection_status = 1;
+  string health_status = 2;
+  repeated ComponentHealth components = 3;
+  google.protobuf.Timestamp update_time = 4;
+}
+
+message ComponentHealth {
+  string id = 1;
+  string name = 2;
+  string status = 3;
+  string message = 4;
+}
+
+message PayloadSummary {
+  string payload_id = 1;
+  string name = 2;
+  string operational_state = 3;
+  map<string, string> metadata = 4;
+}
+
+message ObjectRef {
+  string path = 1;
+  string checksum = 2;
+  optional int64 size_bytes = 3;
+  optional google.protobuf.Timestamp last_updated_at = 4;
+  optional google.protobuf.Timestamp expiry_time = 5;
+  string media_role = 6; // e.g. thumbnail, manifest, attachment.
+}
+
+message TaskDefinitionRef {
+  string task_specification_url = 1;
+  string display_name = 2;
+  string description = 3;
+}
+
+message EntitySummary {
+  string entity_id = 1;
+  string display_name = 2;
+  EntityTemplate template = 3;
+  string platform_type = 4;
+  Disposition disposition = 5;
+  Domain domain = 6;
+  LiveState live_state = 7;
+  bool is_simulated = 8;
+  optional TelemetrySummary telemetry = 9;
+  optional ProvenanceSummary provenance = 10;
+  google.protobuf.Timestamp created_time = 11;
+  google.protobuf.Timestamp expiry_time = 12;
+  google.protobuf.Timestamp last_updated_time = 13;
+  repeated string tags = 14;
+}
+
+message EntityDetail {
+  EntitySummary summary = 1;
+  optional HealthSummary health = 2;
+  repeated PayloadSummary payloads = 3;
+  repeated TaskDefinitionRef task_catalog = 4;
+  repeated ObjectRef media = 5;
+  repeated DataOverride data_overrides = 6;
+  repeated EntityRelationship relationships = 7;
+  map<string, string> metadata = 8;
+}
+
+message DataOverride {
+  string field_path = 1;
+  string status = 2;
+  string value_json = 3;
+  optional ProvenanceSummary provenance = 4;
+}
+
+message EntityRelationship {
+  string related_entity_id = 1;
+  string relationship_type = 2;
+  string sensor_id = 3;
+  string description = 4;
+}
+
+message MapOverlay {
+  string overlay_id = 1;
+  string name = 2;
+  string kind = 3; // route, trail, bearing_range, loiter_zone, corridor, coverage_sector, polygon.
+  repeated GeoPoint points = 4;
+  string style_key = 5;
+  map<string, string> metadata = 6;
+}
+
+message CopViewState {
+  string view_id = 1;
+  string environment_id = 2;
+  bool live = 3;
+  repeated EntitySummary entities = 4;
+  repeated MapOverlay overlays = 5;
+  repeated TaskSummary tasks = 6;
+  repeated ObjectRef objects = 7;
+  optional string selected_entity_id = 8;
+  optional SelectionSet active_selection = 9;
+  google.protobuf.Timestamp last_event_time = 10;
+}
+
+message TaskSummary {
+  string task_id = 1;
+  string display_name = 2;
+  string task_specification_url = 3;
+  TaskLifecycleState state = 4;
+  string assigned_entity_id = 5;
+  string objective_entity_id = 6;
+  optional double progress_percent = 7;
+  optional string readiness_label = 8;
+  google.protobuf.Timestamp last_updated_time = 9;
+}
+
+message TaskDetail {
+  TaskSummary summary = 1;
+  string description = 2;
+  string specification_json = 3;
+  string created_by = 4;
+  string last_updated_by = 5;
+  repeated string initial_entity_ids = 6;
+  repeated TaskStatusEvent status_history = 7;
+  repeated MapOverlay task_overlays = 8;
+  bool has_conflict = 9;
+  string conflict_message = 10;
+}
+
+message TaskStatusEvent {
+  TaskLifecycleState state = 1;
+  int64 status_version = 2;
+  string author = 3;
+  optional double progress_percent = 4;
+  string message = 5;
+  google.protobuf.Timestamp event_time = 6;
+}
+
+message SelectionSet {
+  string selection_id = 1;
+  repeated string entity_ids = 2;
+  map<string, string> filter_state = 3;
+  google.protobuf.Timestamp created_time = 4;
+  string created_by_operator_id = 5;
+}
+
+message EntityGroup {
+  string group_id = 1;
+  string name = 2;
+  repeated string entity_ids = 3;
+  string created_by_operator_id = 4;
+  google.protobuf.Timestamp created_time = 5;
+}
+
+message StarredEntity {
+  string operator_id = 1;
+  string entity_id = 2;
+  google.protobuf.Timestamp starred_time = 3;
+}
+
+message OperatorActionLog {
+  string action_id = 1;
+  string operator_id = 2;
+  string action_type = 3;
+  repeated string affected_entity_ids = 4;
+  string payload_json = 5;
+  bool success = 6;
+  string message = 7;
+  google.protobuf.Timestamp event_time = 8;
+}

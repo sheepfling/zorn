@@ -4,6 +4,12 @@ This roadmap starts from the current compatibility-harness baseline and keeps th
 project name as Zorn. Older notes may refer to Stratum; treat that as the former
 working name.
 
+For product-readiness gates, see `alpha-readiness-roadmap.md`:
+
+- Alpha 1: DIS App Ready.
+- Alpha 2: Vetted Data Plane.
+- Alpha 3: Product UI.
+
 ## S5.1: Compatibility harness
 
 Status: implemented baseline.
