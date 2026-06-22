@@ -11,7 +11,7 @@ from ..compat import bool_from_payload, heartbeat_seconds_from_payload, int_from
 from ..config import AppSettings
 from ..db import Database
 from ..dependencies import get_settings, get_task_store, require_auth
-from ..events import event_to_payload, format_sse, get_max_event_id, heartbeat_payload, poll_events
+from ..events import event_snapshot, event_to_payload, format_sse, get_max_event_id, heartbeat_payload, poll_events
 from ..stores import TaskStatusConflict, TaskStore, TerminalTaskUpdateError
 
 router = APIRouter(tags=["tasks"], dependencies=[Depends(require_auth)])
@@ -125,6 +125,12 @@ async def poll_task_events(
     after_sequence = int_from_payload(body, "afterSequence", "fromSequence", default=0)
     limit = int_from_payload(body, "limit", default=100)
     return {"events": store.poll_tasks(after_sequence=after_sequence, limit=limit)}
+####
+
+
+@router.get("/tasks/events/snapshot")
+def task_events_snapshot(request: Request) -> dict[str, Any]:
+    return event_snapshot(request.app.state.database, stream="task")
 ####
 
 

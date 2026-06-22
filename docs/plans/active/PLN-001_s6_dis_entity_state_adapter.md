@@ -59,3 +59,16 @@ neutral fixture path, not full PCAP parsing. The command emits an Alpha 1 report
 with passed, failed, missing, entities, and events fields. Normal replay uses
 the existing `/api/v1/entities` and `/api/v1/entities/events` routes; private
 store access is limited to internal tests/helpers.
+
+FastDIS should verify Zorn through API state surfaces instead of treating replay
+reports as authoritative:
+
+- `GET /healthz/details`
+- `GET /api/v1/entities/events/snapshot`
+- `GET /api/v1/tasks/events/snapshot`
+- `GET /api/v1/verification/state`
+- `GET /api/v1/backend/capabilities`
+- `GET /api/v1/backend/compatibility`
+
+Explicit entity deletion/tombstoning is available through
+`DELETE /api/v1/entities/{entity_id}` and emits a `DELETED` entity event.

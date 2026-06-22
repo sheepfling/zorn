@@ -14,6 +14,7 @@ from ..dependencies import get_entity_store, get_settings, require_auth
 from ..events import (
     entity_stream_event_payload,
     entity_stream_heartbeat_payload,
+    event_snapshot,
     event_to_payload,
     format_sse,
     get_max_event_id,
@@ -57,6 +58,28 @@ def get_entity(
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="entity not found")
     ####
     return entity
+####
+
+
+@router.delete("/{entity_id}")
+def delete_entity(
+    entity_id: str,
+    store: Annotated[EntityStore, Depends(get_entity_store)],
+    payload: dict[str, Any] = Body(default_factory=dict),
+) -> dict[str, Any]:
+    entity = store.tombstone(entity_id, payload)
+    if entity is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="entity not found")
+    ####
+    return entity
+####
+
+
+@router.get("/events/snapshot")
+def entity_events_snapshot(
+    request: Request,
+) -> dict[str, Any]:
+    return event_snapshot(request.app.state.database, stream="entity")
 ####
 
 

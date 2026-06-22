@@ -42,3 +42,17 @@ def test_entity_override_round_trip(client: TestClient) -> None:
     assert remove_response.status_code == 200
     assert "location.position" not in remove_response.json()["overrides"]
 ####
+
+
+def test_entity_delete_emits_tombstone_event(client: TestClient) -> None:
+    client.put("/api/v1/entities", json={"entityId": "asset-delete", "isLive": True})
+
+    delete_response = client.request("DELETE", "/api/v1/entities/asset-delete", json={"deleteReason": "operator"})
+    assert delete_response.status_code == 200
+    assert delete_response.json()["isLive"] is False
+    assert delete_response.json()["deletedTime"]
+
+    poll_response = client.post("/api/v1/entities/events", json={"afterSequence": 0})
+    assert poll_response.status_code == 200
+    assert [event["eventType"] for event in poll_response.json()["events"]] == ["CREATE", "DELETED"]
+####

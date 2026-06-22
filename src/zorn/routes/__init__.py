@@ -1,3 +1,3 @@
-from . import entities, health, oauth, objects, tasks
+from . import backend, entities, health, oauth, objects, tasks, verification
 
-__all__: list[str] = ["entities", "health", "oauth", "objects", "tasks"]
+__all__: list[str] = ["backend", "entities", "health", "oauth", "objects", "tasks", "verification"]

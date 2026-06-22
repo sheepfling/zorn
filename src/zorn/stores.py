@@ -133,6 +133,45 @@ class EntityStore:
         ####
     ####
 
+    def list_all(self) -> list[dict[str, Any]]:
+        with self.database.session() as session:
+            rows = session.scalars(select(EntityRow).order_by(EntityRow.sequence.asc())).all()
+            return [dict(row.payload) for row in rows]
+        ####
+    ####
+
+    def tombstone(self, entity_id: str, payload: dict[str, Any] | None = None) -> dict[str, Any] | None:
+        with self.database.session() as session:
+            row = session.get(EntityRow, entity_id)
+            if row is None:
+                return None
+            ####
+            now = utc_now()
+            entity = dict(row.payload)
+            entity.update(dict(payload or {}))
+            entity["entityId"] = entity_id
+            entity["entity_id"] = entity_id
+            entity["isLive"] = False
+            entity["is_live"] = False
+            entity.setdefault("deletedTime", to_iso(now))
+            entity.setdefault("deleted_time", entity["deletedTime"])
+            row.payload = entity
+            row.is_live = False
+            row.updated_at = now
+            event = add_event(
+                session,
+                stream="entity",
+                subject_id=entity_id,
+                event_type="DELETED",
+                payload={"eventType": "DELETED", "entity": entity, "time": to_iso(now)},
+            )
+            row.sequence = event.id
+            session.commit()
+            entity["_compat"] = {"sequence": event.id, "eventType": "DELETED"}
+            return entity
+        ####
+    ####
+
     def poll(self, after_sequence: int = 0, limit: int = 100) -> list[dict[str, Any]]:
         with self.database.session() as session:
             return [event_to_payload(row) for row in poll_events(
