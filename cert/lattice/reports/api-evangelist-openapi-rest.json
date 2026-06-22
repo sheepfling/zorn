@@ -1,14 +1,13 @@
 {
   "adaptation_tier": "runtime_shim",
   "details": {
+    "artifact_count": 1,
     "artifact_kind": "openapi",
     "artifacts": [
       "openapi/anduril-openapi.yml"
     ],
     "auth.bearer_token": {
-      "compatibilityTarget": "Public SDK-style workflows",
-      "ok": true,
-      "productName": "Zorn"
+      "endpoint": "PUT /api/v1/entities"
     },
     "auth.oauth_client_credentials": {
       "access_token": "dev-token",
@@ -72,9 +71,9 @@
             }
           },
           "eventType": "CREATE",
-          "occurredTime": "2026-06-22T05:01:23.316106Z",
+          "occurredTime": "2026-06-22T19:24:36.125588Z",
           "sequence": 1,
-          "time": "2026-06-22T05:01:23.307379Z"
+          "time": "2026-06-22T19:24:36.122891Z"
         },
         {
           "entity": {
@@ -107,7 +106,7 @@
             }
           },
           "eventType": "UPDATE",
-          "occurredTime": "2026-06-22T05:01:23.330240Z",
+          "occurredTime": "2026-06-22T19:24:36.131873Z",
           "overrideFieldPath": "mil_view.disposition",
           "sequence": 2
         },
@@ -140,7 +139,7 @@
             }
           },
           "eventType": "UPDATE",
-          "occurredTime": "2026-06-22T05:01:23.339395Z",
+          "occurredTime": "2026-06-22T19:24:36.134717Z",
           "removedOverrideFieldPath": "mil_view.disposition",
           "sequence": 3
         }
@@ -174,9 +173,9 @@
             }
           },
           "eventType": "CREATE",
-          "occurredTime": "2026-06-22T05:01:23.316106Z",
+          "occurredTime": "2026-06-22T19:24:36.125588Z",
           "sequence": 1,
-          "time": "2026-06-22T05:01:23.307379Z"
+          "time": "2026-06-22T19:24:36.122891Z"
         },
         {
           "entity": {
@@ -209,7 +208,7 @@
             }
           },
           "eventType": "UPDATE",
-          "occurredTime": "2026-06-22T05:01:23.330240Z",
+          "occurredTime": "2026-06-22T19:24:36.131873Z",
           "overrideFieldPath": "mil_view.disposition",
           "sequence": 2
         },
@@ -242,7 +241,7 @@
             }
           },
           "eventType": "UPDATE",
-          "occurredTime": "2026-06-22T05:01:23.339395Z",
+          "occurredTime": "2026-06-22T19:24:36.134717Z",
           "removedOverrideFieldPath": "mil_view.disposition",
           "sequence": 3
         }
@@ -335,6 +334,8 @@
         "sourceId": "api-evangelist-openapi-rest"
       }
     },
+    "executed": true,
+    "executor": "openapi_rest_flow",
     "fixture_dir": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/api-evangelist-openapi-rest",
     "objects.delete": {
       "deleted": true,
@@ -349,12 +350,12 @@
         {
           "checksumSha256": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
           "contentType": "application/octet-stream",
-          "createdTime": "2026-06-22T05:01:23.436945Z",
+          "createdTime": "2026-06-22T19:24:36.166359Z",
           "expiryTime": null,
           "metadata": {},
           "objectPath": "api-evangelist-openapi-rest/object.txt",
           "sizeBytes": 21,
-          "updatedTime": "2026-06-22T05:01:23.436945Z"
+          "updatedTime": "2026-06-22T19:24:36.166359Z"
         }
       ],
       "path_metadatas": [
@@ -365,14 +366,14 @@
             "checksum": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
             "path": "api-evangelist-openapi-rest/object.txt"
           },
-          "createdTime": "2026-06-22T05:01:23.436945Z",
+          "createdTime": "2026-06-22T19:24:36.166359Z",
           "expiry_time": null,
-          "last_updated_at": "2026-06-22T05:01:23.436945Z",
+          "last_updated_at": "2026-06-22T19:24:36.166359Z",
           "metadata": {},
           "objectPath": "api-evangelist-openapi-rest/object.txt",
           "sizeBytes": 21,
           "size_bytes": 21,
-          "updatedTime": "2026-06-22T05:01:23.436945Z"
+          "updatedTime": "2026-06-22T19:24:36.166359Z"
         }
       ]
     },
@@ -382,9 +383,9 @@
         "connection": "close",
         "content-length": "21",
         "content-type": "application/octet-stream",
-        "date": "Mon, 22 Jun 2026 05:01:23 GMT",
+        "date": "Mon, 22 Jun 2026 19:24:36 GMT",
         "etag": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
-        "last-modified": "2026-06-22T05:01:23.436945Z",
+        "last-modified": "2026-06-22T19:24:36.166359Z",
         "path": "api-evangelist-openapi-rest/object.txt",
         "server": "uvicorn",
         "x-checksum-sha256": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
@@ -398,21 +399,20 @@
         "checksum": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
         "path": "api-evangelist-openapi-rest/object.txt"
       },
-      "createdTime": "2026-06-22T05:01:23.436945Z",
+      "createdTime": "2026-06-22T19:24:36.166359Z",
       "expiry_time": null,
-      "last_updated_at": "2026-06-22T05:01:23.436945Z",
+      "last_updated_at": "2026-06-22T19:24:36.166359Z",
       "metadata": {},
       "objectPath": "api-evangelist-openapi-rest/object.txt",
       "sizeBytes": 21,
       "size_bytes": 21,
-      "updatedTime": "2026-06-22T05:01:23.436945Z"
+      "updatedTime": "2026-06-22T19:24:36.166359Z"
     },
-    "reason": "openapi conformance executor is not implemented yet",
-    "server_log": "INFO:     Started server process [31860]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://127.0.0.1:54032 (Press CTRL+C to quit)\nINFO:     127.0.0.1:54043 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54044 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54045 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54046 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54050 - \"GET /api/v1/entities/api-evangelist-openapi-rest-entity HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54052 - \"PUT /api/v1/entities/api-evangelist-openapi-rest-entity/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54053 - \"DELETE /api/v1/entities/api-evangelist-openapi-rest-entity/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54054 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54056 - \"POST /api/v1/tasks HTTP/1.1\" 201 Created\nINFO:     127.0.0.1:54061 - \"GET /api/v1/tasks/api-evangelist-openapi-rest-task HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54063 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54066 - \"PUT /api/v1/tasks/api-evangelist-openapi-rest-task/status HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54068 - \"PUT /api/v1/tasks/api-evangelist-openapi-rest-task/cancel HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54070 - \"POST /api/v1/objects/api-evangelist-openapi-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54073 - \"HEAD /api/v1/objects/api-evangelist-openapi-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54075 - \"GET /api/v1/objects?prefix=api-evangelist-openapi-rest HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54077 - \"GET /api/v1/objects/api-evangelist-openapi-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54078 - \"DELETE /api/v1/objects/api-evangelist-openapi-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [31860]\n",
+    "server_log": "INFO:     Started server process [9162]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://127.0.0.1:55509 (Press CTRL+C to quit)\nINFO:     127.0.0.1:55517 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55518 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55519 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55524 - \"GET /api/v1/entities/api-evangelist-openapi-rest-entity HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55526 - \"PUT /api/v1/entities/api-evangelist-openapi-rest-entity/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55527 - \"DELETE /api/v1/entities/api-evangelist-openapi-rest-entity/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55528 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55529 - \"POST /api/v1/tasks HTTP/1.1\" 201 Created\nINFO:     127.0.0.1:55534 - \"GET /api/v1/tasks/api-evangelist-openapi-rest-task HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55536 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55537 - \"PUT /api/v1/tasks/api-evangelist-openapi-rest-task/status HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55538 - \"PUT /api/v1/tasks/api-evangelist-openapi-rest-task/cancel HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55539 - \"POST /api/v1/objects/api-evangelist-openapi-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55544 - \"HEAD /api/v1/objects/api-evangelist-openapi-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55545 - \"GET /api/v1/objects?prefix=api-evangelist-openapi-rest HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55546 - \"GET /api/v1/objects/api-evangelist-openapi-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55547 - \"DELETE /api/v1/objects/api-evangelist-openapi-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [9162]\n",
     "target": "http://localhost:8080",
     "tasks.cancel": {
-      "createTime": "2026-06-22T05:01:23.390356Z",
-      "create_time": "2026-06-22T05:01:23.390356Z",
+      "createTime": "2026-06-22T19:24:36.147215Z",
+      "create_time": "2026-06-22T19:24:36.147215Z",
       "createdBy": {
         "system": {
           "serviceName": "local-compat-sandbox",
@@ -427,14 +427,14 @@
       },
       "displayName": "Spec REST task",
       "display_name": "Spec REST task",
-      "lastUpdateTime": "2026-06-22T05:01:23.417276Z",
+      "lastUpdateTime": "2026-06-22T19:24:36.157278Z",
       "lastUpdatedBy": {
         "system": {
           "serviceName": "local-compat-sandbox",
           "service_name": "local-compat-sandbox"
         }
       },
-      "last_update_time": "2026-06-22T05:01:23.417276Z",
+      "last_update_time": "2026-06-22T19:24:36.157278Z",
       "last_updated_by": {
         "system": {
           "serviceName": "local-compat-sandbox",
@@ -461,8 +461,8 @@
         "eventType": "CREATE",
         "sequence": 4
       },
-      "createTime": "2026-06-22T05:01:23.390356Z",
-      "create_time": "2026-06-22T05:01:23.390356Z",
+      "createTime": "2026-06-22T19:24:36.147215Z",
+      "create_time": "2026-06-22T19:24:36.147215Z",
       "createdBy": {
         "system": {
           "serviceName": "local-compat-sandbox",
@@ -477,14 +477,14 @@
       },
       "displayName": "Spec REST task",
       "display_name": "Spec REST task",
-      "lastUpdateTime": "2026-06-22T05:01:23.390356Z",
+      "lastUpdateTime": "2026-06-22T19:24:36.147215Z",
       "lastUpdatedBy": {
         "system": {
           "serviceName": "local-compat-sandbox",
           "service_name": "local-compat-sandbox"
         }
       },
-      "last_update_time": "2026-06-22T05:01:23.390356Z",
+      "last_update_time": "2026-06-22T19:24:36.147215Z",
       "last_updated_by": {
         "system": {
           "serviceName": "local-compat-sandbox",
@@ -506,8 +506,8 @@
       }
     },
     "tasks.get": {
-      "createTime": "2026-06-22T05:01:23.390356Z",
-      "create_time": "2026-06-22T05:01:23.390356Z",
+      "createTime": "2026-06-22T19:24:36.147215Z",
+      "create_time": "2026-06-22T19:24:36.147215Z",
       "createdBy": {
         "system": {
           "serviceName": "local-compat-sandbox",
@@ -522,14 +522,14 @@
       },
       "displayName": "Spec REST task",
       "display_name": "Spec REST task",
-      "lastUpdateTime": "2026-06-22T05:01:23.390356Z",
+      "lastUpdateTime": "2026-06-22T19:24:36.147215Z",
       "lastUpdatedBy": {
         "system": {
           "serviceName": "local-compat-sandbox",
           "service_name": "local-compat-sandbox"
         }
       },
-      "last_update_time": "2026-06-22T05:01:23.390356Z",
+      "last_update_time": "2026-06-22T19:24:36.147215Z",
       "last_updated_by": {
         "system": {
           "serviceName": "local-compat-sandbox",
@@ -556,8 +556,8 @@
       ]
     },
     "tasks.update_status": {
-      "createTime": "2026-06-22T05:01:23.390356Z",
-      "create_time": "2026-06-22T05:01:23.390356Z",
+      "createTime": "2026-06-22T19:24:36.147215Z",
+      "create_time": "2026-06-22T19:24:36.147215Z",
       "createdBy": {
         "system": {
           "serviceName": "local-compat-sandbox",
@@ -572,14 +572,14 @@
       },
       "displayName": "Spec REST task",
       "display_name": "Spec REST task",
-      "lastUpdateTime": "2026-06-22T05:01:23.411546Z",
+      "lastUpdateTime": "2026-06-22T19:24:36.154920Z",
       "lastUpdatedBy": {
         "system": {
           "serviceName": "local-compat-sandbox",
           "service_name": "local-compat-sandbox"
         }
       },
-      "last_update_time": "2026-06-22T05:01:23.411546Z",
+      "last_update_time": "2026-06-22T19:24:36.154920Z",
       "last_updated_by": {
         "system": {
           "serviceName": "local-compat-sandbox",
@@ -621,9 +621,9 @@
   "mode": "strict",
   "passed": [
     "auth.oauth_client_credentials",
-    "auth.bearer_token",
     "transport.rest_json",
     "entities.publish",
+    "auth.bearer_token",
     "entities.get",
     "entities.overrides.apply",
     "entities.overrides.clear",

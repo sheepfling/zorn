@@ -1,15 +1,14 @@
 {
   "adaptation_tier": "runtime_shim",
   "details": {
+    "artifact_count": 2,
     "artifact_kind": "postman",
     "artifacts": [
       "collections/anduril.opencollection.json",
       "collections/anduril.postman_collection.json"
     ],
     "auth.bearer_token": {
-      "compatibilityTarget": "Public SDK-style workflows",
-      "ok": true,
-      "productName": "Zorn"
+      "endpoint": "PUT /api/v1/entities"
     },
     "auth.oauth_client_credentials": {
       "access_token": "dev-token",
@@ -73,9 +72,9 @@
             }
           },
           "eventType": "CREATE",
-          "occurredTime": "2026-06-22T05:01:23.337614Z",
+          "occurredTime": "2026-06-22T19:24:36.116610Z",
           "sequence": 1,
-          "time": "2026-06-22T05:01:23.333538Z"
+          "time": "2026-06-22T19:24:36.113695Z"
         },
         {
           "entity": {
@@ -108,7 +107,7 @@
             }
           },
           "eventType": "UPDATE",
-          "occurredTime": "2026-06-22T05:01:23.364003Z",
+          "occurredTime": "2026-06-22T19:24:36.122766Z",
           "overrideFieldPath": "mil_view.disposition",
           "sequence": 2
         },
@@ -141,7 +140,7 @@
             }
           },
           "eventType": "UPDATE",
-          "occurredTime": "2026-06-22T05:01:23.370591Z",
+          "occurredTime": "2026-06-22T19:24:36.125577Z",
           "removedOverrideFieldPath": "mil_view.disposition",
           "sequence": 3
         }
@@ -175,9 +174,9 @@
             }
           },
           "eventType": "CREATE",
-          "occurredTime": "2026-06-22T05:01:23.337614Z",
+          "occurredTime": "2026-06-22T19:24:36.116610Z",
           "sequence": 1,
-          "time": "2026-06-22T05:01:23.333538Z"
+          "time": "2026-06-22T19:24:36.113695Z"
         },
         {
           "entity": {
@@ -210,7 +209,7 @@
             }
           },
           "eventType": "UPDATE",
-          "occurredTime": "2026-06-22T05:01:23.364003Z",
+          "occurredTime": "2026-06-22T19:24:36.122766Z",
           "overrideFieldPath": "mil_view.disposition",
           "sequence": 2
         },
@@ -243,7 +242,7 @@
             }
           },
           "eventType": "UPDATE",
-          "occurredTime": "2026-06-22T05:01:23.370591Z",
+          "occurredTime": "2026-06-22T19:24:36.125577Z",
           "removedOverrideFieldPath": "mil_view.disposition",
           "sequence": 3
         }
@@ -336,6 +335,8 @@
         "sourceId": "api-evangelist-postman-rest"
       }
     },
+    "executed": true,
+    "executor": "postman_rest_flow",
     "fixture_dir": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/api-evangelist-postman-rest",
     "objects.delete": {
       "deleted": true,
@@ -350,12 +351,12 @@
         {
           "checksumSha256": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
           "contentType": "application/octet-stream",
-          "createdTime": "2026-06-22T05:01:23.430300Z",
+          "createdTime": "2026-06-22T19:24:36.159306Z",
           "expiryTime": null,
           "metadata": {},
           "objectPath": "api-evangelist-postman-rest/object.txt",
           "sizeBytes": 21,
-          "updatedTime": "2026-06-22T05:01:23.430300Z"
+          "updatedTime": "2026-06-22T19:24:36.159306Z"
         }
       ],
       "path_metadatas": [
@@ -366,14 +367,14 @@
             "checksum": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
             "path": "api-evangelist-postman-rest/object.txt"
           },
-          "createdTime": "2026-06-22T05:01:23.430300Z",
+          "createdTime": "2026-06-22T19:24:36.159306Z",
           "expiry_time": null,
-          "last_updated_at": "2026-06-22T05:01:23.430300Z",
+          "last_updated_at": "2026-06-22T19:24:36.159306Z",
           "metadata": {},
           "objectPath": "api-evangelist-postman-rest/object.txt",
           "sizeBytes": 21,
           "size_bytes": 21,
-          "updatedTime": "2026-06-22T05:01:23.430300Z"
+          "updatedTime": "2026-06-22T19:24:36.159306Z"
         }
       ]
     },
@@ -383,9 +384,9 @@
         "connection": "close",
         "content-length": "21",
         "content-type": "application/octet-stream",
-        "date": "Mon, 22 Jun 2026 05:01:23 GMT",
+        "date": "Mon, 22 Jun 2026 19:24:36 GMT",
         "etag": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
-        "last-modified": "2026-06-22T05:01:23.430300Z",
+        "last-modified": "2026-06-22T19:24:36.159306Z",
         "path": "api-evangelist-postman-rest/object.txt",
         "server": "uvicorn",
         "x-checksum-sha256": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
@@ -399,21 +400,20 @@
         "checksum": "09facdeb033985199b0278397f97dbec691c17d42319e08d14564eca69141030",
         "path": "api-evangelist-postman-rest/object.txt"
       },
-      "createdTime": "2026-06-22T05:01:23.430300Z",
+      "createdTime": "2026-06-22T19:24:36.159306Z",
       "expiry_time": null,
-      "last_updated_at": "2026-06-22T05:01:23.430300Z",
+      "last_updated_at": "2026-06-22T19:24:36.159306Z",
       "metadata": {},
       "objectPath": "api-evangelist-postman-rest/object.txt",
       "sizeBytes": 21,
       "size_bytes": 21,
-      "updatedTime": "2026-06-22T05:01:23.430300Z"
+      "updatedTime": "2026-06-22T19:24:36.159306Z"
     },
-    "reason": "postman conformance executor is not implemented yet",
-    "server_log": "INFO:     Started server process [31861]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://127.0.0.1:54033 (Press CTRL+C to quit)\nINFO:     127.0.0.1:54047 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54048 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54049 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54051 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54055 - \"GET /api/v1/entities/api-evangelist-postman-rest-entity HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54057 - \"PUT /api/v1/entities/api-evangelist-postman-rest-entity/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54058 - \"DELETE /api/v1/entities/api-evangelist-postman-rest-entity/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54059 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54060 - \"POST /api/v1/tasks HTTP/1.1\" 201 Created\nINFO:     127.0.0.1:54062 - \"GET /api/v1/tasks/api-evangelist-postman-rest-task HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54064 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54065 - \"PUT /api/v1/tasks/api-evangelist-postman-rest-task/status HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54067 - \"PUT /api/v1/tasks/api-evangelist-postman-rest-task/cancel HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54069 - \"POST /api/v1/objects/api-evangelist-postman-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54071 - \"HEAD /api/v1/objects/api-evangelist-postman-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54072 - \"GET /api/v1/objects?prefix=api-evangelist-postman-rest HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54074 - \"GET /api/v1/objects/api-evangelist-postman-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:54076 - \"DELETE /api/v1/objects/api-evangelist-postman-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [31861]\n",
+    "server_log": "INFO:     Started server process [9161]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://127.0.0.1:55508 (Press CTRL+C to quit)\nINFO:     127.0.0.1:55514 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55515 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55516 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55520 - \"GET /api/v1/entities/api-evangelist-postman-rest-entity HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55521 - \"PUT /api/v1/entities/api-evangelist-postman-rest-entity/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55522 - \"DELETE /api/v1/entities/api-evangelist-postman-rest-entity/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55523 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55525 - \"POST /api/v1/tasks HTTP/1.1\" 201 Created\nINFO:     127.0.0.1:55530 - \"GET /api/v1/tasks/api-evangelist-postman-rest-task HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55531 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55532 - \"PUT /api/v1/tasks/api-evangelist-postman-rest-task/status HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55533 - \"PUT /api/v1/tasks/api-evangelist-postman-rest-task/cancel HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55535 - \"POST /api/v1/objects/api-evangelist-postman-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55540 - \"HEAD /api/v1/objects/api-evangelist-postman-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55541 - \"GET /api/v1/objects?prefix=api-evangelist-postman-rest HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55542 - \"GET /api/v1/objects/api-evangelist-postman-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:55543 - \"DELETE /api/v1/objects/api-evangelist-postman-rest/object.txt HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [9161]\n",
     "target": "http://localhost:8080",
     "tasks.cancel": {
-      "createTime": "2026-06-22T05:01:23.394585Z",
-      "create_time": "2026-06-22T05:01:23.394585Z",
+      "createTime": "2026-06-22T19:24:36.139855Z",
+      "create_time": "2026-06-22T19:24:36.139855Z",
       "createdBy": {
         "system": {
           "serviceName": "local-compat-sandbox",
@@ -428,14 +428,14 @@
       },
       "displayName": "Spec REST task",
       "display_name": "Spec REST task",
-      "lastUpdateTime": "2026-06-22T05:01:23.415371Z",
+      "lastUpdateTime": "2026-06-22T19:24:36.149977Z",
       "lastUpdatedBy": {
         "system": {
           "serviceName": "local-compat-sandbox",
           "service_name": "local-compat-sandbox"
         }
       },
-      "last_update_time": "2026-06-22T05:01:23.415371Z",
+      "last_update_time": "2026-06-22T19:24:36.149977Z",
       "last_updated_by": {
         "system": {
           "serviceName": "local-compat-sandbox",
@@ -462,8 +462,8 @@
         "eventType": "CREATE",
         "sequence": 4
       },
-      "createTime": "2026-06-22T05:01:23.394585Z",
-      "create_time": "2026-06-22T05:01:23.394585Z",
+      "createTime": "2026-06-22T19:24:36.139855Z",
+      "create_time": "2026-06-22T19:24:36.139855Z",
       "createdBy": {
         "system": {
           "serviceName": "local-compat-sandbox",
@@ -478,14 +478,14 @@
       },
       "displayName": "Spec REST task",
       "display_name": "Spec REST task",
-      "lastUpdateTime": "2026-06-22T05:01:23.394585Z",
+      "lastUpdateTime": "2026-06-22T19:24:36.139855Z",
       "lastUpdatedBy": {
         "system": {
           "serviceName": "local-compat-sandbox",
           "service_name": "local-compat-sandbox"
         }
       },
-      "last_update_time": "2026-06-22T05:01:23.394585Z",
+      "last_update_time": "2026-06-22T19:24:36.139855Z",
       "last_updated_by": {
         "system": {
           "serviceName": "local-compat-sandbox",
@@ -507,8 +507,8 @@
       }
     },
     "tasks.get": {
-      "createTime": "2026-06-22T05:01:23.394585Z",
-      "create_time": "2026-06-22T05:01:23.394585Z",
+      "createTime": "2026-06-22T19:24:36.139855Z",
+      "create_time": "2026-06-22T19:24:36.139855Z",
       "createdBy": {
         "system": {
           "serviceName": "local-compat-sandbox",
@@ -523,14 +523,14 @@
       },
       "displayName": "Spec REST task",
       "display_name": "Spec REST task",
-      "lastUpdateTime": "2026-06-22T05:01:23.394585Z",
+      "lastUpdateTime": "2026-06-22T19:24:36.139855Z",
       "lastUpdatedBy": {
         "system": {
           "serviceName": "local-compat-sandbox",
           "service_name": "local-compat-sandbox"
         }
       },
-      "last_update_time": "2026-06-22T05:01:23.394585Z",
+      "last_update_time": "2026-06-22T19:24:36.139855Z",
       "last_updated_by": {
         "system": {
           "serviceName": "local-compat-sandbox",
@@ -557,8 +557,8 @@
       ]
     },
     "tasks.update_status": {
-      "createTime": "2026-06-22T05:01:23.394585Z",
-      "create_time": "2026-06-22T05:01:23.394585Z",
+      "createTime": "2026-06-22T19:24:36.139855Z",
+      "create_time": "2026-06-22T19:24:36.139855Z",
       "createdBy": {
         "system": {
           "serviceName": "local-compat-sandbox",
@@ -573,14 +573,14 @@
       },
       "displayName": "Spec REST task",
       "display_name": "Spec REST task",
-      "lastUpdateTime": "2026-06-22T05:01:23.409531Z",
+      "lastUpdateTime": "2026-06-22T19:24:36.147537Z",
       "lastUpdatedBy": {
         "system": {
           "serviceName": "local-compat-sandbox",
           "service_name": "local-compat-sandbox"
         }
       },
-      "last_update_time": "2026-06-22T05:01:23.409531Z",
+      "last_update_time": "2026-06-22T19:24:36.147537Z",
       "last_updated_by": {
         "system": {
           "serviceName": "local-compat-sandbox",
@@ -616,9 +616,9 @@
   "mode": "strict",
   "passed": [
     "auth.oauth_client_credentials",
-    "auth.bearer_token",
     "transport.rest_json",
     "entities.publish",
+    "auth.bearer_token",
     "entities.get",
     "entities.overrides.apply",
     "entities.overrides.clear",

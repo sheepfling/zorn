@@ -97,14 +97,18 @@ def _spec_report(
     report = base_report(fixture_id=fixture.id, mode=mode)
     artifacts = sorted({path.relative_to(fixture_dir).as_posix() for pattern in patterns for path in fixture_dir.rglob(pattern)})
     report["details"] = {
-        "reason": f"{artifact_kind} conformance executor is not implemented yet",
         "fixture_dir": str(fixture_dir),
         "target": target,
         "token_configured": bool(token),
         "artifact_kind": artifact_kind,
         "artifacts": artifacts,
+        "artifact_count": len(artifacts),
     }
-    report["result"] = "blocked" if artifacts else "missing"
+    if artifacts:
+        report["result"] = "blocked"
+    else:
+        report["details"]["reason"] = f"no {artifact_kind} artifacts found"
+        report["result"] = "missing"
     report["missing"] = list(fixture.surfaces)
     return report
 ####
@@ -132,6 +136,8 @@ def _run_spec_rest_flow(
     if not report["details"]["artifacts"]:
         return report
     ####
+    report["details"]["executor"] = f"{artifact_kind}_rest_flow"
+    report["details"]["executed"] = True
     repo_root = Path(__file__).resolve().parents[4]
     server = start_http_zorn_server(repo_root=repo_root, token=token)
     try:
@@ -171,7 +177,11 @@ def _run_spec_rest_flow(
         status, cleared = http_json("DELETE", f"{base_url}/api/v1/entities/{entity_id}/override/mil_view.disposition", token=token)
         _record(report, "entities.overrides.clear", status == 200 and cleared.get("entityId") == entity_id, cleared)
         status, events = http_json("POST", f"{base_url}/api/v1/entities/events", token=token, payload={"sessionToken": ""})
-        _record(report, "entities.long_poll", status == 200 and bool(events.get("events")), events)
+        long_poll_events = events.get("entityEvents")
+        if not isinstance(long_poll_events, list):
+            long_poll_events = events.get("events")
+        ####
+        _record(report, "entities.long_poll", status == 200 and isinstance(long_poll_events, list) and bool(long_poll_events), events)
 
         task_id = f"{fixture.id}-task"
         status, created_task = http_json("POST", f"{base_url}/api/v1/tasks", token=token, payload={"taskId": task_id, "displayName": "Spec REST task"})
