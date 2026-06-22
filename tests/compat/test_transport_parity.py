@@ -3,6 +3,7 @@ from __future__ import annotations
 import asyncio
 
 import grpc
+from google.protobuf import json_format
 
 from .conftest import DualTransportCompat
 
@@ -67,6 +68,118 @@ async def test_grpc_entity_publish_is_visible_via_rest_get(
     response = client.get("/api/v1/entities/parity-grpc-entity")
     assert response.status_code == 200, response.text
     assert response.json()["entityId"] == "parity-grpc-entity"
+
+
+async def test_grpc_entity_override_and_remove_override_are_visible_via_rest_get(
+    dual_transport_compat: DualTransportCompat,
+    dual_transport_grpc_channel: grpc.aio.Channel,
+) -> None:
+    client = dual_transport_compat.rest_client
+    proto_modules = dual_transport_compat.proto_modules
+    entity_stub = proto_modules.entity_api_grpc.EntityManagerAPIStub(dual_transport_grpc_channel)
+
+    created = client.put(
+        "/api/v1/entities",
+        json={
+            "entityId": "parity-grpc-override-entity",
+            "description": "before override",
+            "isLive": True,
+            "noExpiry": True,
+            "milView": {"disposition": "DISPOSITION_UNKNOWN"},
+        },
+    )
+    assert created.status_code == 200, created.text
+
+    override_entity = proto_modules.entity.Entity()
+    json_format.ParseDict(
+        {
+            "entityId": "parity-grpc-override-entity",
+            "milView": {"disposition": "DISPOSITION_HOSTILE"},
+        },
+        override_entity,
+        ignore_unknown_fields=True,
+    )
+    override_request = proto_modules.entity_api.OverrideEntityRequest(entity=override_entity)
+    override_request.field_path.append("mil_view.disposition")
+
+    await entity_stub.OverrideEntity(
+        override_request
+    )
+
+    overridden = client.get("/api/v1/entities/parity-grpc-override-entity")
+    assert overridden.status_code == 200, overridden.text
+    assert overridden.json()["milView"]["disposition"] == "DISPOSITION_HOSTILE"
+
+    remove_request = proto_modules.entity_api.RemoveEntityOverrideRequest(
+        entity_id="parity-grpc-override-entity",
+    )
+    remove_request.field_path.append("mil_view.disposition")
+    await entity_stub.RemoveEntityOverride(remove_request)
+
+    cleared = client.get("/api/v1/entities/parity-grpc-override-entity")
+    assert cleared.status_code == 200, cleared.text
+    assert cleared.json()["milView"]["disposition"] == "DISPOSITION_UNKNOWN"
+    assert cleared.json()["overrides"] == {}
+
+
+async def test_rest_remove_override_is_visible_via_grpc_get(
+    dual_transport_compat: DualTransportCompat,
+    dual_transport_grpc_channel: grpc.aio.Channel,
+) -> None:
+    client = dual_transport_compat.rest_client
+    proto_modules = dual_transport_compat.proto_modules
+    entity_stub = proto_modules.entity_api_grpc.EntityManagerAPIStub(dual_transport_grpc_channel)
+
+    created = client.put(
+        "/api/v1/entities",
+        json={
+            "entityId": "parity-rest-remove-override-entity",
+            "description": "before override",
+            "isLive": True,
+            "noExpiry": True,
+            "milView": {"disposition": "DISPOSITION_UNKNOWN"},
+        },
+    )
+    assert created.status_code == 200, created.text
+
+    overridden = client.put(
+        "/api/v1/entities/parity-rest-remove-override-entity/override/mil_view.disposition",
+        json={"entity": {"milView": {"disposition": "DISPOSITION_HOSTILE"}}},
+    )
+    assert overridden.status_code == 200, overridden.text
+
+    cleared = client.delete("/api/v1/entities/parity-rest-remove-override-entity/override/mil_view.disposition")
+    assert cleared.status_code == 200, cleared.text
+
+    fetched = await entity_stub.GetEntity(
+        proto_modules.entity_api.GetEntityRequest(entity_id="parity-rest-remove-override-entity")
+    )
+    assert fetched.entity.mil_view.disposition == 0
+
+
+async def test_grpc_non_live_entity_publish_is_visible_via_rest_get(
+    dual_transport_compat: DualTransportCompat,
+    dual_transport_grpc_channel: grpc.aio.Channel,
+) -> None:
+    client = dual_transport_compat.rest_client
+    proto_modules = dual_transport_compat.proto_modules
+    entity_stub = proto_modules.entity_api_grpc.EntityManagerAPIStub(dual_transport_grpc_channel)
+
+    await entity_stub.PublishEntity(
+        proto_modules.entity_api.PublishEntityRequest(
+            entity=proto_modules.entity.Entity(
+                entity_id="parity-grpc-non-live-entity",
+                description="gRPC non-live parity entity",
+                is_live=False,
+                no_expiry=True,
+            )
+        )
+    )
+
+    response = client.get("/api/v1/entities/parity-grpc-non-live-entity")
+    assert response.status_code == 200, response.text
+    assert response.json()["entityId"] == "parity-grpc-non-live-entity"
+    assert response.json()["isLive"] is False
 
 
 async def test_rest_and_grpc_task_lifecycle_share_state(

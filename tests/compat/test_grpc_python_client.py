@@ -4,6 +4,9 @@ import asyncio
 
 import grpc
 import pytest
+from fastapi.testclient import TestClient
+
+from zorn import build_app
 
 from .conftest import GrpcCompatServer
 
@@ -156,6 +159,66 @@ async def test_grpc_static_auth_rejects_invalid_token(grpc_auth_server: GrpcComp
             )
     ####
     assert exc_info.value.code() == grpc.StatusCode.UNAUTHENTICATED
+
+
+async def test_grpc_oauth_issued_token_is_accepted_and_then_expires(grpc_oauth_server: GrpcCompatServer) -> None:
+    proto_modules = grpc_oauth_server.proto_modules
+    app = build_app(grpc_oauth_server.settings)
+    with TestClient(app) as client:
+        token_response = client.post("/api/v1/oauth/token", json={"client_id": "dev", "client_secret": "dev"})
+        assert token_response.status_code == 200
+        token = token_response.json()["access_token"]
+        assert token != "dev-token"
+    ####
+
+    async with grpc.aio.insecure_channel(grpc_oauth_server.address) as channel:
+        stub = proto_modules.entity_api_grpc.EntityManagerAPIStub(channel)
+        entity = proto_modules.entity.Entity(
+            entity_id="grpc-oauth-issued-token-entity",
+            description="oauth issued token",
+            is_live=True,
+            no_expiry=True,
+        )
+        await stub.PublishEntity(
+            proto_modules.entity_api.PublishEntityRequest(entity=entity),
+            metadata=(("authorization", f"Bearer {token}"),),
+        )
+
+        await asyncio.sleep(1.1)
+
+        with pytest.raises(grpc.aio.AioRpcError) as exc_info:
+            await stub.GetEntity(
+                proto_modules.entity_api.GetEntityRequest(entity_id="grpc-oauth-issued-token-entity"),
+                metadata=(("authorization", f"Bearer {token}"),),
+            )
+    ####
+    assert exc_info.value.code() == grpc.StatusCode.UNAUTHENTICATED
+
+
+async def test_grpc_static_auth_requires_sandbox_metadata_when_enabled(grpc_sandbox_auth_server: GrpcCompatServer) -> None:
+    proto_modules = grpc_sandbox_auth_server.proto_modules
+    async with grpc.aio.insecure_channel(grpc_sandbox_auth_server.address) as channel:
+        stub = proto_modules.entity_api_grpc.EntityManagerAPIStub(channel)
+        entity = proto_modules.entity.Entity(
+            entity_id="grpc-sandbox-auth-entity",
+            description="sandbox metadata required",
+            is_live=True,
+            no_expiry=True,
+        )
+        with pytest.raises(grpc.aio.AioRpcError) as exc_info:
+            await stub.PublishEntity(
+                proto_modules.entity_api.PublishEntityRequest(entity=entity),
+                metadata=(("authorization", "Bearer dev-token"),),
+            )
+        await stub.PublishEntity(
+            proto_modules.entity_api.PublishEntityRequest(entity=entity),
+            metadata=(
+                ("authorization", "Bearer dev-token"),
+                ("anduril-sandbox-authorization", "Bearer dev-token"),
+            ),
+        )
+    ####
+    assert exc_info.value.code() == grpc.StatusCode.PERMISSION_DENIED
 
 
 async def test_grpc_cancel_rejects_already_terminal_task(

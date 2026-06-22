@@ -87,6 +87,60 @@ async def grpc_auth_server(tmp_path: Path, proto_modules: LatticeProtoModules) -
 
 
 @pytest.fixture()
+async def grpc_oauth_server(tmp_path: Path, proto_modules: LatticeProtoModules) -> AsyncGenerator[GrpcCompatServer]:
+    settings = AppSettings(
+        auth_mode="oauth-dev",
+        static_tokens=["dev-token"],
+        oauth_dev_token_ttl_seconds=1,
+        database_url=f"sqlite:///{tmp_path / 'grpc_oauth.db'}",
+        object_root=tmp_path / "objects",
+        grpc_port=0,
+        poll_interval_seconds=0.01,
+    )
+    stores = build_store_bundle(settings)
+    server = build_grpc_server(stores=stores, proto_modules=proto_modules)
+    port = server.add_insecure_port("127.0.0.1:0")
+    await server.start()
+    try:
+        yield GrpcCompatServer(
+            address=f"127.0.0.1:{port}",
+            settings=settings,
+            proto_modules=proto_modules,
+        )
+    finally:
+        await server.stop(0)
+    ####
+####
+
+
+@pytest.fixture()
+async def grpc_sandbox_auth_server(tmp_path: Path, proto_modules: LatticeProtoModules) -> AsyncGenerator[GrpcCompatServer]:
+    settings = AppSettings(
+        auth_mode="static",
+        static_tokens=["dev-token"],
+        require_sandbox_header=True,
+        database_url=f"sqlite:///{tmp_path / 'grpc_sandbox_auth.db'}",
+        object_root=tmp_path / "objects",
+        grpc_port=0,
+        poll_interval_seconds=0.01,
+    )
+    stores = build_store_bundle(settings)
+    server = build_grpc_server(stores=stores, proto_modules=proto_modules)
+    port = server.add_insecure_port("127.0.0.1:0")
+    await server.start()
+    try:
+        yield GrpcCompatServer(
+            address=f"127.0.0.1:{port}",
+            settings=settings,
+            proto_modules=proto_modules,
+        )
+    finally:
+        await server.stop(0)
+    ####
+####
+
+
+@pytest.fixture()
 async def grpc_channel(grpc_compat_server: GrpcCompatServer) -> AsyncGenerator[grpc.aio.Channel]:
     channel = grpc.aio.insecure_channel(grpc_compat_server.address)
     try:

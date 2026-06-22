@@ -29,7 +29,14 @@ def test_publish_get_and_poll_entity_events(client: TestClient) -> None:
 
 
 def test_entity_override_round_trip(client: TestClient) -> None:
-    client.put("/api/v1/entities", json={"entityId": "asset-bravo", "isLive": True})
+    client.put(
+        "/api/v1/entities",
+        json={
+            "entityId": "asset-bravo",
+            "isLive": True,
+            "location": {"position": {"latitudeDegrees": 34.0, "longitudeDegrees": -118.0}},
+        },
+    )
 
     override_response = client.put(
         "/api/v1/entities/asset-bravo/override/location.position",
@@ -41,4 +48,5 @@ def test_entity_override_round_trip(client: TestClient) -> None:
     remove_response = client.delete("/api/v1/entities/asset-bravo/override/location.position")
     assert remove_response.status_code == 200
     assert "location.position" not in remove_response.json()["overrides"]
+    assert remove_response.json()["location"]["position"] == {"latitudeDegrees": 34.0, "longitudeDegrees": -118.0}
 ####

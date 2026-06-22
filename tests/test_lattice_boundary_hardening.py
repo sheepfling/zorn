@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import time
 
 from fastapi.testclient import TestClient
 
@@ -14,6 +15,7 @@ def _client(tmp_path: Path, *, auth_mode: str = "none", require_sandbox_header: 
     settings = AppSettings(
         auth_mode=auth_mode,  # type: ignore[arg-type]
         static_tokens=["dev-token"],
+        oauth_dev_token_ttl_seconds=1,
         require_sandbox_header=require_sandbox_header,
         database_url=f"sqlite:///{tmp_path / 'boundary.db'}",
         object_root=tmp_path / "objects",
@@ -106,6 +108,7 @@ def test_oauth_dev_token_is_proven_through_entity_surface(tmp_path: Path) -> Non
         token_response = client.post("/api/v1/oauth/token", json={"client_id": "dev", "client_secret": "dev"})
         assert token_response.status_code == 200
         token = token_response.json()["access_token"]
+        assert token != "dev-token"
 
         publish = client.put(
             "/api/v1/entities",
@@ -114,6 +117,20 @@ def test_oauth_dev_token_is_proven_through_entity_surface(tmp_path: Path) -> Non
         )
         assert publish.status_code == 200
         assert publish.json()["entityId"] == "oauth-entity"
+
+
+def test_oauth_dev_token_expires_on_rest_surface(tmp_path: Path) -> None:
+    with _client(tmp_path, auth_mode="oauth-dev") as client:
+        token_response = client.post("/api/v1/oauth/token", json={"client_id": "dev", "client_secret": "dev"})
+        assert token_response.status_code == 200
+        token = token_response.json()["access_token"]
+        assert token_response.json()["expires_in"] == 1
+
+        time.sleep(1.1)
+
+        expired = client.get("/api/v1/entities/missing", headers={"Authorization": f"Bearer {token}"})
+        assert expired.status_code == 403
+        assert expired.json()["detail"] == "Invalid token"
 
 
 def test_stale_entity_update_does_not_emit_extra_lifecycle_event(client: TestClient) -> None:

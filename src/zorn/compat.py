@@ -9,6 +9,7 @@ OBJECT_PATH_PATTERN = re.compile(r"^[a-zA-Z0-9/_=\-.]+$")
 
 
 ENTITY_ALWAYS_INCLUDED_COMPONENTS: set[str] = {"entityId"}
+ENTITY_INTERNAL_STATE_KEY = "_zornInternal"
 
 
 def first_present(payload: dict[str, Any], *keys: str) -> Any:
@@ -109,7 +110,7 @@ def sequence_token(value: object, default: int = 0) -> int:
 
 def select_entity_components(entity: dict[str, Any], components: list[str] | None) -> dict[str, Any]:
     if not components:
-        return dict(entity)
+        return entity_public_payload(entity)
     ####
     selected: dict[str, Any] = {}
     for key in ENTITY_ALWAYS_INCLUDED_COMPONENTS | set(components):
@@ -118,6 +119,11 @@ def select_entity_components(entity: dict[str, Any], components: list[str] | Non
         ####
     ####
     return selected
+####
+
+
+def entity_public_payload(entity: dict[str, Any]) -> dict[str, Any]:
+    return {key: value for key, value in entity.items() if key != ENTITY_INTERNAL_STATE_KEY}
 ####
 
 

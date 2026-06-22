@@ -89,13 +89,26 @@ class EntityManagerServiceFactory:
 
             async def OverrideEntity(self, request: Any, context: grpc.aio.ServicerContext) -> Any:
                 payload = message_to_dict(request)
-                entity_id = _first_string(payload, "entityId", "entity_id")
-                field_path = _first_string(payload, "fieldPath", "field_path")
+                entity_payload = _entity_payload_from_request(request)
+                entity_id = (
+                    _first_string(payload, "entityId", "entity_id")
+                    or (
+                        entity_payload.get("entityId")
+                        if isinstance(entity_payload, dict) and isinstance(entity_payload.get("entityId"), str)
+                        else None
+                    )
+                    or (
+                        entity_payload.get("entity_id")
+                        if isinstance(entity_payload, dict) and isinstance(entity_payload.get("entity_id"), str)
+                        else None
+                    )
+                )
+                field_path = _field_path_from_request(payload, request)
                 if entity_id is None or field_path is None:
                     await context.abort(grpc.StatusCode.INVALID_ARGUMENT, "entity_id and field_path are required")
                     raise AssertionError("unreachable after gRPC abort")
                 ####
-                value = payload.get("value") or payload.get("fieldValue") or payload.get("maskedFieldValue") or payload
+                value = entity_payload or payload.get("value") or payload.get("fieldValue") or payload.get("maskedFieldValue") or payload
                 entity = entity_store.override_field(entity_id, field_path, value)
                 if entity is None:
                     await context.abort(grpc.StatusCode.NOT_FOUND, f"entity not found: {entity_id}")
@@ -108,7 +121,7 @@ class EntityManagerServiceFactory:
             async def RemoveEntityOverride(self, request: Any, context: grpc.aio.ServicerContext) -> Any:
                 payload = message_to_dict(request)
                 entity_id = _first_string(payload, "entityId", "entity_id") or get_string_attr(request, "entity_id", "entityId")
-                field_path = _first_string(payload, "fieldPath", "field_path") or get_string_attr(request, "field_path", "fieldPath")
+                field_path = _field_path_from_request(payload, request)
                 if entity_id is None or field_path is None:
                     await context.abort(grpc.StatusCode.INVALID_ARGUMENT, "entity_id and field_path are required")
                     raise AssertionError("unreachable after gRPC abort")
@@ -193,6 +206,16 @@ def _entity_payload_from_request(request: Any) -> dict[str, Any] | None:
         return None
     ####
     payload = message_to_dict(entity)
+    for raw_name, wire_name in (("entity_id", "entityId"), ("is_live", "isLive"), ("no_expiry", "noExpiry")):
+        value = getattr(entity, raw_name, None)
+        if isinstance(value, bool):
+            payload[wire_name] = value
+            payload.setdefault(raw_name, value)
+        elif isinstance(value, str) and value:
+            payload[wire_name] = value
+            payload.setdefault(raw_name, value)
+        ####
+    ####
     return payload if payload else None
 ####
 
@@ -205,6 +228,21 @@ def _first_string(payload: dict[str, Any], *keys: str) -> str | None:
         ####
     ####
     return None
+####
+
+
+def _field_path_from_request(payload: dict[str, Any], request: Any) -> str | None:
+    direct = _first_string(payload, "fieldPath", "field_path")
+    if direct is not None:
+        return direct
+    ####
+    for field_name in ("field_path", "fieldPath"):
+        repeated = get_repeated_strings(request, field_name)
+        if repeated:
+            return "".join(repeated) if len(repeated) > 1 and all(len(item) == 1 for item in repeated) else ".".join(repeated)
+        ####
+    ####
+    return get_string_attr(request, "field_path", "fieldPath")
 ####
 
 

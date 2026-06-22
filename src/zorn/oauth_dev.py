@@ -1,0 +1,83 @@
+from __future__ import annotations
+
+import base64
+import hashlib
+import hmac
+import json
+import secrets
+from dataclasses import dataclass
+from datetime import timedelta
+
+from .config import AppSettings
+from .time_utils import utc_now
+
+
+@dataclass(frozen=True, slots=True)
+class IssuedOAuthDevToken:
+    token: str
+    scope: str
+    expires_in: int
+####
+
+
+class OAuthDevTokenStore:
+    def __init__(self, settings: AppSettings) -> None:
+        self.settings = settings
+        seed = "|".join(settings.static_tokens) or "dev-token"
+        self._secret = hashlib.sha256(f"{settings.product_name}|{seed}".encode("utf-8")).digest()
+    ####
+
+    def issue_token(self, *, scope: str | None = None) -> IssuedOAuthDevToken:
+        now = utc_now()
+        expires_in = max(int(self.settings.oauth_dev_token_ttl_seconds), 1)
+        payload = {
+            "iat": int(now.timestamp()),
+            "exp": int((now + timedelta(seconds=expires_in)).timestamp()),
+            "scope": scope or "local-dev",
+            "jti": secrets.token_hex(12),
+        }
+        encoded = _urlsafe_b64(json.dumps(payload, separators=(",", ":"), sort_keys=True).encode("utf-8"))
+        signature = hmac.new(self._secret, encoded.encode("ascii"), hashlib.sha256).hexdigest()
+        token = f"zorn-oauth-dev.{encoded}.{signature}"
+        return IssuedOAuthDevToken(token=token, scope=str(payload["scope"]), expires_in=expires_in)
+    ####
+
+    def is_valid(self, token: str | None) -> bool:
+        if not token:
+            return False
+        ####
+        try:
+            prefix, encoded, signature = token.split(".", 2)
+        except ValueError:
+            return False
+        ####
+        if prefix != "zorn-oauth-dev":
+            return False
+        ####
+        expected = hmac.new(self._secret, encoded.encode("ascii"), hashlib.sha256).hexdigest()
+        if not hmac.compare_digest(signature, expected):
+            return False
+        ####
+        try:
+            payload = json.loads(_urlsafe_b64_decode(encoded))
+        except (ValueError, json.JSONDecodeError):
+            return False
+        ####
+        expiry = payload.get("exp")
+        if not isinstance(expiry, int):
+            return False
+        ####
+        return expiry > int(utc_now().timestamp())
+    ####
+####
+
+
+def _urlsafe_b64(value: bytes) -> str:
+    return base64.urlsafe_b64encode(value).decode("ascii").rstrip("=")
+####
+
+
+def _urlsafe_b64_decode(value: str) -> str:
+    padding = "=" * (-len(value) % 4)
+    return base64.urlsafe_b64decode(f"{value}{padding}".encode("ascii")).decode("utf-8")
+####

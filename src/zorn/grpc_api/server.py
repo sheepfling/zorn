@@ -44,7 +44,7 @@ def build_grpc_server(
     if stores.settings.grpc_strict_proto_audit:
         assert_lattice_grpc_contract(proto_modules)
     ####
-    server = grpc.aio.server(options=options, interceptors=(AuthInterceptor(stores.settings),))
+    server = grpc.aio.server(options=options, interceptors=(AuthInterceptor(stores.settings, stores.oauth_dev_token_store),))
     entity_service = EntityManagerServiceFactory(
         proto_modules=proto_modules,
         settings=stores.settings,

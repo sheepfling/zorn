@@ -8,7 +8,7 @@ from typing import Any, List
 
 from sqlalchemy import delete, select
 
-from .compat import object_metadata_wire, validate_object_path
+from .compat import ENTITY_INTERNAL_STATE_KEY, entity_public_payload, object_metadata_wire, validate_object_path
 from .db import Database, EntityRow, ObjectRow, TaskRow
 from .events import add_event, event_to_payload, poll_events
 from .identity import assignee_id_from_task, entity_id_from_payload, source_update_time_from_entity, task_id_from_payload
@@ -117,7 +117,7 @@ class EntityStore:
         with self.database.session() as session:
             self._expire_due_entities(session, entity_ids=[entity_id])
             row = session.get(EntityRow, entity_id)
-            return dict(row.payload) if row is not None else None
+            return self._public_entity(row.payload) if row is not None else None
         ####
     ####
 
@@ -131,7 +131,7 @@ class EntityStore:
                 .where((EntityRow.expiry_time.is_(None)) | (EntityRow.expiry_time > now))
                 .order_by(EntityRow.sequence.asc())
             ).all()
-            return [dict(row.payload) for row in rows]
+            return [self._public_entity(row.payload) for row in rows]
         ####
     ####
 
@@ -155,6 +155,7 @@ class EntityStore:
             ####
             payload = dict(row.payload)
             overrides = dict(payload.get("overrides") or {})
+            self._capture_override_base(payload, field_path)
             override_value = self._extract_override_value(field_path, value)
             overrides[field_path] = override_value
             payload["overrides"] = overrides
@@ -170,7 +171,7 @@ class EntityStore:
             )
             row.sequence = event.id
             session.commit()
-            return payload
+            return self._public_entity(payload)
         ####
     ####
 
@@ -184,6 +185,7 @@ class EntityStore:
             overrides = dict(payload.get("overrides") or {})
             overrides.pop(field_path, None)
             payload["overrides"] = overrides
+            self._restore_override_base(payload, field_path)
             row.payload = payload
             row.updated_at = utc_now()
             event = add_event(
@@ -195,7 +197,7 @@ class EntityStore:
             )
             row.sequence = event.id
             session.commit()
-            return payload
+            return self._public_entity(payload)
         ####
     ####
 
@@ -255,6 +257,60 @@ class EntityStore:
     ####
 
     @staticmethod
+    def _public_entity(payload: dict[str, Any]) -> dict[str, Any]:
+        return entity_public_payload(dict(payload))
+    ####
+
+    @staticmethod
+    def _capture_override_base(payload: dict[str, Any], field_path: str) -> None:
+        internal = EntityStore._internal_state(payload)
+        override_bases = dict(internal.get("overrideBaseValues") or {})
+        if field_path in override_bases:
+            return
+        ####
+        exists = EntityStore._has_field_path(payload, field_path)
+        override_bases[field_path] = {
+            "exists": exists,
+            "value": EntityStore._get_field_path(payload, field_path) if exists else None,
+        }
+        internal["overrideBaseValues"] = override_bases
+        payload[ENTITY_INTERNAL_STATE_KEY] = internal
+    ####
+
+    @staticmethod
+    def _restore_override_base(payload: dict[str, Any], field_path: str) -> None:
+        internal = EntityStore._internal_state(payload)
+        override_bases = dict(internal.get("overrideBaseValues") or {})
+        base = override_bases.pop(field_path, None)
+        if base is None:
+            EntityStore._delete_field_path(payload, field_path)
+        else:
+            if bool(base.get("exists")):
+                EntityStore._set_field_path(payload, field_path, base.get("value"))
+            else:
+                EntityStore._delete_field_path(payload, field_path)
+            ####
+        ####
+        if override_bases:
+            internal["overrideBaseValues"] = override_bases
+            payload[ENTITY_INTERNAL_STATE_KEY] = internal
+        else:
+            internal.pop("overrideBaseValues", None)
+            if internal:
+                payload[ENTITY_INTERNAL_STATE_KEY] = internal
+            else:
+                payload.pop(ENTITY_INTERNAL_STATE_KEY, None)
+            ####
+        ####
+    ####
+
+    @staticmethod
+    def _internal_state(payload: dict[str, Any]) -> dict[str, Any]:
+        raw = payload.get(ENTITY_INTERNAL_STATE_KEY)
+        return dict(raw) if isinstance(raw, dict) else {}
+    ####
+
+    @staticmethod
     def _get_field_path(payload: dict[str, Any], field_path: str) -> Any:
         current: Any = payload
         for segment in field_path.split("."):
@@ -268,6 +324,22 @@ class EntityStore:
             current = current.get(key)
         ####
         return current
+    ####
+
+    @staticmethod
+    def _has_field_path(payload: dict[str, Any], field_path: str) -> bool:
+        current: Any = payload
+        for segment in field_path.split("."):
+            if not isinstance(current, dict):
+                return False
+            ####
+            key = EntityStore._resolve_key(current, segment)
+            if key is None:
+                return False
+            ####
+            current = current.get(key)
+        ####
+        return True
     ####
 
     @staticmethod
@@ -285,6 +357,33 @@ class EntityStore:
         ####
         leaf = EntityStore._resolve_key(current, segments[-1]) or segments[-1]
         current[leaf] = value
+    ####
+
+    @staticmethod
+    def _delete_field_path(payload: dict[str, Any], field_path: str) -> None:
+        current: dict[str, Any] | None = payload
+        segments = field_path.split(".")
+        for segment in segments[:-1]:
+            if current is None:
+                return
+            ####
+            key = EntityStore._resolve_key(current, segment)
+            if key is None:
+                return
+            ####
+            nested = current.get(key)
+            if not isinstance(nested, dict):
+                return
+            ####
+            current = nested
+        ####
+        if current is None:
+            return
+        ####
+        leaf = EntityStore._resolve_key(current, segments[-1])
+        if leaf is not None:
+            current.pop(leaf, None)
+        ####
     ####
 
     @staticmethod

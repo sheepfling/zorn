@@ -5,6 +5,7 @@ from typing import Annotated
 from fastapi import Depends, Header, HTTPException, Request, status
 
 from .config import AppSettings
+from .oauth_dev import OAuthDevTokenStore
 from .stores import EntityStore, ObjectStore, TaskStore
 
 
@@ -29,6 +30,7 @@ def get_object_store(request: Request) -> ObjectStore:
 
 
 def require_auth(
+    request: Request,
     settings: Annotated[AppSettings, Depends(get_settings)],
     authorization: Annotated[str | None, Header()] = None,
     x_api_key: Annotated[str | None, Header()] = None,
@@ -49,6 +51,10 @@ def require_auth(
     ####
     token = authorization.split(" ", 1)[1].strip()
     if settings.auth_mode in {"static", "oauth-dev"} and token in settings.static_tokens:
+        return
+    ####
+    oauth_dev_token_store: OAuthDevTokenStore = request.app.state.oauth_dev_token_store
+    if settings.auth_mode == "oauth-dev" and oauth_dev_token_store.is_valid(token):
         return
     ####
     raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Invalid token")

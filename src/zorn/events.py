@@ -7,6 +7,7 @@ from typing import Any
 from sqlalchemy import Select, func, select
 from sqlalchemy.orm import Session
 
+from .compat import entity_public_payload
 from .db import EventRow
 from .time_utils import to_iso, utc_now
 
@@ -68,6 +69,10 @@ def poll_events(
 
 def event_to_payload(row: EventRow) -> dict[str, Any]:
     payload = dict(row.payload)
+    entity = payload.get("entity")
+    if isinstance(entity, dict):
+        payload["entity"] = entity_public_payload(entity)
+    ####
     payload.setdefault("eventType", row.event_type)
     payload.setdefault("sequence", row.id)
     payload.setdefault("occurredTime", to_iso(row.occurred_at))

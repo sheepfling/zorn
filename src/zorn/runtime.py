@@ -4,6 +4,7 @@ from dataclasses import dataclass
 
 from .config import AppSettings, load_settings
 from .db import Database
+from .oauth_dev import OAuthDevTokenStore
 from .stores import EntityStore, ObjectStore, TaskStore
 
 
@@ -14,6 +15,7 @@ class StoreBundle:
     entity_store: EntityStore
     task_store: TaskStore
     object_store: ObjectStore
+    oauth_dev_token_store: OAuthDevTokenStore
 ####
 
 
@@ -35,5 +37,6 @@ def build_store_bundle(settings: AppSettings | None = None) -> StoreBundle:
             root=resolved_settings.object_root,
             max_object_bytes=resolved_settings.max_object_bytes,
         ),
+        oauth_dev_token_store=OAuthDevTokenStore(resolved_settings),
     )
 ####

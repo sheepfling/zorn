@@ -21,6 +21,7 @@ def build_app(settings: AppSettings | None = None) -> FastAPI:
     app.state.entity_store = bundle.entity_store
     app.state.task_store = bundle.task_store
     app.state.object_store = bundle.object_store
+    app.state.oauth_dev_token_store = bundle.oauth_dev_token_store
 
     app.include_router(oauth.router, prefix=resolved_settings.api_prefix)
     app.include_router(entities.router, prefix=resolved_settings.api_prefix)
