@@ -32,9 +32,14 @@ def require_auth(
     settings: Annotated[AppSettings, Depends(get_settings)],
     authorization: Annotated[str | None, Header()] = None,
     x_api_key: Annotated[str | None, Header()] = None,
+    x_anduril_sandbox: Annotated[str | None, Header()] = None,
+    anduril_sandbox_authorization: Annotated[str | None, Header()] = None,
 ) -> None:
     if settings.auth_mode == "none":
         return
+    ####
+    if settings.require_sandbox_header and not (x_anduril_sandbox or anduril_sandbox_authorization):
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Missing sandbox header")
     ####
     if x_api_key and settings.auth_mode in {"static", "oauth-dev"} and x_api_key in settings.static_tokens:
         return

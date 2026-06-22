@@ -143,8 +143,6 @@ def _run_spec_rest_flow(
             payload={"client_id": "zorn-client", "client_secret": "zorn-secret"},
         )
         _record(report, "auth.oauth_client_credentials", status == 200 and bool(oauth.get("access_token")), oauth)
-        status, health = http_json("GET", f"{base_url}/healthz", token=token)
-        _record(report, "auth.bearer_token", status == 200, health)
         _record(report, "transport.rest_json", True, {"artifact_kind": artifact_kind, "artifacts": report["details"]["artifacts"]})
 
         entity_id = f"{fixture.id}-entity"
@@ -160,6 +158,7 @@ def _run_spec_rest_flow(
         }
         status, published = http_json("PUT", f"{base_url}/api/v1/entities", token=token, payload=entity_payload)
         _record(report, "entities.publish", status == 200 and published.get("entityId") == entity_id, published)
+        _record(report, "auth.bearer_token", status == 200 and published.get("entityId") == entity_id, {"endpoint": "PUT /api/v1/entities"})
         status, fetched = http_json("GET", f"{base_url}/api/v1/entities/{entity_id}", token=token)
         _record(report, "entities.get", status == 200 and fetched.get("entityId") == entity_id, fetched)
         status, overridden = http_json(
