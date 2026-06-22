@@ -51,6 +51,8 @@ artifacts = [
   "cert/ui/*.yaml",
   "cert/ui/README.md",
   "docs/design/*.md",
+  "docs/manifests/*.yaml",
+  "docs/reference/lattice-ecosystem-*",
   "docs/reference/ui/*",
   "proto/zorn/**/*.proto",
   "tests/fixtures/**/*.jsonl",

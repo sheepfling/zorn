@@ -35,22 +35,12 @@ Acceptance:
 - `zorn.ui.v1` projection proto is present under `proto/zorn`.
 - Tests prove the contract files and P0 requirements exist.
 
-### UI-1: developer console projection API
+### UI-1: developer console read model
 
-Expose a UI-facing read model from existing Zorn stores and streams for
-`/developer-console`.
-
-Initial endpoints:
-
-- `GET /api/zorn/ui/v1/cop`
-- `GET /api/zorn/ui/v1/entities`
-- `GET /api/zorn/ui/v1/entities/{entity_id}`
-- `GET /api/zorn/ui/v1/tasks`
-- `GET /api/zorn/ui/v1/objects`
-- `GET /api/zorn/ui/v1/events`
-
-The event endpoint can start as SSE and later add WebSocket support if the UI
-needs bidirectional interaction.
+Expose a UI-facing read model for `/developer-console` without expanding the
+Lattice-compatible API. The UI can use in-process adapters, local app state,
+scenario files, certification reports, and existing Entity/Task/Object/Auth
+surfaces. It must not create a new third-party integration contract.
 
 ### UI-2: `/developer-console`
 

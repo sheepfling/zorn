@@ -1,0 +1,118 @@
+schema_version: zorn.modules.v1
+boundary:
+  third_party_integration_rule: Use only validated Lattice-shaped surfaces.
+  allowed_lattice_surfaces:
+    - entities
+    - tasks
+    - objects
+    - auth
+    - rest_streams
+    - grpc_entities
+    - grpc_tasks
+  forbidden_public_surfaces:
+    - zorn_specific_routes
+    - module_specific_endpoints
+    - local_replacement_lattice_protos
+    - cli_report_as_integration_contract
+modules:
+  zorn-core:
+    role: compatibility_data_plane
+    consumes_lattice_surfaces: []
+    provides_lattice_surfaces:
+      - entities
+      - tasks
+      - objects
+      - auth
+      - rest_streams
+      - grpc_entities
+      - grpc_tasks
+    local_artifacts:
+      - event_log
+      - sqlite_state
+  zorn-sdk:
+    role: developer_ecosystem
+    consumes_lattice_surfaces:
+      - entities
+      - tasks
+      - objects
+      - auth
+      - grpc_entities
+      - grpc_tasks
+    provides_lattice_surfaces: []
+    local_artifacts:
+      - cert_reports
+      - fixture_manifests
+      - descriptor_audits
+  zorn-c2:
+    role: local_product_app
+    consumes_lattice_surfaces:
+      - entities
+      - tasks
+      - objects
+      - rest_streams
+    provides_lattice_surfaces: []
+    local_artifacts:
+      - ui_state
+      - local_read_models
+      - screenshots
+  zorn-autonomy:
+    role: local_simulation_module
+    consumes_lattice_surfaces:
+      - entities
+      - tasks
+      - rest_streams
+      - grpc_tasks
+    provides_lattice_surfaces: []
+    local_artifacts:
+      - agent_configs
+      - mission_graphs
+      - supervision_gates
+  zorn-mesh:
+    role: local_simulation_module
+    consumes_lattice_surfaces:
+      - entities
+      - tasks
+      - objects
+      - rest_streams
+    provides_lattice_surfaces: []
+    local_artifacts:
+      - node_manifests
+      - link_profiles
+      - offline_queues
+      - reconciliation_logs
+  zorn-partner:
+    role: integration_lab
+    consumes_lattice_surfaces:
+      - entities
+      - tasks
+      - objects
+      - auth
+    provides_lattice_surfaces: []
+    local_artifacts:
+      - package_manifests
+      - compatibility_scorecards
+      - reference_data_packs
+  zorn-adapters:
+    role: protocol_adapter_collection
+    consumes_lattice_surfaces:
+      - entities
+      - tasks
+      - objects
+      - rest_streams
+    provides_lattice_surfaces: []
+    local_artifacts:
+      - adapter_configs
+      - input_fixtures
+      - mapping_reports
+  zorn-domain:
+    role: domain_scenario_collection
+    consumes_lattice_surfaces:
+      - entities
+      - tasks
+      - objects
+      - rest_streams
+    provides_lattice_surfaces: []
+    local_artifacts:
+      - scenario_packs
+      - domain_mappings
+      - expected_timelines

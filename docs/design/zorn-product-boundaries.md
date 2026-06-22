@@ -25,9 +25,9 @@ These are local apps deployed with Zorn:
 - `/c2`: map-first COP, selected entity panel, task board, object/media previews,
   and scenario controls.
 
-The product apps consume the data plane. They can expose Zorn-only projection
-endpoints under `/api/zorn/ui/v1/**`, but those endpoints are not part of the
-Lattice compatibility contract.
+The product apps consume the data plane through existing Lattice-shaped
+surfaces, in-process read models, scenario files, and local application state.
+They must not add third-party-facing routes to the Lattice-compatible API.
 
 ## UI/Application State
 

@@ -31,7 +31,7 @@ Acceptance criteria:
 - REST stream emits ordered create/update/delete or stale events.
 - Multiple DIS exercise IDs namespace cleanly without entity ID collisions.
 - AIS REST sample and direct SDK smoke fixtures still pass after DIS adapter work.
-- A small read-only debug endpoint or report can show the final entity set and event log.
+- A certification report can show the final entity set and event log without adding a Zorn-specific integration endpoint.
 
 Non-goals:
 
@@ -117,7 +117,7 @@ Primary scope:
   - Task board and task geometry overlays.
   - Object/media previews.
   - Scenario controls for replay, pause, resume, seek, and speed.
-- Zorn-only UI projection endpoints under `/api/zorn/ui/v1/**`.
+- Local UI read models backed by existing Lattice-shaped Entity/Task/Object/Auth surfaces.
 - Playwright visual and interaction tests for fixture/scenario output.
 - Screenshot artifacts for key certification runs.
 

@@ -1,0 +1,47 @@
+{
+  "schema_version": "zorn.lattice_ecosystem.requirements.v1",
+  "requirements": [
+    {
+      "id": "ECO-BOUNDARY-001",
+      "priority": "P0",
+      "text": "Zorn ecosystem modules must not add third-party-facing API outside validated Lattice-shaped surfaces.",
+      "evidence": ["docs/design/zorn-product-boundaries.md", "docs/manifests/rest-endpoints.yaml", "docs/manifests/grpc-services.yaml"]
+    },
+    {
+      "id": "ECO-SDK-001",
+      "priority": "P0",
+      "text": "SDK/developer tooling must prove compatibility through official SDKs, public Buf-generated gRPC types, sample apps, and existing REST/gRPC surfaces.",
+      "evidence": ["cert/lattice/fixtures.yaml", "cert/lattice/reports"]
+    },
+    {
+      "id": "ECO-ADAPTER-001",
+      "priority": "P0",
+      "text": "Protocol adapters must publish through Entity, Task, Object, Auth, and stream surfaces rather than adapter-specific endpoints.",
+      "evidence": ["tests/fixtures/dis/entity_state_replay.jsonl", "src/zorn/adapters/dis"]
+    },
+    {
+      "id": "ECO-C2-001",
+      "priority": "P1",
+      "text": "C2 and developer-console apps may maintain local UI state and read models, but must not redefine Lattice data-plane behavior.",
+      "evidence": ["docs/design/zorn-cop-debug-ui.md", "cert/ui/requirements.yaml"]
+    },
+    {
+      "id": "ECO-AUTONOMY-001",
+      "priority": "P1",
+      "text": "Mission autonomy simulations should route tasking through TaskCatalog-like entity data and existing task lifecycle routes.",
+      "evidence": ["cert/lattice/capabilities.yaml", "cert/lattice/coverage.yaml"]
+    },
+    {
+      "id": "ECO-MESH-001",
+      "priority": "P2",
+      "text": "Mesh simulation should model distribution, queues, link quality, and reconciliation as local scenario behavior over existing entity/task/object state.",
+      "evidence": ["docs/design/roadmap.md"]
+    },
+    {
+      "id": "ECO-DOMAIN-001",
+      "priority": "P2",
+      "text": "Domain scenario packs should remain plugins above the compatibility data plane and must not modify official Lattice protobuf namespaces.",
+      "evidence": ["proto/README.md", "docs/design/zorn-product-boundaries.md"]
+    }
+  ]
+}

@@ -58,10 +58,10 @@ def test_ui_requirements_contract_tracks_p0_p1_p2_and_proof_paths() -> None:
     assert proof_paths["browser_proof"]["required"] is True
 
 
-def test_ui_plan_points_to_projection_api_and_visual_certification() -> None:
+def test_ui_plan_points_to_lattice_boundary_and_visual_certification() -> None:
     plan = (ROOT / "docs" / "design" / "zorn-cop-debug-ui.md").read_text()
 
-    assert "GET /api/zorn/ui/v1/cop" in plan
+    assert "without expanding the\nLattice-compatible API" in plan
     assert "UI-2: `/developer-console`" in plan
     assert "UI-3: `/c2` operator COP" in plan
     assert "UI-4: visual certification" in plan

@@ -1,0 +1,79 @@
+{
+  "schema_version": "zorn.lattice_ecosystem.registry.v1",
+  "boundary": {
+    "rule": "Third-party integrations must use only validated Lattice-shaped surfaces.",
+    "allowed_surfaces": [
+      "entities",
+      "tasks",
+      "objects",
+      "auth",
+      "rest_streams",
+      "grpc_entities",
+      "grpc_tasks"
+    ],
+    "forbidden": [
+      "zorn_specific_public_routes",
+      "local_replacement_lattice_protos",
+      "third_party_contracts_based_on_cli_reports",
+      "module_specific_data_plane_endpoints"
+    ]
+  },
+  "lanes": [
+    {
+      "id": "core_data_plane",
+      "module": "zorn-core",
+      "purpose": "Lattice-compatible entity, task, object, auth, and event-log behavior exposed only through validated Lattice-shaped surfaces.",
+      "lattice_surfaces": ["entities", "tasks", "objects", "auth", "rest_streams", "grpc_entities", "grpc_tasks"],
+      "local_artifacts": ["state_stores", "event_logs", "contract_reports"]
+    },
+    {
+      "id": "command_and_control",
+      "module": "zorn-c2",
+      "purpose": "Map-first common operational picture and operator tasking workflows.",
+      "lattice_surfaces": ["entities", "tasks", "objects", "rest_streams"],
+      "local_artifacts": ["ui_panels", "scenario_views", "certification_screenshots"]
+    },
+    {
+      "id": "mission_autonomy",
+      "module": "zorn-autonomy",
+      "purpose": "Taskable agent simulation, TaskCatalog routing, task graphs, and human-supervision gates.",
+      "lattice_surfaces": ["entities", "tasks", "rest_streams", "grpc_tasks"],
+      "local_artifacts": ["agent_configs", "mission_graphs", "scenario_files"]
+    },
+    {
+      "id": "mesh_simulation",
+      "module": "zorn-mesh",
+      "purpose": "Local simulation of node distribution, offline queues, degraded links, and object availability.",
+      "lattice_surfaces": ["entities", "tasks", "objects", "rest_streams"],
+      "local_artifacts": ["node_manifests", "link_profiles", "reconciliation_logs"]
+    },
+    {
+      "id": "sdk_developer_ecosystem",
+      "module": "zorn-sdk",
+      "purpose": "Official SDK conformance, Buf proto audits, sample-app harnesses, and developer diagnostics.",
+      "lattice_surfaces": ["entities", "tasks", "objects", "auth", "grpc_entities", "grpc_tasks"],
+      "local_artifacts": ["cert_reports", "fixture_manifests", "descriptor_audits"]
+    },
+    {
+      "id": "partner_integration_lab",
+      "module": "zorn-partner",
+      "purpose": "Integration package manifests, capability cataloging, compatibility scorecards, and reference data packs.",
+      "lattice_surfaces": ["entities", "tasks", "objects", "auth"],
+      "local_artifacts": ["package_manifests", "scorecards", "reference_data_packs"]
+    },
+    {
+      "id": "protocol_adapters",
+      "module": "zorn-adapters",
+      "purpose": "AIS, DIS, HLA, CoT/TAK, and synthetic source adapters that publish through existing Lattice-shaped APIs.",
+      "lattice_surfaces": ["entities", "tasks", "objects", "rest_streams"],
+      "local_artifacts": ["adapter_configs", "input_fixtures", "mapping_reports"]
+    },
+    {
+      "id": "domain_scenarios",
+      "module": "zorn-domain",
+      "purpose": "Radar, EO/IR, C-UAS, air autonomy, maritime/undersea, tactical compute, and space-domain scenario packs.",
+      "lattice_surfaces": ["entities", "tasks", "objects", "rest_streams"],
+      "local_artifacts": ["scenario_packs", "domain_mappings", "expected_timelines"]
+    }
+  ]
+}
