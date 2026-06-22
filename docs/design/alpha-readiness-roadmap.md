@@ -169,14 +169,17 @@ The immediate implementation priority is now Alpha 1 corrective hardening:
    - override removal restoring shared state across transports
 2. Make OAuth-dev tokens distinct and expiring without inventing new auth
    surfaces.
-3. Keep FastDIS and replay lanes on the same public Entity/Task/Object
+3. Add a strict startup profile that refuses to boot unless auth, sandbox, and
+   proto-audit settings match the intended surrogate mode.
+4. Keep FastDIS and replay lanes on the same public Entity/Task/Object
    interfaces used by SDK/sample certification.
-4. After the above is green, resume the DIS Entity State adapter and replay
+5. After the above is green, resume the DIS Entity State adapter and replay
    tranche.
 
 The detailed corrective plan is in:
 
 - `design/alpha1-gap-closure-plan.md`
+- `design/strict-startup-contract.md`
 
 ## Alpha 1 Evidence
 

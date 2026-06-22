@@ -1292,10 +1292,11 @@ async def _run_golden_wire_checks(
         stream_call.cancel()
         entity_event = getattr(stream_response, "entity_event", None)
         streamed_entity = getattr(entity_event, "entity", None) if entity_event is not None else None
+        streamed_entity_id = streamed_entity.entity_id if streamed_entity is not None else ""
         results["entity_stream_request.binpb"] = {
-            "ok": bool(streamed_entity is not None and getattr(streamed_entity, "entity_id", "")),
+            "ok": bool(streamed_entity_id),
             "response_type": stream_response.DESCRIPTOR.full_name,
-            "entity_id": getattr(streamed_entity, "entity_id", ""),
+            "entity_id": streamed_entity_id,
         }
 
         create_request = requests["task_create_request.binpb"]

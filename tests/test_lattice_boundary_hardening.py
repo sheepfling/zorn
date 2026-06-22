@@ -2,10 +2,13 @@ from __future__ import annotations
 
 from pathlib import Path
 import time
+from typing import Literal, cast
 
 from fastapi.testclient import TestClient
+import pytest
 
 from zorn import AppSettings, build_app
+from zorn.startup import StrictStartupError
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def _client(tmp_path: Path, *, auth_mode: str = "none", require_sandbox_header: bool = False) -> TestClient:
     settings = AppSettings(
-        auth_mode=auth_mode,  # type: ignore[arg-type]
+        auth_mode=cast(Literal["none", "static", "oauth-dev"], auth_mode),
         static_tokens=["dev-token"],
         oauth_dev_token_ttl_seconds=1,
         require_sandbox_header=require_sandbox_header,
@@ -70,6 +73,58 @@ def test_default_app_mounts_only_strict_runtime_surface(tmp_path: Path) -> None:
 
         manual_control_placeholder = client.post("/api/v1/tasks/task-a/manual-control/stream", json={})
         assert manual_control_placeholder.status_code == 404
+
+
+def test_strict_startup_boots_with_faithful_profile(tmp_path: Path) -> None:
+    settings = AppSettings(
+        auth_mode="oauth-dev",
+        static_tokens=["dev-token"],
+        oauth_dev_token_ttl_seconds=3600,
+        require_sandbox_header=True,
+        strict_startup=True,
+        grpc_strict_proto_audit=True,
+        database_url=f"sqlite:///{tmp_path / 'strict-startup.db'}",
+        object_root=tmp_path / "objects",
+    )
+    app = build_app(settings)
+
+    assert app.state.settings.strict_startup is True
+    assert app.state.settings.auth_mode == "oauth-dev"
+    assert app.state.settings.require_sandbox_header is True
+
+
+@pytest.mark.parametrize(
+    ("auth_mode", "require_sandbox_header", "grpc_strict_proto_audit", "oauth_dev_token_ttl_seconds", "expected_fragment"),
+    [
+        ("none", True, True, 3600, "C2_COMPAT_AUTH_MODE must not be none"),
+        ("oauth-dev", False, True, 3600, "C2_COMPAT_REQUIRE_SANDBOX_HEADER must be true"),
+        ("oauth-dev", True, False, 3600, "C2_COMPAT_GRPC_STRICT_PROTO_AUDIT must be true"),
+        ("oauth-dev", True, True, 0, "C2_COMPAT_OAUTH_DEV_TOKEN_TTL_SECONDS must be positive"),
+    ],
+)
+def test_strict_startup_rejects_invalid_profiles(
+    tmp_path: Path,
+    auth_mode: str,
+    require_sandbox_header: bool,
+    grpc_strict_proto_audit: bool,
+    oauth_dev_token_ttl_seconds: int,
+    expected_fragment: str,
+) -> None:
+    settings = AppSettings(
+        auth_mode=auth_mode,  # type: ignore[arg-type]
+        static_tokens=["dev-token"],
+        oauth_dev_token_ttl_seconds=oauth_dev_token_ttl_seconds,
+        require_sandbox_header=require_sandbox_header,
+        strict_startup=True,
+        grpc_strict_proto_audit=grpc_strict_proto_audit,
+        database_url=f"sqlite:///{tmp_path / 'strict-startup-invalid.db'}",
+        object_root=tmp_path / "objects",
+    )
+
+    with pytest.raises(StrictStartupError) as exc_info:
+        build_app(settings)
+
+    assert expected_fragment in str(exc_info.value)
 
 
 def test_static_auth_distinguishes_missing_invalid_valid_and_sandbox_headers(tmp_path: Path) -> None:

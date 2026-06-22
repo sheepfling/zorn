@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from .config import AppSettings, load_settings
 from .db import Database
 from .oauth_dev import OAuthDevTokenStore
+from .startup import validate_strict_startup
 from .stores import EntityStore, ObjectStore, TaskStore
 
 
@@ -21,6 +22,7 @@ class StoreBundle:
 
 def build_store_bundle(settings: AppSettings | None = None) -> StoreBundle:
     resolved_settings = settings or load_settings()
+    validate_strict_startup(resolved_settings)
     database = Database(resolved_settings.database_url)
     database.create_schema()
     return StoreBundle(

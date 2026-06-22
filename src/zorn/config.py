@@ -15,6 +15,7 @@ class AppSettings(BaseModel):
     static_tokens: list[str] = Field(default_factory=lambda: ["dev-token"])
     oauth_dev_token_ttl_seconds: int = 3600
     require_sandbox_header: bool = False
+    strict_startup: bool = False
     database_url: str = "sqlite:///./var/zorn.db"
     object_root: Path = Path("./var/objects")
     max_object_bytes: int = 64 * 1024 * 1024
@@ -69,6 +70,7 @@ def load_settings() -> AppSettings:
         static_tokens=_split_tokens(os.getenv("C2_COMPAT_STATIC_TOKENS", "dev-token")),
         oauth_dev_token_ttl_seconds=int(os.getenv("C2_COMPAT_OAUTH_DEV_TOKEN_TTL_SECONDS", "3600")),
         require_sandbox_header=os.getenv("C2_COMPAT_REQUIRE_SANDBOX_HEADER", "false").lower() in {"1", "true", "yes"},
+        strict_startup=os.getenv("C2_COMPAT_STRICT_STARTUP", "false").lower() in {"1", "true", "yes"},
         database_url=os.getenv("C2_COMPAT_DATABASE_URL", "sqlite:///./var/zorn.db"),
         object_root=Path(os.getenv("C2_COMPAT_OBJECT_ROOT", "./var/objects")),
         max_object_bytes=int(os.getenv("C2_COMPAT_MAX_OBJECT_BYTES", str(64 * 1024 * 1024))),
