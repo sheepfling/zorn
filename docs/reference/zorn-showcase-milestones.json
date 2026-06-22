@@ -1,0 +1,95 @@
+{
+  "schema_version": "zorn.showcase.milestones.v1",
+  "boundary": {
+    "compatibility_kernel": [
+      "entities",
+      "tasks",
+      "objects",
+      "auth",
+      "rest_streams",
+      "grpc_entities",
+      "grpc_tasks"
+    ],
+    "rule": "Showcase modules may add local artifacts and UI state, but third-party integrations must only use validated Lattice-shaped surfaces."
+  },
+  "milestones": [
+    {
+      "id": "Z0",
+      "name": "Compatibility Guardrails and Name Portability",
+      "priority": "P0",
+      "capabilities": ["strict_boundary_tests", "name_neutral_package_layout", "official_proto_audit"]
+    },
+    {
+      "id": "Z1",
+      "name": "Entity / Task / Object Contract Core",
+      "priority": "P0",
+      "capabilities": ["entity_publish_get_stream", "task_lifecycle_core", "object_lifecycle_core", "event_log_replay"]
+    },
+    {
+      "id": "Z2",
+      "name": "SDK and Sample-App Compatibility Harness",
+      "priority": "P0",
+      "capabilities": ["sdk_smoke_matrix", "sample_app_runners", "adaptation_tier_reporting", "grpc_wire_fixtures"]
+    },
+    {
+      "id": "Z3",
+      "name": "Sandbox Environment Manager",
+      "priority": "P0",
+      "capabilities": ["environment_id", "seed_reset_export", "deterministic_clock", "fixture_packs"]
+    },
+    {
+      "id": "Z4",
+      "name": "Developer Console MVP",
+      "priority": "P0",
+      "capabilities": ["entity_explorer", "task_explorer", "object_explorer", "stream_inspector", "compatibility_matrix"]
+    },
+    {
+      "id": "Z5",
+      "name": "Operator C2 MVP",
+      "priority": "P1",
+      "capabilities": ["map_first_cop", "selected_entity_panel", "task_board", "media_preview", "scenario_controls"]
+    },
+    {
+      "id": "Z6",
+      "name": "Sensor, Track, and Protocol Adapters",
+      "priority": "P1",
+      "capabilities": ["dis_adapter", "ais_adapter", "mavlink_adapter", "tak_cot_adapter", "synthetic_tracks"]
+    },
+    {
+      "id": "Z7",
+      "name": "Objects, Media, Reports, and Evidence Workflows",
+      "priority": "P1",
+      "capabilities": ["object_byte_fidelity", "thumbnail_linkage", "report_objects", "media_browser"]
+    },
+    {
+      "id": "Z8",
+      "name": "Mission Autonomy and Taskable Agents",
+      "priority": "P1",
+      "capabilities": ["task_catalog_routing", "mock_agents", "mission_graphs", "human_supervision_gates", "agent_telemetry"]
+    },
+    {
+      "id": "Z9",
+      "name": "Mesh and Edge Simulation",
+      "priority": "P2",
+      "capabilities": ["node_registry", "offline_queue", "partition_reconnect", "object_distribution_state", "deterministic_reconciliation"]
+    },
+    {
+      "id": "Z10",
+      "name": "Partner-Style Integration System",
+      "priority": "P2",
+      "capabilities": ["package_manifests", "capability_catalog", "conformance_reports", "reference_data_packs"]
+    },
+    {
+      "id": "Z11",
+      "name": "Domain Scenario Packs",
+      "priority": "P2",
+      "capabilities": ["counter_uas_scenario", "maritime_scenario", "space_awareness_mock", "undersea_sparse_comms_mock"]
+    },
+    {
+      "id": "Z12",
+      "name": "Rich Showcase Bundle and Evaluation Mode",
+      "priority": "P2",
+      "capabilities": ["one_command_showcase", "evaluation_bundle", "timeline_artifacts", "scenario_scorecards"]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": "zorn.showcase.scenario.v1",
+  "id": "SCN-001",
+  "name": "Developer Sandbox Walkthrough",
+  "milestones": ["Z3", "Z4"],
+  "steps": [
+    "seed_environment",
+    "publish_sample_entities",
+    "create_sample_task",
+    "upload_sample_object",
+    "inspect_developer_console"
+  ],
+  "expected_surfaces": ["entities", "tasks", "objects", "rest_streams"]
+}

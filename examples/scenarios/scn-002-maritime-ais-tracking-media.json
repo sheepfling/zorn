@@ -1,0 +1,13 @@
+{
+  "schema_version": "zorn.showcase.scenario.v1",
+  "id": "SCN-002",
+  "name": "Maritime AIS Tracking and Media",
+  "milestones": ["Z5", "Z6", "Z7"],
+  "steps": [
+    "replay_ais_tracks",
+    "stream_entity_updates",
+    "attach_thumbnail_object",
+    "verify_media_link"
+  ],
+  "expected_surfaces": ["entities", "objects", "rest_streams"]
+}

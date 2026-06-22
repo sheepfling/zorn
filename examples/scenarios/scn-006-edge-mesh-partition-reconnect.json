@@ -1,0 +1,14 @@
+{
+  "schema_version": "zorn.showcase.scenario.v1",
+  "id": "SCN-006",
+  "name": "Edge Mesh Partition and Reconnect",
+  "milestones": ["Z9"],
+  "steps": [
+    "seed_multiple_nodes",
+    "simulate_partition",
+    "queue_entity_task_object_events",
+    "reconnect_nodes",
+    "verify_deterministic_reconciliation"
+  ],
+  "expected_surfaces": ["entities", "tasks", "objects", "rest_streams"]
+}

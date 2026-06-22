@@ -1,0 +1,18 @@
+{
+  "schema_version": "zorn.showcase.scenario.v1",
+  "id": "SCN-011",
+  "name": "Full Evaluation Bundle",
+  "milestones": ["Z12"],
+  "includes": ["SCN-001", "SCN-002", "SCN-003", "SCN-004", "SCN-005", "SCN-006"],
+  "expected_artifacts": [
+    "run.json",
+    "events.jsonl",
+    "entities.final.json",
+    "tasks.final.json",
+    "objects.final.json",
+    "coverage.json",
+    "timeline.svg",
+    "map_snapshot.png"
+  ],
+  "expected_surfaces": ["entities", "tasks", "objects", "auth", "rest_streams", "grpc_entities", "grpc_tasks"]
+}

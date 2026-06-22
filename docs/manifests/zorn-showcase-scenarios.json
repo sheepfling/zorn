@@ -1,0 +1,93 @@
+{
+  "schema_version": "zorn.showcase.scenarios.v1",
+  "boundary": {
+    "third_party_rule": "Scenario clients interact through validated Lattice-shaped surfaces only.",
+    "allowed_surfaces": ["entities", "tasks", "objects", "auth", "rest_streams", "grpc_entities", "grpc_tasks"]
+  },
+  "scenarios": [
+    {
+      "id": "SCN-001",
+      "name": "Developer Sandbox Walkthrough",
+      "milestones": ["Z3", "Z4"],
+      "lanes": ["developer_console", "sdk"],
+      "surfaces": ["entities", "tasks", "objects", "rest_streams"],
+      "example": "examples/scenarios/scn-001-developer-sandbox-walkthrough.json"
+    },
+    {
+      "id": "SCN-002",
+      "name": "Maritime AIS Tracking and Media",
+      "milestones": ["Z5", "Z6", "Z7"],
+      "lanes": ["operator_c2", "adapters", "objects_media"],
+      "surfaces": ["entities", "objects", "rest_streams"],
+      "example": "examples/scenarios/scn-002-maritime-ais-tracking-media.json"
+    },
+    {
+      "id": "SCN-003",
+      "name": "DIS Multi-Domain Replay",
+      "milestones": ["Z3", "Z5", "Z6"],
+      "lanes": ["sandbox", "operator_c2", "adapters"],
+      "surfaces": ["entities", "rest_streams"],
+      "example": "examples/scenarios/scn-003-dis-multi-domain-replay.json"
+    },
+    {
+      "id": "SCN-004",
+      "name": "Counter-UAS Surveillance and Investigation",
+      "milestones": ["Z5", "Z8", "Z11"],
+      "lanes": ["operator_c2", "mission_autonomy", "domain_pack"],
+      "surfaces": ["entities", "tasks", "objects", "rest_streams"],
+      "example": "examples/scenarios/scn-004-counter-uas-surveillance-investigation.json"
+    },
+    {
+      "id": "SCN-005",
+      "name": "Mission Autonomy Patrol",
+      "milestones": ["Z8"],
+      "lanes": ["mission_autonomy"],
+      "surfaces": ["entities", "tasks", "rest_streams", "grpc_tasks"],
+      "example": "examples/scenarios/scn-005-mission-autonomy-patrol.json"
+    },
+    {
+      "id": "SCN-006",
+      "name": "Edge Mesh Partition and Reconnect",
+      "milestones": ["Z9"],
+      "lanes": ["mesh"],
+      "surfaces": ["entities", "tasks", "objects", "rest_streams"],
+      "example": "examples/scenarios/scn-006-edge-mesh-partition-reconnect.json"
+    },
+    {
+      "id": "SCN-007",
+      "name": "Partner Integration Fair",
+      "milestones": ["Z10"],
+      "lanes": ["partner"],
+      "surfaces": ["entities", "tasks", "objects", "auth"]
+    },
+    {
+      "id": "SCN-008",
+      "name": "Space Track Awareness Mock",
+      "milestones": ["Z11"],
+      "lanes": ["domain_pack"],
+      "surfaces": ["entities", "rest_streams"]
+    },
+    {
+      "id": "SCN-009",
+      "name": "Undersea Sparse-Comms Search",
+      "milestones": ["Z9", "Z11"],
+      "lanes": ["mesh", "domain_pack"],
+      "surfaces": ["entities", "tasks", "rest_streams"]
+    },
+    {
+      "id": "SCN-010",
+      "name": "Readiness and Pre-Launch Checklist",
+      "milestones": ["Z0", "Z1", "Z2"],
+      "lanes": ["sdk", "certification"],
+      "surfaces": ["entities", "tasks", "objects", "auth", "grpc_entities", "grpc_tasks"]
+    },
+    {
+      "id": "SCN-011",
+      "name": "Full Evaluation Bundle",
+      "milestones": ["Z12"],
+      "lanes": ["developer_console", "operator_c2", "mission_autonomy", "mesh", "partner", "domain_pack"],
+      "surfaces": ["entities", "tasks", "objects", "auth", "rest_streams", "grpc_entities", "grpc_tasks"],
+      "example": "examples/scenarios/scn-011-full-evaluation-bundle.json"
+    }
+  ]
+}

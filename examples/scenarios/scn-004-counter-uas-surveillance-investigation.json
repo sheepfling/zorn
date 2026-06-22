@@ -1,0 +1,15 @@
+{
+  "schema_version": "zorn.showcase.scenario.v1",
+  "id": "SCN-004",
+  "name": "Counter-UAS Surveillance and Investigation",
+  "milestones": ["Z5", "Z8", "Z11"],
+  "safety_boundary": "Synthetic non-operational scenario; no fire-control, targeting, weapon release, or tactical recommendation behavior.",
+  "steps": [
+    "publish_synthetic_tracks",
+    "mark_track_suspicious",
+    "create_investigation_task",
+    "mock_agent_updates_status",
+    "attach_evidence_object"
+  ],
+  "expected_surfaces": ["entities", "tasks", "objects", "rest_streams"]
+}

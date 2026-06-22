@@ -1,0 +1,15 @@
+{
+  "schema_version": "zorn.showcase.scenario.v1",
+  "id": "SCN-005",
+  "name": "Mission Autonomy Patrol",
+  "milestones": ["Z8"],
+  "steps": [
+    "publish_agent_entity",
+    "advertise_task_catalog",
+    "create_patrol_task",
+    "route_task_to_agent",
+    "update_task_progress",
+    "complete_task"
+  ],
+  "expected_surfaces": ["entities", "tasks", "rest_streams", "grpc_tasks"]
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": "zorn.showcase.scenario.v1",
+  "id": "SCN-003",
+  "name": "DIS Multi-Domain Replay",
+  "milestones": ["Z3", "Z5", "Z6"],
+  "steps": [
+    "reset_environment",
+    "replay_dis_entity_state",
+    "verify_stable_entity_ids",
+    "stream_create_update_delete"
+  ],
+  "expected_surfaces": ["entities", "rest_streams"]
+}
