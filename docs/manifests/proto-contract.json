@@ -1,0 +1,43 @@
+{
+  "compatibilityTarget": "public_lattice_sdk_grpc",
+  "protoSource": "buf.build/anduril/lattice-sdk",
+  "pinnedRef": "ed34febdefc1",
+  "pythonIndex": "https://buf.build/gen/python",
+  "pythonArtifacts": {
+    "anduril-lattice-sdk-grpc-python": "1.80.0.1.20260515215502+ed34febdefc1",
+    "anduril-lattice-sdk-protocolbuffers-python": "34.1.0.1.20260515215502+ed34febdefc1",
+    "anduril-lattice-sdk-protocolbuffers-pyi": "34.1.0.1.20260515215502+ed34febdefc1",
+    "grpcio": "1.80.0",
+    "protobuf": "7.34.1"
+  },
+  "serviceProtoFiles": [
+    "anduril/entitymanager/v1/entity_manager_grpcapi.pub.proto",
+    "anduril/taskmanager/v1/task_manager_grpcapi.pub.proto"
+  ],
+  "messageProtoFiles": [
+    "anduril/entitymanager/v1/entity_manager_api.pub.proto",
+    "anduril/entitymanager/v1/entity.pub.proto",
+    "anduril/taskmanager/v1/task_manager_api.pub.proto",
+    "anduril/taskmanager/v1/task.pub.proto"
+  ],
+  "services": {
+    "anduril.entitymanager.v1.EntityManagerAPI": {
+      "PublishEntity": {"clientStreaming": false, "serverStreaming": false},
+      "PublishEntities": {"clientStreaming": true, "serverStreaming": false},
+      "GetEntity": {"clientStreaming": false, "serverStreaming": false},
+      "OverrideEntity": {"clientStreaming": false, "serverStreaming": false},
+      "RemoveEntityOverride": {"clientStreaming": false, "serverStreaming": false},
+      "StreamEntityComponents": {"clientStreaming": false, "serverStreaming": true}
+    },
+    "anduril.taskmanager.v1.TaskManagerAPI": {
+      "CreateTask": {"clientStreaming": false, "serverStreaming": false},
+      "GetTask": {"clientStreaming": false, "serverStreaming": false},
+      "QueryTasks": {"clientStreaming": false, "serverStreaming": false},
+      "UpdateStatus": {"clientStreaming": false, "serverStreaming": false},
+      "CancelTask": {"clientStreaming": false, "serverStreaming": false},
+      "ListenAsAgent": {"clientStreaming": false, "serverStreaming": true},
+      "ListenForManualControlFrames": {"clientStreaming": false, "serverStreaming": true},
+      "StreamTasks": {"clientStreaming": false, "serverStreaming": true}
+    }
+  }
+}

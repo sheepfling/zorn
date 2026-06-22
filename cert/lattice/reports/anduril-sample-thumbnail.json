@@ -1,0 +1,213 @@
+{
+  "details": {
+    "download_command": {
+      "args": [
+        "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/anduril-sample-thumbnail/.venv/bin/python",
+        "app.py",
+        "--operation",
+        "download",
+        "--path",
+        "N113PF.jpeg",
+        "--file",
+        "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-mglynmhb/downloaded.bin"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    "entities.publish": {
+      "entity": {
+        "entityId": "zorn-cert-thumbnail-entity",
+        "entity_id": "zorn-cert-thumbnail-entity",
+        "isLive": true,
+        "is_live": true,
+        "media": {
+          "media": [
+            {
+              "relativePath": "/api/v1/objects/N113PF.jpeg",
+              "type": "MEDIA_TYPE_IMAGE"
+            }
+          ]
+        },
+        "overrides": {
+          "media.media": [
+            {
+              "relativePath": "/api/v1/objects/N113PF.jpeg",
+              "type": "MEDIA_TYPE_IMAGE"
+            }
+          ]
+        }
+      }
+    },
+    "entity_after_upload": {
+      "entity": {
+        "entityId": "zorn-cert-thumbnail-entity",
+        "entity_id": "zorn-cert-thumbnail-entity",
+        "isLive": true,
+        "is_live": true,
+        "media": {
+          "media": [
+            {
+              "relativePath": "/api/v1/objects/N113PF.jpeg",
+              "type": "MEDIA_TYPE_IMAGE"
+            }
+          ]
+        },
+        "overrides": {
+          "media.media": [
+            {
+              "relativePath": "/api/v1/objects/N113PF.jpeg",
+              "type": "MEDIA_TYPE_IMAGE"
+            }
+          ]
+        }
+      },
+      "status": 200
+    },
+    "install": {
+      "args": [
+        "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/anduril-sample-thumbnail/.venv/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "-r",
+        "requirements.txt"
+      ],
+      "returncode": 0,
+      "stderr": "WARNING: The directory '/Users/rick/Library/Caches/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.\n\n[notice] A new release of pip is available: 24.0 -> 26.1.2\n[notice] To update, run: /Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/anduril-sample-thumbnail/.venv/bin/python -m pip install --upgrade pip\n",
+      "stdout": "Requirement already satisfied: anduril-lattice-sdk==4.14.0 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 1)) (4.14.0)\nRequirement already satisfied: httpx>=0.21.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk==4.14.0->-r requirements.txt (line 1)) (0.28.1)\nRequirement already satisfied: pydantic>=1.9.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk==4.14.0->-r requirements.txt (line 1)) (2.13.4)\nRequirement already satisfied: pydantic-core<3.0.0,>=2.18.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk==4.14.0->-r requirements.txt (line 1)) (2.46.4)\nRequirement already satisfied: typing_extensions>=4.0.0 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk==4.14.0->-r requirements.txt (line 1)) (4.15.0)\nRequirement already satisfied: anyio in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==4.14.0->-r requirements.txt (line 1)) (4.14.0)\nRequirement already satisfied: certifi in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==4.14.0->-r requirements.txt (line 1)) (2026.6.17)\nRequirement already satisfied: httpcore==1.* in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==4.14.0->-r requirements.txt (line 1)) (1.0.9)\nRequirement already satisfied: idna in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==4.14.0->-r requirements.txt (line 1)) (3.18)\nRequirement already satisfied: h11>=0.16 in ./.venv/lib/python3.12/site-packages (from httpcore==1.*->httpx>=0.21.2->anduril-lattice-sdk==4.14.0->-r requirements.txt (line 1)) (0.16.0)\nRequirement already satisfied: annotated-types>=0.6.0 in ./.venv/lib/python3.12/site-packages (from pydantic>=1.9.2->anduril-lattice-sdk==4.14.0->-r requirements.txt (line 1)) (0.7.0)\nRequirement already satisfied: typing-inspection>=0.4.2 in ./.venv/lib/python3.12/site-packages (from pydantic>=1.9.2->anduril-lattice-sdk==4.14.0->-r requirements.txt (line 1)) (0.4.2)\n"
+    },
+    "object_download_probe": {
+      "size": 110041,
+      "status": 200
+    },
+    "objects": {
+      "payload": {
+        "next_page_token": null,
+        "objects": [
+          {
+            "checksumSha256": "ce2f0f2fd7524a4f3c19fcfee91923edca6c7db9c4472472fb37e607b33465b1",
+            "contentType": "application/octet-stream",
+            "createdTime": "2026-06-22T01:19:22.835624Z",
+            "expiryTime": null,
+            "metadata": {},
+            "objectPath": "N113PF.jpeg",
+            "sizeBytes": 110041,
+            "updatedTime": "2026-06-22T01:19:22.835624Z"
+          }
+        ],
+        "path_metadatas": [
+          {
+            "checksumSha256": "ce2f0f2fd7524a4f3c19fcfee91923edca6c7db9c4472472fb37e607b33465b1",
+            "contentType": "application/octet-stream",
+            "content_identifier": {
+              "checksum": "ce2f0f2fd7524a4f3c19fcfee91923edca6c7db9c4472472fb37e607b33465b1",
+              "path": "N113PF.jpeg"
+            },
+            "createdTime": "2026-06-22T01:19:22.835624Z",
+            "expiry_time": null,
+            "last_updated_at": "2026-06-22T01:19:22.835624Z",
+            "metadata": {},
+            "objectPath": "N113PF.jpeg",
+            "sizeBytes": 110041,
+            "size_bytes": 110041,
+            "updatedTime": "2026-06-22T01:19:22.835624Z"
+          }
+        ]
+      },
+      "status": 200
+    },
+    "objects.metadata": {
+      "object": {
+        "checksumSha256": "ce2f0f2fd7524a4f3c19fcfee91923edca6c7db9c4472472fb37e607b33465b1",
+        "contentType": "application/octet-stream",
+        "createdTime": "2026-06-22T01:19:22.835624Z",
+        "expiryTime": null,
+        "metadata": {},
+        "objectPath": "N113PF.jpeg",
+        "sizeBytes": 110041,
+        "updatedTime": "2026-06-22T01:19:22.835624Z"
+      }
+    },
+    "objects.thumbnail_linkage": {
+      "entity": {
+        "entityId": "zorn-cert-thumbnail-entity",
+        "entity_id": "zorn-cert-thumbnail-entity",
+        "isLive": true,
+        "is_live": true,
+        "media": {
+          "media": [
+            {
+              "relativePath": "/api/v1/objects/N113PF.jpeg",
+              "type": "MEDIA_TYPE_IMAGE"
+            }
+          ]
+        },
+        "overrides": {
+          "media.media": [
+            {
+              "relativePath": "/api/v1/objects/N113PF.jpeg",
+              "type": "MEDIA_TYPE_IMAGE"
+            }
+          ]
+        }
+      }
+    },
+    "objects.upload": {
+      "object": {
+        "checksumSha256": "ce2f0f2fd7524a4f3c19fcfee91923edca6c7db9c4472472fb37e607b33465b1",
+        "contentType": "application/octet-stream",
+        "createdTime": "2026-06-22T01:19:22.835624Z",
+        "expiryTime": null,
+        "metadata": {},
+        "objectPath": "N113PF.jpeg",
+        "sizeBytes": 110041,
+        "updatedTime": "2026-06-22T01:19:22.835624Z"
+      },
+      "status": 200
+    },
+    "runtime_shim": "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-mglynmhb/thumbnail-runtime-shim/sitecustomize.py",
+    "seed_entity": {
+      "entity": {
+        "_compat": {
+          "eventType": "CREATE",
+          "sequence": 1
+        },
+        "entityId": "zorn-cert-thumbnail-entity",
+        "entity_id": "zorn-cert-thumbnail-entity",
+        "isLive": true,
+        "is_live": true
+      },
+      "status": 200
+    },
+    "server_log": "INFO:     Started server process [75122]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on https://127.0.0.1:60147 (Press CTRL+C to quit)\nINFO:     127.0.0.1:60159 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60161 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60163 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60165 - \"POST /api/v1/objects/N113PF.jpeg HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60165 - \"PUT /api/v1/entities/zorn-cert-thumbnail-entity/override/media.media HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60167 - \"GET /api/v1/objects HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60169 - \"GET /api/v1/entities/zorn-cert-thumbnail-entity HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60171 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60173 - \"GET /api/v1/objects/N113PF.jpeg HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60175 - \"GET /api/v1/objects/N113PF.jpeg HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [75122]\n",
+    "upload_command": {
+      "args": [
+        "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/anduril-sample-thumbnail/.venv/bin/python",
+        "app.py",
+        "--operation",
+        "upload",
+        "--file",
+        "thumbnail/N113PF.jpeg",
+        "--entity",
+        "zorn-cert-thumbnail-entity"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "<_io.BufferedReader name='thumbnail/N113PF.jpeg'>\n"
+    },
+    "upstream_runtime_issue": false
+  },
+  "failed": [],
+  "fixture": "anduril-sample-thumbnail",
+  "missing": [],
+  "mode": "strict",
+  "passed": [
+    "objects.upload",
+    "objects.metadata",
+    "objects.thumbnail_linkage",
+    "entities.publish"
+  ],
+  "result": "pass",
+  "zorn_version": "0.1.0"
+}

@@ -1,0 +1,61 @@
+scenario_suites:
+  battlespace-awareness:
+    proves: Lattice-like sensor fusion and common-operating-picture behavior.
+    scenarios:
+      - id: BA-001
+        name: AIS vessel appears, moves, disappears
+        capabilities: [sensors.ais, entities.publish, entities.location, entities.expiry, replay.deterministic]
+      - id: BA-002
+        name: ADS-B aircraft crosses surveillance area
+        capabilities: [sensors.adsb, entities.publish, entities.location, alerts.geofence]
+      - id: BA-003
+        name: MAVLink drone enters restricted zone
+        capabilities: [sensors.mavlink, entities.publish, entities.location, alerts.geofence]
+      - id: BA-004
+        name: Two sensors observe same drone and correlate
+        capabilities: [fusion.track_correlation, entities.relationships]
+      - id: BA-005
+        name: Operator marks track suspicious or hostile
+        capabilities: [entities.override, alerts.suspicious, alerts.hostile]
+      - id: BA-006
+        name: Camera thumbnail attaches to entity
+        capabilities: [objects.upload, objects.thumbnail_linkage]
+      - id: BA-007
+        name: UI receives live stream update
+        capabilities: [entities.stream, streams.sse, ui.map_visualizer]
+      - id: BA-008
+        name: Stale track expires
+        capabilities: [entities.expiry, alerts.stale_track]
+  air-dominance-strike:
+    proves: Tasking, autonomy, and effects behavior.
+    scenarios:
+      - id: ADS-001
+        name: Autonomous asset registers with task catalog
+        capabilities: [autonomy.asset_state, entities.task_catalog]
+      - id: ADS-002
+        name: Operator creates investigate task
+        capabilities: [tasks.create]
+      - id: ADS-003
+        name: Asset accepts task
+        capabilities: [tasks.listen_as_agent, autonomy.intent]
+      - id: ADS-004
+        name: Asset reports en route, executing, complete
+        capabilities: [tasks.update_status, autonomy.asset_state]
+      - id: ADS-005
+        name: Hostile drone detected
+        capabilities: [alerts.hostile, entities.classification]
+      - id: ADS-006
+        name: Interceptor assigned
+        capabilities: [effects.assignment, tasks.create]
+      - id: ADS-007
+        name: Intercept simulated
+        capabilities: [effects.intercept]
+      - id: ADS-008
+        name: Battle damage/result entity update emitted
+        capabilities: [effects.result_entity_update, entities.stream]
+      - id: ADS-009
+        name: Multiple assets bid or are assigned to one task
+        capabilities: [tasks.listen_as_agent, autonomy.intent]
+      - id: ADS-010
+        name: Human override cancels or retasks mission
+        capabilities: [entities.override, tasks.cancel]

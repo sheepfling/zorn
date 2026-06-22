@@ -1,0 +1,36 @@
+compatibility_target: public_lattice_sdk_grpc
+proto_source: buf.build/anduril/lattice-sdk
+python_artifacts:
+  index: https://buf.build/gen/python
+  packages:
+    - anduril-lattice-sdk-grpc-python==1.80.0.1.20260515215502+ed34febdefc1
+    - anduril-lattice-sdk-protocolbuffers-python==34.1.0.1.20260515215502+ed34febdefc1
+    - anduril-lattice-sdk-protocolbuffers-pyi==34.1.0.1.20260515215502+ed34febdefc1
+services:
+  anduril.entitymanager.v1.EntityManagerAPI:
+    status: scaffolded
+    methods:
+      PublishEntity: p0_store
+      PublishEntities: p0_store
+      GetEntity: p0_store
+      OverrideEntity: p1_basic
+      RemoveEntityOverride: p1_basic
+      StreamEntityComponents: p1_streaming
+  anduril.taskmanager.v1.TaskManagerAPI:
+    status: scaffolded
+    methods:
+      CreateTask: p0_store
+      GetTask: p0_store
+      QueryTasks: p1_basic
+      UpdateStatus: p0_store
+      CancelTask: p0_store
+      ListenAsAgent: p1_streaming
+      ListenForManualControlFrames: p2_heartbeat_only
+      StreamTasks: p1_streaming
+shared_state:
+  rest_and_grpc: share C2_COMPAT_DATABASE_URL and C2_COMPAT_OBJECT_ROOT
+notes:
+  - Do not vendor handwritten proto copies.
+  - Treat generated Buf artifacts as the source of truth.
+  - Run descriptor startup checks before registering handlers.
+  - Use official public sample apps as black-box contract tests.

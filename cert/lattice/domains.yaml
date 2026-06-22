@@ -1,0 +1,81 @@
+domains:
+  entity_track_model:
+    proves: Anything on the battlespace map exists, moves, updates, and expires.
+    capabilities:
+      - entities.publish
+      - entities.location
+      - entities.velocity_enu
+      - entities.attitude
+      - entities.ontology
+      - entities.provenance
+      - entities.expiry
+  sensor_ingest:
+    proves: Radar, EO/IR, ADS-B, AIS, MAVLink, TAK, and synthetic tracks can enter Zorn.
+    capabilities:
+      - sensors.ais
+      - sensors.adsb
+      - sensors.mavlink
+      - sensors.tak
+      - sensors.synthetic
+  fusion_correlation:
+    proves: Multiple sensors can describe one object.
+    capabilities:
+      - fusion.track_correlation
+      - entities.relationships
+  streaming:
+    proves: UIs and agents receive live changes.
+    capabilities:
+      - entities.stream
+      - entities.grpc_stream
+      - streams.sse
+      - streams.heartbeat
+  tasks_missions:
+    proves: Operators or agents can request action.
+    capabilities:
+      - tasks.create
+      - tasks.listen_as_agent
+      - tasks.update_status
+      - tasks.cancel
+  autonomy_status:
+    proves: Assets report intent, state, progress, and health.
+    capabilities:
+      - autonomy.asset_state
+      - autonomy.intent
+      - entities.health
+      - tasks.update_status
+  effects_intercepts:
+    proves: Simulated strike, C-UAS, drone tasking, and weapon assignment can be represented.
+    capabilities:
+      - effects.assignment
+      - effects.intercept
+      - effects.result_entity_update
+  objects_media:
+    proves: Thumbnails, imagery, files, clips, and attachments survive the object workflow.
+    capabilities:
+      - objects.upload
+      - objects.metadata
+      - objects.list
+      - objects.download
+      - objects.delete
+      - objects.thumbnail_linkage
+  alerts_rules:
+    proves: Hostile, suspicious, proximity, geofence, stale-track, and lost-comms rules can emit alerts.
+    capabilities:
+      - alerts.hostile
+      - alerts.suspicious
+      - alerts.proximity
+      - alerts.geofence
+      - alerts.stale_track
+      - alerts.lost_comms
+  operator_overrides:
+    proves: Human changes to disposition, classification, or task state re-emit useful updates.
+    capabilities:
+      - entities.override
+      - entities.classification
+      - tasks.cancel
+  replay_simulation:
+    proves: Deterministic scenario playback can certify behavior repeatedly.
+    capabilities:
+      - replay.deterministic
+      - replay.event_recording
+      - replay.event_replay

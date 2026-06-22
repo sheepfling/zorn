@@ -1,0 +1,347 @@
+{
+  "details": {
+    "delete_command": {
+      "args": [
+        "go",
+        "run",
+        "main.go",
+        "delete",
+        "-b",
+        "http://127.0.0.1:58795",
+        "-c",
+        "dev-client",
+        "-s",
+        "dev-secret",
+        "-e",
+        "dev-token",
+        "-p",
+        "cert/sample-object.txt"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "deleted path \"cert/sample-object.txt\"\n"
+    },
+    "get_command": {
+      "args": [
+        "go",
+        "run",
+        "main.go",
+        "get",
+        "-b",
+        "http://127.0.0.1:58795",
+        "-c",
+        "dev-client",
+        "-s",
+        "dev-secret",
+        "-e",
+        "dev-token",
+        "-p",
+        "cert/sample-object.txt",
+        "-o",
+        "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-http-2753q32c/downloaded-object.txt",
+        "-r"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "wrote 35 bytes to file \"/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-http-2753q32c/downloaded-object.txt\"\n"
+    },
+    "install": {
+      "args": [
+        "go",
+        "mod",
+        "download"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    "list_command": {
+      "args": [
+        "go",
+        "run",
+        "main.go",
+        "list",
+        "-b",
+        "http://127.0.0.1:58795",
+        "-c",
+        "dev-client",
+        "-s",
+        "dev-secret",
+        "-e",
+        "dev-token",
+        "cert"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\"content_identifier\":{\"path\":\"cert/sample-object.txt\",\"checksum\":\"93ed974ce366faf5dcd723402320db339a49c3ed8300a97cb365a738aab2c677\"},\"size_bytes\":35,\"last_updated_at\":\"2026-06-22T01:00:59Z\",\"expiry_time\":\"2026-06-22T03:00:59Z\"}\n"
+    },
+    "metadata_command": {
+      "args": [
+        "go",
+        "run",
+        "main.go",
+        "object-metadata",
+        "-b",
+        "http://127.0.0.1:58795",
+        "-c",
+        "dev-client",
+        "-s",
+        "dev-secret",
+        "-e",
+        "dev-token",
+        "-p",
+        "cert/sample-object.txt"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\"StatusCode\":200,\"Header\":{\"Checksum\":[\"93ed974ce366faf5dcd723402320db339a49c3ed8300a97cb365a738aab2c677\"],\"Content-Length\":[\"35\"],\"Content-Type\":[\"application/json\"],\"Date\":[\"Mon, 22 Jun 2026 01:00:59 GMT\"],\"Etag\":[\"93ed974ce366faf5dcd723402320db339a49c3ed8300a97cb365a738aab2c677\"],\"Expires\":[\"2026-06-22T03:00:59.444943Z\"],\"Last-Modified\":[\"2026-06-22T01:00:59.444939Z\"],\"Path\":[\"cert/sample-object.txt\"],\"Server\":[\"uvicorn\"],\"X-Checksum-Sha256\":[\"93ed974ce366faf5dcd723402320db339a49c3ed8300a97cb365a738aab2c677\"],\"X-Object-Path\":[\"cert/sample-object.txt\"]},\"Body\":null}\n"
+    },
+    "objects.delete": {
+      "command": {
+        "args": [
+          "go",
+          "run",
+          "main.go",
+          "delete",
+          "-b",
+          "http://127.0.0.1:58795",
+          "-c",
+          "dev-client",
+          "-s",
+          "dev-secret",
+          "-e",
+          "dev-token",
+          "-p",
+          "cert/sample-object.txt"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "deleted path \"cert/sample-object.txt\"\n"
+      },
+      "probe": {
+        "next_page_token": null,
+        "objects": [],
+        "path_metadatas": []
+      }
+    },
+    "objects.download": {
+      "command": {
+        "args": [
+          "go",
+          "run",
+          "main.go",
+          "get",
+          "-b",
+          "http://127.0.0.1:58795",
+          "-c",
+          "dev-client",
+          "-s",
+          "dev-secret",
+          "-e",
+          "dev-token",
+          "-p",
+          "cert/sample-object.txt",
+          "-o",
+          "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-http-2753q32c/downloaded-object.txt",
+          "-r"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "wrote 35 bytes to file \"/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-http-2753q32c/downloaded-object.txt\"\n"
+      },
+      "downloaded_size": 35
+    },
+    "objects.list": {
+      "command": {
+        "args": [
+          "go",
+          "run",
+          "main.go",
+          "list",
+          "-b",
+          "http://127.0.0.1:58795",
+          "-c",
+          "dev-client",
+          "-s",
+          "dev-secret",
+          "-e",
+          "dev-token",
+          "cert"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "{\"content_identifier\":{\"path\":\"cert/sample-object.txt\",\"checksum\":\"93ed974ce366faf5dcd723402320db339a49c3ed8300a97cb365a738aab2c677\"},\"size_bytes\":35,\"last_updated_at\":\"2026-06-22T01:00:59Z\",\"expiry_time\":\"2026-06-22T03:00:59Z\"}\n"
+      }
+    },
+    "objects.metadata": {
+      "command": {
+        "args": [
+          "go",
+          "run",
+          "main.go",
+          "object-metadata",
+          "-b",
+          "http://127.0.0.1:58795",
+          "-c",
+          "dev-client",
+          "-s",
+          "dev-secret",
+          "-e",
+          "dev-token",
+          "-p",
+          "cert/sample-object.txt"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "{\"StatusCode\":200,\"Header\":{\"Checksum\":[\"93ed974ce366faf5dcd723402320db339a49c3ed8300a97cb365a738aab2c677\"],\"Content-Length\":[\"35\"],\"Content-Type\":[\"application/json\"],\"Date\":[\"Mon, 22 Jun 2026 01:00:59 GMT\"],\"Etag\":[\"93ed974ce366faf5dcd723402320db339a49c3ed8300a97cb365a738aab2c677\"],\"Expires\":[\"2026-06-22T03:00:59.444943Z\"],\"Last-Modified\":[\"2026-06-22T01:00:59.444939Z\"],\"Path\":[\"cert/sample-object.txt\"],\"Server\":[\"uvicorn\"],\"X-Checksum-Sha256\":[\"93ed974ce366faf5dcd723402320db339a49c3ed8300a97cb365a738aab2c677\"],\"X-Object-Path\":[\"cert/sample-object.txt\"]},\"Body\":null}\n"
+      }
+    },
+    "objects.upload": {
+      "command": {
+        "args": [
+          "go",
+          "run",
+          "main.go",
+          "upload",
+          "-b",
+          "http://127.0.0.1:58795",
+          "-c",
+          "dev-client",
+          "-s",
+          "dev-secret",
+          "-e",
+          "dev-token",
+          "-i",
+          "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-http-2753q32c/sample-object.txt",
+          "-p",
+          "cert/sample-object.txt",
+          "-t",
+          "2h"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "{\"content_identifier\":{\"path\":\"cert/sample-object.txt\",\"checksum\":\"93ed974ce366faf5dcd723402320db339a49c3ed8300a97cb365a738aab2c677\"},\"size_bytes\":35,\"last_updated_at\":\"2026-06-22T01:00:59Z\",\"expiry_time\":\"2026-06-22T03:00:59Z\"}\n"
+      },
+      "probe": {
+        "next_page_token": null,
+        "objects": [
+          {
+            "checksumSha256": "93ed974ce366faf5dcd723402320db339a49c3ed8300a97cb365a738aab2c677",
+            "contentType": "application/json",
+            "createdTime": "2026-06-22T01:00:59.444939Z",
+            "expiryTime": "2026-06-22T03:00:59.444943Z",
+            "metadata": {},
+            "objectPath": "cert/sample-object.txt",
+            "sizeBytes": 35,
+            "updatedTime": "2026-06-22T01:00:59.444939Z"
+          }
+        ],
+        "path_metadatas": [
+          {
+            "checksumSha256": "93ed974ce366faf5dcd723402320db339a49c3ed8300a97cb365a738aab2c677",
+            "contentType": "application/json",
+            "content_identifier": {
+              "checksum": "93ed974ce366faf5dcd723402320db339a49c3ed8300a97cb365a738aab2c677",
+              "path": "cert/sample-object.txt"
+            },
+            "createdTime": "2026-06-22T01:00:59.444939Z",
+            "expiry_time": "2026-06-22T03:00:59.444943Z",
+            "last_updated_at": "2026-06-22T01:00:59.444939Z",
+            "metadata": {},
+            "objectPath": "cert/sample-object.txt",
+            "sizeBytes": 35,
+            "size_bytes": 35,
+            "updatedTime": "2026-06-22T01:00:59.444939Z"
+          }
+        ]
+      }
+    },
+    "probe_get_before_delete": {
+      "size": 35,
+      "status": 200
+    },
+    "probe_list_after_delete": {
+      "payload": {
+        "next_page_token": null,
+        "objects": [],
+        "path_metadatas": []
+      },
+      "status": 200
+    },
+    "probe_list_before_delete": {
+      "payload": {
+        "next_page_token": null,
+        "objects": [
+          {
+            "checksumSha256": "93ed974ce366faf5dcd723402320db339a49c3ed8300a97cb365a738aab2c677",
+            "contentType": "application/json",
+            "createdTime": "2026-06-22T01:00:59.444939Z",
+            "expiryTime": "2026-06-22T03:00:59.444943Z",
+            "metadata": {},
+            "objectPath": "cert/sample-object.txt",
+            "sizeBytes": 35,
+            "updatedTime": "2026-06-22T01:00:59.444939Z"
+          }
+        ],
+        "path_metadatas": [
+          {
+            "checksumSha256": "93ed974ce366faf5dcd723402320db339a49c3ed8300a97cb365a738aab2c677",
+            "contentType": "application/json",
+            "content_identifier": {
+              "checksum": "93ed974ce366faf5dcd723402320db339a49c3ed8300a97cb365a738aab2c677",
+              "path": "cert/sample-object.txt"
+            },
+            "createdTime": "2026-06-22T01:00:59.444939Z",
+            "expiry_time": "2026-06-22T03:00:59.444943Z",
+            "last_updated_at": "2026-06-22T01:00:59.444939Z",
+            "metadata": {},
+            "objectPath": "cert/sample-object.txt",
+            "sizeBytes": 35,
+            "size_bytes": 35,
+            "updatedTime": "2026-06-22T01:00:59.444939Z"
+          }
+        ]
+      },
+      "status": 200
+    },
+    "server_log": "INFO:     Started server process [49868]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://127.0.0.1:58795 (Press CTRL+C to quit)\nINFO:     127.0.0.1:58809 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:58810 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:58810 - \"POST /api/v1/objects/cert/sample-object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:58811 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:58811 - \"HEAD /api/v1/objects/cert/sample-object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:58812 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:58812 - \"GET /api/v1/objects?prefix=cert HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:58813 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:58813 - \"GET /api/v1/objects/cert/sample-object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:58814 - \"GET /api/v1/objects?prefix=cert HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:58815 - \"GET /api/v1/objects/cert/sample-object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:58816 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:58816 - \"DELETE /api/v1/objects/cert/sample-object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:58817 - \"GET /api/v1/objects?prefix=cert HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [49868]\n",
+    "upload_command": {
+      "args": [
+        "go",
+        "run",
+        "main.go",
+        "upload",
+        "-b",
+        "http://127.0.0.1:58795",
+        "-c",
+        "dev-client",
+        "-s",
+        "dev-secret",
+        "-e",
+        "dev-token",
+        "-i",
+        "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-http-2753q32c/sample-object.txt",
+        "-p",
+        "cert/sample-object.txt",
+        "-t",
+        "2h"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\"content_identifier\":{\"path\":\"cert/sample-object.txt\",\"checksum\":\"93ed974ce366faf5dcd723402320db339a49c3ed8300a97cb365a738aab2c677\"},\"size_bytes\":35,\"last_updated_at\":\"2026-06-22T01:00:59Z\",\"expiry_time\":\"2026-06-22T03:00:59Z\"}\n"
+    }
+  },
+  "failed": [],
+  "fixture": "anduril-sample-objects",
+  "missing": [],
+  "mode": "strict",
+  "passed": [
+    "objects.upload",
+    "objects.metadata",
+    "objects.list",
+    "objects.download",
+    "objects.delete"
+  ],
+  "result": "pass",
+  "zorn_version": "0.1.0"
+}

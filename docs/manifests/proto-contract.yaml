@@ -1,0 +1,34 @@
+proto_source: buf.build/anduril/lattice-sdk
+python_packages:
+  registry: https://buf.build/gen/python
+  locked:
+    anduril-lattice-sdk-grpc-python: 1.80.0.1.20260515215502+ed34febdefc1
+    anduril-lattice-sdk-protocolbuffers-python: 34.1.0.1.20260515215502+ed34febdefc1
+    anduril-lattice-sdk-protocolbuffers-pyi: 34.1.0.1.20260515215502+ed34febdefc1
+runtime:
+  grpcio: 1.80.0
+  protobuf: 7.34.1
+startup_checks:
+  enabled: true
+  script: scripts/proto_contract_report.py
+expected_services:
+  anduril.entitymanager.v1.EntityManagerAPI:
+    PublishEntity: unary
+    PublishEntities: client_stream
+    GetEntity: unary
+    OverrideEntity: unary
+    RemoveEntityOverride: unary
+    StreamEntityComponents: server_stream
+  anduril.taskmanager.v1.TaskManagerAPI:
+    CreateTask: unary
+    GetTask: unary
+    QueryTasks: unary
+    UpdateStatus: unary
+    CancelTask: unary
+    ListenAsAgent: server_stream
+    ListenForManualControlFrames: server_stream
+    StreamTasks: server_stream
+notes:
+  - Do not create local replacement Lattice proto files.
+  - Do not use PyPI fallback for the Buf-generated Anduril package names.
+  - Behavioral compatibility is validated with official sample apps after proto compatibility passes.

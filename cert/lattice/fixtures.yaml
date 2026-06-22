@@ -1,0 +1,268 @@
+fixtures:
+  - id: anduril-sample-ais-rest
+    repo: https://github.com/anduril/sample-app-ais-integration-rest.git
+    ref: 311b6659662c1f3119ba517530a46e9bac5c4cb8
+    priority: P0
+    category: official_sample
+    runner: python_sample
+    install_command: [python, -m, pip, install, -r, requirements.txt]
+    run_commands:
+      - [python, src/main.py, --config, var/config.yml]
+    config_files:
+      - var/config.yml
+    placeholder_tokens:
+      - ENVIRONMENT_TOKEN
+      - LATTICE_ENDPOINT
+      - SANDBOXES_TOKEN
+    license_status: upstream_terms_review_required
+    surfaces:
+      - auth.bearer_token
+      - auth.sandbox_header
+      - entities.publish
+      - entities.location
+      - entities.ontology
+      - entities.provenance
+      - entities.stream
+  - id: anduril-sample-ais-grpc
+    repo: https://github.com/anduril/sample-app-ais-integration-grpc.git
+    ref: 6c304f093e445a1721951a647ca49a05e9bba6e2
+    priority: P0
+    category: official_sample
+    runner: python_sample
+    install_command: [uv, sync]
+    run_commands:
+      - [uv, run, python, src/main.py, --config, var/config.yml]
+    config_files:
+      - var/config.yml
+    placeholder_tokens:
+      - ENVIRONMENT_TOKEN
+      - LATTICE_ENDPOINT
+      - SANDBOXES_TOKEN
+    license_status: upstream_terms_review_required
+    surfaces:
+      - auth.grpc_bearer_metadata
+      - entities.publish
+      - entities.location
+      - entities.ontology
+      - entities.provenance
+  - id: anduril-sample-entity-visualizer
+    repo: https://github.com/anduril/sample-app-entity-visualizer.git
+    ref: 6836aa41ecf18939fc939726b8513aa1e80a3cf6
+    priority: P0
+    category: official_sample
+    runner: node_sample
+    install_command: [npm, ci]
+    run_commands:
+      - [npm, run, dev]
+    config_files:
+      - .env
+    required_env:
+      - VITE_LATTICE_CLIENT_ID
+      - VITE_LATTICE_CLIENT_SECRET
+      - VITE_SANDBOX_TOKEN
+      - VITE_LATTICE_URL
+    license_status: upstream_terms_review_required
+    surfaces:
+      - auth.bearer_token
+      - entities.stream
+      - ui.map_visualizer
+  - id: anduril-sample-auto-reconnaissance
+    repo: https://github.com/anduril/sample-app-auto-reconnaissance.git
+    ref: 749f24b411a125926993c790935ac73811858320
+    priority: P0
+    category: official_sample
+    runner: python_sample
+    install_command: [python, -m, pip, install, -r, requirements.txt]
+    run_commands:
+      - [python, auto-reconnaissance/main.py, --config, var/config.yml]
+      - [python, simulated_asset/asset.py, --config, var/config.yml]
+      - [python, simulated_track/track.py, --config, var/config.yml]
+    config_files:
+      - var/config.yml
+    placeholder_tokens:
+      - LATTICE_ENDPOINT
+      - LATTICE_CLIENT_ID
+      - LATTICE_CLIENT_SECRET
+      - SANDBOXES_TOKEN
+    license_status: upstream_terms_review_required
+    surfaces:
+      - entities.publish
+      - entities.stream
+      - entities.override
+      - tasks.create
+      - tasks.listen_as_agent
+      - tasks.update_status
+  - id: anduril-sample-objects
+    repo: https://github.com/anduril/sample-app-objects.git
+    ref: 3f205e169bf657985f719766be5b1cb074559767
+    priority: P0
+    category: official_sample
+    runner: go_sample
+    install_command: [go, install]
+    run_commands:
+      - [go, run, main.go, upload]
+      - [go, run, main.go, object-metadata]
+      - [go, run, main.go, list]
+      - [go, run, main.go, get]
+      - [go, run, main.go, delete]
+    license_status: upstream_terms_review_required
+    surfaces:
+      - auth.bearer_token
+      - objects.upload
+      - objects.metadata
+      - objects.list
+      - objects.download
+      - objects.delete
+  - id: anduril-sample-thumbnail
+    repo: https://github.com/anduril/sample-app-thumbnail.git
+    ref: b9faa7029c0caa3433f3c97ffed365aef6c37fcf
+    priority: P0
+    category: official_sample
+    runner: python_sample
+    install_command: [python, -m, pip, install, -r, requirements.txt]
+    run_commands:
+      - [python, app.py, --operation, upload]
+      - [python, app.py, --operation, list]
+      - [python, app.py, --operation, download]
+      - [python, app.py, --operation, delete]
+    required_env:
+      - LATTICE_ENDPOINT
+      - LATTICE_CLIENT_ID
+      - LATTICE_CLIENT_SECRET
+      - SANDBOXES_TOKEN
+    license_status: upstream_terms_review_required
+    surfaces:
+      - objects.upload
+      - objects.metadata
+      - entities.publish
+      - objects.thumbnail_linkage
+  - id: ark-mavlink-to-lattice
+    repo: https://github.com/ARK-Electronics/mavlink-to-lattice.git
+    ref: 6b80988217a4055aaad5377be3eda6c92fe277b4
+    priority: P0
+    category: third_party_real
+    runner: python_sample
+    install_command: [python, -m, pip, install, anduril-lattice-sdk, numpy, scipy]
+    run_commands:
+      - [python, lattice_publisher.py]
+    required_env:
+      - LATTICE_ENDPOINT
+      - ENVIRONMENT_TOKEN
+      - SANDBOXES_TOKEN
+    license_status: bsd_3_clause_found
+    modes: [strict, stress]
+    surfaces:
+      - auth.bearer_token
+      - entities.publish
+      - entities.location
+      - entities.velocity_enu
+      - entities.attitude
+      - entities.health
+      - entities.ontology
+      - entities.provenance
+      - entities.task_catalog
+  - id: alphafox-dragonsync
+    repo: https://github.com/alphafox02/DragonSync.git
+    ref: 2cf6fdcfe9dbe3bdebcbd728428ba50fb1974747
+    priority: P0
+    category: third_party_real
+    runner: python_sample
+    install_command: [python, -m, pip, install, -r, requirements.txt, anduril-lattice-sdk]
+    run_commands:
+      - [python, dragonsync.py, --lattice-enabled]
+    required_env:
+      - ENVIRONMENT_TOKEN
+      - SANDBOXES_TOKEN
+      - LATTICE_ENDPOINT
+    license_status: apache_2_found
+    modes: [strict, stress]
+    surfaces:
+      - auth.bearer_token
+      - entities.publish
+      - entities.relationships
+      - entities.classification
+      - entities.health
+  - id: daemon-maven
+    repo: https://github.com/daemon-blockint-tech/Maven.git
+    ref: 39bc21752360cbaf9fb7b418da188daa2ecdeab7
+    priority: P1
+    category: third_party_real
+    runner: go_sample
+    install_command: [go, mod, download]
+    run_commands:
+      - [go, run, ./cmd/ingest]
+      - [go, run, ./cmd/publish]
+    required_env:
+      - LATTICE_URL
+      - LATTICE_CLIENT_ID
+      - LATTICE_CLIENT_SECRET
+      - SANDBOX_TOKEN
+    license_status: no_license_found
+    modes: [strict, stress]
+    surfaces:
+      - auth.oauth_client_credentials
+      - entities.grpc_stream
+      - entities.publish
+      - ui.websocket
+      - ui.cesium
+  - id: philippanda-lattice-adsb-bridge
+    repo: https://github.com/PhilipPanda/Lattice-ADSB-Bridge.git
+    ref: 9b21ff869d0600b3bca872276c11d9a6b815fdf2
+    priority: P1
+    category: third_party_real
+    runner: java_sample
+    install_command: [mvn, -q, -DskipTests, package]
+    run_commands:
+      - [java, -jar, target/lattice-adsb-bridge-1.0.0-SNAPSHOT.jar]
+    config_files:
+      - pom.xml
+      - src/main/resources/application.properties
+    license_status: no_license_found
+    modes: [strict, stress]
+    surfaces:
+      - auth.bearer_token
+      - entities.publish
+      - entities.transponder_codes
+      - ui.sse
+  - id: lagrange-deep-prove-demo
+    repo: https://github.com/Lagrange-Labs/anduril-deep-prove-demo.git
+    ref: 0ca55153c54e0ce5b287fc09132e331b8c7943d8
+    priority: P1
+    category: third_party_enhanced_sample
+    runner: python_sample
+    install_command: [python, -m, pip, install, -r, requirements.txt]
+    run_commands:
+      - [python, auto-reconnaissance/main.py, --config, var/config.yml]
+      - [python, simulated_asset/asset.py, --config, var/config.yml]
+      - [python, simulated_track/track.py, --config, var/config.yml]
+    config_files:
+      - var/config.yml
+    required_env:
+      - LATTICE_ENDPOINT
+      - ENVIRONMENT_TOKEN
+      - SANDBOXES_TOKEN
+    license_status: no_license_found
+    modes: [strict, stress]
+    surfaces:
+      - entities.publish
+      - entities.stream
+      - entities.override
+      - tasks.listen_as_agent
+      - tasks.update_status
+  - id: tyler-alfred-agent
+    repo: https://github.com/tylerxmart32-afk/ALFRED_AGENT.git
+    ref: 6162a37f12de7bbc0d38fb786311c13686ec75bc
+    priority: P2
+    category: third_party_realish
+    runner: python_sample
+    license_status: license_not_verified
+    modes: [stress]
+    install_command: [python, -m, pip, install, anduril-lattice-sdk]
+    required_env: [LATTICE_ENDPOINT, LATTICE_CLIENT_ID, LATTICE_CLIENT_SECRET, LATTICE_SANDBOXES_TOKEN, ENVIRONMENT_TOKEN]
+    placeholder_tokens: [LATTICE_ENDPOINT, LATTICE_CLIENT_ID, LATTICE_CLIENT_SECRET]
+    surfaces:
+      - entities.publish
+      - entities.stream
+      - entities.override
+      - tasks.create
+      - local_mock

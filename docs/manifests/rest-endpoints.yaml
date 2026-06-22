@@ -1,0 +1,104 @@
+product_name_config_key: C2_COMPAT_PRODUCT_NAME
+api_prefix_config_key: C2_COMPAT_API_PREFIX
+current_default_api_prefix: /api/v1
+compatibility_status_values:
+  exactish: route and response envelope intentionally track the public docs closely
+  alias: local helper maintained for existing tests or developer convenience
+  simplified: route exists but schema/behavior is intentionally partial
+  planned: not implemented yet
+
+implemented:
+  oauth:
+    - method: POST
+      path: /api/v1/oauth/token
+      status: simplified
+      notes: local OAuth-dev/static-token shim
+
+  entities:
+    - method: PUT
+      path: /api/v1/entities
+      status: exactish
+      notes: preserves unknown components; sourceUpdateTime ordering is implemented when both timestamps exist
+    - method: GET
+      path: /api/v1/entities/{entity_id}
+      status: exactish
+    - method: POST
+      path: /api/v1/entities/events
+      status: exactish
+      notes: returns sessionToken/entityEvents and legacy events alias
+    - method: POST
+      path: /api/v1/entities/events/poll
+      status: alias
+    - method: POST
+      path: /api/v1/entities/stream
+      status: exactish
+      notes: SSE; supports PREEXISTING, CREATE, UPDATE, DELETED, HEARTBEAT, preExistingOnly, componentsToInclude
+    - method: PUT
+      path: /api/v1/entities/{entity_id}/override/{field_path}
+      status: simplified
+    - method: DELETE
+      path: /api/v1/entities/{entity_id}/override/{field_path}
+      status: simplified
+
+  tasks:
+    - method: POST
+      path: /api/v1/tasks
+      status: exactish
+      notes: returns 201 and fills public-style version/status defaults
+    - method: GET
+      path: /api/v1/tasks/{task_id}
+      status: exactish
+    - method: PUT
+      path: /api/v1/tasks/{task_id}/status
+      status: exactish
+    - method: POST
+      path: /api/v1/tasks/{task_id}/status
+      status: alias
+    - method: PUT
+      path: /api/v1/tasks/{task_id}/cancel
+      status: simplified
+    - method: POST
+      path: /api/v1/tasks/{task_id}/cancel
+      status: alias
+    - method: POST
+      path: /api/v1/tasks/query
+      status: exactish
+    - method: POST
+      path: /api/v1/tasks/events
+      status: alias
+      notes: local helper for test harnesses
+    - method: POST
+      path: /api/v1/tasks/stream
+      status: exactish
+      notes: SSE; supports preexisting open tasks, updates, heartbeats, excludePreexistingTasks
+    - method: POST
+      path: /api/v1/agent/listen
+      status: exactish
+      notes: non-streaming JSON listen call returning executeRequest/cancelRequest/heartbeat
+    - method: POST
+      path: /api/v1/agent/stream
+      status: exactish
+      notes: SSE; returns ExecuteRequest/CancelRequest/heartbeat style payloads
+    - method: POST
+      path: /api/v1/tasks/{task_id}/manual-control/stream
+      status: simplified
+      notes: heartbeat-only placeholder
+
+  objects:
+    - method: GET
+      path: /api/v1/objects
+      status: exactish
+      notes: returns path_metadatas/next_page_token and objects alias
+    - method: POST
+      path: /api/v1/objects/{object_path}
+      status: exactish
+      notes: returns content_identifier/size_bytes/last_updated_at/expiry_time and helper aliases
+    - method: GET
+      path: /api/v1/objects/{object_path}
+      status: exactish
+    - method: HEAD
+      path: /api/v1/objects/{object_path}
+      status: exactish
+    - method: DELETE
+      path: /api/v1/objects/{object_path}
+      status: exactish

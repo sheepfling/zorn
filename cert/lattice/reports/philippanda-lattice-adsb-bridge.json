@@ -1,0 +1,363 @@
+{
+  "details": {
+    "analysis": {
+      "notes": [
+        "The fixture hardcodes the Lattice base URL to http://localhost:8080 in LatticeClientConfig.java.",
+        "The fixture ships in-process mock Lattice controllers, so the default app topology points the SDK back at itself rather than at Zorn.",
+        "The required local Maven lattice-sdk artifact is present."
+      ],
+      "ui_depends_on_local_entity_store": true,
+      "uses_embedded_mock_server": true
+    },
+    "app_log": [
+      143,
+      "\n  .   ____          _            __ _ _\n /\\\\ / ___'_ __ _ _(_)_ __  __ _ \\ \\ \\ \\\n( ( )\\___ | '_ | '_| | '_ \\/ _` | \\ \\ \\ \\\n \\\\/  ___)| |_)| | | | | || (_| |  ) ) ) )\n  '  |____| .__|_| |_|_| |_\\__, | / / / /\n =========|_|==============|___/=/_/_/_/\n :: Spring Boot ::                (v3.2.5)\n\n2026-06-21T22:35:31.957-05:00  INFO 18962 --- [           main] c.e.l.LatticeAdsbBridgeApplication       : Starting LatticeAdsbBridgeApplication v1.0.0-SNAPSHOT using Java 17.0.19 with PID 18962 (/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/philippanda-lattice-adsb-bridge/target/lattice-adsb-bridge-1.0.0-SNAPSHOT.jar started by rick in /Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/philippanda-lattice-adsb-bridge)\n2026-06-21T22:35:31.958-05:00 DEBUG 18962 --- [           main] c.e.l.LatticeAdsbBridgeApplication       : Running with Spring Boot v3.2.5, Spring v6.1.6\n2026-06-21T22:35:31.959-05:00  INFO 18962 --- [           main] c.e.l.LatticeAdsbBridgeApplication       : No active profile set, falling back to 1 default profile: \"default\"\n2026-06-21T22:35:33.309-05:00  INFO 18962 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 51711 (http)\n2026-06-21T22:35:33.315-05:00  INFO 18962 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]\n2026-06-21T22:35:33.315-05:00  INFO 18962 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]\n2026-06-21T22:35:33.348-05:00  INFO 18962 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext\n2026-06-21T22:35:33.349-05:00  INFO 18962 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1343 ms\n2026-06-21T22:35:33.552-05:00  INFO 18962 --- [           main] c.e.lattice.config.LatticeClientConfig   : Initializing Lattice SDK client pointing at: http://localhost:8080\n2026-06-21T22:35:33.734-05:00  INFO 18962 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]\n2026-06-21T22:35:34.049-05:00  INFO 18962 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoint(s) beneath base path '/actuator'\n2026-06-21T22:35:34.110-05:00  INFO 18962 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 51711 (http) with context path ''\n2026-06-21T22:35:34.133-05:00  INFO 18962 --- [           main] c.e.l.LatticeAdsbBridgeApplication       : Started LatticeAdsbBridgeApplication in 2.99 seconds (process running for 3.59)\n2026-06-21T22:35:34.139-05:00  INFO 18962 --- [   scheduling-1] c.example.lattice.bridge.BridgeService   : Starting ADS-B bridge poll cycle\n2026-06-21T22:35:34.139-05:00 DEBUG 18962 --- [   scheduling-1] c.example.lattice.opensky.OpenSkyClient  : Fetching OpenSky states from: http://127.0.0.1:51710/states/all?lamin=30&lomin=-130&lamax=60&lomax=-60\n2026-06-21T22:35:34.204-05:00  INFO 18962 --- [   scheduling-1] c.example.lattice.opensky.OpenSkyClient  : Fetched 2 aircraft state vectors from OpenSky\n2026-06-21T22:35:34.204-05:00 DEBUG 18962 --- [   scheduling-1] c.example.lattice.bridge.BridgeService   : Processing 2 aircraft (capped at 2 max)\n2026-06-21T22:35:34.606-05:00 DEBUG 18962 --- [   scheduling-1] c.example.lattice.bridge.BridgeService   : Published entity for aircraft: abc123 (TEST123)\n2026-06-21T22:35:34.614-05:00 DEBUG 18962 --- [   scheduling-1] c.example.lattice.bridge.BridgeService   : Published entity for aircraft: def456 (TEST456)\n2026-06-21T22:35:34.614-05:00  INFO 18962 --- [   scheduling-1] c.example.lattice.bridge.BridgeService   : Bridge poll complete. Published 2 aircraft entities to Lattice (0 skipped, no position).\n2026-06-21T22:35:34.646-05:00  INFO 18962 --- [io-51711-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'\n2026-06-21T22:35:34.646-05:00  INFO 18962 --- [io-51711-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'\n2026-06-21T22:35:34.646-05:00  INFO 18962 --- [io-51711-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms\n2026-06-21T22:35:34.691-05:00  INFO 18962 --- [   scheduling-1] c.e.lattice.military.MilitarySimulator   : Military simulator published 8 tracks\n2026-06-21T22:35:34.708-05:00 DEBUG 18962 --- [io-51711-exec-2] c.e.lattice.mock.MockEntityController    : PUT /api/v1/entities entityId=adsb-abc123\n2026-06-21T22:35:34.708-05:00 DEBUG 18962 --- [io-51711-exec-2] c.e.lattice.mock.MockEntityController    : Stored entity: adsb-abc123\n2026-06-21T22:35:34.712-05:00 DEBUG 18962 --- [io-51711-exec-3] c.e.lattice.mock.MockEntityController    : PUT /api/v1/entities entityId=adsb-def456\n2026-06-21T22:35:34.712-05:00 DEBUG 18962 --- [io-51711-exec-3] c.e.lattice.mock.MockEntityController    : Stored entity: adsb-def456\n2026-06-21T22:35:34.728-05:00  INFO 18962 --- [io-51711-exec-4] c.e.lattice.mock.MockStreamController    : SSE stream connected (POST). heartbeatIntervalMs=30000\n2026-06-21T22:35:34.729-05:00 DEBUG 18962 --- [io-51711-exec-4] com.example.lattice.mock.EntityStore     : SSE emitter registered. Active emitters: 1\n2026-06-21T22:35:34.734-05:00 DEBUG 18962 --- [sse-stream-init] c.e.lattice.mock.MockStreamController    : Sent 2 PREEXISTING entity events to SSE client\n2026-06-21T22:35:34.734-05:00 DEBUG 18962 --- [sse-stream-init] c.e.lattice.mock.MockStreamController    : Sent heartbeat to SSE client\n2026-06-21T22:35:36.746-05:00 DEBUG 18962 --- [io-51711-exec-5] com.example.lattice.mock.EntityStore     : SSE emitter timed out and removed. Active emitters: 0\n2026-06-21T22:35:36.761-05:00  WARN 18962 --- [io-51711-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Ignoring exception, response committed already: org.springframework.web.context.request.async.AsyncRequestTimeoutException\n2026-06-21T22:35:36.762-05:00  WARN 18962 --- [io-51711-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.context.request.async.AsyncRequestTimeoutException]\n2026-06-21T22:35:36.762-05:00 DEBUG 18962 --- [io-51711-exec-5] com.example.lattice.mock.EntityStore     : SSE emitter completed and removed. Active emitters: 0\n"
+    ],
+    "auth.bearer_token": {
+      "status": {
+        "entityCount": 0,
+        "lastPollTime": "2026-06-22T03:35:34.139570Z",
+        "lastPublishCount": 2,
+        "serverTime": "2026-06-22T03:35:34.666325Z",
+        "sseClientCount": 0,
+        "status": "UP"
+      }
+    },
+    "build": {
+      "args": [
+        "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.tooling/apache-maven-3.9.9/bin/mvn",
+        "-q",
+        "-DskipTests",
+        "package",
+        "-Dmaven.repo.local=/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.tooling/m2/repository"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    "embedded_mock_controllers": [
+      "EntityStore.java",
+      "MockEntityController.java",
+      "MockOAuthController.java",
+      "MockStreamController.java",
+      "StatusController.java"
+    ],
+    "entities.publish": {
+      "entities": [
+        {
+          "createdTime": "2026-06-22T03:35:34.204516Z",
+          "description": "TEST123",
+          "entityId": "adsb-abc123",
+          "entity_id": "adsb-abc123",
+          "expiryTime": "2026-06-22T03:40:34.204516Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "altitudeHaeMeters": 1200.0,
+              "latitudeDegrees": 35.1,
+              "longitudeDegrees": -97.5
+            },
+            "speedMps": 145.0,
+            "velocityEnu": {
+              "e": 145.0,
+              "n": 8.878689293818311e-15,
+              "u": 5.0
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_UNKNOWN",
+            "environment": "ENVIRONMENT_AIR"
+          },
+          "ontology": {
+            "platformType": "FIXED_WING"
+          },
+          "provenance": {
+            "integrationName": "opensky-adsb-bridge",
+            "sourceUpdateTime": "2024-03-09T16:00:05Z"
+          },
+          "transponderCodes": {
+            "modeS": {
+              "id": "4321"
+            }
+          }
+        },
+        {
+          "createdTime": "2026-06-22T03:35:34.606481Z",
+          "description": "TEST456",
+          "entityId": "adsb-def456",
+          "entity_id": "adsb-def456",
+          "expiryTime": "2026-06-22T03:40:34.606481Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "altitudeHaeMeters": 2400.0,
+              "latitudeDegrees": 35.3,
+              "longitudeDegrees": -98.0
+            },
+            "speedMps": 155.0,
+            "velocityEnu": {
+              "e": 1.8982025386783973e-14,
+              "n": -155.0,
+              "u": -2.0
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_UNKNOWN",
+            "environment": "ENVIRONMENT_AIR"
+          },
+          "ontology": {
+            "platformType": "FIXED_WING"
+          },
+          "provenance": {
+            "integrationName": "opensky-adsb-bridge",
+            "sourceUpdateTime": "2024-03-09T16:00:15Z"
+          },
+          "transponderCodes": {
+            "modeS": {
+              "id": "1200"
+            }
+          }
+        }
+      ]
+    },
+    "entities.transponder_codes": {
+      "entities": [
+        {
+          "createdTime": "2026-06-22T03:35:34.204516Z",
+          "description": "TEST123",
+          "entityId": "adsb-abc123",
+          "entity_id": "adsb-abc123",
+          "expiryTime": "2026-06-22T03:40:34.204516Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "altitudeHaeMeters": 1200.0,
+              "latitudeDegrees": 35.1,
+              "longitudeDegrees": -97.5
+            },
+            "speedMps": 145.0,
+            "velocityEnu": {
+              "e": 145.0,
+              "n": 8.878689293818311e-15,
+              "u": 5.0
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_UNKNOWN",
+            "environment": "ENVIRONMENT_AIR"
+          },
+          "ontology": {
+            "platformType": "FIXED_WING"
+          },
+          "provenance": {
+            "integrationName": "opensky-adsb-bridge",
+            "sourceUpdateTime": "2024-03-09T16:00:05Z"
+          },
+          "transponderCodes": {
+            "modeS": {
+              "id": "4321"
+            }
+          }
+        },
+        {
+          "createdTime": "2026-06-22T03:35:34.606481Z",
+          "description": "TEST456",
+          "entityId": "adsb-def456",
+          "entity_id": "adsb-def456",
+          "expiryTime": "2026-06-22T03:40:34.606481Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "altitudeHaeMeters": 2400.0,
+              "latitudeDegrees": 35.3,
+              "longitudeDegrees": -98.0
+            },
+            "speedMps": 155.0,
+            "velocityEnu": {
+              "e": 1.8982025386783973e-14,
+              "n": -155.0,
+              "u": -2.0
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_UNKNOWN",
+            "environment": "ENVIRONMENT_AIR"
+          },
+          "ontology": {
+            "platformType": "FIXED_WING"
+          },
+          "provenance": {
+            "integrationName": "opensky-adsb-bridge",
+            "sourceUpdateTime": "2024-03-09T16:00:15Z"
+          },
+          "transponderCodes": {
+            "modeS": {
+              "id": "1200"
+            }
+          }
+        }
+      ]
+    },
+    "fixture_dir": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/philippanda-lattice-adsb-bridge",
+    "hardcoded_mock_url": true,
+    "install_command": [
+      "mvn",
+      "-q",
+      "-DskipTests",
+      "package"
+    ],
+    "java_home": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.tooling/jdk-17.0.19+10/Contents/Home",
+    "java_path": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.tooling/jdk-17.0.19+10/Contents/Home/bin/java",
+    "maven_path": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.tooling/apache-maven-3.9.9/bin/mvn",
+    "maven_repo_local": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.tooling/m2/repository",
+    "opensky_log": [
+      -15,
+      "::ffff:127.0.0.1 - - [21/Jun/2026 22:35:34] \"GET /states/all?lamin=30&lomin=-130&lamax=60&lomax=-60 HTTP/1.1\" 200 -\n"
+    ],
+    "opensky_sample": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/philippanda-lattice-adsb-bridge/.zorn-cert-java/opensky/states/all",
+    "published_entities": [
+      {
+        "createdTime": "2026-06-22T03:35:34.204516Z",
+        "description": "TEST123",
+        "entityId": "adsb-abc123",
+        "entity_id": "adsb-abc123",
+        "expiryTime": "2026-06-22T03:40:34.204516Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "altitudeHaeMeters": 1200.0,
+            "latitudeDegrees": 35.1,
+            "longitudeDegrees": -97.5
+          },
+          "speedMps": 145.0,
+          "velocityEnu": {
+            "e": 145.0,
+            "n": 8.878689293818311e-15,
+            "u": 5.0
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_UNKNOWN",
+          "environment": "ENVIRONMENT_AIR"
+        },
+        "ontology": {
+          "platformType": "FIXED_WING"
+        },
+        "provenance": {
+          "integrationName": "opensky-adsb-bridge",
+          "sourceUpdateTime": "2024-03-09T16:00:05Z"
+        },
+        "transponderCodes": {
+          "modeS": {
+            "id": "4321"
+          }
+        }
+      },
+      {
+        "createdTime": "2026-06-22T03:35:34.606481Z",
+        "description": "TEST456",
+        "entityId": "adsb-def456",
+        "entity_id": "adsb-def456",
+        "expiryTime": "2026-06-22T03:40:34.606481Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "altitudeHaeMeters": 2400.0,
+            "latitudeDegrees": 35.3,
+            "longitudeDegrees": -98.0
+          },
+          "speedMps": 155.0,
+          "velocityEnu": {
+            "e": 1.8982025386783973e-14,
+            "n": -155.0,
+            "u": -2.0
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_UNKNOWN",
+          "environment": "ENVIRONMENT_AIR"
+        },
+        "ontology": {
+          "platformType": "FIXED_WING"
+        },
+        "provenance": {
+          "integrationName": "opensky-adsb-bridge",
+          "sourceUpdateTime": "2024-03-09T16:00:15Z"
+        },
+        "transponderCodes": {
+          "modeS": {
+            "id": "1200"
+          }
+        }
+      }
+    ],
+    "run_commands": [
+      [
+        "java",
+        "-jar",
+        "target/lattice-adsb-bridge-1.0.0-SNAPSHOT.jar"
+      ]
+    ],
+    "runtime": {
+      "app_port": 51711,
+      "jar_path": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/philippanda-lattice-adsb-bridge/target/lattice-adsb-bridge-1.0.0-SNAPSHOT.jar",
+      "opensky_port": 51710,
+      "zorn_port": 8080
+    },
+    "sdk_jar": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.tooling/m2/repository/com/anduril/lattice-sdk/5.3.1/lattice-sdk-5.3.1.jar",
+    "sdk_jar_exists": true,
+    "status": {
+      "entityCount": 0,
+      "lastPollTime": "2026-06-22T03:35:34.139570Z",
+      "lastPublishCount": 2,
+      "serverTime": "2026-06-22T03:35:34.666325Z",
+      "sseClientCount": 0,
+      "status": "UP"
+    },
+    "target": "http://localhost:8080",
+    "token_configured": true,
+    "ui.sse": {
+      "stdout": "event:entity\ndata:{\"eventType\":\"EVENT_TYPE_PREEXISTING\",\"time\":\"2026-06-22T03:35:34.729893Z\",\"entity\":{\"entityId\":\"adsb-abc123\",\"description\":\"TEST123\",\"isLive\":true,\"createdTime\":\"2026-06-22T03:35:34.204516Z\",\"expiryTime\":\"2026-06-22T03:40:34.204516Z\",\"location\":{\"position\":{\"latitudeDegrees\":35.1,\"longitudeDegrees\":-97.5,\"altitudeHaeMeters\":1200.0},\"velocityEnu\":{\"e\":145.0,\"n\":8.878689293818311E-15,\"u\":5.0},\"speedMps\":145.0},\"milView\":{\"disposition\":\"DISPOSITION_UNKNOWN\",\"environment\":\"ENVIRONMENT_AIR\"},\"ontology\":{\"platformType\":\"FIXED_WING\"},\"provenance\":{\"integrationName\":\"opensky-adsb-bridge\",\"sourceUpdateTime\":\"2024-03-09T16:00:05Z\"},\"transponderCodes\":{\"modeS\":{\"id\":\"4321\"}},\"entity_id\":\"adsb-abc123\",\"is_live\":true}}\n\nevent:entity\ndata:{\"eventType\":\"EVENT_TYPE_PREEXISTING\",\"time\":\"2026-06-22T03:35:34.734367Z\",\"entity\":{\"entityId\":\"adsb-def456\",\"description\":\"TEST456\",\"isLive\":true,\"createdTime\":\"2026-06-22T03:35:34.606481Z\",\"expiryTime\":\"2026-06-22T03:40:34.606481Z\",\"location\":{\"position\":{\"latitudeDegrees\":35.3,\"longitudeDegrees\":-98.0,\"altitudeHaeMeters\":2400.0},\"velocityEnu\":{\"e\":1.8982025386783973E-14,\"n\":-155.0,\"u\":-2.0},\"speedMps\":155.0},\"milView\":{\"disposition\":\"DISPOSITION_UNKNOWN\",\"environment\":\"ENVIRONMENT_AIR\"},\"ontology\":{\"platformType\":\"FIXED_WING\"},\"provenance\":{\"integrationName\":\"opensky-adsb-bridge\",\"sourceUpdateTime\":\"2024-03-09T16:00:15Z\"},\"transponderCodes\":{\"modeS\":{\"id\":\"1200\"}},\"entity_id\":\"adsb-def456\",\"is_live\":true}}\n\nevent:heartbeat\ndata:{}\n\n"
+    },
+    "ui_sse_probe": {
+      "args": [
+        "curl",
+        "-s",
+        "--max-time",
+        "2",
+        "-X",
+        "POST",
+        "http://127.0.0.1:51711/api/v1/entities/stream",
+        "-H",
+        "Content-Type: application/json",
+        "-d",
+        "{}"
+      ],
+      "returncode": 28,
+      "stderr": "",
+      "stdout": "event:entity\ndata:{\"eventType\":\"EVENT_TYPE_PREEXISTING\",\"time\":\"2026-06-22T03:35:34.729893Z\",\"entity\":{\"entityId\":\"adsb-abc123\",\"description\":\"TEST123\",\"isLive\":true,\"createdTime\":\"2026-06-22T03:35:34.204516Z\",\"expiryTime\":\"2026-06-22T03:40:34.204516Z\",\"location\":{\"position\":{\"latitudeDegrees\":35.1,\"longitudeDegrees\":-97.5,\"altitudeHaeMeters\":1200.0},\"velocityEnu\":{\"e\":145.0,\"n\":8.878689293818311E-15,\"u\":5.0},\"speedMps\":145.0},\"milView\":{\"disposition\":\"DISPOSITION_UNKNOWN\",\"environment\":\"ENVIRONMENT_AIR\"},\"ontology\":{\"platformType\":\"FIXED_WING\"},\"provenance\":{\"integrationName\":\"opensky-adsb-bridge\",\"sourceUpdateTime\":\"2024-03-09T16:00:05Z\"},\"transponderCodes\":{\"modeS\":{\"id\":\"4321\"}},\"entity_id\":\"adsb-abc123\",\"is_live\":true}}\n\nevent:entity\ndata:{\"eventType\":\"EVENT_TYPE_PREEXISTING\",\"time\":\"2026-06-22T03:35:34.734367Z\",\"entity\":{\"entityId\":\"adsb-def456\",\"description\":\"TEST456\",\"isLive\":true,\"createdTime\":\"2026-06-22T03:35:34.606481Z\",\"expiryTime\":\"2026-06-22T03:40:34.606481Z\",\"location\":{\"position\":{\"latitudeDegrees\":35.3,\"longitudeDegrees\":-98.0,\"altitudeHaeMeters\":2400.0},\"velocityEnu\":{\"e\":1.8982025386783973E-14,\"n\":-155.0,\"u\":-2.0},\"speedMps\":155.0},\"milView\":{\"disposition\":\"DISPOSITION_UNKNOWN\",\"environment\":\"ENVIRONMENT_AIR\"},\"ontology\":{\"platformType\":\"FIXED_WING\"},\"provenance\":{\"integrationName\":\"opensky-adsb-bridge\",\"sourceUpdateTime\":\"2024-03-09T16:00:15Z\"},\"transponderCodes\":{\"modeS\":{\"id\":\"1200\"}},\"entity_id\":\"adsb-def456\",\"is_live\":true}}\n\nevent:heartbeat\ndata:{}\n\n"
+    },
+    "zorn_log": [
+      -15,
+      "INFO:     Started server process [18960]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://127.0.0.1:8080 (Press CTRL+C to quit)\nINFO:     127.0.0.1:51719 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51719 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51719 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51719 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51719 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51719 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51719 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51719 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51719 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51721 - \"GET /api/v1/entities/adsb-abc123 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51719 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51722 - \"GET /api/v1/entities/adsb-def456 HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [18960]\n"
+    ]
+  },
+  "failed": [],
+  "fixture": "philippanda-lattice-adsb-bridge",
+  "missing": [],
+  "mode": "strict",
+  "passed": [
+    "auth.bearer_token",
+    "entities.publish",
+    "entities.transponder_codes",
+    "ui.sse"
+  ],
+  "result": "pass",
+  "zorn_version": "0.1.0"
+}

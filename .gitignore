@@ -1,0 +1,47 @@
+.venv
+.cache
+.tmp/
+.tooling/
+.pytest_cache
+.ruff_cache
+.mypy_cache
+.pyre/
+.hypothesis/
+.tox/
+.nox/
+cache
+archive
+artifacts/
+cert/lattice/.fixtures/
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+build/
+dist/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+site/
+tmp/
+.DS_Store
+Thumbs.db
+
+# Local editor / IDE noise
+.idea/
+.vscode/
+*.code-workspace
+*.swp
+*.swo
+*~
+
+# Local env / notebook noise
+.env
+.env.*
+.ipynb_checkpoints/
+
+# Local database / cache files
+*.db
+*.sqlite
+*.sqlite3

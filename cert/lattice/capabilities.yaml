@@ -1,0 +1,117 @@
+capabilities:
+  auth.bearer_token:
+    pass_condition: Samples can pass Authorization bearer tokens to Zorn.
+  auth.oauth_client_credentials:
+    pass_condition: Samples can obtain and use OAuth-dev client credentials tokens.
+  auth.sandbox_header:
+    pass_condition: Samples can send sandbox headers without source changes.
+  auth.grpc_bearer_metadata:
+    pass_condition: Generated gRPC clients can send per-RPC authorization metadata.
+  entities.publish:
+    pass_condition: Zorn accepts publish/upsert calls and stores canonical entity state.
+  entities.stream:
+    pass_condition: Zorn emits create/update/delete events in SDK-compatible wrappers.
+  entities.grpc_stream:
+    pass_condition: Generated gRPC stream clients can consume entity update streams.
+  entities.location:
+    pass_condition: Entity location survives publish, storage, stream, and readback.
+  entities.velocity_enu:
+    pass_condition: ENU velocity survives publish, storage, stream, and readback.
+  entities.attitude:
+    pass_condition: Attitude/quaternion data survives publish, storage, stream, and readback.
+  entities.health:
+    pass_condition: Health components survive publish, storage, stream, and readback.
+  entities.ontology:
+    pass_condition: Ontology components survive publish, storage, stream, and readback.
+  entities.mil_view:
+    pass_condition: MilView components survive publish, storage, stream, and readback.
+  entities.aliases:
+    pass_condition: Alias components survive publish, storage, stream, and readback.
+  entities.provenance:
+    pass_condition: Provenance survives publish, storage, stream, and readback.
+  entities.relationships:
+    pass_condition: Relationships survive publish, storage, stream, and readback.
+  entities.classification:
+    pass_condition: Classification survives publish, storage, stream, and readback.
+  entities.transponder_codes:
+    pass_condition: Transponder code components survive publish, storage, stream, and readback.
+  entities.task_catalog:
+    pass_condition: Task catalog components survive publish, storage, stream, and readback.
+  entities.expiry:
+    pass_condition: Entity TTL/staleness causes expected stream and final-state behavior.
+  entities.override:
+    pass_condition: mil_view.disposition override updates the effective entity view.
+  tasks.create:
+    pass_condition: Samples can create tasks with SDK-compatible request/response shapes.
+  tasks.listen_as_agent:
+    pass_condition: Taskable agents receive ExecuteRequest/CancelRequest/CompleteRequest wrappers.
+  tasks.update_status:
+    pass_condition: Samples can update task status/version and observe ordered task events.
+  tasks.cancel:
+    pass_condition: Cancel requests are delivered and task state changes are observable.
+  objects.upload:
+    pass_condition: Samples can upload binary object payloads through REST.
+  objects.metadata:
+    pass_condition: Samples can create and read object metadata.
+  objects.list:
+    pass_condition: Samples can list objects by prefix.
+  objects.download:
+    pass_condition: Samples can download the uploaded object bytes.
+  objects.delete:
+    pass_condition: Samples can delete uploaded objects.
+  objects.thumbnail_linkage:
+    pass_condition: Thumbnail object references survive entity publish and readback.
+  ui.map_visualizer:
+    pass_condition: Map consumers receive enough streamed entity data to render.
+  ui.websocket:
+    pass_condition: WebSocket adapters can consume Zorn event data.
+  ui.cesium:
+    pass_condition: Cesium clients receive usable entity positions and metadata.
+  ui.sse:
+    pass_condition: SSE clients can consume Zorn stream events.
+  sensors.ais:
+    pass_condition: AIS vessel data maps to stable moving entity tracks.
+  sensors.adsb:
+    pass_condition: ADS-B aircraft data maps to stable moving entity tracks.
+  sensors.mavlink:
+    pass_condition: MAVLink vehicle telemetry maps to entity location, velocity, attitude, and health.
+  sensors.tak:
+    pass_condition: TAK/Cursor-on-Target messages map to entity state and provenance.
+  sensors.synthetic:
+    pass_condition: Synthetic tracks can be generated deterministically for scenarios.
+  fusion.track_correlation:
+    pass_condition: Multiple sensor observations can resolve to one canonical track.
+  streams.sse:
+    pass_condition: Server-sent event consumers receive live entity/task updates.
+  streams.heartbeat:
+    pass_condition: Stream heartbeat behavior is observable and configurable.
+  autonomy.asset_state:
+    pass_condition: Assets publish state, health, availability, and progress.
+  autonomy.intent:
+    pass_condition: Assets can report intended action or task acceptance.
+  effects.assignment:
+    pass_condition: Effects or interceptor assignment can be represented as tasks/events.
+  effects.intercept:
+    pass_condition: Simulated intercept produces deterministic outcome events.
+  effects.result_entity_update:
+    pass_condition: Effects outcomes update entity state and stream to consumers.
+  alerts.hostile:
+    pass_condition: Hostile classification or override emits a useful alert/update.
+  alerts.suspicious:
+    pass_condition: Suspicious classification or override emits a useful alert/update.
+  alerts.proximity:
+    pass_condition: Proximity rules emit deterministic alerts.
+  alerts.geofence:
+    pass_condition: Geofence entry/exit rules emit deterministic alerts.
+  alerts.stale_track:
+    pass_condition: Stale-track rules emit deterministic alerts.
+  alerts.lost_comms:
+    pass_condition: Lost-comms rules emit deterministic alerts.
+  replay.deterministic:
+    pass_condition: Scenario replay produces the same event sequence every run.
+  replay.event_recording:
+    pass_condition: Runs emit replayable event logs.
+  replay.event_replay:
+    pass_condition: Recorded event logs can reconstruct final state.
+  local_mock:
+    pass_condition: Fixture-local mock assumptions are recorded and isolated from strict certification.

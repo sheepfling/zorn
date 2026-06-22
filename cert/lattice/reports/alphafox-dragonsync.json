@@ -1,0 +1,922 @@
+{
+  "details": {
+    "auth.bearer_token": {
+      "entity_ids": {
+        "drone": "drone-cert-001",
+        "home": "drone-cert-001-home",
+        "pilot": "drone-cert-001-pilot",
+        "system": "wardragon-WD-0001"
+      },
+      "fetched": [
+        "drone",
+        "home",
+        "pilot",
+        "system"
+      ]
+    },
+    "command": [
+      "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/alphafox-dragonsync/.venv/bin/python",
+      "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-bdt50mwo/dragonsync_cert_driver.py"
+    ],
+    "entities": {
+      "drone": {
+        "aliases": {
+          "name": "Dragon Sync Test Drone [CAA: US-ZORN-001]"
+        },
+        "dataClassification": {
+          "default": {
+            "level": "CLASSIFICATION_LEVELS_UNCLASSIFIED"
+          }
+        },
+        "entityId": "drone-cert-001",
+        "entity_id": "drone-cert-001",
+        "expiryTime": "2026-06-22T02:11:41.494434Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "attitudeEnu": {
+            "w": -0.9986295347545738,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.05233595624294381
+          },
+          "position": {
+            "altitudeHaeMeters": 123.4,
+            "latitudeDegrees": 37.4222,
+            "longitudeDegrees": -122.0843
+          },
+          "speedMps": 14.2
+        },
+        "milView": {
+          "disposition": "DISPOSITION_NEUTRAL",
+          "environment": "ENVIRONMENT_AIR"
+        },
+        "ontology": {
+          "platformType": "Small UAS",
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "wardragon-detection",
+          "integrationName": "DragonSync",
+          "sourceUpdateTime": "2026-06-22T02:06:41.494417Z"
+        },
+        "relationships": {
+          "relationships": [
+            {
+              "relatedEntityId": "wardragon-WD-0001",
+              "relationshipType": {
+                "trackedBy": {
+                  "activelyTrackingSensors": {
+                    "sensors": [
+                      {
+                        "operationalState": "OPERATIONAL_STATE_OPERATIONAL",
+                        "sensorDescription": "WarDragon Antenna",
+                        "sensorId": "wardragon-antenna",
+                        "sensorType": "SENSOR_TYPE_RF"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "home": {
+        "aliases": {
+          "name": "Home of drone-cert-001"
+        },
+        "dataClassification": {
+          "default": {
+            "level": "CLASSIFICATION_LEVELS_UNCLASSIFIED"
+          }
+        },
+        "entityId": "drone-cert-001-home",
+        "entity_id": "drone-cert-001-home",
+        "expiryTime": "2026-06-22T06:06:41.507265Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 37.4218,
+            "longitudeDegrees": -122.0846
+          }
+        },
+        "milView": {},
+        "ontology": {
+          "platformType": "Home Point",
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "wardragon-detection",
+          "integrationName": "DragonSync",
+          "sourceUpdateTime": "2026-06-22T02:06:41.507250Z"
+        },
+        "relationships": {
+          "relationships": [
+            {
+              "relatedEntityId": "wardragon-WD-0001",
+              "relationshipType": {
+                "trackedBy": {
+                  "activelyTrackingSensors": {
+                    "sensors": [
+                      {
+                        "operationalState": "OPERATIONAL_STATE_OPERATIONAL",
+                        "sensorDescription": "WarDragon Antenna",
+                        "sensorId": "wardragon-antenna",
+                        "sensorType": "SENSOR_TYPE_RF"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "pilot": {
+        "aliases": {
+          "name": "Pilot of drone-cert-001"
+        },
+        "dataClassification": {
+          "default": {
+            "level": "CLASSIFICATION_LEVELS_UNCLASSIFIED"
+          }
+        },
+        "entityId": "drone-cert-001-pilot",
+        "entity_id": "drone-cert-001-pilot",
+        "expiryTime": "2026-06-22T02:36:41.501693Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 37.422,
+            "longitudeDegrees": -122.0839
+          }
+        },
+        "milView": {},
+        "ontology": {
+          "platformType": "Operator",
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "wardragon-detection",
+          "integrationName": "DragonSync",
+          "sourceUpdateTime": "2026-06-22T02:06:41.501684Z"
+        },
+        "relationships": {
+          "relationships": [
+            {
+              "relatedEntityId": "wardragon-WD-0001",
+              "relationshipType": {
+                "trackedBy": {
+                  "activelyTrackingSensors": {
+                    "sensors": [
+                      {
+                        "operationalState": "OPERATIONAL_STATE_OPERATIONAL",
+                        "sensorDescription": "WarDragon Antenna",
+                        "sensorId": "wardragon-antenna",
+                        "sensorType": "SENSOR_TYPE_RF"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "system": {
+        "aliases": {
+          "name": "WarDragon WD-0001"
+        },
+        "dataClassification": {
+          "default": {
+            "level": "CLASSIFICATION_LEVELS_UNCLASSIFIED"
+          }
+        },
+        "entityId": "wardragon-WD-0001",
+        "entity_id": "wardragon-WD-0001",
+        "expiryTime": "2026-06-22T02:16:41.375564Z",
+        "health": {
+          "components": [
+            {
+              "health": "HEALTH_STATUS_HEALTHY",
+              "id": "cpu",
+              "messages": [
+                {
+                  "message": "21.5%",
+                  "status": "HEALTH_STATUS_HEALTHY"
+                }
+              ],
+              "name": "CPU",
+              "updateTime": "2026-06-22T02:06:41.375581Z"
+            },
+            {
+              "health": "HEALTH_STATUS_HEALTHY",
+              "id": "memory",
+              "messages": [
+                {
+                  "message": "48.0%",
+                  "status": "HEALTH_STATUS_HEALTHY"
+                }
+              ],
+              "name": "Memory Percent",
+              "updateTime": "2026-06-22T02:06:41.375596Z"
+            },
+            {
+              "health": "HEALTH_STATUS_HEALTHY",
+              "id": "disk_percent",
+              "messages": [
+                {
+                  "message": "62.0%",
+                  "status": "HEALTH_STATUS_HEALTHY"
+                }
+              ],
+              "name": "Disk",
+              "updateTime": "2026-06-22T02:06:41.375605Z"
+            },
+            {
+              "health": "HEALTH_STATUS_HEALTHY",
+              "id": "temperature",
+              "messages": [
+                {
+                  "message": "55.0\u00baC",
+                  "status": "HEALTH_STATUS_HEALTHY"
+                }
+              ],
+              "name": "Temperature",
+              "updateTime": "2026-06-22T02:06:41.375615Z"
+            },
+            {
+              "health": "HEALTH_STATUS_HEALTHY",
+              "id": "uptime",
+              "messages": [
+                {
+                  "message": "120 minutes",
+                  "status": "HEALTH_STATUS_HEALTHY"
+                }
+              ],
+              "name": "Uptime",
+              "updateTime": "2026-06-22T02:06:41.375625Z"
+            },
+            {
+              "health": "HEALTH_STATUS_HEALTHY",
+              "id": "ant_pluto_temp",
+              "messages": [
+                {
+                  "message": "41.0\u00baC",
+                  "status": "HEALTH_STATUS_HEALTHY"
+                }
+              ],
+              "name": "Ant Pluto Temp",
+              "updateTime": "2026-06-22T02:06:41.375633Z"
+            },
+            {
+              "health": "HEALTH_STATUS_HEALTHY",
+              "id": "ant_zynq_temp",
+              "messages": [
+                {
+                  "message": "43.0\u00baC",
+                  "status": "HEALTH_STATUS_HEALTHY"
+                }
+              ],
+              "name": "Ant Zynq Temp",
+              "updateTime": "2026-06-22T02:06:41.375640Z"
+            }
+          ],
+          "connectionStatus": "CONNECTION_STATUS_ONLINE",
+          "healthStatus": "HEALTH_STATUS_HEALTHY"
+        },
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 37.4219999,
+            "longitudeDegrees": -122.0840575
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_FRIENDLY"
+        },
+        "ontology": {
+          "platformType": "Antenna",
+          "template": "TEMPLATE_ASSET"
+        },
+        "provenance": {
+          "dataType": "wardragon-sensor",
+          "integrationName": "DragonSync",
+          "sourceUpdateTime": "2026-06-22T02:06:41.375432Z"
+        }
+      }
+    },
+    "entities.classification": {
+      "classification": {
+        "default": {
+          "level": "CLASSIFICATION_LEVELS_UNCLASSIFIED"
+        }
+      }
+    },
+    "entities.health": {
+      "health": {
+        "components": [
+          {
+            "health": "HEALTH_STATUS_HEALTHY",
+            "id": "cpu",
+            "messages": [
+              {
+                "message": "21.5%",
+                "status": "HEALTH_STATUS_HEALTHY"
+              }
+            ],
+            "name": "CPU",
+            "updateTime": "2026-06-22T02:06:41.375581Z"
+          },
+          {
+            "health": "HEALTH_STATUS_HEALTHY",
+            "id": "memory",
+            "messages": [
+              {
+                "message": "48.0%",
+                "status": "HEALTH_STATUS_HEALTHY"
+              }
+            ],
+            "name": "Memory Percent",
+            "updateTime": "2026-06-22T02:06:41.375596Z"
+          },
+          {
+            "health": "HEALTH_STATUS_HEALTHY",
+            "id": "disk_percent",
+            "messages": [
+              {
+                "message": "62.0%",
+                "status": "HEALTH_STATUS_HEALTHY"
+              }
+            ],
+            "name": "Disk",
+            "updateTime": "2026-06-22T02:06:41.375605Z"
+          },
+          {
+            "health": "HEALTH_STATUS_HEALTHY",
+            "id": "temperature",
+            "messages": [
+              {
+                "message": "55.0\u00baC",
+                "status": "HEALTH_STATUS_HEALTHY"
+              }
+            ],
+            "name": "Temperature",
+            "updateTime": "2026-06-22T02:06:41.375615Z"
+          },
+          {
+            "health": "HEALTH_STATUS_HEALTHY",
+            "id": "uptime",
+            "messages": [
+              {
+                "message": "120 minutes",
+                "status": "HEALTH_STATUS_HEALTHY"
+              }
+            ],
+            "name": "Uptime",
+            "updateTime": "2026-06-22T02:06:41.375625Z"
+          },
+          {
+            "health": "HEALTH_STATUS_HEALTHY",
+            "id": "ant_pluto_temp",
+            "messages": [
+              {
+                "message": "41.0\u00baC",
+                "status": "HEALTH_STATUS_HEALTHY"
+              }
+            ],
+            "name": "Ant Pluto Temp",
+            "updateTime": "2026-06-22T02:06:41.375633Z"
+          },
+          {
+            "health": "HEALTH_STATUS_HEALTHY",
+            "id": "ant_zynq_temp",
+            "messages": [
+              {
+                "message": "43.0\u00baC",
+                "status": "HEALTH_STATUS_HEALTHY"
+              }
+            ],
+            "name": "Ant Zynq Temp",
+            "updateTime": "2026-06-22T02:06:41.375640Z"
+          }
+        ],
+        "connectionStatus": "CONNECTION_STATUS_ONLINE",
+        "healthStatus": "HEALTH_STATUS_HEALTHY"
+      }
+    },
+    "entities.publish": {
+      "entities": {
+        "drone": {
+          "aliases": {
+            "name": "Dragon Sync Test Drone [CAA: US-ZORN-001]"
+          },
+          "dataClassification": {
+            "default": {
+              "level": "CLASSIFICATION_LEVELS_UNCLASSIFIED"
+            }
+          },
+          "entityId": "drone-cert-001",
+          "entity_id": "drone-cert-001",
+          "expiryTime": "2026-06-22T02:11:41.494434Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "attitudeEnu": {
+              "w": -0.9986295347545738,
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.05233595624294381
+            },
+            "position": {
+              "altitudeHaeMeters": 123.4,
+              "latitudeDegrees": 37.4222,
+              "longitudeDegrees": -122.0843
+            },
+            "speedMps": 14.2
+          },
+          "milView": {
+            "disposition": "DISPOSITION_NEUTRAL",
+            "environment": "ENVIRONMENT_AIR"
+          },
+          "ontology": {
+            "platformType": "Small UAS",
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "wardragon-detection",
+            "integrationName": "DragonSync",
+            "sourceUpdateTime": "2026-06-22T02:06:41.494417Z"
+          },
+          "relationships": {
+            "relationships": [
+              {
+                "relatedEntityId": "wardragon-WD-0001",
+                "relationshipType": {
+                  "trackedBy": {
+                    "activelyTrackingSensors": {
+                      "sensors": [
+                        {
+                          "operationalState": "OPERATIONAL_STATE_OPERATIONAL",
+                          "sensorDescription": "WarDragon Antenna",
+                          "sensorId": "wardragon-antenna",
+                          "sensorType": "SENSOR_TYPE_RF"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "home": {
+          "aliases": {
+            "name": "Home of drone-cert-001"
+          },
+          "dataClassification": {
+            "default": {
+              "level": "CLASSIFICATION_LEVELS_UNCLASSIFIED"
+            }
+          },
+          "entityId": "drone-cert-001-home",
+          "entity_id": "drone-cert-001-home",
+          "expiryTime": "2026-06-22T06:06:41.507265Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 37.4218,
+              "longitudeDegrees": -122.0846
+            }
+          },
+          "milView": {},
+          "ontology": {
+            "platformType": "Home Point",
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "wardragon-detection",
+            "integrationName": "DragonSync",
+            "sourceUpdateTime": "2026-06-22T02:06:41.507250Z"
+          },
+          "relationships": {
+            "relationships": [
+              {
+                "relatedEntityId": "wardragon-WD-0001",
+                "relationshipType": {
+                  "trackedBy": {
+                    "activelyTrackingSensors": {
+                      "sensors": [
+                        {
+                          "operationalState": "OPERATIONAL_STATE_OPERATIONAL",
+                          "sensorDescription": "WarDragon Antenna",
+                          "sensorId": "wardragon-antenna",
+                          "sensorType": "SENSOR_TYPE_RF"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "pilot": {
+          "aliases": {
+            "name": "Pilot of drone-cert-001"
+          },
+          "dataClassification": {
+            "default": {
+              "level": "CLASSIFICATION_LEVELS_UNCLASSIFIED"
+            }
+          },
+          "entityId": "drone-cert-001-pilot",
+          "entity_id": "drone-cert-001-pilot",
+          "expiryTime": "2026-06-22T02:36:41.501693Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 37.422,
+              "longitudeDegrees": -122.0839
+            }
+          },
+          "milView": {},
+          "ontology": {
+            "platformType": "Operator",
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "wardragon-detection",
+            "integrationName": "DragonSync",
+            "sourceUpdateTime": "2026-06-22T02:06:41.501684Z"
+          },
+          "relationships": {
+            "relationships": [
+              {
+                "relatedEntityId": "wardragon-WD-0001",
+                "relationshipType": {
+                  "trackedBy": {
+                    "activelyTrackingSensors": {
+                      "sensors": [
+                        {
+                          "operationalState": "OPERATIONAL_STATE_OPERATIONAL",
+                          "sensorDescription": "WarDragon Antenna",
+                          "sensorId": "wardragon-antenna",
+                          "sensorType": "SENSOR_TYPE_RF"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "system": {
+          "aliases": {
+            "name": "WarDragon WD-0001"
+          },
+          "dataClassification": {
+            "default": {
+              "level": "CLASSIFICATION_LEVELS_UNCLASSIFIED"
+            }
+          },
+          "entityId": "wardragon-WD-0001",
+          "entity_id": "wardragon-WD-0001",
+          "expiryTime": "2026-06-22T02:16:41.375564Z",
+          "health": {
+            "components": [
+              {
+                "health": "HEALTH_STATUS_HEALTHY",
+                "id": "cpu",
+                "messages": [
+                  {
+                    "message": "21.5%",
+                    "status": "HEALTH_STATUS_HEALTHY"
+                  }
+                ],
+                "name": "CPU",
+                "updateTime": "2026-06-22T02:06:41.375581Z"
+              },
+              {
+                "health": "HEALTH_STATUS_HEALTHY",
+                "id": "memory",
+                "messages": [
+                  {
+                    "message": "48.0%",
+                    "status": "HEALTH_STATUS_HEALTHY"
+                  }
+                ],
+                "name": "Memory Percent",
+                "updateTime": "2026-06-22T02:06:41.375596Z"
+              },
+              {
+                "health": "HEALTH_STATUS_HEALTHY",
+                "id": "disk_percent",
+                "messages": [
+                  {
+                    "message": "62.0%",
+                    "status": "HEALTH_STATUS_HEALTHY"
+                  }
+                ],
+                "name": "Disk",
+                "updateTime": "2026-06-22T02:06:41.375605Z"
+              },
+              {
+                "health": "HEALTH_STATUS_HEALTHY",
+                "id": "temperature",
+                "messages": [
+                  {
+                    "message": "55.0\u00baC",
+                    "status": "HEALTH_STATUS_HEALTHY"
+                  }
+                ],
+                "name": "Temperature",
+                "updateTime": "2026-06-22T02:06:41.375615Z"
+              },
+              {
+                "health": "HEALTH_STATUS_HEALTHY",
+                "id": "uptime",
+                "messages": [
+                  {
+                    "message": "120 minutes",
+                    "status": "HEALTH_STATUS_HEALTHY"
+                  }
+                ],
+                "name": "Uptime",
+                "updateTime": "2026-06-22T02:06:41.375625Z"
+              },
+              {
+                "health": "HEALTH_STATUS_HEALTHY",
+                "id": "ant_pluto_temp",
+                "messages": [
+                  {
+                    "message": "41.0\u00baC",
+                    "status": "HEALTH_STATUS_HEALTHY"
+                  }
+                ],
+                "name": "Ant Pluto Temp",
+                "updateTime": "2026-06-22T02:06:41.375633Z"
+              },
+              {
+                "health": "HEALTH_STATUS_HEALTHY",
+                "id": "ant_zynq_temp",
+                "messages": [
+                  {
+                    "message": "43.0\u00baC",
+                    "status": "HEALTH_STATUS_HEALTHY"
+                  }
+                ],
+                "name": "Ant Zynq Temp",
+                "updateTime": "2026-06-22T02:06:41.375640Z"
+              }
+            ],
+            "connectionStatus": "CONNECTION_STATUS_ONLINE",
+            "healthStatus": "HEALTH_STATUS_HEALTHY"
+          },
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 37.4219999,
+              "longitudeDegrees": -122.0840575
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_FRIENDLY"
+          },
+          "ontology": {
+            "platformType": "Antenna",
+            "template": "TEMPLATE_ASSET"
+          },
+          "provenance": {
+            "dataType": "wardragon-sensor",
+            "integrationName": "DragonSync",
+            "sourceUpdateTime": "2026-06-22T02:06:41.375432Z"
+          }
+        }
+      },
+      "expected": {
+        "drone": "drone-cert-001",
+        "home": "drone-cert-001-home",
+        "pilot": "drone-cert-001-pilot",
+        "system": "wardragon-WD-0001"
+      }
+    },
+    "entities.relationships": {
+      "drone": {
+        "aliases": {
+          "name": "Dragon Sync Test Drone [CAA: US-ZORN-001]"
+        },
+        "dataClassification": {
+          "default": {
+            "level": "CLASSIFICATION_LEVELS_UNCLASSIFIED"
+          }
+        },
+        "entityId": "drone-cert-001",
+        "entity_id": "drone-cert-001",
+        "expiryTime": "2026-06-22T02:11:41.494434Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "attitudeEnu": {
+            "w": -0.9986295347545738,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.05233595624294381
+          },
+          "position": {
+            "altitudeHaeMeters": 123.4,
+            "latitudeDegrees": 37.4222,
+            "longitudeDegrees": -122.0843
+          },
+          "speedMps": 14.2
+        },
+        "milView": {
+          "disposition": "DISPOSITION_NEUTRAL",
+          "environment": "ENVIRONMENT_AIR"
+        },
+        "ontology": {
+          "platformType": "Small UAS",
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "wardragon-detection",
+          "integrationName": "DragonSync",
+          "sourceUpdateTime": "2026-06-22T02:06:41.494417Z"
+        },
+        "relationships": {
+          "relationships": [
+            {
+              "relatedEntityId": "wardragon-WD-0001",
+              "relationshipType": {
+                "trackedBy": {
+                  "activelyTrackingSensors": {
+                    "sensors": [
+                      {
+                        "operationalState": "OPERATIONAL_STATE_OPERATIONAL",
+                        "sensorDescription": "WarDragon Antenna",
+                        "sensorId": "wardragon-antenna",
+                        "sensorType": "SENSOR_TYPE_RF"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "home": {
+        "aliases": {
+          "name": "Home of drone-cert-001"
+        },
+        "dataClassification": {
+          "default": {
+            "level": "CLASSIFICATION_LEVELS_UNCLASSIFIED"
+          }
+        },
+        "entityId": "drone-cert-001-home",
+        "entity_id": "drone-cert-001-home",
+        "expiryTime": "2026-06-22T06:06:41.507265Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 37.4218,
+            "longitudeDegrees": -122.0846
+          }
+        },
+        "milView": {},
+        "ontology": {
+          "platformType": "Home Point",
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "wardragon-detection",
+          "integrationName": "DragonSync",
+          "sourceUpdateTime": "2026-06-22T02:06:41.507250Z"
+        },
+        "relationships": {
+          "relationships": [
+            {
+              "relatedEntityId": "wardragon-WD-0001",
+              "relationshipType": {
+                "trackedBy": {
+                  "activelyTrackingSensors": {
+                    "sensors": [
+                      {
+                        "operationalState": "OPERATIONAL_STATE_OPERATIONAL",
+                        "sensorDescription": "WarDragon Antenna",
+                        "sensorId": "wardragon-antenna",
+                        "sensorType": "SENSOR_TYPE_RF"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "pilot": {
+        "aliases": {
+          "name": "Pilot of drone-cert-001"
+        },
+        "dataClassification": {
+          "default": {
+            "level": "CLASSIFICATION_LEVELS_UNCLASSIFIED"
+          }
+        },
+        "entityId": "drone-cert-001-pilot",
+        "entity_id": "drone-cert-001-pilot",
+        "expiryTime": "2026-06-22T02:36:41.501693Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 37.422,
+            "longitudeDegrees": -122.0839
+          }
+        },
+        "milView": {},
+        "ontology": {
+          "platformType": "Operator",
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "wardragon-detection",
+          "integrationName": "DragonSync",
+          "sourceUpdateTime": "2026-06-22T02:06:41.501684Z"
+        },
+        "relationships": {
+          "relationships": [
+            {
+              "relatedEntityId": "wardragon-WD-0001",
+              "relationshipType": {
+                "trackedBy": {
+                  "activelyTrackingSensors": {
+                    "sensors": [
+                      {
+                        "operationalState": "OPERATIONAL_STATE_OPERATIONAL",
+                        "sensorDescription": "WarDragon Antenna",
+                        "sensorId": "wardragon-antenna",
+                        "sensorType": "SENSOR_TYPE_RF"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "relationship_targets": [
+        "wardragon-WD-0001"
+      ]
+    },
+    "install": {
+      "args": [
+        "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/alphafox-dragonsync/.venv/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "-r",
+        "requirements.txt",
+        "anduril-lattice-sdk"
+      ],
+      "returncode": 0,
+      "stderr": "WARNING: The directory '/Users/rick/Library/Caches/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.\n\n[notice] A new release of pip is available: 24.0 -> 26.1.2\n[notice] To update, run: /Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/alphafox-dragonsync/.venv/bin/python -m pip install --upgrade pip\n",
+      "stdout": "Requirement already satisfied: anduril-lattice-sdk in ./.venv/lib/python3.12/site-packages (4.14.0)\nRequirement already satisfied: cffi in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 1)) (2.0.0)\nRequirement already satisfied: cryptography in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 2)) (49.0.0)\nRequirement already satisfied: gps in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 3)) (3.19)\nRequirement already satisfied: lxml in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 4)) (6.1.1)\nRequirement already satisfied: netifaces in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 5)) (0.11.0)\nRequirement already satisfied: psutil in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 6)) (7.2.2)\nRequirement already satisfied: pycparser in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 7)) (3.0)\nRequirement already satisfied: pyzmq in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 8)) (27.1.0)\nRequirement already satisfied: requests in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 9)) (2.34.2)\nRequirement already satisfied: httpx>=0.21.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk) (0.28.1)\nRequirement already satisfied: pydantic>=1.9.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk) (2.13.4)\nRequirement already satisfied: pydantic-core<3.0.0,>=2.18.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk) (2.46.4)\nRequirement already satisfied: typing_extensions>=4.0.0 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk) (4.15.0)\nRequirement already satisfied: charset_normalizer<4,>=2 in ./.venv/lib/python3.12/site-packages (from requests->-r requirements.txt (line 9)) (3.4.7)\nRequirement already satisfied: idna<4,>=2.5 in ./.venv/lib/python3.12/site-packages (from requests->-r requirements.txt (line 9)) (3.18)\nRequirement already satisfied: urllib3<3,>=1.26 in ./.venv/lib/python3.12/site-packages (from requests->-r requirements.txt (line 9)) (2.7.0)\nRequirement already satisfied: certifi>=2023.5.7 in ./.venv/lib/python3.12/site-packages (from requests->-r requirements.txt (line 9)) (2026.6.17)\nRequirement already satisfied: anyio in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk) (4.14.0)\nRequirement already satisfied: httpcore==1.* in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk) (1.0.9)\nRequirement already satisfied: h11>=0.16 in ./.venv/lib/python3.12/site-packages (from httpcore==1.*->httpx>=0.21.2->anduril-lattice-sdk) (0.16.0)\nRequirement already satisfied: annotated-types>=0.6.0 in ./.venv/lib/python3.12/site-packages (from pydantic>=1.9.2->anduril-lattice-sdk) (0.7.0)\nRequirement already satisfied: typing-inspection>=0.4.2 in ./.venv/lib/python3.12/site-packages (from pydantic>=1.9.2->anduril-lattice-sdk) (0.4.2)\n"
+    },
+    "process": {
+      "args": [
+        "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/alphafox-dragonsync/.venv/bin/python",
+        "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-bdt50mwo/dragonsync_cert_driver.py"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    "server_log": "INFO:     Started server process [36218]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on https://127.0.0.1:61897 (Press CTRL+C to quit)\nINFO:     127.0.0.1:61913 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61915 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61915 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61915 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61915 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61917 - \"GET /api/v1/entities/wardragon-WD-0001 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61919 - \"GET /api/v1/entities/drone-cert-001 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61921 - \"GET /api/v1/entities/drone-cert-001-pilot HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61923 - \"GET /api/v1/entities/drone-cert-001-home HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [36218]\n"
+  },
+  "failed": [],
+  "fixture": "alphafox-dragonsync",
+  "missing": [],
+  "mode": "strict",
+  "passed": [
+    "auth.bearer_token",
+    "entities.publish",
+    "entities.relationships",
+    "entities.classification",
+    "entities.health"
+  ],
+  "result": "pass",
+  "zorn_version": "0.1.0"
+}

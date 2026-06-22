@@ -1,0 +1,1175 @@
+{
+  "details": {
+    "asset": {
+      "aliases": {
+        "alternateIds": null,
+        "name": "Simulated Asset asset-01"
+      },
+      "correlation": null,
+      "createdTime": null,
+      "dataClassification": null,
+      "description": null,
+      "dimensions": null,
+      "entityId": "asset-01",
+      "entity_id": "asset-01",
+      "expiryTime": "2026-06-22T01:16:52.386354Z",
+      "geoDetails": null,
+      "geoShape": null,
+      "groupDetails": null,
+      "health": null,
+      "indicators": null,
+      "isLive": true,
+      "is_live": true,
+      "location": {
+        "acceleration": null,
+        "attitudeEnu": null,
+        "position": {
+          "altitudeAglMeters": null,
+          "altitudeAsfMeters": null,
+          "altitudeHaeMeters": 55.0,
+          "latitudeDegrees": 1.0,
+          "longitudeDegrees": 1.0,
+          "pressureDepthMeters": null
+        },
+        "speedMps": 1.0,
+        "velocityEnu": {
+          "e": 1.0,
+          "n": 1.0,
+          "u": 0.0
+        }
+      },
+      "locationUncertainty": null,
+      "media": null,
+      "milView": {
+        "disposition": "DISPOSITION_FRIENDLY",
+        "environment": "ENVIRONMENT_SURFACE",
+        "nationality": null
+      },
+      "noExpiry": null,
+      "ontology": {
+        "platformType": "USV",
+        "specificType": null,
+        "template": "TEMPLATE_ASSET"
+      },
+      "orbit": null,
+      "overrides": null,
+      "payloads": null,
+      "powerState": null,
+      "provenance": {
+        "dataType": "Simulated Asset",
+        "integrationName": "auto-reconnaissance-sample-app",
+        "sourceDescription": null,
+        "sourceId": null,
+        "sourceUpdateTime": "2026-06-22T01:16:37.386537Z"
+      },
+      "relationships": null,
+      "routeDetails": null,
+      "schedules": null,
+      "sensors": null,
+      "signal": null,
+      "status": null,
+      "supplies": null,
+      "symbology": null,
+      "targetPriority": null,
+      "taskCatalog": {
+        "taskDefinitions": [
+          {
+            "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Investigate"
+          }
+        ]
+      },
+      "tracked": null,
+      "transponderCodes": null,
+      "visualDetails": null
+    },
+    "entities.override": {
+      "suspicious_entities": [
+        {
+          "aliases": {
+            "name": "Simulated Track"
+          },
+          "entityId": "0c730bca-3b6a-4b10-83f8-eb930f988d60",
+          "entity_id": "0c730bca-3b6a-4b10-83f8-eb930f988d60",
+          "expiryTime": "2026-06-22T01:16:52.355100Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 1.03,
+              "longitudeDegrees": 1.03
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_SUSPICIOUS",
+            "environment": "ENVIRONMENT_SURFACE"
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "overrides": {
+            "mil_view.disposition": "DISPOSITION_SUSPICIOUS"
+          },
+          "provenance": {
+            "dataType": "Simulated Track",
+            "integrationName": "auto-reconnaissance-sample-app",
+            "sourceUpdateTime": "2026-06-22T01:16:37.355275Z"
+          }
+        }
+      ]
+    },
+    "entities.publish": {
+      "asset": {
+        "aliases": {
+          "alternateIds": null,
+          "name": "Simulated Asset asset-01"
+        },
+        "correlation": null,
+        "createdTime": null,
+        "dataClassification": null,
+        "description": null,
+        "dimensions": null,
+        "entityId": "asset-01",
+        "entity_id": "asset-01",
+        "expiryTime": "2026-06-22T01:16:52.386354Z",
+        "geoDetails": null,
+        "geoShape": null,
+        "groupDetails": null,
+        "health": null,
+        "indicators": null,
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "acceleration": null,
+          "attitudeEnu": null,
+          "position": {
+            "altitudeAglMeters": null,
+            "altitudeAsfMeters": null,
+            "altitudeHaeMeters": 55.0,
+            "latitudeDegrees": 1.0,
+            "longitudeDegrees": 1.0,
+            "pressureDepthMeters": null
+          },
+          "speedMps": 1.0,
+          "velocityEnu": {
+            "e": 1.0,
+            "n": 1.0,
+            "u": 0.0
+          }
+        },
+        "locationUncertainty": null,
+        "media": null,
+        "milView": {
+          "disposition": "DISPOSITION_FRIENDLY",
+          "environment": "ENVIRONMENT_SURFACE",
+          "nationality": null
+        },
+        "noExpiry": null,
+        "ontology": {
+          "platformType": "USV",
+          "specificType": null,
+          "template": "TEMPLATE_ASSET"
+        },
+        "orbit": null,
+        "overrides": null,
+        "payloads": null,
+        "powerState": null,
+        "provenance": {
+          "dataType": "Simulated Asset",
+          "integrationName": "auto-reconnaissance-sample-app",
+          "sourceDescription": null,
+          "sourceId": null,
+          "sourceUpdateTime": "2026-06-22T01:16:37.386537Z"
+        },
+        "relationships": null,
+        "routeDetails": null,
+        "schedules": null,
+        "sensors": null,
+        "signal": null,
+        "status": null,
+        "supplies": null,
+        "symbology": null,
+        "targetPriority": null,
+        "taskCatalog": {
+          "taskDefinitions": [
+            {
+              "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Investigate"
+            }
+          ]
+        },
+        "tracked": null,
+        "transponderCodes": null,
+        "visualDetails": null
+      }
+    },
+    "entities.stream": {
+      "task": {
+        "author": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "createTime": "2026-06-22T01:16:38.442119Z",
+        "create_time": "2026-06-22T01:16:38.442119Z",
+        "createdBy": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "created_by": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "description": "Asset asset-01 tasked to perform ISR on Track 0c730bca-3b6a-4b10-83f8-eb930f988d60",
+        "initialEntities": [
+          {
+            "entity": {
+              "aliases": {
+                "alternateIds": null,
+                "name": "Simulated Asset asset-01"
+              },
+              "correlation": null,
+              "createdTime": null,
+              "dataClassification": null,
+              "description": null,
+              "dimensions": null,
+              "entityId": "asset-01",
+              "expiryTime": "2026-06-22T01:16:52.386354Z",
+              "geoDetails": null,
+              "geoShape": null,
+              "groupDetails": null,
+              "health": null,
+              "indicators": null,
+              "isLive": true,
+              "location": {
+                "acceleration": null,
+                "attitudeEnu": null,
+                "position": {
+                  "altitudeAglMeters": null,
+                  "altitudeAsfMeters": null,
+                  "altitudeHaeMeters": 55.0,
+                  "latitudeDegrees": 1.0,
+                  "longitudeDegrees": 1.0,
+                  "pressureDepthMeters": null
+                },
+                "speedMps": 1.0,
+                "velocityEnu": {
+                  "e": 1.0,
+                  "n": 1.0,
+                  "u": 0.0
+                }
+              },
+              "locationUncertainty": null,
+              "media": null,
+              "milView": {
+                "disposition": "DISPOSITION_FRIENDLY",
+                "environment": "ENVIRONMENT_SURFACE",
+                "nationality": null
+              },
+              "noExpiry": null,
+              "ontology": {
+                "platformType": "USV",
+                "specificType": null,
+                "template": "TEMPLATE_ASSET"
+              },
+              "orbit": null,
+              "overrides": null,
+              "payloads": null,
+              "powerState": null,
+              "provenance": {
+                "dataType": "Simulated Asset",
+                "integrationName": "auto-reconnaissance-sample-app",
+                "sourceDescription": null,
+                "sourceId": null,
+                "sourceUpdateTime": "2026-06-22T01:16:37.386537Z"
+              },
+              "relationships": null,
+              "routeDetails": null,
+              "schedules": null,
+              "sensors": null,
+              "signal": null,
+              "status": null,
+              "supplies": null,
+              "symbology": null,
+              "targetPriority": null,
+              "taskCatalog": {
+                "taskDefinitions": [
+                  {
+                    "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Investigate"
+                  }
+                ]
+              },
+              "tracked": null,
+              "transponderCodes": null,
+              "visualDetails": null
+            },
+            "snapshot": false
+          },
+          {
+            "entity": {
+              "aliases": {
+                "name": "Simulated Track"
+              },
+              "entityId": "0c730bca-3b6a-4b10-83f8-eb930f988d60",
+              "expiryTime": "2026-06-22T01:16:52.355100Z",
+              "isLive": true,
+              "location": {
+                "position": {
+                  "latitudeDegrees": 1.03,
+                  "longitudeDegrees": 1.03
+                }
+              },
+              "milView": {
+                "disposition": "DISPOSITION_UNKNOWN",
+                "environment": "ENVIRONMENT_SURFACE"
+              },
+              "ontology": {
+                "template": "TEMPLATE_TRACK"
+              },
+              "provenance": {
+                "dataType": "Simulated Track",
+                "integrationName": "auto-reconnaissance-sample-app",
+                "sourceUpdateTime": "2026-06-22T01:16:37.355275Z"
+              }
+            },
+            "snapshot": false
+          }
+        ],
+        "isExecutedElsewhere": false,
+        "lastUpdateTime": "2026-06-22T01:16:38.451827Z",
+        "lastUpdatedBy": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "last_update_time": "2026-06-22T01:16:38.451827Z",
+        "last_updated_by": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "relations": {
+          "assignee": {
+            "system": {
+              "entityId": "asset-01"
+            }
+          }
+        },
+        "specification": {
+          "@type": "type.googleapis.com/anduril.tasks.v2.Investigate",
+          "objective": {
+            "entity_id": "0c730bca-3b6a-4b10-83f8-eb930f988d60"
+          }
+        },
+        "status": {
+          "status": "STATUS_EXECUTING"
+        },
+        "taskId": "task-6da5d429-ac89-4fe2-9b3d-7b3734e01a5e",
+        "task_id": "task-6da5d429-ac89-4fe2-9b3d-7b3734e01a5e",
+        "version": {
+          "definitionVersion": 1,
+          "definition_version": 1,
+          "statusVersion": 444,
+          "status_version": 444,
+          "taskId": "task-6da5d429-ac89-4fe2-9b3d-7b3734e01a5e",
+          "task_id": "task-6da5d429-ac89-4fe2-9b3d-7b3734e01a5e"
+        }
+      }
+    },
+    "generated_config": "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-sn2q98op/auto-recon-config.yml",
+    "install": {
+      "args": [
+        "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/anduril-sample-auto-reconnaissance/.venv/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "-r",
+        "requirements.txt"
+      ],
+      "returncode": 0,
+      "stderr": "WARNING: The directory '/Users/rick/Library/Caches/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.\n\n[notice] A new release of pip is available: 24.0 -> 26.1.2\n[notice] To update, run: /Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/anduril-sample-auto-reconnaissance/.venv/bin/python -m pip install --upgrade pip\n",
+      "stdout": "Requirement already satisfied: PyYAML==6.0.3 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 1)) (6.0.3)\nRequirement already satisfied: geopy==2.4.1 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 2)) (2.4.1)\nRequirement already satisfied: pydantic==2.13.4 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 3)) (2.13.4)\nRequirement already satisfied: anduril-lattice-sdk==4.14.0 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 5)) (4.14.0)\nRequirement already satisfied: geographiclib<3,>=1.52 in ./.venv/lib/python3.12/site-packages (from geopy==2.4.1->-r requirements.txt (line 2)) (2.1)\nRequirement already satisfied: annotated-types>=0.6.0 in ./.venv/lib/python3.12/site-packages (from pydantic==2.13.4->-r requirements.txt (line 3)) (0.7.0)\nRequirement already satisfied: pydantic-core==2.46.4 in ./.venv/lib/python3.12/site-packages (from pydantic==2.13.4->-r requirements.txt (line 3)) (2.46.4)\nRequirement already satisfied: typing-extensions>=4.14.1 in ./.venv/lib/python3.12/site-packages (from pydantic==2.13.4->-r requirements.txt (line 3)) (4.15.0)\nRequirement already satisfied: typing-inspection>=0.4.2 in ./.venv/lib/python3.12/site-packages (from pydantic==2.13.4->-r requirements.txt (line 3)) (0.4.2)\nRequirement already satisfied: httpx>=0.21.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk==4.14.0->-r requirements.txt (line 5)) (0.28.1)\nRequirement already satisfied: anyio in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==4.14.0->-r requirements.txt (line 5)) (4.14.0)\nRequirement already satisfied: certifi in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==4.14.0->-r requirements.txt (line 5)) (2026.6.17)\nRequirement already satisfied: httpcore==1.* in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==4.14.0->-r requirements.txt (line 5)) (1.0.9)\nRequirement already satisfied: idna in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==4.14.0->-r requirements.txt (line 5)) (3.18)\nRequirement already satisfied: h11>=0.16 in ./.venv/lib/python3.12/site-packages (from httpcore==1.*->httpx>=0.21.2->anduril-lattice-sdk==4.14.0->-r requirements.txt (line 5)) (0.16.0)\n"
+    },
+    "process_logs": {
+      "arbiter": {
+        "args": [
+          "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/anduril-sample-auto-reconnaissance/.venv/bin/python",
+          "auto-reconnaissance/main.py",
+          "--config",
+          "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-sn2q98op/auto-recon-config.yml"
+        ],
+        "cwd": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/anduril-sample-auto-reconnaissance",
+        "returncode": -15,
+        "stdout": "INFO:EARS:starting entity auto reconnaissance system\nINFO:EARS:# of assets being tracked: 0, # of tracks being tracked: 0\nINFO:EARS:# of assets being tracked: 1, # of tracks being tracked: 1\nINFO:EARS:ASSET WITHIN RANGE OF NON-FRIENDLY TRACK\nINFO:EARS:overriding disposition for track 0c730bca-3b6a-4b10-83f8-eb930f988d60\nINFO:EARS:Asset asset-01 tasked to perform ISR on Track 0c730bca-3b6a-4b10-83f8-eb930f988d60\nINFO:EARS:Task created - view Lattice UI, task id is task-6da5d429-ac89-4fe2-9b3d-7b3734e01a5e\n"
+      },
+      "asset": {
+        "args": [
+          "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/anduril-sample-auto-reconnaissance/.venv/bin/python",
+          "simulated_asset/asset.py",
+          "--config",
+          "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-sn2q98op/auto-recon-config.yml"
+        ],
+        "cwd": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/anduril-sample-auto-reconnaissance",
+        "returncode": -15,
+        "stdout": "INFO:SIMASSET:starting simulated asset\nINFO:SIMASSET:starting publish task for simulated asset asset-01\nINFO:SIMASSET:starting listen task for tasking simulated asset asset-01\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Execute\nINFO:SIMASSET:received execute request, sending execute confirmation\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\nINFO:SIMASSET:Received task request: Cancel\nINFO:SIMASSET:received task request for simulated asset asset-01\n"
+      },
+      "track": {
+        "args": [
+          "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/anduril-sample-auto-reconnaissance/.venv/bin/python",
+          "simulated_track/track.py",
+          "--config",
+          "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-sn2q98op/auto-recon-config.yml"
+        ],
+        "cwd": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/anduril-sample-auto-reconnaissance",
+        "returncode": -15,
+        "stdout": "INFO:SIMTRACK:starting simulated track\n"
+      }
+    },
+    "server_log": "INFO:     Started server process [71685]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on https://127.0.0.1:60004 (Press CTRL+C to quit)\nINFO:     127.0.0.1:60016 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60018 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60020 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 404 Not Found\nINFO:     127.0.0.1:60022 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60024 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60026 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60028 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60030 - \"POST /api/v1/entities/stream HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60032 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60036 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60036 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60038 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60040 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60042 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60044 - \"PUT /api/v1/entities/0c730bca-3b6a-4b10-83f8-eb930f988d60/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60046 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60048 - \"POST /api/v1/tasks HTTP/1.1\" 201 Created\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"PUT /api/v1/tasks/task-6da5d429-ac89-4fe2-9b3d-7b3734e01a5e/status HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60035 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60050 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60052 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60054 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [71685]\n",
+    "suspicious_entities": [
+      {
+        "aliases": {
+          "name": "Simulated Track"
+        },
+        "entityId": "0c730bca-3b6a-4b10-83f8-eb930f988d60",
+        "entity_id": "0c730bca-3b6a-4b10-83f8-eb930f988d60",
+        "expiryTime": "2026-06-22T01:16:52.355100Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 1.03,
+            "longitudeDegrees": 1.03
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_SUSPICIOUS",
+          "environment": "ENVIRONMENT_SURFACE"
+        },
+        "ontology": {
+          "template": "TEMPLATE_TRACK"
+        },
+        "overrides": {
+          "mil_view.disposition": "DISPOSITION_SUSPICIOUS"
+        },
+        "provenance": {
+          "dataType": "Simulated Track",
+          "integrationName": "auto-reconnaissance-sample-app",
+          "sourceUpdateTime": "2026-06-22T01:16:37.355275Z"
+        }
+      }
+    ],
+    "task": {
+      "author": {
+        "system": {
+          "serviceName": "auto-reconnaissance"
+        }
+      },
+      "createTime": "2026-06-22T01:16:38.442119Z",
+      "create_time": "2026-06-22T01:16:38.442119Z",
+      "createdBy": {
+        "system": {
+          "serviceName": "auto-reconnaissance"
+        }
+      },
+      "created_by": {
+        "system": {
+          "serviceName": "auto-reconnaissance"
+        }
+      },
+      "description": "Asset asset-01 tasked to perform ISR on Track 0c730bca-3b6a-4b10-83f8-eb930f988d60",
+      "initialEntities": [
+        {
+          "entity": {
+            "aliases": {
+              "alternateIds": null,
+              "name": "Simulated Asset asset-01"
+            },
+            "correlation": null,
+            "createdTime": null,
+            "dataClassification": null,
+            "description": null,
+            "dimensions": null,
+            "entityId": "asset-01",
+            "expiryTime": "2026-06-22T01:16:52.386354Z",
+            "geoDetails": null,
+            "geoShape": null,
+            "groupDetails": null,
+            "health": null,
+            "indicators": null,
+            "isLive": true,
+            "location": {
+              "acceleration": null,
+              "attitudeEnu": null,
+              "position": {
+                "altitudeAglMeters": null,
+                "altitudeAsfMeters": null,
+                "altitudeHaeMeters": 55.0,
+                "latitudeDegrees": 1.0,
+                "longitudeDegrees": 1.0,
+                "pressureDepthMeters": null
+              },
+              "speedMps": 1.0,
+              "velocityEnu": {
+                "e": 1.0,
+                "n": 1.0,
+                "u": 0.0
+              }
+            },
+            "locationUncertainty": null,
+            "media": null,
+            "milView": {
+              "disposition": "DISPOSITION_FRIENDLY",
+              "environment": "ENVIRONMENT_SURFACE",
+              "nationality": null
+            },
+            "noExpiry": null,
+            "ontology": {
+              "platformType": "USV",
+              "specificType": null,
+              "template": "TEMPLATE_ASSET"
+            },
+            "orbit": null,
+            "overrides": null,
+            "payloads": null,
+            "powerState": null,
+            "provenance": {
+              "dataType": "Simulated Asset",
+              "integrationName": "auto-reconnaissance-sample-app",
+              "sourceDescription": null,
+              "sourceId": null,
+              "sourceUpdateTime": "2026-06-22T01:16:37.386537Z"
+            },
+            "relationships": null,
+            "routeDetails": null,
+            "schedules": null,
+            "sensors": null,
+            "signal": null,
+            "status": null,
+            "supplies": null,
+            "symbology": null,
+            "targetPriority": null,
+            "taskCatalog": {
+              "taskDefinitions": [
+                {
+                  "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Investigate"
+                }
+              ]
+            },
+            "tracked": null,
+            "transponderCodes": null,
+            "visualDetails": null
+          },
+          "snapshot": false
+        },
+        {
+          "entity": {
+            "aliases": {
+              "name": "Simulated Track"
+            },
+            "entityId": "0c730bca-3b6a-4b10-83f8-eb930f988d60",
+            "expiryTime": "2026-06-22T01:16:52.355100Z",
+            "isLive": true,
+            "location": {
+              "position": {
+                "latitudeDegrees": 1.03,
+                "longitudeDegrees": 1.03
+              }
+            },
+            "milView": {
+              "disposition": "DISPOSITION_UNKNOWN",
+              "environment": "ENVIRONMENT_SURFACE"
+            },
+            "ontology": {
+              "template": "TEMPLATE_TRACK"
+            },
+            "provenance": {
+              "dataType": "Simulated Track",
+              "integrationName": "auto-reconnaissance-sample-app",
+              "sourceUpdateTime": "2026-06-22T01:16:37.355275Z"
+            }
+          },
+          "snapshot": false
+        }
+      ],
+      "isExecutedElsewhere": false,
+      "lastUpdateTime": "2026-06-22T01:16:38.451827Z",
+      "lastUpdatedBy": {
+        "system": {
+          "serviceName": "auto-reconnaissance"
+        }
+      },
+      "last_update_time": "2026-06-22T01:16:38.451827Z",
+      "last_updated_by": {
+        "system": {
+          "serviceName": "auto-reconnaissance"
+        }
+      },
+      "relations": {
+        "assignee": {
+          "system": {
+            "entityId": "asset-01"
+          }
+        }
+      },
+      "specification": {
+        "@type": "type.googleapis.com/anduril.tasks.v2.Investigate",
+        "objective": {
+          "entity_id": "0c730bca-3b6a-4b10-83f8-eb930f988d60"
+        }
+      },
+      "status": {
+        "status": "STATUS_EXECUTING"
+      },
+      "taskId": "task-6da5d429-ac89-4fe2-9b3d-7b3734e01a5e",
+      "task_id": "task-6da5d429-ac89-4fe2-9b3d-7b3734e01a5e",
+      "version": {
+        "definitionVersion": 1,
+        "definition_version": 1,
+        "statusVersion": 444,
+        "status_version": 444,
+        "taskId": "task-6da5d429-ac89-4fe2-9b3d-7b3734e01a5e",
+        "task_id": "task-6da5d429-ac89-4fe2-9b3d-7b3734e01a5e"
+      }
+    },
+    "tasks.create": {
+      "task": {
+        "author": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "createTime": "2026-06-22T01:16:38.442119Z",
+        "create_time": "2026-06-22T01:16:38.442119Z",
+        "createdBy": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "created_by": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "description": "Asset asset-01 tasked to perform ISR on Track 0c730bca-3b6a-4b10-83f8-eb930f988d60",
+        "initialEntities": [
+          {
+            "entity": {
+              "aliases": {
+                "alternateIds": null,
+                "name": "Simulated Asset asset-01"
+              },
+              "correlation": null,
+              "createdTime": null,
+              "dataClassification": null,
+              "description": null,
+              "dimensions": null,
+              "entityId": "asset-01",
+              "expiryTime": "2026-06-22T01:16:52.386354Z",
+              "geoDetails": null,
+              "geoShape": null,
+              "groupDetails": null,
+              "health": null,
+              "indicators": null,
+              "isLive": true,
+              "location": {
+                "acceleration": null,
+                "attitudeEnu": null,
+                "position": {
+                  "altitudeAglMeters": null,
+                  "altitudeAsfMeters": null,
+                  "altitudeHaeMeters": 55.0,
+                  "latitudeDegrees": 1.0,
+                  "longitudeDegrees": 1.0,
+                  "pressureDepthMeters": null
+                },
+                "speedMps": 1.0,
+                "velocityEnu": {
+                  "e": 1.0,
+                  "n": 1.0,
+                  "u": 0.0
+                }
+              },
+              "locationUncertainty": null,
+              "media": null,
+              "milView": {
+                "disposition": "DISPOSITION_FRIENDLY",
+                "environment": "ENVIRONMENT_SURFACE",
+                "nationality": null
+              },
+              "noExpiry": null,
+              "ontology": {
+                "platformType": "USV",
+                "specificType": null,
+                "template": "TEMPLATE_ASSET"
+              },
+              "orbit": null,
+              "overrides": null,
+              "payloads": null,
+              "powerState": null,
+              "provenance": {
+                "dataType": "Simulated Asset",
+                "integrationName": "auto-reconnaissance-sample-app",
+                "sourceDescription": null,
+                "sourceId": null,
+                "sourceUpdateTime": "2026-06-22T01:16:37.386537Z"
+              },
+              "relationships": null,
+              "routeDetails": null,
+              "schedules": null,
+              "sensors": null,
+              "signal": null,
+              "status": null,
+              "supplies": null,
+              "symbology": null,
+              "targetPriority": null,
+              "taskCatalog": {
+                "taskDefinitions": [
+                  {
+                    "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Investigate"
+                  }
+                ]
+              },
+              "tracked": null,
+              "transponderCodes": null,
+              "visualDetails": null
+            },
+            "snapshot": false
+          },
+          {
+            "entity": {
+              "aliases": {
+                "name": "Simulated Track"
+              },
+              "entityId": "0c730bca-3b6a-4b10-83f8-eb930f988d60",
+              "expiryTime": "2026-06-22T01:16:52.355100Z",
+              "isLive": true,
+              "location": {
+                "position": {
+                  "latitudeDegrees": 1.03,
+                  "longitudeDegrees": 1.03
+                }
+              },
+              "milView": {
+                "disposition": "DISPOSITION_UNKNOWN",
+                "environment": "ENVIRONMENT_SURFACE"
+              },
+              "ontology": {
+                "template": "TEMPLATE_TRACK"
+              },
+              "provenance": {
+                "dataType": "Simulated Track",
+                "integrationName": "auto-reconnaissance-sample-app",
+                "sourceUpdateTime": "2026-06-22T01:16:37.355275Z"
+              }
+            },
+            "snapshot": false
+          }
+        ],
+        "isExecutedElsewhere": false,
+        "lastUpdateTime": "2026-06-22T01:16:38.451827Z",
+        "lastUpdatedBy": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "last_update_time": "2026-06-22T01:16:38.451827Z",
+        "last_updated_by": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "relations": {
+          "assignee": {
+            "system": {
+              "entityId": "asset-01"
+            }
+          }
+        },
+        "specification": {
+          "@type": "type.googleapis.com/anduril.tasks.v2.Investigate",
+          "objective": {
+            "entity_id": "0c730bca-3b6a-4b10-83f8-eb930f988d60"
+          }
+        },
+        "status": {
+          "status": "STATUS_EXECUTING"
+        },
+        "taskId": "task-6da5d429-ac89-4fe2-9b3d-7b3734e01a5e",
+        "task_id": "task-6da5d429-ac89-4fe2-9b3d-7b3734e01a5e",
+        "version": {
+          "definitionVersion": 1,
+          "definition_version": 1,
+          "statusVersion": 444,
+          "status_version": 444,
+          "taskId": "task-6da5d429-ac89-4fe2-9b3d-7b3734e01a5e",
+          "task_id": "task-6da5d429-ac89-4fe2-9b3d-7b3734e01a5e"
+        }
+      }
+    },
+    "tasks.listen_as_agent": {
+      "task": {
+        "author": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "createTime": "2026-06-22T01:16:38.442119Z",
+        "create_time": "2026-06-22T01:16:38.442119Z",
+        "createdBy": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "created_by": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "description": "Asset asset-01 tasked to perform ISR on Track 0c730bca-3b6a-4b10-83f8-eb930f988d60",
+        "initialEntities": [
+          {
+            "entity": {
+              "aliases": {
+                "alternateIds": null,
+                "name": "Simulated Asset asset-01"
+              },
+              "correlation": null,
+              "createdTime": null,
+              "dataClassification": null,
+              "description": null,
+              "dimensions": null,
+              "entityId": "asset-01",
+              "expiryTime": "2026-06-22T01:16:52.386354Z",
+              "geoDetails": null,
+              "geoShape": null,
+              "groupDetails": null,
+              "health": null,
+              "indicators": null,
+              "isLive": true,
+              "location": {
+                "acceleration": null,
+                "attitudeEnu": null,
+                "position": {
+                  "altitudeAglMeters": null,
+                  "altitudeAsfMeters": null,
+                  "altitudeHaeMeters": 55.0,
+                  "latitudeDegrees": 1.0,
+                  "longitudeDegrees": 1.0,
+                  "pressureDepthMeters": null
+                },
+                "speedMps": 1.0,
+                "velocityEnu": {
+                  "e": 1.0,
+                  "n": 1.0,
+                  "u": 0.0
+                }
+              },
+              "locationUncertainty": null,
+              "media": null,
+              "milView": {
+                "disposition": "DISPOSITION_FRIENDLY",
+                "environment": "ENVIRONMENT_SURFACE",
+                "nationality": null
+              },
+              "noExpiry": null,
+              "ontology": {
+                "platformType": "USV",
+                "specificType": null,
+                "template": "TEMPLATE_ASSET"
+              },
+              "orbit": null,
+              "overrides": null,
+              "payloads": null,
+              "powerState": null,
+              "provenance": {
+                "dataType": "Simulated Asset",
+                "integrationName": "auto-reconnaissance-sample-app",
+                "sourceDescription": null,
+                "sourceId": null,
+                "sourceUpdateTime": "2026-06-22T01:16:37.386537Z"
+              },
+              "relationships": null,
+              "routeDetails": null,
+              "schedules": null,
+              "sensors": null,
+              "signal": null,
+              "status": null,
+              "supplies": null,
+              "symbology": null,
+              "targetPriority": null,
+              "taskCatalog": {
+                "taskDefinitions": [
+                  {
+                    "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Investigate"
+                  }
+                ]
+              },
+              "tracked": null,
+              "transponderCodes": null,
+              "visualDetails": null
+            },
+            "snapshot": false
+          },
+          {
+            "entity": {
+              "aliases": {
+                "name": "Simulated Track"
+              },
+              "entityId": "0c730bca-3b6a-4b10-83f8-eb930f988d60",
+              "expiryTime": "2026-06-22T01:16:52.355100Z",
+              "isLive": true,
+              "location": {
+                "position": {
+                  "latitudeDegrees": 1.03,
+                  "longitudeDegrees": 1.03
+                }
+              },
+              "milView": {
+                "disposition": "DISPOSITION_UNKNOWN",
+                "environment": "ENVIRONMENT_SURFACE"
+              },
+              "ontology": {
+                "template": "TEMPLATE_TRACK"
+              },
+              "provenance": {
+                "dataType": "Simulated Track",
+                "integrationName": "auto-reconnaissance-sample-app",
+                "sourceUpdateTime": "2026-06-22T01:16:37.355275Z"
+              }
+            },
+            "snapshot": false
+          }
+        ],
+        "isExecutedElsewhere": false,
+        "lastUpdateTime": "2026-06-22T01:16:38.451827Z",
+        "lastUpdatedBy": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "last_update_time": "2026-06-22T01:16:38.451827Z",
+        "last_updated_by": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "relations": {
+          "assignee": {
+            "system": {
+              "entityId": "asset-01"
+            }
+          }
+        },
+        "specification": {
+          "@type": "type.googleapis.com/anduril.tasks.v2.Investigate",
+          "objective": {
+            "entity_id": "0c730bca-3b6a-4b10-83f8-eb930f988d60"
+          }
+        },
+        "status": {
+          "status": "STATUS_EXECUTING"
+        },
+        "taskId": "task-6da5d429-ac89-4fe2-9b3d-7b3734e01a5e",
+        "task_id": "task-6da5d429-ac89-4fe2-9b3d-7b3734e01a5e",
+        "version": {
+          "definitionVersion": 1,
+          "definition_version": 1,
+          "statusVersion": 444,
+          "status_version": 444,
+          "taskId": "task-6da5d429-ac89-4fe2-9b3d-7b3734e01a5e",
+          "task_id": "task-6da5d429-ac89-4fe2-9b3d-7b3734e01a5e"
+        }
+      }
+    },
+    "tasks.update_status": {
+      "task": {
+        "author": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "createTime": "2026-06-22T01:16:38.442119Z",
+        "create_time": "2026-06-22T01:16:38.442119Z",
+        "createdBy": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "created_by": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "description": "Asset asset-01 tasked to perform ISR on Track 0c730bca-3b6a-4b10-83f8-eb930f988d60",
+        "initialEntities": [
+          {
+            "entity": {
+              "aliases": {
+                "alternateIds": null,
+                "name": "Simulated Asset asset-01"
+              },
+              "correlation": null,
+              "createdTime": null,
+              "dataClassification": null,
+              "description": null,
+              "dimensions": null,
+              "entityId": "asset-01",
+              "expiryTime": "2026-06-22T01:16:52.386354Z",
+              "geoDetails": null,
+              "geoShape": null,
+              "groupDetails": null,
+              "health": null,
+              "indicators": null,
+              "isLive": true,
+              "location": {
+                "acceleration": null,
+                "attitudeEnu": null,
+                "position": {
+                  "altitudeAglMeters": null,
+                  "altitudeAsfMeters": null,
+                  "altitudeHaeMeters": 55.0,
+                  "latitudeDegrees": 1.0,
+                  "longitudeDegrees": 1.0,
+                  "pressureDepthMeters": null
+                },
+                "speedMps": 1.0,
+                "velocityEnu": {
+                  "e": 1.0,
+                  "n": 1.0,
+                  "u": 0.0
+                }
+              },
+              "locationUncertainty": null,
+              "media": null,
+              "milView": {
+                "disposition": "DISPOSITION_FRIENDLY",
+                "environment": "ENVIRONMENT_SURFACE",
+                "nationality": null
+              },
+              "noExpiry": null,
+              "ontology": {
+                "platformType": "USV",
+                "specificType": null,
+                "template": "TEMPLATE_ASSET"
+              },
+              "orbit": null,
+              "overrides": null,
+              "payloads": null,
+              "powerState": null,
+              "provenance": {
+                "dataType": "Simulated Asset",
+                "integrationName": "auto-reconnaissance-sample-app",
+                "sourceDescription": null,
+                "sourceId": null,
+                "sourceUpdateTime": "2026-06-22T01:16:37.386537Z"
+              },
+              "relationships": null,
+              "routeDetails": null,
+              "schedules": null,
+              "sensors": null,
+              "signal": null,
+              "status": null,
+              "supplies": null,
+              "symbology": null,
+              "targetPriority": null,
+              "taskCatalog": {
+                "taskDefinitions": [
+                  {
+                    "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Investigate"
+                  }
+                ]
+              },
+              "tracked": null,
+              "transponderCodes": null,
+              "visualDetails": null
+            },
+            "snapshot": false
+          },
+          {
+            "entity": {
+              "aliases": {
+                "name": "Simulated Track"
+              },
+              "entityId": "0c730bca-3b6a-4b10-83f8-eb930f988d60",
+              "expiryTime": "2026-06-22T01:16:52.355100Z",
+              "isLive": true,
+              "location": {
+                "position": {
+                  "latitudeDegrees": 1.03,
+                  "longitudeDegrees": 1.03
+                }
+              },
+              "milView": {
+                "disposition": "DISPOSITION_UNKNOWN",
+                "environment": "ENVIRONMENT_SURFACE"
+              },
+              "ontology": {
+                "template": "TEMPLATE_TRACK"
+              },
+              "provenance": {
+                "dataType": "Simulated Track",
+                "integrationName": "auto-reconnaissance-sample-app",
+                "sourceUpdateTime": "2026-06-22T01:16:37.355275Z"
+              }
+            },
+            "snapshot": false
+          }
+        ],
+        "isExecutedElsewhere": false,
+        "lastUpdateTime": "2026-06-22T01:16:38.451827Z",
+        "lastUpdatedBy": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "last_update_time": "2026-06-22T01:16:38.451827Z",
+        "last_updated_by": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "relations": {
+          "assignee": {
+            "system": {
+              "entityId": "asset-01"
+            }
+          }
+        },
+        "specification": {
+          "@type": "type.googleapis.com/anduril.tasks.v2.Investigate",
+          "objective": {
+            "entity_id": "0c730bca-3b6a-4b10-83f8-eb930f988d60"
+          }
+        },
+        "status": {
+          "status": "STATUS_EXECUTING"
+        },
+        "taskId": "task-6da5d429-ac89-4fe2-9b3d-7b3734e01a5e",
+        "task_id": "task-6da5d429-ac89-4fe2-9b3d-7b3734e01a5e",
+        "version": {
+          "definitionVersion": 1,
+          "definition_version": 1,
+          "statusVersion": 444,
+          "status_version": 444,
+          "taskId": "task-6da5d429-ac89-4fe2-9b3d-7b3734e01a5e",
+          "task_id": "task-6da5d429-ac89-4fe2-9b3d-7b3734e01a5e"
+        }
+      }
+    }
+  },
+  "failed": [],
+  "fixture": "anduril-sample-auto-reconnaissance",
+  "missing": [],
+  "mode": "strict",
+  "passed": [
+    "entities.publish",
+    "entities.stream",
+    "entities.override",
+    "tasks.create",
+    "tasks.listen_as_agent",
+    "tasks.update_status"
+  ],
+  "result": "pass",
+  "zorn_version": "0.1.0"
+}

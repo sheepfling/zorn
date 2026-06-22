@@ -1,0 +1,206 @@
+{
+  "details": {
+    "auth.bearer_token": {
+      "entity_count": 2,
+      "errors": [],
+      "returncode": 0,
+      "stderr": "",
+      "stream_entity_ids": [
+        "zorn-cert-visualizer-east",
+        "zorn-cert-visualizer-west"
+      ],
+      "token_ok": true
+    },
+    "browser": {
+      "entity_count": 2,
+      "errors": [],
+      "returncode": 0,
+      "stderr": "",
+      "stream_entity_ids": [
+        "zorn-cert-visualizer-east",
+        "zorn-cert-visualizer-west"
+      ],
+      "token_ok": true
+    },
+    "entities.stream": {
+      "entity_count": 2,
+      "errors": [],
+      "returncode": 0,
+      "stderr": "",
+      "stream_entity_ids": [
+        "zorn-cert-visualizer-east",
+        "zorn-cert-visualizer-west"
+      ],
+      "token_ok": true
+    },
+    "grpc_server_log": "",
+    "install": {
+      "args": [
+        "npm",
+        "ci"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "\nadded 216 packages, and audited 217 packages in 24s\n\n55 packages are looking for funding\n  run `npm fund` for details\n\n4 vulnerabilities (3 moderate, 1 high)\n\nTo address all issues, run:\n  npm audit fix\n\nRun `npm audit` for details.\n"
+    },
+    "page": {
+      "page_ok": true,
+      "root_present": true,
+      "status": 200,
+      "title_present": true
+    },
+    "process_logs": {
+      "grpcwebproxy": {
+        "args": [
+          "go",
+          "run",
+          "github.com/improbable-eng/grpc-web/go/grpcwebproxy@latest",
+          "--backend_addr",
+          "127.0.0.1:60951",
+          "--backend_tls",
+          "--backend_tls_ca_files",
+          "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-dual-zix3w1in/cert.pem",
+          "--server_bind_address",
+          "127.0.0.1",
+          "--server_http_tls_port",
+          "61030",
+          "--server_tls_cert_file",
+          "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-dual-zix3w1in/cert.pem",
+          "--server_tls_key_file",
+          "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-dual-zix3w1in/key.pem",
+          "--run_http_server=false",
+          "--run_tls_server=true",
+          "--allow_all_origins"
+        ],
+        "cwd": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn",
+        "returncode": -15,
+        "stdout": "time=\"2026-06-21T20:45:00-05:00\" level=info msg=\"[core] Subchannel picks a new address \\\"127.0.0.1:60951\\\" to connect\" system=system\ntime=\"2026-06-21T20:45:00-05:00\" level=info msg=\"[core] Channel Connectivity change to CONNECTING\" system=system\ntime=\"2026-06-21T20:45:00-05:00\" level=info msg=\"listening for http_tls on: 127.0.0.1:61030\"\ntime=\"2026-06-21T20:45:00-05:00\" level=info msg=\"[core] Subchannel Connectivity change to READY\" system=system\ntime=\"2026-06-21T20:45:00-05:00\" level=info msg=\"[core] Channel Connectivity change to READY\" system=system\ntime=\"2026-06-21T20:45:36-05:00\" level=info msg=\"finished streaming call with code Canceled\" error=\"rpc error: code = Canceled desc = context canceled\" grpc.code=Canceled grpc.method=StreamEntityComponents grpc.service=anduril.entitymanager.v1.EntityManagerAPI grpc.start_time=\"2026-06-21T20:45:06-05:00\" grpc.time_ms=30063.951 span.kind=server system=grpc\n"
+      },
+      "visualizer-bridge": {
+        "args": [
+          "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/bin/python",
+          "-m",
+          "uvicorn",
+          "visualizer_bridge:app",
+          "--host",
+          "127.0.0.1",
+          "--port",
+          "61045",
+          "--ssl-keyfile",
+          "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-dual-zix3w1in/key.pem",
+          "--ssl-certfile",
+          "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-dual-zix3w1in/cert.pem"
+        ],
+        "cwd": "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-dual-zix3w1in",
+        "returncode": -15,
+        "stdout": "INFO:     Started server process [99960]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on https://127.0.0.1:61045 (Press CTRL+C to quit)\nINFO:     127.0.0.1:61059 - \"GET / HTTP/1.1\" 500 Internal Server Error\nINFO:     127.0.0.1:61077 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61081 - \"POST /anduril.entitymanager.v1.EntityManagerAPI/StreamEntityComponents HTTP/1.1\" 200 OK\nERROR:    Exception in ASGI application\nTraceback (most recent call last):\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 101, in map_httpcore_exceptions\n    yield\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 271, in __aiter__\n    async for part in self._httpcore_stream:\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py\", line 407, in __aiter__\n    raise exc from None\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py\", line 403, in __aiter__\n    async for part in self._stream:\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/httpcore/_async/http11.py\", line 342, in __aiter__\n    raise exc\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/httpcore/_async/http11.py\", line 334, in __aiter__\n    async for chunk in self._connection._receive_response_body(**kwargs):\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/httpcore/_async/http11.py\", line 203, in _receive_response_body\n    event = await self._receive_event(timeout=timeout)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/httpcore/_async/http11.py\", line 217, in _receive_event\n    data = await self._network_stream.read(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/httpcore/_backends/anyio.py\", line 32, in read\n    with map_exceptions(exc_map):\n         ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/rick/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/httpcore/_exceptions.py\", line 14, in map_exceptions\n    raise to_exc(exc) from exc\nhttpcore.ReadTimeout\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py\", line 421, in run_asgi\n    result = await app(  # type: ignore[func-returns-value]\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py\", line 62, in __call__\n    return await self.app(scope, receive, send)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/fastapi/applications.py\", line 1163, in __call__\n    await super().__call__(scope, receive, send)\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/starlette/applications.py\", line 90, in __call__\n    await self.middleware_stack(scope, receive, send)\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py\", line 186, in __call__\n    raise exc\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py\", line 164, in __call__\n    await self.app(scope, receive, _send)\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py\", line 63, in __call__\n    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\", line 53, in wrapped_app\n    raise exc\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\", line 42, in wrapped_app\n    await app(scope, receive, sender)\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py\", line 18, in __call__\n    await self.app(scope, receive, send)\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/starlette/routing.py\", line 660, in __call__\n    await self.middleware_stack(scope, receive, send)\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/fastapi/routing.py\", line 2531, in app\n    await route.handle(scope, receive, send)\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/fastapi/routing.py\", line 1241, in handle\n    await super().handle(scope, receive, send)\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/starlette/routing.py\", line 276, in handle\n    await self.app(scope, receive, send)\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/fastapi/routing.py\", line 150, in app\n    await wrap_app_handling_exceptions(app, request)(scope, receive, send)\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\", line 53, in wrapped_app\n    raise exc\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\", line 42, in wrapped_app\n    await app(scope, receive, sender)\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/fastapi/routing.py\", line 137, in app\n    await response(scope, receive, send)\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/starlette/responses.py\", line 273, in __call__\n    async with create_collapsing_task_group() as task_group:\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/rick/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/contextlib.py\", line 231, in __aexit__\n    await self.gen.athrow(value)\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/starlette/_utils.py\", line 93, in create_collapsing_task_group\n    raise exc from exc.__cause__ or context\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/anyio/_core/_tasks.py\", line 278, in _run_coro\n    retval = await self._coro\n             ^^^^^^^^^^^^^^^^\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/starlette/responses.py\", line 276, in wrap\n    await func()\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/starlette/responses.py\", line 250, in stream_response\n    async for chunk in self.body_iterator:\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/httpx/_models.py\", line 1055, in aiter_raw\n    async for raw_stream_bytes in self.stream:\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/httpx/_client.py\", line 176, in __aiter__\n    async for chunk in self._stream:\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 270, in __aiter__\n    with map_httpcore_exceptions():\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/rick/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/.venv/lib/python3.12/site-packages/httpx/_transports/default.py\", line 118, in map_httpcore_exceptions\n    raise mapped_exc(message) from exc\nhttpx.ReadTimeout\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [99960]\n"
+      },
+      "vite": {
+        "args": [
+          "npm",
+          "run",
+          "dev",
+          "--",
+          "--host",
+          "127.0.0.1",
+          "--port",
+          "61062"
+        ],
+        "cwd": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/anduril-sample-entity-visualizer",
+        "returncode": -15,
+        "stdout": "\n> sample-entity-map@0.0.0 dev\n> vite --host 127.0.0.1 --port 61062\n\n\n  VITE v6.4.1  ready in 1089 ms\n\n  \u279c  Local:   http://127.0.0.1:61062/\n"
+      }
+    },
+    "seeded_entities": [
+      {
+        "entity": {
+          "_compat": {
+            "eventType": "CREATE",
+            "sequence": 1
+          },
+          "aliases": {
+            "name": "Visualizer West"
+          },
+          "entityId": "zorn-cert-visualizer-west",
+          "entity_id": "zorn-cert-visualizer-west",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 37.7749,
+              "longitudeDegrees": -122.4194
+            }
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "integrationName": "entity-visualizer-cert",
+            "sourceUpdateTime": "2026-06-21T00:00:00Z"
+          }
+        },
+        "status": 200
+      },
+      {
+        "entity": {
+          "_compat": {
+            "eventType": "CREATE",
+            "sequence": 2
+          },
+          "aliases": {
+            "name": "Visualizer East"
+          },
+          "entityId": "zorn-cert-visualizer-east",
+          "entity_id": "zorn-cert-visualizer-east",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 40.7128,
+              "longitudeDegrees": -74.006
+            }
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "integrationName": "entity-visualizer-cert",
+            "sourceUpdateTime": "2026-06-21T00:00:00Z"
+          }
+        },
+        "status": 200
+      }
+    ],
+    "server_log": "INFO:     Started server process [99950]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on https://127.0.0.1:60950 (Press CTRL+C to quit)\nINFO:     127.0.0.1:60983 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60985 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60988 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60991 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60994 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60997 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61000 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61003 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61006 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61009 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61012 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61015 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61018 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61021 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61024 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61028 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61073 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61075 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61079 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [99950]\n",
+    "ui.map_visualizer": {
+      "page": {
+        "page_ok": true,
+        "root_present": true,
+        "status": 200,
+        "title_present": true
+      },
+      "stream": {
+        "entity_count": 2,
+        "errors": [],
+        "returncode": 0,
+        "stderr": "",
+        "stream_entity_ids": [
+          "zorn-cert-visualizer-east",
+          "zorn-cert-visualizer-west"
+        ],
+        "token_ok": true
+      }
+    }
+  },
+  "failed": [],
+  "fixture": "anduril-sample-entity-visualizer",
+  "missing": [],
+  "mode": "strict",
+  "passed": [
+    "auth.bearer_token",
+    "entities.stream",
+    "ui.map_visualizer"
+  ],
+  "result": "pass",
+  "zorn_version": "0.1.0"
+}

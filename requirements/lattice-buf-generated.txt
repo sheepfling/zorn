@@ -1,0 +1,5 @@
+--index-url https://buf.build/gen/python
+--no-deps
+anduril-lattice-sdk-grpc-python==1.80.0.1.20260515215502+ed34febdefc1
+anduril-lattice-sdk-protocolbuffers-python==34.1.0.1.20260515215502+ed34febdefc1
+anduril-lattice-sdk-protocolbuffers-pyi==34.1.0.1.20260515215502+ed34febdefc1

@@ -1,0 +1,29 @@
+levels:
+  - level: 0
+    name: SDK smoke
+    pass_condition: Zorn accepts auth and basic client construction.
+    required_capabilities: [auth.bearer_token, auth.grpc_bearer_metadata]
+  - level: 1
+    name: Entity parity
+    pass_condition: Official AIS REST/gRPC and MAVLink publish pass.
+    required_capabilities: [entities.publish, entities.location, entities.ontology, entities.provenance]
+  - level: 2
+    name: Stream parity
+    pass_condition: Entity Visualizer and Maven-style streaming pass.
+    required_capabilities: [entities.stream, entities.grpc_stream]
+  - level: 3
+    name: Task parity
+    pass_condition: Auto Recon and DeepProve task lifecycle pass.
+    required_capabilities: [tasks.create, tasks.listen_as_agent, tasks.update_status]
+  - level: 4
+    name: Object parity
+    pass_condition: Objects and Thumbnail samples pass.
+    required_capabilities: [objects.upload, objects.metadata, objects.list, objects.download, objects.delete, objects.thumbnail_linkage]
+  - level: 5
+    name: Battlespace Awareness surrogate
+    pass_condition: Sensor ingest, fusion, alerts, media, and UI replay pass.
+    required_capabilities: [sensors.ais, sensors.adsb, sensors.mavlink, fusion.track_correlation, alerts.stale_track, ui.map_visualizer, replay.deterministic]
+  - level: 6
+    name: Air Dominance & Strike surrogate
+    pass_condition: Autonomy tasking, asset state, mission lifecycle, and simulated effects pass.
+    required_capabilities: [autonomy.asset_state, tasks.create, tasks.listen_as_agent, tasks.update_status, effects.assignment, effects.intercept]

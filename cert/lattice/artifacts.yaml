@@ -1,0 +1,18 @@
+run_artifacts:
+  required:
+    - run.json
+    - events.jsonl
+    - entities.final.json
+    - tasks.final.json
+    - objects.final.json
+    - coverage.json
+    - timeline.svg
+    - map_snapshot.png
+  ci_failure_conditions:
+    - expected_entity_never_appeared
+    - stream_event_missing
+    - task_skipped_required_state
+    - object_link_broken
+    - stale_track_failed_to_expire
+    - hostile_override_did_not_emit_update
+    - replay_nondeterministic

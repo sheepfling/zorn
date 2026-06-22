@@ -1,0 +1,217 @@
+{
+  "details": {
+    "entities.location": {
+      "entity": {
+        "description": "Zorn certification AIS REST vessel",
+        "entityId": "zorn-cert-ais-rest-vessel",
+        "entity_id": "zorn-cert-ais-rest-vessel",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "altitudeHaeMeters": 0,
+            "latitudeDegrees": 37.7749,
+            "longitudeDegrees": -122.4194
+          }
+        },
+        "noExpiry": true,
+        "ontology": {
+          "platformType": "SURFACE_VESSEL",
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "integrationName": "anduril-sample-ais-rest",
+          "sourceId": "zorn-cert"
+        }
+      }
+    },
+    "entities.ontology": {
+      "entity": {
+        "description": "Zorn certification AIS REST vessel",
+        "entityId": "zorn-cert-ais-rest-vessel",
+        "entity_id": "zorn-cert-ais-rest-vessel",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "altitudeHaeMeters": 0,
+            "latitudeDegrees": 37.7749,
+            "longitudeDegrees": -122.4194
+          }
+        },
+        "noExpiry": true,
+        "ontology": {
+          "platformType": "SURFACE_VESSEL",
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "integrationName": "anduril-sample-ais-rest",
+          "sourceId": "zorn-cert"
+        }
+      }
+    },
+    "entities.provenance": {
+      "entity": {
+        "description": "Zorn certification AIS REST vessel",
+        "entityId": "zorn-cert-ais-rest-vessel",
+        "entity_id": "zorn-cert-ais-rest-vessel",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "altitudeHaeMeters": 0,
+            "latitudeDegrees": 37.7749,
+            "longitudeDegrees": -122.4194
+          }
+        },
+        "noExpiry": true,
+        "ontology": {
+          "platformType": "SURFACE_VESSEL",
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "integrationName": "anduril-sample-ais-rest",
+          "sourceId": "zorn-cert"
+        }
+      }
+    },
+    "entities.publish": {
+      "response": {
+        "_compat": {
+          "eventType": "CREATE",
+          "sequence": 1
+        },
+        "description": "Zorn certification AIS REST vessel",
+        "entityId": "zorn-cert-ais-rest-vessel",
+        "entity_id": "zorn-cert-ais-rest-vessel",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "altitudeHaeMeters": 0,
+            "latitudeDegrees": 37.7749,
+            "longitudeDegrees": -122.4194
+          }
+        },
+        "noExpiry": true,
+        "ontology": {
+          "platformType": "SURFACE_VESSEL",
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "integrationName": "anduril-sample-ais-rest",
+          "sourceId": "zorn-cert"
+        }
+      },
+      "status": 200
+    },
+    "entities.readback": {
+      "entity": {
+        "description": "Zorn certification AIS REST vessel",
+        "entityId": "zorn-cert-ais-rest-vessel",
+        "entity_id": "zorn-cert-ais-rest-vessel",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "altitudeHaeMeters": 0,
+            "latitudeDegrees": 37.7749,
+            "longitudeDegrees": -122.4194
+          }
+        },
+        "noExpiry": true,
+        "ontology": {
+          "platformType": "SURFACE_VESSEL",
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "integrationName": "anduril-sample-ais-rest",
+          "sourceId": "zorn-cert"
+        }
+      },
+      "status": 200
+    },
+    "entities.stream": {
+      "events": {
+        "entityEvents": [
+          {
+            "entity": {
+              "description": "Zorn certification AIS REST vessel",
+              "entityId": "zorn-cert-ais-rest-vessel",
+              "entity_id": "zorn-cert-ais-rest-vessel",
+              "isLive": true,
+              "is_live": true,
+              "location": {
+                "position": {
+                  "altitudeHaeMeters": 0,
+                  "latitudeDegrees": 37.7749,
+                  "longitudeDegrees": -122.4194
+                }
+              },
+              "noExpiry": true,
+              "ontology": {
+                "platformType": "SURFACE_VESSEL",
+                "template": "TEMPLATE_TRACK"
+              },
+              "provenance": {
+                "integrationName": "anduril-sample-ais-rest",
+                "sourceId": "zorn-cert"
+              }
+            },
+            "eventType": "CREATE",
+            "occurredTime": "2026-06-21T23:36:10.800914Z",
+            "sequence": 1,
+            "time": "2026-06-21T23:36:10.798348Z"
+          }
+        ],
+        "events": [
+          {
+            "entity": {
+              "description": "Zorn certification AIS REST vessel",
+              "entityId": "zorn-cert-ais-rest-vessel",
+              "entity_id": "zorn-cert-ais-rest-vessel",
+              "isLive": true,
+              "is_live": true,
+              "location": {
+                "position": {
+                  "altitudeHaeMeters": 0,
+                  "latitudeDegrees": 37.7749,
+                  "longitudeDegrees": -122.4194
+                }
+              },
+              "noExpiry": true,
+              "ontology": {
+                "platformType": "SURFACE_VESSEL",
+                "template": "TEMPLATE_TRACK"
+              },
+              "provenance": {
+                "integrationName": "anduril-sample-ais-rest",
+                "sourceId": "zorn-cert"
+              }
+            },
+            "eventType": "CREATE",
+            "occurredTime": "2026-06-21T23:36:10.800914Z",
+            "sequence": 1,
+            "time": "2026-06-21T23:36:10.798348Z"
+          }
+        ],
+        "sessionToken": "1"
+      },
+      "status": 200
+    }
+  },
+  "failed": [],
+  "fixture": "anduril-sample-ais-rest",
+  "missing": [],
+  "mode": "strict",
+  "passed": [
+    "entities.publish",
+    "entities.readback",
+    "entities.location",
+    "entities.ontology",
+    "entities.provenance",
+    "entities.stream"
+  ],
+  "result": "pass",
+  "zorn_version": "0.1.0"
+}

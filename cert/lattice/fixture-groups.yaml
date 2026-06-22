@@ -1,0 +1,26 @@
+fixture_groups:
+  official:
+    ais-rest: anduril-sample-ais-rest
+    ais-grpc: anduril-sample-ais-grpc
+    entity-visualizer: anduril-sample-entity-visualizer
+    auto-recon: anduril-sample-auto-reconnaissance
+    objects: anduril-sample-objects
+    thumbnail: anduril-sample-thumbnail
+  third_party:
+    mavlink-to-lattice: ark-mavlink-to-lattice
+    dragonsync: alphafox-dragonsync
+    maven: daemon-maven
+    lattice-adsb-bridge: philippanda-lattice-adsb-bridge
+    deep-prove-demo: lagrange-deep-prove-demo
+  scenarios:
+    battlespace-awareness: battlespace-awareness
+    air-dominance-strike: air-dominance-strike
+
+fixture_questions:
+  - Can the app run unmodified against Zorn?
+  - Can it publish entities?
+  - Can it stream entities back?
+  - Can it create tasks?
+  - Can it override entities?
+  - Can it attach objects/media?
+  - Can Zorn replay the same scenario deterministically?

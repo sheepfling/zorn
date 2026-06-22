@@ -1,0 +1,171 @@
+{
+  "details": {
+    "auth.oauth_client_credentials": {
+      "publish": {
+        "args": [
+          "go",
+          "run",
+          "-overlay=/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-dual-insecure-sf__6fl2/maven-overlay/overlay.json",
+          "./cmd/publish"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "Published entity test-vessel-001\nEntity published successfully to Lattice sandbox\n"
+      }
+    },
+    "entities.grpc_stream": {
+      "ws": {
+        "disposition": "unknown",
+        "entity_id": "test-vessel-001",
+        "latitude": 37.7749,
+        "longitude": -122.4194,
+        "name": "Test Vessel",
+        "ontology": "TEMPLATE_TRACK",
+        "type": "update",
+        "updated_at": "2026-06-21T21:16:19.700482-05:00"
+      }
+    },
+    "entities.publish": {
+      "entity": {
+        "aliases": {
+          "name": "Test Vessel"
+        },
+        "description": "Test vessel for Lattice SDK demo",
+        "entityId": "test-vessel-001",
+        "entity_id": "test-vessel-001",
+        "expiryTime": "2026-06-22T03:16:19.475667Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "altitudeHaeMeters": 0.0,
+            "latitudeDegrees": 37.7749,
+            "longitudeDegrees": -122.4194
+          }
+        },
+        "ontology": {
+          "platformType": "vessel",
+          "specificType": "cargo_ship",
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "vessel_telemetry",
+          "integrationName": "lattice-go-demo",
+          "sourceId": "demo-source"
+        }
+      }
+    },
+    "entity": {
+      "payload": {
+        "aliases": {
+          "name": "Test Vessel"
+        },
+        "description": "Test vessel for Lattice SDK demo",
+        "entityId": "test-vessel-001",
+        "entity_id": "test-vessel-001",
+        "expiryTime": "2026-06-22T03:16:19.475667Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "altitudeHaeMeters": 0.0,
+            "latitudeDegrees": 37.7749,
+            "longitudeDegrees": -122.4194
+          }
+        },
+        "ontology": {
+          "platformType": "vessel",
+          "specificType": "cargo_ship",
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "vessel_telemetry",
+          "integrationName": "lattice-go-demo",
+          "sourceId": "demo-source"
+        }
+      },
+      "status": 200
+    },
+    "grpc_server_log": "",
+    "ingest_process": {
+      "args": [
+        "go",
+        "run",
+        "-overlay=/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-dual-insecure-sf__6fl2/maven-overlay/overlay.json",
+        "./cmd/ingest"
+      ],
+      "returncode": -15,
+      "stdout": "2026/06/21 21:16:17 Ingest server starting on :8080\n2026/06/21 21:16:18 WS client connected (total: 1)\n2026/06/21 21:16:19 Entity test-vessel-001: Test Vessel [TEMPLATE_TRACK/unknown] @ (37.7749, -122.4194)\n"
+    },
+    "install": {
+      "args": [
+        "go",
+        "mod",
+        "download"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    "overlay": "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-dual-insecure-sf__6fl2/maven-overlay/overlay.json",
+    "publish_command": {
+      "args": [
+        "go",
+        "run",
+        "-overlay=/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-dual-insecure-sf__6fl2/maven-overlay/overlay.json",
+        "./cmd/publish"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Published entity test-vessel-001\nEntity published successfully to Lattice sandbox\n"
+    },
+    "server_log": "INFO:     Started server process [55916]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://127.0.0.1:62297 (Press CTRL+C to quit)\nINFO:     127.0.0.1:62301 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:62302 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:62304 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:62306 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:62309 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:62340 - \"GET /api/v1/entities/test-vessel-001 HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [55916]\n",
+    "ui.cesium": {
+      "ws": {
+        "disposition": "unknown",
+        "entity_id": "test-vessel-001",
+        "latitude": 37.7749,
+        "longitude": -122.4194,
+        "name": "Test Vessel",
+        "ontology": "TEMPLATE_TRACK",
+        "type": "update",
+        "updated_at": "2026-06-21T21:16:19.700482-05:00"
+      }
+    },
+    "ui.websocket": {
+      "ws": {
+        "disposition": "unknown",
+        "entity_id": "test-vessel-001",
+        "latitude": 37.7749,
+        "longitude": -122.4194,
+        "name": "Test Vessel",
+        "ontology": "TEMPLATE_TRACK",
+        "type": "update",
+        "updated_at": "2026-06-21T21:16:19.700482-05:00"
+      }
+    },
+    "ws_probe": {
+      "args": [
+        "go",
+        "run",
+        "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-dual-insecure-sf__6fl2/maven-overlay/ws_probe.go",
+        "ws://127.0.0.1:8080/ws"
+      ],
+      "returncode": 0,
+      "stdout": "{\"disposition\":\"unknown\",\"entity_id\":\"test-vessel-001\",\"latitude\":37.7749,\"longitude\":-122.4194,\"name\":\"Test Vessel\",\"ontology\":\"TEMPLATE_TRACK\",\"type\":\"update\",\"updated_at\":\"2026-06-21T21:16:19.700482-05:00\"}\n"
+    }
+  },
+  "failed": [],
+  "fixture": "daemon-maven",
+  "missing": [],
+  "mode": "strict",
+  "passed": [
+    "auth.oauth_client_credentials",
+    "entities.publish",
+    "entities.grpc_stream",
+    "ui.websocket",
+    "ui.cesium"
+  ],
+  "result": "pass",
+  "zorn_version": "0.1.0"
+}

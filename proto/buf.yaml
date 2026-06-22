@@ -1,0 +1,10 @@
+version: v2
+name: buf.build/local/zorn-compat-audit
+deps:
+  - buf.build/anduril/lattice-sdk
+lint:
+  use:
+    - DEFAULT
+breaking:
+  use:
+    - FILE

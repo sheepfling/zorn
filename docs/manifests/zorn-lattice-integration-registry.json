@@ -1,0 +1,240 @@
+{
+  "generated": "2026-06-21",
+  "registry": [
+    {
+      "id": "A001",
+      "repo": "anduril/sample-app-ais-integration-rest",
+      "category": "official_sample",
+      "priority": "P0",
+      "language": "Python REST SDK",
+      "license_status": "Anduril sample terms / review before vendoring",
+      "surfaces": [
+        "auth",
+        "entity_publish",
+        "entity_components"
+      ],
+      "notes": "Minimal REST entity publisher using simulated AIS vessel traffic."
+    },
+    {
+      "id": "A002",
+      "repo": "anduril/sample-app-ais-integration-grpc",
+      "category": "official_sample",
+      "priority": "P0",
+      "language": "Python gRPC SDK",
+      "license_status": "Anduril sample terms / review before vendoring",
+      "surfaces": [
+        "auth",
+        "entity_publish",
+        "entity_components"
+      ],
+      "notes": "AIS lifecycle through gRPC SDK."
+    },
+    {
+      "id": "A003",
+      "repo": "anduril/sample-app-entity-visualizer",
+      "category": "official_sample",
+      "priority": "P0",
+      "language": "TypeScript/React",
+      "license_status": "Anduril sample terms / review before vendoring",
+      "surfaces": [
+        "auth",
+        "entity_stream",
+        "ui"
+      ],
+      "notes": "Entity stream consumer and map UI."
+    },
+    {
+      "id": "A004",
+      "repo": "anduril/sample-app-auto-reconnaissance",
+      "category": "official_sample",
+      "priority": "P0",
+      "language": "Python",
+      "license_status": "Anduril sample terms / review before vendoring",
+      "surfaces": [
+        "entity_publish",
+        "entity_stream",
+        "entity_override",
+        "tasks",
+        "task_catalog"
+      ],
+      "notes": "Core task lifecycle plus disposition override."
+    },
+    {
+      "id": "A005",
+      "repo": "anduril/sample-app-objects",
+      "category": "official_sample",
+      "priority": "P0",
+      "language": "Go CLI",
+      "license_status": "Anduril sample terms / review before vendoring",
+      "surfaces": [
+        "auth",
+        "objects"
+      ],
+      "notes": "Object API CRUD fixture."
+    },
+    {
+      "id": "A006",
+      "repo": "anduril/sample-app-thumbnail",
+      "category": "official_sample",
+      "priority": "P0",
+      "language": "Python",
+      "license_status": "Anduril sample terms / review before vendoring",
+      "surfaces": [
+        "objects",
+        "entity_publish",
+        "object_entity_linkage"
+      ],
+      "notes": "Entity thumbnail workflow crossing objects and entities."
+    },
+    {
+      "id": "T001",
+      "repo": "ARK-Electronics/mavlink-to-lattice",
+      "category": "third_party_real",
+      "priority": "P0",
+      "language": "Python + MAVSDK",
+      "license_status": "BSD-3-Clause found",
+      "surfaces": [
+        "auth",
+        "entity_publish",
+        "entity_components",
+        "task_catalog"
+      ],
+      "notes": "Real UAV telemetry publisher at 1 Hz."
+    },
+    {
+      "id": "T002",
+      "repo": "alphafox02/DragonSync",
+      "category": "third_party_real",
+      "priority": "P0",
+      "language": "Python",
+      "license_status": "Apache-2.0 found",
+      "surfaces": [
+        "auth",
+        "entity_publish",
+        "entity_components",
+        "relationships",
+        "classification",
+        "health"
+      ],
+      "notes": "WarDragon/RID/ADS-B/TAK bridge with rich entity modeling."
+    },
+    {
+      "id": "T003",
+      "repo": "daemon-blockint-tech/Maven",
+      "category": "third_party_real",
+      "priority": "P0/P1",
+      "language": "Go + React/Cesium + Neo4j",
+      "license_status": "No license found in inspected files",
+      "surfaces": [
+        "oauth_auth",
+        "grpc_entity_stream",
+        "entity_publish",
+        "entity_components",
+        "ui_storage"
+      ],
+      "notes": "Full visualization stack with StreamEntityComponents, Neo4j persistence, WebSocket/Cesium UI."
+    },
+    {
+      "id": "T004",
+      "repo": "PhilipPanda/Lattice-ADSB-Bridge",
+      "category": "third_party_real",
+      "priority": "P1",
+      "language": "Java/Spring",
+      "license_status": "No license found in inspected files",
+      "surfaces": [
+        "java_client",
+        "entity_publish",
+        "entity_components",
+        "transponder_codes",
+        "mock_server",
+        "ui_sse"
+      ],
+      "notes": "OpenSky ADS-B bridge using Java SDK and mock server."
+    },
+    {
+      "id": "T005",
+      "repo": "Lagrange-Labs/anduril-deep-prove-demo",
+      "category": "third_party_enhanced_sample",
+      "priority": "P1",
+      "language": "Python",
+      "license_status": "No license found in inspected files",
+      "surfaces": [
+        "entity_publish",
+        "entity_stream",
+        "entity_override",
+        "tasks",
+        "listen_as_agent",
+        "update_task_status"
+      ],
+      "notes": "Enhanced Auto Recon with DeepProve proof layer."
+    },
+    {
+      "id": "T006",
+      "repo": "tylerxmart32-afk/ALFRED_AGENT",
+      "category": "third_party_realish",
+      "priority": "P2",
+      "language": "Python",
+      "license_status": "License not verified",
+      "surfaces": [
+        "entity_publish",
+        "entity_stream",
+        "entity_override",
+        "tasks",
+        "local_mock"
+      ],
+      "notes": "Broad, messy ARGUS bridge; use as stress fixture."
+    },
+    {
+      "id": "X001",
+      "repo": "simplifaisoul/osiris",
+      "category": "adjacent_pattern_only",
+      "priority": "research_only",
+      "language": "TypeScript/Next.js",
+      "license_status": "README badge says MIT; verify",
+      "surfaces": [
+        "simulated_stream_adapter",
+        "ui_mapping"
+      ],
+      "notes": "Not confirmed SDK integration."
+    },
+    {
+      "id": "X002",
+      "repo": "Enotrium/Vegard",
+      "category": "adjacent_pattern_only",
+      "priority": "research_only",
+      "language": "Python",
+      "license_status": "Not verified",
+      "surfaces": [
+        "pattern_tasks",
+        "entity_state"
+      ],
+      "notes": "Models ListenAsAgent/task patterns without live SDK client."
+    },
+    {
+      "id": "X003",
+      "repo": "szl-holdings/platform",
+      "category": "adjacent_pattern_only",
+      "priority": "exclude",
+      "language": "TypeScript",
+      "license_status": "Not verified",
+      "surfaces": [
+        "pattern_architecture"
+      ],
+      "notes": "Explicitly pattern-only; exclude from certification."
+    },
+    {
+      "id": "X004",
+      "repo": "bgilbert1984/RF_SCYTHE",
+      "category": "adjacent_proprietary",
+      "priority": "exclude",
+      "language": "Python/JS",
+      "license_status": "Proprietary stated",
+      "surfaces": [
+        "lattice_like_sse",
+        "provenance",
+        "session_patterns"
+      ],
+      "notes": "Not open source and not a clean SDK integration."
+    }
+  ]
+}

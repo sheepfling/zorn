@@ -1,0 +1,2036 @@
+{
+  "details": {
+    "asset": {
+      "aliases": {
+        "alternateIds": null,
+        "name": "Simulated Asset asset-01"
+      },
+      "correlation": null,
+      "createdTime": null,
+      "dataClassification": null,
+      "description": null,
+      "dimensions": null,
+      "entityId": "asset-01",
+      "entity_id": "asset-01",
+      "expiryTime": "2026-06-22T03:13:31.894766Z",
+      "geoDetails": null,
+      "geoShape": null,
+      "groupDetails": null,
+      "health": null,
+      "indicators": null,
+      "isLive": true,
+      "is_live": true,
+      "location": {
+        "acceleration": null,
+        "attitudeEnu": null,
+        "position": {
+          "altitudeAglMeters": null,
+          "altitudeAsfMeters": null,
+          "altitudeHaeMeters": 55.0,
+          "latitudeDegrees": 0.011789740406618955,
+          "longitudeDegrees": 0.013579480805491229,
+          "pressureDepthMeters": null
+        },
+        "speedMps": 5.0,
+        "velocityEnu": {
+          "e": 4.472135950502643,
+          "n": 2.236067986493664,
+          "u": 0.0
+        }
+      },
+      "locationUncertainty": null,
+      "media": null,
+      "milView": {
+        "disposition": "DISPOSITION_FRIENDLY",
+        "environment": "ENVIRONMENT_SURFACE",
+        "nationality": null
+      },
+      "noExpiry": null,
+      "ontology": {
+        "platformType": "USV",
+        "specificType": null,
+        "template": "TEMPLATE_ASSET"
+      },
+      "orbit": null,
+      "overrides": null,
+      "payloads": null,
+      "powerState": null,
+      "provenance": {
+        "dataType": "Simulated Asset",
+        "integrationName": "auto-reconnaissance",
+        "sourceDescription": null,
+        "sourceId": null,
+        "sourceUpdateTime": "2026-06-22T03:13:16.894858Z"
+      },
+      "relationships": null,
+      "routeDetails": null,
+      "schedules": null,
+      "sensors": null,
+      "signal": null,
+      "status": null,
+      "supplies": null,
+      "targetPriority": null,
+      "taskCatalog": {
+        "taskDefinitions": [
+          {
+            "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Investigate"
+          },
+          {
+            "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.MoveToPosition"
+          },
+          {
+            "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Evade"
+          },
+          {
+            "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Intercept"
+          },
+          {
+            "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Surveillance"
+          }
+        ]
+      },
+      "tracked": null,
+      "transponderCodes": null,
+      "visualDetails": null
+    },
+    "deepprove_runtime_shim": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/lagrange-deep-prove-demo/utils/deepprove",
+    "entities.override": {
+      "hostile_entities": [
+        {
+          "aliases": {
+            "name": "Simulated Track (DISPOSITION_HOSTILE)"
+          },
+          "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "expiryTime": "2026-06-22T03:11:57.695058Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 0.02,
+              "longitudeDegrees": 0.02
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_HOSTILE",
+            "environment": "ENVIRONMENT_SURFACE"
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "Simulated Track",
+            "integrationName": "anduril-deep-prove-demo",
+            "sourceUpdateTime": "2026-06-22T03:11:42.695170Z"
+          }
+        },
+        {
+          "aliases": {
+            "name": "Simulated Track (DISPOSITION_HOSTILE)"
+          },
+          "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "expiryTime": "2026-06-22T03:12:02.717077Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 0.02,
+              "longitudeDegrees": 0.02
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_HOSTILE",
+            "environment": "ENVIRONMENT_SURFACE"
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "Simulated Track",
+            "integrationName": "anduril-deep-prove-demo",
+            "sourceUpdateTime": "2026-06-22T03:11:47.717167Z"
+          }
+        },
+        {
+          "aliases": {
+            "name": "Simulated Track (DISPOSITION_HOSTILE)"
+          },
+          "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "expiryTime": "2026-06-22T03:12:07.737125Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 0.02,
+              "longitudeDegrees": 0.02
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_HOSTILE",
+            "environment": "ENVIRONMENT_SURFACE"
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "Simulated Track",
+            "integrationName": "anduril-deep-prove-demo",
+            "sourceUpdateTime": "2026-06-22T03:11:52.737203Z"
+          }
+        },
+        {
+          "aliases": {
+            "name": "Simulated Track (DISPOSITION_HOSTILE)"
+          },
+          "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "expiryTime": "2026-06-22T03:12:12.756767Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 0.02,
+              "longitudeDegrees": 0.02
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_HOSTILE",
+            "environment": "ENVIRONMENT_SURFACE"
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "Simulated Track",
+            "integrationName": "anduril-deep-prove-demo",
+            "sourceUpdateTime": "2026-06-22T03:11:57.756832Z"
+          }
+        },
+        {
+          "aliases": {
+            "name": "Simulated Track (DISPOSITION_HOSTILE)"
+          },
+          "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "expiryTime": "2026-06-22T03:12:17.776479Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 0.02,
+              "longitudeDegrees": 0.02
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_HOSTILE",
+            "environment": "ENVIRONMENT_SURFACE"
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "Simulated Track",
+            "integrationName": "anduril-deep-prove-demo",
+            "sourceUpdateTime": "2026-06-22T03:12:02.776552Z"
+          }
+        },
+        {
+          "aliases": {
+            "name": "Simulated Track (DISPOSITION_HOSTILE)"
+          },
+          "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "expiryTime": "2026-06-22T03:12:22.799310Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 0.02,
+              "longitudeDegrees": 0.02
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_HOSTILE",
+            "environment": "ENVIRONMENT_SURFACE"
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "Simulated Track",
+            "integrationName": "anduril-deep-prove-demo",
+            "sourceUpdateTime": "2026-06-22T03:12:07.799370Z"
+          }
+        },
+        {
+          "aliases": {
+            "name": "Simulated Track (DISPOSITION_HOSTILE)"
+          },
+          "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "expiryTime": "2026-06-22T03:12:27.817705Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 0.02,
+              "longitudeDegrees": 0.02
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_HOSTILE",
+            "environment": "ENVIRONMENT_SURFACE"
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "Simulated Track",
+            "integrationName": "anduril-deep-prove-demo",
+            "sourceUpdateTime": "2026-06-22T03:12:12.817790Z"
+          }
+        },
+        {
+          "aliases": {
+            "name": "Simulated Track (DISPOSITION_HOSTILE)"
+          },
+          "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "expiryTime": "2026-06-22T03:12:32.839398Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 0.02,
+              "longitudeDegrees": 0.02
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_HOSTILE",
+            "environment": "ENVIRONMENT_SURFACE"
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "Simulated Track",
+            "integrationName": "anduril-deep-prove-demo",
+            "sourceUpdateTime": "2026-06-22T03:12:17.839472Z"
+          }
+        },
+        {
+          "aliases": {
+            "name": "Simulated Track (DISPOSITION_HOSTILE)"
+          },
+          "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "expiryTime": "2026-06-22T03:12:37.855057Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 0.02,
+              "longitudeDegrees": 0.02
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_HOSTILE",
+            "environment": "ENVIRONMENT_SURFACE"
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "Simulated Track",
+            "integrationName": "anduril-deep-prove-demo",
+            "sourceUpdateTime": "2026-06-22T03:12:22.855127Z"
+          }
+        },
+        {
+          "aliases": {
+            "name": "Simulated Track (DISPOSITION_HOSTILE)"
+          },
+          "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "expiryTime": "2026-06-22T03:12:42.880640Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 0.02,
+              "longitudeDegrees": 0.02
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_HOSTILE",
+            "environment": "ENVIRONMENT_SURFACE"
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "Simulated Track",
+            "integrationName": "anduril-deep-prove-demo",
+            "sourceUpdateTime": "2026-06-22T03:12:27.880746Z"
+          }
+        },
+        {
+          "aliases": {
+            "name": "Simulated Track (DISPOSITION_HOSTILE)"
+          },
+          "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "expiryTime": "2026-06-22T03:12:47.908940Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 0.02,
+              "longitudeDegrees": 0.02
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_HOSTILE",
+            "environment": "ENVIRONMENT_SURFACE"
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "Simulated Track",
+            "integrationName": "anduril-deep-prove-demo",
+            "sourceUpdateTime": "2026-06-22T03:12:32.909045Z"
+          }
+        },
+        {
+          "aliases": {
+            "name": "Simulated Track (DISPOSITION_HOSTILE)"
+          },
+          "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "expiryTime": "2026-06-22T03:12:52.933204Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 0.02,
+              "longitudeDegrees": 0.02
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_HOSTILE",
+            "environment": "ENVIRONMENT_SURFACE"
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "Simulated Track",
+            "integrationName": "anduril-deep-prove-demo",
+            "sourceUpdateTime": "2026-06-22T03:12:37.933309Z"
+          }
+        },
+        {
+          "aliases": {
+            "name": "Simulated Track (DISPOSITION_HOSTILE)"
+          },
+          "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "expiryTime": "2026-06-22T03:12:57.960006Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 0.02,
+              "longitudeDegrees": 0.02
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_HOSTILE",
+            "environment": "ENVIRONMENT_SURFACE"
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "Simulated Track",
+            "integrationName": "anduril-deep-prove-demo",
+            "sourceUpdateTime": "2026-06-22T03:12:42.960105Z"
+          }
+        },
+        {
+          "aliases": {
+            "name": "Simulated Track (DISPOSITION_HOSTILE)"
+          },
+          "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "expiryTime": "2026-06-22T03:13:02.987493Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 0.02,
+              "longitudeDegrees": 0.02
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_HOSTILE",
+            "environment": "ENVIRONMENT_SURFACE"
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "Simulated Track",
+            "integrationName": "anduril-deep-prove-demo",
+            "sourceUpdateTime": "2026-06-22T03:12:47.987637Z"
+          }
+        },
+        {
+          "aliases": {
+            "name": "Simulated Track (DISPOSITION_HOSTILE)"
+          },
+          "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "expiryTime": "2026-06-22T03:13:08.016164Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 0.02,
+              "longitudeDegrees": 0.02
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_HOSTILE",
+            "environment": "ENVIRONMENT_SURFACE"
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "Simulated Track",
+            "integrationName": "anduril-deep-prove-demo",
+            "sourceUpdateTime": "2026-06-22T03:12:53.016297Z"
+          }
+        },
+        {
+          "aliases": {
+            "name": "Simulated Track (DISPOSITION_HOSTILE)"
+          },
+          "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "expiryTime": "2026-06-22T03:13:13.047229Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 0.02,
+              "longitudeDegrees": 0.02
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_HOSTILE",
+            "environment": "ENVIRONMENT_SURFACE"
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "Simulated Track",
+            "integrationName": "anduril-deep-prove-demo",
+            "sourceUpdateTime": "2026-06-22T03:12:58.047331Z"
+          }
+        },
+        {
+          "aliases": {
+            "name": "Simulated Track (DISPOSITION_HOSTILE)"
+          },
+          "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "expiryTime": "2026-06-22T03:13:18.068370Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 0.02,
+              "longitudeDegrees": 0.02
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_HOSTILE",
+            "environment": "ENVIRONMENT_SURFACE"
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "Simulated Track",
+            "integrationName": "anduril-deep-prove-demo",
+            "sourceUpdateTime": "2026-06-22T03:13:03.068435Z"
+          }
+        },
+        {
+          "aliases": {
+            "name": "Simulated Track (DISPOSITION_HOSTILE)"
+          },
+          "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "expiryTime": "2026-06-22T03:13:23.092965Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 0.02,
+              "longitudeDegrees": 0.02
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_HOSTILE",
+            "environment": "ENVIRONMENT_SURFACE"
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "Simulated Track",
+            "integrationName": "anduril-deep-prove-demo",
+            "sourceUpdateTime": "2026-06-22T03:13:08.093100Z"
+          }
+        },
+        {
+          "aliases": {
+            "name": "Simulated Track (DISPOSITION_HOSTILE)"
+          },
+          "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "expiryTime": "2026-06-22T03:13:28.121313Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 0.02,
+              "longitudeDegrees": 0.02
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_HOSTILE",
+            "environment": "ENVIRONMENT_SURFACE"
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "Simulated Track",
+            "integrationName": "anduril-deep-prove-demo",
+            "sourceUpdateTime": "2026-06-22T03:13:13.121386Z"
+          }
+        },
+        {
+          "aliases": {
+            "name": "Simulated Track (DISPOSITION_HOSTILE)"
+          },
+          "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+          "expiryTime": "2026-06-22T03:13:33.140752Z",
+          "isLive": true,
+          "is_live": true,
+          "location": {
+            "position": {
+              "latitudeDegrees": 0.02,
+              "longitudeDegrees": 0.02
+            }
+          },
+          "milView": {
+            "disposition": "DISPOSITION_HOSTILE",
+            "environment": "ENVIRONMENT_SURFACE"
+          },
+          "ontology": {
+            "template": "TEMPLATE_TRACK"
+          },
+          "provenance": {
+            "dataType": "Simulated Track",
+            "integrationName": "anduril-deep-prove-demo",
+            "sourceUpdateTime": "2026-06-22T03:13:18.140824Z"
+          }
+        }
+      ]
+    },
+    "entities.publish": {
+      "asset": {
+        "aliases": {
+          "alternateIds": null,
+          "name": "Simulated Asset asset-01"
+        },
+        "correlation": null,
+        "createdTime": null,
+        "dataClassification": null,
+        "description": null,
+        "dimensions": null,
+        "entityId": "asset-01",
+        "entity_id": "asset-01",
+        "expiryTime": "2026-06-22T03:13:31.894766Z",
+        "geoDetails": null,
+        "geoShape": null,
+        "groupDetails": null,
+        "health": null,
+        "indicators": null,
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "acceleration": null,
+          "attitudeEnu": null,
+          "position": {
+            "altitudeAglMeters": null,
+            "altitudeAsfMeters": null,
+            "altitudeHaeMeters": 55.0,
+            "latitudeDegrees": 0.011789740406618955,
+            "longitudeDegrees": 0.013579480805491229,
+            "pressureDepthMeters": null
+          },
+          "speedMps": 5.0,
+          "velocityEnu": {
+            "e": 4.472135950502643,
+            "n": 2.236067986493664,
+            "u": 0.0
+          }
+        },
+        "locationUncertainty": null,
+        "media": null,
+        "milView": {
+          "disposition": "DISPOSITION_FRIENDLY",
+          "environment": "ENVIRONMENT_SURFACE",
+          "nationality": null
+        },
+        "noExpiry": null,
+        "ontology": {
+          "platformType": "USV",
+          "specificType": null,
+          "template": "TEMPLATE_ASSET"
+        },
+        "orbit": null,
+        "overrides": null,
+        "payloads": null,
+        "powerState": null,
+        "provenance": {
+          "dataType": "Simulated Asset",
+          "integrationName": "auto-reconnaissance",
+          "sourceDescription": null,
+          "sourceId": null,
+          "sourceUpdateTime": "2026-06-22T03:13:16.894858Z"
+        },
+        "relationships": null,
+        "routeDetails": null,
+        "schedules": null,
+        "sensors": null,
+        "signal": null,
+        "status": null,
+        "supplies": null,
+        "targetPriority": null,
+        "taskCatalog": {
+          "taskDefinitions": [
+            {
+              "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Investigate"
+            },
+            {
+              "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.MoveToPosition"
+            },
+            {
+              "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Evade"
+            },
+            {
+              "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Intercept"
+            },
+            {
+              "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Surveillance"
+            }
+          ]
+        },
+        "tracked": null,
+        "transponderCodes": null,
+        "visualDetails": null
+      }
+    },
+    "entities.stream": {
+      "task": {
+        "author": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "createTime": "2026-06-22T03:11:48.250126Z",
+        "create_time": "2026-06-22T03:11:48.250126Z",
+        "createdBy": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "created_by": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "description": "Standard investigation task. Distance: 1573m, Bearing: 45\u00b0, Threat: DISPOSITION_HOSTILE",
+        "displayName": "Investigation: INVESTIGATE",
+        "display_name": "Investigation: INVESTIGATE",
+        "initialEntities": [
+          {
+            "entity": {
+              "aliases": {
+                "alternateIds": null,
+                "name": "Simulated Asset asset-01"
+              },
+              "correlation": null,
+              "createdTime": null,
+              "dataClassification": null,
+              "description": null,
+              "dimensions": null,
+              "entityId": "asset-01",
+              "expiryTime": "2026-06-22T03:12:01.659962Z",
+              "geoDetails": null,
+              "geoShape": null,
+              "groupDetails": null,
+              "health": null,
+              "indicators": null,
+              "isLive": true,
+              "location": {
+                "acceleration": null,
+                "attitudeEnu": null,
+                "position": {
+                  "altitudeAglMeters": null,
+                  "altitudeAsfMeters": null,
+                  "altitudeHaeMeters": 55.0,
+                  "latitudeDegrees": 0.01,
+                  "longitudeDegrees": 0.01,
+                  "pressureDepthMeters": null
+                },
+                "speedMps": 0.0,
+                "velocityEnu": {
+                  "e": 0.0,
+                  "n": 0.0,
+                  "u": 0.0
+                }
+              },
+              "locationUncertainty": null,
+              "media": null,
+              "milView": {
+                "disposition": "DISPOSITION_FRIENDLY",
+                "environment": "ENVIRONMENT_SURFACE",
+                "nationality": null
+              },
+              "noExpiry": null,
+              "ontology": {
+                "platformType": "USV",
+                "specificType": null,
+                "template": "TEMPLATE_ASSET"
+              },
+              "orbit": null,
+              "overrides": null,
+              "payloads": null,
+              "powerState": null,
+              "provenance": {
+                "dataType": "Simulated Asset",
+                "integrationName": "auto-reconnaissance",
+                "sourceDescription": null,
+                "sourceId": null,
+                "sourceUpdateTime": "2026-06-22T03:11:46.660019Z"
+              },
+              "relationships": null,
+              "routeDetails": null,
+              "schedules": null,
+              "sensors": null,
+              "signal": null,
+              "status": null,
+              "supplies": null,
+              "targetPriority": null,
+              "taskCatalog": {
+                "taskDefinitions": [
+                  {
+                    "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Investigate"
+                  },
+                  {
+                    "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.MoveToPosition"
+                  },
+                  {
+                    "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Evade"
+                  },
+                  {
+                    "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Intercept"
+                  },
+                  {
+                    "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Surveillance"
+                  }
+                ]
+              },
+              "tracked": null,
+              "transponderCodes": null,
+              "visualDetails": null
+            },
+            "snapshot": false
+          }
+        ],
+        "isExecutedElsewhere": false,
+        "lastUpdateTime": "2026-06-22T03:13:18.836295Z",
+        "lastUpdatedBy": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "last_update_time": "2026-06-22T03:13:18.836295Z",
+        "last_updated_by": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "relations": {
+          "assignee": {
+            "system": {
+              "entityId": "asset-01",
+              "entity_id": "asset-01"
+            }
+          }
+        },
+        "specification": {
+          "@type": "type.googleapis.com/anduril.tasks.v2.Investigate",
+          "type": "type.googleapis.com/anduril.tasks.v2.Investigate"
+        },
+        "status": {
+          "status": "STATUS_DONE_OK"
+        },
+        "taskId": "task-8f289da3-77fb-4c80-aacb-18a836164717",
+        "task_id": "task-8f289da3-77fb-4c80-aacb-18a836164717",
+        "version": {
+          "definitionVersion": 1,
+          "definition_version": 1,
+          "statusVersion": 3,
+          "status_version": 3,
+          "taskId": "task-8f289da3-77fb-4c80-aacb-18a836164717",
+          "task_id": "task-8f289da3-77fb-4c80-aacb-18a836164717"
+        }
+      }
+    },
+    "fallback_detected": false,
+    "generated_config": "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-m9qpkni_/deep-prove-config.yml",
+    "hostile_entities": [
+      {
+        "aliases": {
+          "name": "Simulated Track (DISPOSITION_HOSTILE)"
+        },
+        "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "expiryTime": "2026-06-22T03:11:57.695058Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 0.02,
+            "longitudeDegrees": 0.02
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_HOSTILE",
+          "environment": "ENVIRONMENT_SURFACE"
+        },
+        "ontology": {
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "Simulated Track",
+          "integrationName": "anduril-deep-prove-demo",
+          "sourceUpdateTime": "2026-06-22T03:11:42.695170Z"
+        }
+      },
+      {
+        "aliases": {
+          "name": "Simulated Track (DISPOSITION_HOSTILE)"
+        },
+        "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "expiryTime": "2026-06-22T03:12:02.717077Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 0.02,
+            "longitudeDegrees": 0.02
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_HOSTILE",
+          "environment": "ENVIRONMENT_SURFACE"
+        },
+        "ontology": {
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "Simulated Track",
+          "integrationName": "anduril-deep-prove-demo",
+          "sourceUpdateTime": "2026-06-22T03:11:47.717167Z"
+        }
+      },
+      {
+        "aliases": {
+          "name": "Simulated Track (DISPOSITION_HOSTILE)"
+        },
+        "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "expiryTime": "2026-06-22T03:12:07.737125Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 0.02,
+            "longitudeDegrees": 0.02
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_HOSTILE",
+          "environment": "ENVIRONMENT_SURFACE"
+        },
+        "ontology": {
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "Simulated Track",
+          "integrationName": "anduril-deep-prove-demo",
+          "sourceUpdateTime": "2026-06-22T03:11:52.737203Z"
+        }
+      },
+      {
+        "aliases": {
+          "name": "Simulated Track (DISPOSITION_HOSTILE)"
+        },
+        "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "expiryTime": "2026-06-22T03:12:12.756767Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 0.02,
+            "longitudeDegrees": 0.02
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_HOSTILE",
+          "environment": "ENVIRONMENT_SURFACE"
+        },
+        "ontology": {
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "Simulated Track",
+          "integrationName": "anduril-deep-prove-demo",
+          "sourceUpdateTime": "2026-06-22T03:11:57.756832Z"
+        }
+      },
+      {
+        "aliases": {
+          "name": "Simulated Track (DISPOSITION_HOSTILE)"
+        },
+        "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "expiryTime": "2026-06-22T03:12:17.776479Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 0.02,
+            "longitudeDegrees": 0.02
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_HOSTILE",
+          "environment": "ENVIRONMENT_SURFACE"
+        },
+        "ontology": {
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "Simulated Track",
+          "integrationName": "anduril-deep-prove-demo",
+          "sourceUpdateTime": "2026-06-22T03:12:02.776552Z"
+        }
+      },
+      {
+        "aliases": {
+          "name": "Simulated Track (DISPOSITION_HOSTILE)"
+        },
+        "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "expiryTime": "2026-06-22T03:12:22.799310Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 0.02,
+            "longitudeDegrees": 0.02
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_HOSTILE",
+          "environment": "ENVIRONMENT_SURFACE"
+        },
+        "ontology": {
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "Simulated Track",
+          "integrationName": "anduril-deep-prove-demo",
+          "sourceUpdateTime": "2026-06-22T03:12:07.799370Z"
+        }
+      },
+      {
+        "aliases": {
+          "name": "Simulated Track (DISPOSITION_HOSTILE)"
+        },
+        "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "expiryTime": "2026-06-22T03:12:27.817705Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 0.02,
+            "longitudeDegrees": 0.02
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_HOSTILE",
+          "environment": "ENVIRONMENT_SURFACE"
+        },
+        "ontology": {
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "Simulated Track",
+          "integrationName": "anduril-deep-prove-demo",
+          "sourceUpdateTime": "2026-06-22T03:12:12.817790Z"
+        }
+      },
+      {
+        "aliases": {
+          "name": "Simulated Track (DISPOSITION_HOSTILE)"
+        },
+        "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "expiryTime": "2026-06-22T03:12:32.839398Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 0.02,
+            "longitudeDegrees": 0.02
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_HOSTILE",
+          "environment": "ENVIRONMENT_SURFACE"
+        },
+        "ontology": {
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "Simulated Track",
+          "integrationName": "anduril-deep-prove-demo",
+          "sourceUpdateTime": "2026-06-22T03:12:17.839472Z"
+        }
+      },
+      {
+        "aliases": {
+          "name": "Simulated Track (DISPOSITION_HOSTILE)"
+        },
+        "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "expiryTime": "2026-06-22T03:12:37.855057Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 0.02,
+            "longitudeDegrees": 0.02
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_HOSTILE",
+          "environment": "ENVIRONMENT_SURFACE"
+        },
+        "ontology": {
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "Simulated Track",
+          "integrationName": "anduril-deep-prove-demo",
+          "sourceUpdateTime": "2026-06-22T03:12:22.855127Z"
+        }
+      },
+      {
+        "aliases": {
+          "name": "Simulated Track (DISPOSITION_HOSTILE)"
+        },
+        "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "expiryTime": "2026-06-22T03:12:42.880640Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 0.02,
+            "longitudeDegrees": 0.02
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_HOSTILE",
+          "environment": "ENVIRONMENT_SURFACE"
+        },
+        "ontology": {
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "Simulated Track",
+          "integrationName": "anduril-deep-prove-demo",
+          "sourceUpdateTime": "2026-06-22T03:12:27.880746Z"
+        }
+      },
+      {
+        "aliases": {
+          "name": "Simulated Track (DISPOSITION_HOSTILE)"
+        },
+        "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "expiryTime": "2026-06-22T03:12:47.908940Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 0.02,
+            "longitudeDegrees": 0.02
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_HOSTILE",
+          "environment": "ENVIRONMENT_SURFACE"
+        },
+        "ontology": {
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "Simulated Track",
+          "integrationName": "anduril-deep-prove-demo",
+          "sourceUpdateTime": "2026-06-22T03:12:32.909045Z"
+        }
+      },
+      {
+        "aliases": {
+          "name": "Simulated Track (DISPOSITION_HOSTILE)"
+        },
+        "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "expiryTime": "2026-06-22T03:12:52.933204Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 0.02,
+            "longitudeDegrees": 0.02
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_HOSTILE",
+          "environment": "ENVIRONMENT_SURFACE"
+        },
+        "ontology": {
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "Simulated Track",
+          "integrationName": "anduril-deep-prove-demo",
+          "sourceUpdateTime": "2026-06-22T03:12:37.933309Z"
+        }
+      },
+      {
+        "aliases": {
+          "name": "Simulated Track (DISPOSITION_HOSTILE)"
+        },
+        "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "expiryTime": "2026-06-22T03:12:57.960006Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 0.02,
+            "longitudeDegrees": 0.02
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_HOSTILE",
+          "environment": "ENVIRONMENT_SURFACE"
+        },
+        "ontology": {
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "Simulated Track",
+          "integrationName": "anduril-deep-prove-demo",
+          "sourceUpdateTime": "2026-06-22T03:12:42.960105Z"
+        }
+      },
+      {
+        "aliases": {
+          "name": "Simulated Track (DISPOSITION_HOSTILE)"
+        },
+        "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "expiryTime": "2026-06-22T03:13:02.987493Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 0.02,
+            "longitudeDegrees": 0.02
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_HOSTILE",
+          "environment": "ENVIRONMENT_SURFACE"
+        },
+        "ontology": {
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "Simulated Track",
+          "integrationName": "anduril-deep-prove-demo",
+          "sourceUpdateTime": "2026-06-22T03:12:47.987637Z"
+        }
+      },
+      {
+        "aliases": {
+          "name": "Simulated Track (DISPOSITION_HOSTILE)"
+        },
+        "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "expiryTime": "2026-06-22T03:13:08.016164Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 0.02,
+            "longitudeDegrees": 0.02
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_HOSTILE",
+          "environment": "ENVIRONMENT_SURFACE"
+        },
+        "ontology": {
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "Simulated Track",
+          "integrationName": "anduril-deep-prove-demo",
+          "sourceUpdateTime": "2026-06-22T03:12:53.016297Z"
+        }
+      },
+      {
+        "aliases": {
+          "name": "Simulated Track (DISPOSITION_HOSTILE)"
+        },
+        "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "expiryTime": "2026-06-22T03:13:13.047229Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 0.02,
+            "longitudeDegrees": 0.02
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_HOSTILE",
+          "environment": "ENVIRONMENT_SURFACE"
+        },
+        "ontology": {
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "Simulated Track",
+          "integrationName": "anduril-deep-prove-demo",
+          "sourceUpdateTime": "2026-06-22T03:12:58.047331Z"
+        }
+      },
+      {
+        "aliases": {
+          "name": "Simulated Track (DISPOSITION_HOSTILE)"
+        },
+        "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "expiryTime": "2026-06-22T03:13:18.068370Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 0.02,
+            "longitudeDegrees": 0.02
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_HOSTILE",
+          "environment": "ENVIRONMENT_SURFACE"
+        },
+        "ontology": {
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "Simulated Track",
+          "integrationName": "anduril-deep-prove-demo",
+          "sourceUpdateTime": "2026-06-22T03:13:03.068435Z"
+        }
+      },
+      {
+        "aliases": {
+          "name": "Simulated Track (DISPOSITION_HOSTILE)"
+        },
+        "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "expiryTime": "2026-06-22T03:13:23.092965Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 0.02,
+            "longitudeDegrees": 0.02
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_HOSTILE",
+          "environment": "ENVIRONMENT_SURFACE"
+        },
+        "ontology": {
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "Simulated Track",
+          "integrationName": "anduril-deep-prove-demo",
+          "sourceUpdateTime": "2026-06-22T03:13:08.093100Z"
+        }
+      },
+      {
+        "aliases": {
+          "name": "Simulated Track (DISPOSITION_HOSTILE)"
+        },
+        "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "expiryTime": "2026-06-22T03:13:28.121313Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 0.02,
+            "longitudeDegrees": 0.02
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_HOSTILE",
+          "environment": "ENVIRONMENT_SURFACE"
+        },
+        "ontology": {
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "Simulated Track",
+          "integrationName": "anduril-deep-prove-demo",
+          "sourceUpdateTime": "2026-06-22T03:13:13.121386Z"
+        }
+      },
+      {
+        "aliases": {
+          "name": "Simulated Track (DISPOSITION_HOSTILE)"
+        },
+        "entityId": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "entity_id": "45b6bb22-e0cf-4a16-a148-b044176f136a",
+        "expiryTime": "2026-06-22T03:13:33.140752Z",
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "position": {
+            "latitudeDegrees": 0.02,
+            "longitudeDegrees": 0.02
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_HOSTILE",
+          "environment": "ENVIRONMENT_SURFACE"
+        },
+        "ontology": {
+          "template": "TEMPLATE_TRACK"
+        },
+        "provenance": {
+          "dataType": "Simulated Track",
+          "integrationName": "anduril-deep-prove-demo",
+          "sourceUpdateTime": "2026-06-22T03:13:18.140824Z"
+        }
+      }
+    ],
+    "install": {
+      "args": [
+        "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/lagrange-deep-prove-demo/.venv/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "-r",
+        "requirements.txt"
+      ],
+      "returncode": 0,
+      "stderr": "WARNING: The directory '/Users/rick/Library/Caches/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.\n\n[notice] A new release of pip is available: 24.0 -> 26.1.2\n[notice] To update, run: /Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/lagrange-deep-prove-demo/.venv/bin/python -m pip install --upgrade pip\n",
+      "stdout": "Requirement already satisfied: PyYAML==6.0.2 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 1)) (6.0.2)\nRequirement already satisfied: geopy==2.3.0 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 2)) (2.3.0)\nRequirement already satisfied: pydantic==2.9.2 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 3)) (2.9.2)\nRequirement already satisfied: onnxruntime==1.22.1 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 4)) (1.22.1)\nRequirement already satisfied: numpy==2.2.6 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 5)) (2.2.6)\nRequirement already satisfied: scikit-learn==1.7.1 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 6)) (1.7.1)\nRequirement already satisfied: anduril-lattice-sdk==2.2.0 in ./.venv/lib/python3.12/site-packages (from -r requirements.txt (line 8)) (2.2.0)\nRequirement already satisfied: geographiclib<3,>=1.52 in ./.venv/lib/python3.12/site-packages (from geopy==2.3.0->-r requirements.txt (line 2)) (2.1)\nRequirement already satisfied: annotated-types>=0.6.0 in ./.venv/lib/python3.12/site-packages (from pydantic==2.9.2->-r requirements.txt (line 3)) (0.7.0)\nRequirement already satisfied: pydantic-core==2.23.4 in ./.venv/lib/python3.12/site-packages (from pydantic==2.9.2->-r requirements.txt (line 3)) (2.23.4)\nRequirement already satisfied: typing-extensions>=4.6.1 in ./.venv/lib/python3.12/site-packages (from pydantic==2.9.2->-r requirements.txt (line 3)) (4.15.0)\nRequirement already satisfied: coloredlogs in ./.venv/lib/python3.12/site-packages (from onnxruntime==1.22.1->-r requirements.txt (line 4)) (15.0.1)\nRequirement already satisfied: flatbuffers in ./.venv/lib/python3.12/site-packages (from onnxruntime==1.22.1->-r requirements.txt (line 4)) (25.12.19)\nRequirement already satisfied: packaging in ./.venv/lib/python3.12/site-packages (from onnxruntime==1.22.1->-r requirements.txt (line 4)) (26.2)\nRequirement already satisfied: protobuf in ./.venv/lib/python3.12/site-packages (from onnxruntime==1.22.1->-r requirements.txt (line 4)) (7.35.1)\nRequirement already satisfied: sympy in ./.venv/lib/python3.12/site-packages (from onnxruntime==1.22.1->-r requirements.txt (line 4)) (1.14.0)\nRequirement already satisfied: scipy>=1.8.0 in ./.venv/lib/python3.12/site-packages (from scikit-learn==1.7.1->-r requirements.txt (line 6)) (1.18.0)\nRequirement already satisfied: joblib>=1.2.0 in ./.venv/lib/python3.12/site-packages (from scikit-learn==1.7.1->-r requirements.txt (line 6)) (1.5.3)\nRequirement already satisfied: threadpoolctl>=3.1.0 in ./.venv/lib/python3.12/site-packages (from scikit-learn==1.7.1->-r requirements.txt (line 6)) (3.6.0)\nRequirement already satisfied: httpx>=0.21.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk==2.2.0->-r requirements.txt (line 8)) (0.28.1)\nRequirement already satisfied: httpx-sse==0.4.0 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk==2.2.0->-r requirements.txt (line 8)) (0.4.0)\nRequirement already satisfied: anyio in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==2.2.0->-r requirements.txt (line 8)) (4.14.0)\nRequirement already satisfied: certifi in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==2.2.0->-r requirements.txt (line 8)) (2026.6.17)\nRequirement already satisfied: httpcore==1.* in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==2.2.0->-r requirements.txt (line 8)) (1.0.9)\nRequirement already satisfied: idna in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==2.2.0->-r requirements.txt (line 8)) (3.18)\nRequirement already satisfied: h11>=0.16 in ./.venv/lib/python3.12/site-packages (from httpcore==1.*->httpx>=0.21.2->anduril-lattice-sdk==2.2.0->-r requirements.txt (line 8)) (0.16.0)\nRequirement already satisfied: humanfriendly>=9.1 in ./.venv/lib/python3.12/site-packages (from coloredlogs->onnxruntime==1.22.1->-r requirements.txt (line 4)) (10.0)\nRequirement already satisfied: mpmath<1.4,>=1.1.0 in ./.venv/lib/python3.12/site-packages (from sympy->onnxruntime==1.22.1->-r requirements.txt (line 4)) (1.3.0)\n"
+    },
+    "process_logs": {
+      "arbiter": {
+        "args": [
+          "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/lagrange-deep-prove-demo/.venv/bin/python",
+          "auto-reconnaissance/main.py",
+          "--config",
+          "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-m9qpkni_/deep-prove-config.yml"
+        ],
+        "cwd": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/lagrange-deep-prove-demo",
+        "returncode": -15,
+        "stdout": "INFO:EARS:starting entity auto reconnaissance system\nINFO:EARS:Cleared processed pairs cache for fresh analysis\nINFO:EARS:# of assets being tracked: 0, # of tracks being tracked: 0\nINFO:EARS:# of assets being tracked: 1, # of tracks being tracked: 1\nINFO:EARS:Analyzing asset asset-01...\nINFO:EARS:Evaluating track 45b6bb22-e0cf-4a16-a148-b044176f136a for asset asset-01...\nINFO:EARS:DeepProve completed for within_range (within_range-asset-01-aa533385): stored at output/within_range-asset-01-aa533385/proof-within_range.json\nINFO:EARS:Within range decision derived from proof within_range-asset-01-aa533385: True\nINFO:EARS:ASSET WITHIN RANGE OF NON-FRIENDLY TRACK - ANALYZING TACTICAL SITUATION\nINFO:EARS:TACTICAL ANALYSIS: Distance=1573m, Bearing=45\u00b0, Threat=DISPOSITION_HOSTILE\nINFO:EARS:Analyzing tactical situation: TacticalSituation(asset_lat=0.01, asset_lon=0.01, threat_lat=0.02, threat_lon=0.02, threat_disposition='DISPOSITION_HOSTILE', relative_bearing=44.99999781833844, distance_to_threat=1572.5337053352625, asset_speed=5.0)\nINFO:EARS:DeepProve completed for tactical_decision (tactical_decision-asset-01-1e47332e): stored at output/tactical_decision-asset-01-1e47332e/proof-tactical_decision.json\nINFO:EARS:Tactical decision derived from proof tactical_decision-asset-01-1e47332e: INVESTIGATE\nINFO:EARS:AI DECISION: INVESTIGATE for DISPOSITION_HOSTILE at 1573m\nINFO:EARS: Starting tactical task creation for investigate\nINFO:EARS: Tasker.create_tactical_task called for investigate\nINFO:EARS:Generating tactical analysis...\nINFO:EARS: Tactical analysis completed\nINFO:EARS:Creating INVESTIGATE task for asset asset-01\nINFO:EARS:Creating investigation task...\nINFO:EARS:Creating task with display_name: 'Investigation: INVESTIGATE'\nINFO:EARS:Task description: 'Standard investigation task. Distance: 1573m, Bearing: 45\u00b0, Threat: DISPOSITION_HOSTILE'\nINFO:EARS:Creating Investigation task: Investigation: INVESTIGATE\nINFO:EARS:Tactical action: Standard investigation task\nINFO:EARS:Attempting to create task: Investigation: INVESTIGATE for asset asset-01\nINFO:EARS: Investigation task created - Investigation: INVESTIGATE, task id: task-8f289da3-77fb-4c80-aacb-18a836164717\nINFO:EARS: Investigation task created: task-8f289da3-77fb-4c80-aacb-18a836164717\nINFO:EARS:TACTICAL TASK CREATED: investigate - Task ID: task-8f289da3-77fb-4c80-aacb-18a836164717\nINFO:EARS: Starting ZK proof generation...\nINFO:EARS:Queued threat_assessment proof generation: threat_assessment-a321ff34\nINFO:EARS:Queued movement_calculation proof generation: movement_calculation-b24402f0\nINFO:EARS: ZK PROOFS QUEUED (async): within_range:within_range-asset-01-aa533385, tactical_decision:tactical_decision-asset-01-1e47332e, threat_assessment:threat_assessment-a321ff34, movement_calculation:movement_calculation-b24402f0\nINFO:EARS:DeepProve completed for movement_calculation (movement_calculation-b24402f0): stored at output/movement_calculation-b24402f0/proof-movement_calculation.json\nINFO:EARS:DeepProve completed for threat_assessment (threat_assessment-a321ff34): stored at output/threat_assessment-a321ff34/proof-threat_assessment.json\nINFO:EARS:Proof generation completed: movement_calculation-b24402f0\nINFO:EARS:Proof generation completed: threat_assessment-a321ff34\nINFO:EARS:# of assets being tracked: 1, # of tracks being tracked: 1\nINFO:EARS:Analyzing asset asset-01...\nINFO:EARS:# of assets being tracked: 1, # of tracks being tracked: 1\nINFO:EARS:Analyzing asset asset-01...\nINFO:EARS:# of assets being tracked: 1, # of tracks being tracked: 1\nINFO:EARS:Analyzing asset asset-01...\nINFO:EARS:# of assets being tracked: 1, # of tracks being tracked: 1\nINFO:EARS:Analyzing asset asset-01...\nINFO:EARS:# of assets being tracked: 1, # of tracks being tracked: 1\nINFO:EARS:Analyzing asset asset-01...\nINFO:EARS:# of assets being tracked: 1, # of tracks being tracked: 1\nINFO:EARS:Analyzing asset asset-01...\nINFO:EARS:# of assets being tracked: 1, # of tracks being tracked: 1\nINFO:EARS:Analyzing asset asset-01...\nINFO:EARS:# of assets being tracked: 1, # of tracks being tracked: 1\nINFO:EARS:Analyzing asset asset-01...\nINFO:EARS:# of assets being tracked: 1, # of tracks being tracked: 1\nINFO:EARS:Analyzing asset asset-01...\nINFO:EARS:# of assets being tracked: 1, # of tracks being tracked: 1\nINFO:EARS:Analyzing asset asset-01...\nINFO:EARS:# of assets being tracked: 1, # of tracks being tracked: 1\nINFO:EARS:Analyzing asset asset-01...\nINFO:EARS:# of assets being tracked: 1, # of tracks being tracked: 1\nINFO:EARS:Analyzing asset asset-01...\nINFO:EARS:# of assets being tracked: 1, # of tracks being tracked: 1\nINFO:EARS:Analyzing asset asset-01...\nINFO:EARS:# of assets being tracked: 1, # of tracks being tracked: 1\nINFO:EARS:Analyzing asset asset-01...\nINFO:EARS:# of assets being tracked: 1, # of tracks being tracked: 1\nINFO:EARS:Analyzing asset asset-01...\nINFO:EARS:# of assets being tracked: 1, # of tracks being tracked: 1\nINFO:EARS:Analyzing asset asset-01...\nINFO:EARS:# of assets being tracked: 1, # of tracks being tracked: 1\nINFO:EARS:Analyzing asset asset-01...\nINFO:EARS:# of assets being tracked: 1, # of tracks being tracked: 1\nINFO:EARS:Analyzing asset asset-01...\n"
+      },
+      "asset": {
+        "args": [
+          "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/lagrange-deep-prove-demo/.venv/bin/python",
+          "simulated_asset/asset.py",
+          "--config",
+          "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-m9qpkni_/deep-prove-config.yml"
+        ],
+        "cwd": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/lagrange-deep-prove-demo",
+        "returncode": -15,
+        "stdout": "INFO:SIMASSET:starting simulated asset\nINFO:SIMASSET:starting publish task for simulated asset asset-01\nINFO:SIMASSET:starting task listener for asset asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nINFO:SIMASSET:received agent request for asset-01\nINFO:SIMASSET: Asset asset-01: Processing task request\nINFO:SIMASSET: Received execute request for task: task-8f289da3-77fb-4c80-aacb-18a836164717\nINFO:SIMASSET: Task description: Standard investigation task. Distance: 1573m, Bearing: 45\u00b0, Threat: DISPOSITION_HOSTILE\nINFO:SIMASSET: Task task-8f289da3-77fb-4c80-aacb-18a836164717 status updated to EXECUTING\nINFO:SIMASSET: Task type: type.googleapis.com/anduril.tasks.v2.Investigate\nINFO:SIMASSET: Task description: Standard investigation task. Distance: 1573m, Bearing: 45\u00b0, Threat: DISPOSITION_HOSTILE\nINFO:SIMASSET:\ud83d\udd0d Investigation Operation: Investigating area around (0.012000, 0.014000)\nINFO:SIMASSET: Task task-8f289da3-77fb-4c80-aacb-18a836164717 execution started - will complete when movement finishes\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010020, 0.010040), distance to target: 497.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010040, 0.010080), distance to target: 492.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010060, 0.010121), distance to target: 487.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010080, 0.010161), distance to target: 482.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010101, 0.010201), distance to target: 477.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010121, 0.010241), distance to target: 472.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010141, 0.010282), distance to target: 467.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010161, 0.010322), distance to target: 462.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010181, 0.010362), distance to target: 457.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010201, 0.010402), distance to target: 452.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010221, 0.010442), distance to target: 447.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010241, 0.010483), distance to target: 442.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010261, 0.010523), distance to target: 437.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010282, 0.010563), distance to target: 432.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010302, 0.010603), distance to target: 427.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010322, 0.010644), distance to target: 422.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010342, 0.010684), distance to target: 417.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010362, 0.010724), distance to target: 412.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010382, 0.010764), distance to target: 407.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010402, 0.010804), distance to target: 402.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010422, 0.010845), distance to target: 397.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010442, 0.010885), distance to target: 392.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010463, 0.010925), distance to target: 387.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010483, 0.010965), distance to target: 382.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010503, 0.011005), distance to target: 377.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010523, 0.011046), distance to target: 372.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010543, 0.011086), distance to target: 367.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010563, 0.011126), distance to target: 362.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010583, 0.011166), distance to target: 357.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010603, 0.011207), distance to target: 352.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010623, 0.011247), distance to target: 347.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010644, 0.011287), distance to target: 342.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010664, 0.011327), distance to target: 337.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010684, 0.011367), distance to target: 332.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010704, 0.011408), distance to target: 327.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010724, 0.011448), distance to target: 322.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010744, 0.011488), distance to target: 317.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010764, 0.011528), distance to target: 312.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010784, 0.011569), distance to target: 307.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010804, 0.011609), distance to target: 302.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010824, 0.011649), distance to target: 297.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010845, 0.011689), distance to target: 292.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010865, 0.011729), distance to target: 287.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010885, 0.011770), distance to target: 282.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010905, 0.011810), distance to target: 277.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010925, 0.011850), distance to target: 272.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010945, 0.011890), distance to target: 267.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010965, 0.011931), distance to target: 262.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.010985, 0.011971), distance to target: 257.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011005, 0.012011), distance to target: 252.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011026, 0.012051), distance to target: 247.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011046, 0.012091), distance to target: 242.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011066, 0.012132), distance to target: 237.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011086, 0.012172), distance to target: 232.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011106, 0.012212), distance to target: 227.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011126, 0.012252), distance to target: 222.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011146, 0.012292), distance to target: 217.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011166, 0.012333), distance to target: 212.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011186, 0.012373), distance to target: 207.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011207, 0.012413), distance to target: 202.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011227, 0.012453), distance to target: 197.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011247, 0.012494), distance to target: 192.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011267, 0.012534), distance to target: 187.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011287, 0.012574), distance to target: 182.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011307, 0.012614), distance to target: 177.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011327, 0.012654), distance to target: 172.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011347, 0.012695), distance to target: 167.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011367, 0.012735), distance to target: 162.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011388, 0.012775), distance to target: 157.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011408, 0.012815), distance to target: 152.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011428, 0.012856), distance to target: 147.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011448, 0.012896), distance to target: 142.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011468, 0.012936), distance to target: 137.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011488, 0.012976), distance to target: 132.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011508, 0.013016), distance to target: 127.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011528, 0.013057), distance to target: 122.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011548, 0.013097), distance to target: 117.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011569, 0.013137), distance to target: 112.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011589, 0.013177), distance to target: 107.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011609, 0.013218), distance to target: 102.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011629, 0.013258), distance to target: 97.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011649, 0.013298), distance to target: 92.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011669, 0.013338), distance to target: 87.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011689, 0.013378), distance to target: 82.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011709, 0.013419), distance to target: 77.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011729, 0.013459), distance to target: 72.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011750, 0.013499), distance to target: 67.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011770, 0.013539), distance to target: 62.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011790, 0.013579), distance to target: 57.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:Moved to (0.011810, 0.013620), distance to target: 52.3m\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\nINFO:SIMASSET:Arrived at target location\nINFO:SIMASSET: Task task-8f289da3-77fb-4c80-aacb-18a836164717 marked as DONE_OK - movement completed\nDEBUG:SIMASSET:no tasks received for asset-01\nDEBUG:SIMASSET:polling for tasks for asset asset-01\n"
+      },
+      "track": {
+        "args": [
+          "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/lagrange-deep-prove-demo/.venv/bin/python",
+          "simulated_track/track.py",
+          "--config",
+          "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-m9qpkni_/deep-prove-config.yml"
+        ],
+        "cwd": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/lagrange-deep-prove-demo",
+        "returncode": -15,
+        "stdout": "INFO:SIMTRACK:starting simulated track\n"
+      }
+    },
+    "proof_artifacts_present": true,
+    "proof_dirs": [
+      "output/movement_calculation-b24402f0",
+      "output/tactical_decision-asset-01-1e47332e",
+      "output/threat_assessment-a321ff34",
+      "output/within_range-asset-01-aa533385"
+    ],
+    "proof_files": [
+      "output/movement_calculation-b24402f0/input.json",
+      "output/movement_calculation-b24402f0/metadata.json",
+      "output/movement_calculation-b24402f0/proof-movement_calculation.json",
+      "output/tactical_decision-asset-01-1e47332e/input.json",
+      "output/tactical_decision-asset-01-1e47332e/metadata.json",
+      "output/tactical_decision-asset-01-1e47332e/proof-tactical_decision.json",
+      "output/threat_assessment-a321ff34/input.json",
+      "output/threat_assessment-a321ff34/metadata.json",
+      "output/threat_assessment-a321ff34/proof-threat_assessment.json",
+      "output/within_range-asset-01-aa533385/input.json",
+      "output/within_range-asset-01-aa533385/metadata.json",
+      "output/within_range-asset-01-aa533385/proof-within_range.json"
+    ],
+    "runtime_issue": false,
+    "server_log": "INFO:     Started server process [92060]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on https://127.0.0.1:49518 (Press CTRL+C to quit)\nINFO:     127.0.0.1:49524 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49526 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 404 Not Found\nINFO:     127.0.0.1:49529 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49532 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 404 Not Found\nINFO:     127.0.0.1:49530 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49534 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49536 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49538 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49540 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49542 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49544 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49546 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49548 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49550 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49552 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49554 - \"POST /api/v1/entities/stream HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49556 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49558 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49560 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49562 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49564 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49566 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49568 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49570 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49572 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49574 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49576 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49578 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49580 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49582 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49584 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49586 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49588 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49590 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49592 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49594 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49596 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49598 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49600 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49602 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49604 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49606 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49608 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49610 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49612 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49614 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49616 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49618 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49620 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49622 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49624 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49626 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49628 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49630 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49632 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49634 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49636 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49638 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49640 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49642 - \"POST /api/v1/tasks HTTP/1.1\" 201 Created\nINFO:     127.0.0.1:49644 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49646 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49648 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49650 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49616 - \"PUT /api/v1/tasks/task-8f289da3-77fb-4c80-aacb-18a836164717/status HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49652 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49654 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49656 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49658 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49660 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49662 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49664 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49666 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49668 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49670 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49672 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49674 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49676 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49678 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49680 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49682 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49684 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49686 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49688 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49690 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49692 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49694 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49696 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49698 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49700 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49616 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49702 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49704 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49706 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49708 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49710 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49712 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49714 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49716 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49718 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49720 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49723 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49726 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49728 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49730 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49732 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49734 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49736 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49738 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49740 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49742 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49744 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49746 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49748 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49750 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49752 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49754 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49756 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49758 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49760 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49762 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49764 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49766 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49768 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49770 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49772 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49774 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49776 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49778 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49780 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49782 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49784 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49786 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49788 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49790 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49792 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49794 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49796 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49798 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49800 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49802 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49804 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49806 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49808 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49810 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49812 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49814 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49816 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49818 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49820 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49822 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49824 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49826 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49828 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49830 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49832 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49834 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49836 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49838 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49840 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49842 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49844 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49846 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49848 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49850 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49852 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49854 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49856 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49858 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49860 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49862 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49864 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49866 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49868 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49870 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49872 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49874 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49876 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49878 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49880 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49882 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49884 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49886 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49888 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49890 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49892 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49894 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49896 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49898 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49900 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49902 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49904 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49906 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49908 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49910 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49912 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49914 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49916 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49918 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49920 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49922 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49924 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49926 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49928 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49930 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49932 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49934 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49936 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49938 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49940 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49942 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49944 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49946 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49948 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49950 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49952 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49954 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49956 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49958 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49960 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49962 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49964 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49966 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49968 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49970 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49972 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49974 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49976 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49978 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49980 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49982 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49984 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49986 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49988 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49990 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49992 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49994 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49996 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:49998 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50000 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50002 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50004 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50006 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50008 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50010 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50012 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50014 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50016 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50018 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50020 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50022 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50024 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50026 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50028 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50030 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50032 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50034 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50036 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50038 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50040 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50042 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50044 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50046 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50048 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50050 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50052 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50054 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50056 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50058 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50060 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50062 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50064 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50066 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50068 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50070 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50072 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50074 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50076 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50078 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50080 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50082 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50084 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50086 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50088 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50090 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50092 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50094 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50096 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50098 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50100 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50102 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50104 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50106 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50108 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50110 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50112 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50114 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50116 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50118 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50120 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50122 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50124 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50126 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50128 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50130 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50132 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50134 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50136 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50138 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50140 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50142 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50144 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50146 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50148 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50150 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50152 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50154 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50156 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50158 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50160 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50162 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50164 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50166 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50168 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50170 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50172 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50174 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50176 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50178 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50180 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50182 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50184 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50186 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50188 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50190 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50192 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50194 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50196 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50198 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50200 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50202 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50204 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50206 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50208 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50210 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50212 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50214 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50216 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50218 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50220 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50222 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50224 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50226 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50228 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50230 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50232 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50234 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50236 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50238 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50240 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50242 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50244 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50246 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50248 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50250 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50252 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50254 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50256 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50258 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50260 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50262 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50264 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50266 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50268 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50270 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50272 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50274 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50276 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50278 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50280 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50282 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50285 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50290 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50288 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50292 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50294 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50296 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50299 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50301 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50303 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50305 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50307 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50309 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50311 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50313 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50315 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50317 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50319 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50321 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50323 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50325 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50327 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50329 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50331 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50333 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50335 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50337 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50339 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50342 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50344 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50346 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50348 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50350 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50352 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50354 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50356 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50358 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50360 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50362 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50364 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50366 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50368 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50370 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50372 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50374 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50376 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50378 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50380 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50382 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50384 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50386 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50388 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50390 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50392 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50394 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50396 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50398 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50400 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50402 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50404 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50406 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50408 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50410 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50412 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50414 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50416 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50418 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50420 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50422 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50424 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50426 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50428 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50430 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50432 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50434 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50436 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50438 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50440 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50442 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50444 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50446 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50448 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50450 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50452 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50455 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50456 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50458 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50460 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50462 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50464 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50466 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50468 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50470 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50472 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50474 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50476 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50478 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50480 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50482 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50484 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50486 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50488 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50490 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50492 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50494 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50496 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50498 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50500 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50502 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50504 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50506 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50508 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50510 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50512 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50514 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50516 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50518 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50520 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50522 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50524 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50526 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50528 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50530 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50532 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50534 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50537 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50538 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50540 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50542 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50544 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50546 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50548 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50550 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50552 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50554 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50556 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50558 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50560 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50562 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50564 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50566 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50568 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50570 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50572 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50574 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50576 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50578 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50580 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50582 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50584 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50586 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50588 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50590 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50592 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50594 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50596 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50598 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50600 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50602 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50604 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50606 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50608 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50610 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50612 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50614 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50616 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50618 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50620 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50622 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50624 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50626 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50628 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50630 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50632 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50634 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50636 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50638 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50640 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50642 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50644 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50646 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50648 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50650 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50652 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50654 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50656 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50658 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50660 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50662 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50664 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50666 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50668 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50670 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50672 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50674 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50676 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50678 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50680 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50682 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50684 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50686 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50688 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50690 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50692 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50694 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50696 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50698 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50700 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50704 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50702 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50706 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50708 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50710 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50712 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50714 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50716 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50718 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50720 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50722 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50724 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50726 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50728 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50730 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50732 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50734 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50736 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50738 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50740 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50742 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50744 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50746 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50748 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50750 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50752 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50754 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50756 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50758 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50760 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50762 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50764 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50766 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50768 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50770 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50772 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50774 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50776 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50778 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50780 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50782 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50784 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50786 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50788 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50790 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50792 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50794 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50796 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50798 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50800 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50802 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50804 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50806 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50808 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50810 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50812 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50814 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50816 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50818 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50820 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50822 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50824 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50826 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50828 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50830 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50832 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50834 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50836 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50838 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50840 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50842 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50844 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50846 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50848 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50850 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50852 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50854 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50856 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50858 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50860 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50862 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50864 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50866 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50868 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50870 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50872 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50874 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50876 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50878 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50880 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50882 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50884 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50886 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50888 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50890 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50892 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50894 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50896 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50898 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50900 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50902 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50904 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50906 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50908 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50910 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50912 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50914 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50916 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50918 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50920 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50922 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50924 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50926 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50928 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50930 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50932 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50934 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50936 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50938 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50940 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50942 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50944 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50946 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50948 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50950 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50953 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50955 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50957 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50959 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50961 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50963 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50965 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50967 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50969 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50971 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50973 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50975 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50977 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50979 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50981 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50983 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50985 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50987 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50989 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50991 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50993 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50995 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50997 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:50999 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51001 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51003 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51005 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51007 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51009 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51011 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51013 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51015 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51017 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51019 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51021 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51023 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51025 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51027 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51029 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51031 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51033 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51035 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51037 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51039 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51041 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51043 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51045 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51047 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51049 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51051 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51053 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51055 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51057 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51059 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51061 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51063 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51065 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51067 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51069 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51071 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51073 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51075 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51077 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51079 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51081 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51083 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51085 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51087 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51089 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51091 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51094 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51061 - \"PUT /api/v1/tasks/task-8f289da3-77fb-4c80-aacb-18a836164717/status HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51098 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51100 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51102 - \"GET /api/v1/entities/asset-01 HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51104 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [92060]\n",
+    "sitecustomize_dir": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/lagrange-deep-prove-demo/.zorn-cert-runtime",
+    "task": {
+      "author": {
+        "system": {
+          "serviceName": "auto-reconnaissance"
+        }
+      },
+      "createTime": "2026-06-22T03:11:48.250126Z",
+      "create_time": "2026-06-22T03:11:48.250126Z",
+      "createdBy": {
+        "system": {
+          "serviceName": "auto-reconnaissance"
+        }
+      },
+      "created_by": {
+        "system": {
+          "serviceName": "auto-reconnaissance"
+        }
+      },
+      "description": "Standard investigation task. Distance: 1573m, Bearing: 45\u00b0, Threat: DISPOSITION_HOSTILE",
+      "displayName": "Investigation: INVESTIGATE",
+      "display_name": "Investigation: INVESTIGATE",
+      "initialEntities": [
+        {
+          "entity": {
+            "aliases": {
+              "alternateIds": null,
+              "name": "Simulated Asset asset-01"
+            },
+            "correlation": null,
+            "createdTime": null,
+            "dataClassification": null,
+            "description": null,
+            "dimensions": null,
+            "entityId": "asset-01",
+            "expiryTime": "2026-06-22T03:12:01.659962Z",
+            "geoDetails": null,
+            "geoShape": null,
+            "groupDetails": null,
+            "health": null,
+            "indicators": null,
+            "isLive": true,
+            "location": {
+              "acceleration": null,
+              "attitudeEnu": null,
+              "position": {
+                "altitudeAglMeters": null,
+                "altitudeAsfMeters": null,
+                "altitudeHaeMeters": 55.0,
+                "latitudeDegrees": 0.01,
+                "longitudeDegrees": 0.01,
+                "pressureDepthMeters": null
+              },
+              "speedMps": 0.0,
+              "velocityEnu": {
+                "e": 0.0,
+                "n": 0.0,
+                "u": 0.0
+              }
+            },
+            "locationUncertainty": null,
+            "media": null,
+            "milView": {
+              "disposition": "DISPOSITION_FRIENDLY",
+              "environment": "ENVIRONMENT_SURFACE",
+              "nationality": null
+            },
+            "noExpiry": null,
+            "ontology": {
+              "platformType": "USV",
+              "specificType": null,
+              "template": "TEMPLATE_ASSET"
+            },
+            "orbit": null,
+            "overrides": null,
+            "payloads": null,
+            "powerState": null,
+            "provenance": {
+              "dataType": "Simulated Asset",
+              "integrationName": "auto-reconnaissance",
+              "sourceDescription": null,
+              "sourceId": null,
+              "sourceUpdateTime": "2026-06-22T03:11:46.660019Z"
+            },
+            "relationships": null,
+            "routeDetails": null,
+            "schedules": null,
+            "sensors": null,
+            "signal": null,
+            "status": null,
+            "supplies": null,
+            "targetPriority": null,
+            "taskCatalog": {
+              "taskDefinitions": [
+                {
+                  "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Investigate"
+                },
+                {
+                  "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.MoveToPosition"
+                },
+                {
+                  "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Evade"
+                },
+                {
+                  "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Intercept"
+                },
+                {
+                  "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Surveillance"
+                }
+              ]
+            },
+            "tracked": null,
+            "transponderCodes": null,
+            "visualDetails": null
+          },
+          "snapshot": false
+        }
+      ],
+      "isExecutedElsewhere": false,
+      "lastUpdateTime": "2026-06-22T03:13:18.836295Z",
+      "lastUpdatedBy": {
+        "system": {
+          "serviceName": "auto-reconnaissance"
+        }
+      },
+      "last_update_time": "2026-06-22T03:13:18.836295Z",
+      "last_updated_by": {
+        "system": {
+          "serviceName": "auto-reconnaissance"
+        }
+      },
+      "relations": {
+        "assignee": {
+          "system": {
+            "entityId": "asset-01",
+            "entity_id": "asset-01"
+          }
+        }
+      },
+      "specification": {
+        "@type": "type.googleapis.com/anduril.tasks.v2.Investigate",
+        "type": "type.googleapis.com/anduril.tasks.v2.Investigate"
+      },
+      "status": {
+        "status": "STATUS_DONE_OK"
+      },
+      "taskId": "task-8f289da3-77fb-4c80-aacb-18a836164717",
+      "task_id": "task-8f289da3-77fb-4c80-aacb-18a836164717",
+      "version": {
+        "definitionVersion": 1,
+        "definition_version": 1,
+        "statusVersion": 3,
+        "status_version": 3,
+        "taskId": "task-8f289da3-77fb-4c80-aacb-18a836164717",
+        "task_id": "task-8f289da3-77fb-4c80-aacb-18a836164717"
+      }
+    },
+    "tasks.listen_as_agent": {
+      "task": {
+        "author": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "createTime": "2026-06-22T03:11:48.250126Z",
+        "create_time": "2026-06-22T03:11:48.250126Z",
+        "createdBy": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "created_by": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "description": "Standard investigation task. Distance: 1573m, Bearing: 45\u00b0, Threat: DISPOSITION_HOSTILE",
+        "displayName": "Investigation: INVESTIGATE",
+        "display_name": "Investigation: INVESTIGATE",
+        "initialEntities": [
+          {
+            "entity": {
+              "aliases": {
+                "alternateIds": null,
+                "name": "Simulated Asset asset-01"
+              },
+              "correlation": null,
+              "createdTime": null,
+              "dataClassification": null,
+              "description": null,
+              "dimensions": null,
+              "entityId": "asset-01",
+              "expiryTime": "2026-06-22T03:12:01.659962Z",
+              "geoDetails": null,
+              "geoShape": null,
+              "groupDetails": null,
+              "health": null,
+              "indicators": null,
+              "isLive": true,
+              "location": {
+                "acceleration": null,
+                "attitudeEnu": null,
+                "position": {
+                  "altitudeAglMeters": null,
+                  "altitudeAsfMeters": null,
+                  "altitudeHaeMeters": 55.0,
+                  "latitudeDegrees": 0.01,
+                  "longitudeDegrees": 0.01,
+                  "pressureDepthMeters": null
+                },
+                "speedMps": 0.0,
+                "velocityEnu": {
+                  "e": 0.0,
+                  "n": 0.0,
+                  "u": 0.0
+                }
+              },
+              "locationUncertainty": null,
+              "media": null,
+              "milView": {
+                "disposition": "DISPOSITION_FRIENDLY",
+                "environment": "ENVIRONMENT_SURFACE",
+                "nationality": null
+              },
+              "noExpiry": null,
+              "ontology": {
+                "platformType": "USV",
+                "specificType": null,
+                "template": "TEMPLATE_ASSET"
+              },
+              "orbit": null,
+              "overrides": null,
+              "payloads": null,
+              "powerState": null,
+              "provenance": {
+                "dataType": "Simulated Asset",
+                "integrationName": "auto-reconnaissance",
+                "sourceDescription": null,
+                "sourceId": null,
+                "sourceUpdateTime": "2026-06-22T03:11:46.660019Z"
+              },
+              "relationships": null,
+              "routeDetails": null,
+              "schedules": null,
+              "sensors": null,
+              "signal": null,
+              "status": null,
+              "supplies": null,
+              "targetPriority": null,
+              "taskCatalog": {
+                "taskDefinitions": [
+                  {
+                    "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Investigate"
+                  },
+                  {
+                    "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.MoveToPosition"
+                  },
+                  {
+                    "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Evade"
+                  },
+                  {
+                    "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Intercept"
+                  },
+                  {
+                    "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Surveillance"
+                  }
+                ]
+              },
+              "tracked": null,
+              "transponderCodes": null,
+              "visualDetails": null
+            },
+            "snapshot": false
+          }
+        ],
+        "isExecutedElsewhere": false,
+        "lastUpdateTime": "2026-06-22T03:13:18.836295Z",
+        "lastUpdatedBy": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "last_update_time": "2026-06-22T03:13:18.836295Z",
+        "last_updated_by": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "relations": {
+          "assignee": {
+            "system": {
+              "entityId": "asset-01",
+              "entity_id": "asset-01"
+            }
+          }
+        },
+        "specification": {
+          "@type": "type.googleapis.com/anduril.tasks.v2.Investigate",
+          "type": "type.googleapis.com/anduril.tasks.v2.Investigate"
+        },
+        "status": {
+          "status": "STATUS_DONE_OK"
+        },
+        "taskId": "task-8f289da3-77fb-4c80-aacb-18a836164717",
+        "task_id": "task-8f289da3-77fb-4c80-aacb-18a836164717",
+        "version": {
+          "definitionVersion": 1,
+          "definition_version": 1,
+          "statusVersion": 3,
+          "status_version": 3,
+          "taskId": "task-8f289da3-77fb-4c80-aacb-18a836164717",
+          "task_id": "task-8f289da3-77fb-4c80-aacb-18a836164717"
+        }
+      }
+    },
+    "tasks.update_status": {
+      "task": {
+        "author": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "createTime": "2026-06-22T03:11:48.250126Z",
+        "create_time": "2026-06-22T03:11:48.250126Z",
+        "createdBy": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "created_by": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "description": "Standard investigation task. Distance: 1573m, Bearing: 45\u00b0, Threat: DISPOSITION_HOSTILE",
+        "displayName": "Investigation: INVESTIGATE",
+        "display_name": "Investigation: INVESTIGATE",
+        "initialEntities": [
+          {
+            "entity": {
+              "aliases": {
+                "alternateIds": null,
+                "name": "Simulated Asset asset-01"
+              },
+              "correlation": null,
+              "createdTime": null,
+              "dataClassification": null,
+              "description": null,
+              "dimensions": null,
+              "entityId": "asset-01",
+              "expiryTime": "2026-06-22T03:12:01.659962Z",
+              "geoDetails": null,
+              "geoShape": null,
+              "groupDetails": null,
+              "health": null,
+              "indicators": null,
+              "isLive": true,
+              "location": {
+                "acceleration": null,
+                "attitudeEnu": null,
+                "position": {
+                  "altitudeAglMeters": null,
+                  "altitudeAsfMeters": null,
+                  "altitudeHaeMeters": 55.0,
+                  "latitudeDegrees": 0.01,
+                  "longitudeDegrees": 0.01,
+                  "pressureDepthMeters": null
+                },
+                "speedMps": 0.0,
+                "velocityEnu": {
+                  "e": 0.0,
+                  "n": 0.0,
+                  "u": 0.0
+                }
+              },
+              "locationUncertainty": null,
+              "media": null,
+              "milView": {
+                "disposition": "DISPOSITION_FRIENDLY",
+                "environment": "ENVIRONMENT_SURFACE",
+                "nationality": null
+              },
+              "noExpiry": null,
+              "ontology": {
+                "platformType": "USV",
+                "specificType": null,
+                "template": "TEMPLATE_ASSET"
+              },
+              "orbit": null,
+              "overrides": null,
+              "payloads": null,
+              "powerState": null,
+              "provenance": {
+                "dataType": "Simulated Asset",
+                "integrationName": "auto-reconnaissance",
+                "sourceDescription": null,
+                "sourceId": null,
+                "sourceUpdateTime": "2026-06-22T03:11:46.660019Z"
+              },
+              "relationships": null,
+              "routeDetails": null,
+              "schedules": null,
+              "sensors": null,
+              "signal": null,
+              "status": null,
+              "supplies": null,
+              "targetPriority": null,
+              "taskCatalog": {
+                "taskDefinitions": [
+                  {
+                    "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Investigate"
+                  },
+                  {
+                    "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.MoveToPosition"
+                  },
+                  {
+                    "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Evade"
+                  },
+                  {
+                    "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Intercept"
+                  },
+                  {
+                    "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Surveillance"
+                  }
+                ]
+              },
+              "tracked": null,
+              "transponderCodes": null,
+              "visualDetails": null
+            },
+            "snapshot": false
+          }
+        ],
+        "isExecutedElsewhere": false,
+        "lastUpdateTime": "2026-06-22T03:13:18.836295Z",
+        "lastUpdatedBy": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "last_update_time": "2026-06-22T03:13:18.836295Z",
+        "last_updated_by": {
+          "system": {
+            "serviceName": "auto-reconnaissance"
+          }
+        },
+        "relations": {
+          "assignee": {
+            "system": {
+              "entityId": "asset-01",
+              "entity_id": "asset-01"
+            }
+          }
+        },
+        "specification": {
+          "@type": "type.googleapis.com/anduril.tasks.v2.Investigate",
+          "type": "type.googleapis.com/anduril.tasks.v2.Investigate"
+        },
+        "status": {
+          "status": "STATUS_DONE_OK"
+        },
+        "taskId": "task-8f289da3-77fb-4c80-aacb-18a836164717",
+        "task_id": "task-8f289da3-77fb-4c80-aacb-18a836164717",
+        "version": {
+          "definitionVersion": 1,
+          "definition_version": 1,
+          "statusVersion": 3,
+          "status_version": 3,
+          "taskId": "task-8f289da3-77fb-4c80-aacb-18a836164717",
+          "task_id": "task-8f289da3-77fb-4c80-aacb-18a836164717"
+        }
+      }
+    }
+  },
+  "failed": [],
+  "fixture": "lagrange-deep-prove-demo",
+  "missing": [],
+  "mode": "strict",
+  "passed": [
+    "entities.publish",
+    "entities.stream",
+    "entities.override",
+    "tasks.listen_as_agent",
+    "tasks.update_status"
+  ],
+  "result": "pass",
+  "zorn_version": "0.1.0"
+}

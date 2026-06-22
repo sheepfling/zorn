@@ -1,0 +1,524 @@
+{
+  "details": {
+    "command": [
+      "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/tyler-alfred-agent/.venv/bin/python",
+      "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/tyler-alfred-agent/.zorn-cert-runtime/alfred_lattice_cert.py"
+    ],
+    "entities.override": {
+      "track": {
+        "aliases": null,
+        "correlation": null,
+        "createdTime": "2026-06-22T03:21:39.130203Z",
+        "dataClassification": null,
+        "description": "RF-DETR detection: small_uas (cam cam-01)",
+        "dimensions": null,
+        "entityId": "cv-zorn-alfred-track",
+        "entity_id": "cv-zorn-alfred-track",
+        "expiryTime": "2026-06-22T03:21:49.130223Z",
+        "geoDetails": null,
+        "geoShape": null,
+        "groupDetails": null,
+        "health": null,
+        "indicators": null,
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "acceleration": null,
+          "attitudeEnu": null,
+          "position": {
+            "altitudeAglMeters": null,
+            "altitudeAsfMeters": null,
+            "altitudeHaeMeters": null,
+            "latitudeDegrees": 37.775,
+            "longitudeDegrees": -122.418,
+            "pressureDepthMeters": null
+          },
+          "speedMps": null,
+          "velocityEnu": null
+        },
+        "locationUncertainty": null,
+        "media": null,
+        "milView": {
+          "disposition": "DISPOSITION_SUSPICIOUS",
+          "environment": null,
+          "nationality": null
+        },
+        "noExpiry": null,
+        "ontology": {
+          "platformType": "small_uas",
+          "specificType": null,
+          "template": "TEMPLATE_TRACK"
+        },
+        "orbit": null,
+        "overrides": {
+          "mil_view.disposition": "DISPOSITION_SUSPICIOUS"
+        },
+        "payloads": null,
+        "powerState": null,
+        "provenance": {
+          "dataType": null,
+          "integrationName": "argus-rfdetr",
+          "sourceDescription": null,
+          "sourceId": null,
+          "sourceUpdateTime": "2026-06-22T03:21:39.130677Z"
+        },
+        "relationships": null,
+        "routeDetails": null,
+        "schedules": null,
+        "sensors": null,
+        "signal": null,
+        "status": null,
+        "supplies": null,
+        "symbology": null,
+        "targetPriority": null,
+        "taskCatalog": null,
+        "tracked": {
+          "lastMeasurementTime": null,
+          "lineOfBearing": null,
+          "numberOfObjects": null,
+          "radarCrossSection": null,
+          "sensorHits": null,
+          "trackQualityWrapper": 9
+        },
+        "transponderCodes": null,
+        "visualDetails": null
+      }
+    },
+    "entities.publish": {
+      "track": {
+        "aliases": null,
+        "correlation": null,
+        "createdTime": "2026-06-22T03:21:39.130203Z",
+        "dataClassification": null,
+        "description": "RF-DETR detection: small_uas (cam cam-01)",
+        "dimensions": null,
+        "entityId": "cv-zorn-alfred-track",
+        "entity_id": "cv-zorn-alfred-track",
+        "expiryTime": "2026-06-22T03:21:49.130223Z",
+        "geoDetails": null,
+        "geoShape": null,
+        "groupDetails": null,
+        "health": null,
+        "indicators": null,
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "acceleration": null,
+          "attitudeEnu": null,
+          "position": {
+            "altitudeAglMeters": null,
+            "altitudeAsfMeters": null,
+            "altitudeHaeMeters": null,
+            "latitudeDegrees": 37.775,
+            "longitudeDegrees": -122.418,
+            "pressureDepthMeters": null
+          },
+          "speedMps": null,
+          "velocityEnu": null
+        },
+        "locationUncertainty": null,
+        "media": null,
+        "milView": {
+          "disposition": "DISPOSITION_SUSPICIOUS",
+          "environment": null,
+          "nationality": null
+        },
+        "noExpiry": null,
+        "ontology": {
+          "platformType": "small_uas",
+          "specificType": null,
+          "template": "TEMPLATE_TRACK"
+        },
+        "orbit": null,
+        "overrides": {
+          "mil_view.disposition": "DISPOSITION_SUSPICIOUS"
+        },
+        "payloads": null,
+        "powerState": null,
+        "provenance": {
+          "dataType": null,
+          "integrationName": "argus-rfdetr",
+          "sourceDescription": null,
+          "sourceId": null,
+          "sourceUpdateTime": "2026-06-22T03:21:39.130677Z"
+        },
+        "relationships": null,
+        "routeDetails": null,
+        "schedules": null,
+        "sensors": null,
+        "signal": null,
+        "status": null,
+        "supplies": null,
+        "symbology": null,
+        "targetPriority": null,
+        "taskCatalog": null,
+        "tracked": {
+          "lastMeasurementTime": null,
+          "lineOfBearing": null,
+          "numberOfObjects": null,
+          "radarCrossSection": null,
+          "sensorHits": null,
+          "trackQualityWrapper": 9
+        },
+        "transponderCodes": null,
+        "visualDetails": null
+      }
+    },
+    "entities.stream": {
+      "stream_ingest_count": 3
+    },
+    "install": {
+      "args": [
+        "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/tyler-alfred-agent/.venv/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "anduril-lattice-sdk"
+      ],
+      "returncode": 0,
+      "stderr": "WARNING: The directory '/Users/rick/Library/Caches/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.\n\n[notice] A new release of pip is available: 24.0 -> 26.1.2\n[notice] To update, run: /Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/tyler-alfred-agent/.venv/bin/python -m pip install --upgrade pip\n",
+      "stdout": "Requirement already satisfied: anduril-lattice-sdk in ./.venv/lib/python3.12/site-packages (4.14.0)\nRequirement already satisfied: httpx>=0.21.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk) (0.28.1)\nRequirement already satisfied: pydantic>=1.9.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk) (2.13.4)\nRequirement already satisfied: pydantic-core<3.0.0,>=2.18.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk) (2.46.4)\nRequirement already satisfied: typing_extensions>=4.0.0 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk) (4.15.0)\nRequirement already satisfied: anyio in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk) (4.14.0)\nRequirement already satisfied: certifi in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk) (2026.6.17)\nRequirement already satisfied: httpcore==1.* in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk) (1.0.9)\nRequirement already satisfied: idna in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk) (3.18)\nRequirement already satisfied: h11>=0.16 in ./.venv/lib/python3.12/site-packages (from httpcore==1.*->httpx>=0.21.2->anduril-lattice-sdk) (0.16.0)\nRequirement already satisfied: annotated-types>=0.6.0 in ./.venv/lib/python3.12/site-packages (from pydantic>=1.9.2->anduril-lattice-sdk) (0.7.0)\nRequirement already satisfied: typing-inspection>=0.4.2 in ./.venv/lib/python3.12/site-packages (from pydantic>=1.9.2->anduril-lattice-sdk) (0.4.2)\n"
+    },
+    "local_mock": {
+      "exists": true,
+      "path": "scripts/lattice_mock.py",
+      "task": {
+        "author": {
+          "system": {
+            "serviceName": "argus-hivemind"
+          }
+        },
+        "createTime": "2026-06-22T03:21:43.181343Z",
+        "create_time": "2026-06-22T03:21:43.181343Z",
+        "createdBy": {
+          "system": {
+            "serviceName": "argus-hivemind"
+          }
+        },
+        "created_by": {
+          "system": {
+            "serviceName": "argus-hivemind"
+          }
+        },
+        "description": "ARGUS ISR: asset alfred-asset-01 \u2192 track cv-zorn-alfred-track",
+        "initialEntities": [
+          {
+            "entity": {
+              "entityId": "alfred-asset-01"
+            },
+            "snapshot": false
+          },
+          {
+            "entity": {
+              "entityId": "cv-zorn-alfred-track"
+            },
+            "snapshot": false
+          }
+        ],
+        "isExecutedElsewhere": false,
+        "lastUpdateTime": "2026-06-22T03:21:43.181343Z",
+        "lastUpdatedBy": {
+          "system": {
+            "serviceName": "argus-hivemind"
+          }
+        },
+        "last_update_time": "2026-06-22T03:21:43.181343Z",
+        "last_updated_by": {
+          "system": {
+            "serviceName": "argus-hivemind"
+          }
+        },
+        "relations": {
+          "assignee": {
+            "system": {
+              "entityId": "alfred-asset-01",
+              "entity_id": "alfred-asset-01"
+            }
+          }
+        },
+        "specification": {
+          "@type": "type.googleapis.com/anduril.tasks.v2.Investigate",
+          "objective": {
+            "entity_id": "cv-zorn-alfred-track"
+          },
+          "type": "type.googleapis.com/anduril.tasks.v2.Investigate"
+        },
+        "status": {
+          "status": "STATUS_CREATED"
+        },
+        "taskId": "task-2e79ed72-478d-4e64-9616-bc6963b78cac",
+        "task_id": "task-2e79ed72-478d-4e64-9616-bc6963b78cac",
+        "version": {
+          "definitionVersion": 1,
+          "definition_version": 1,
+          "statusVersion": 1,
+          "status_version": 1,
+          "taskId": "task-2e79ed72-478d-4e64-9616-bc6963b78cac",
+          "task_id": "task-2e79ed72-478d-4e64-9616-bc6963b78cac"
+        }
+      }
+    },
+    "process": {
+      "args": [
+        "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/tyler-alfred-agent/.venv/bin/python",
+        "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/tyler-alfred-agent/.zorn-cert-runtime/alfred_lattice_cert.py"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    "result_payload": {
+      "local_mock_exists": true,
+      "stream_ingest_count": 3,
+      "tasks": [
+        {
+          "author": {
+            "system": {
+              "serviceName": "argus-hivemind"
+            }
+          },
+          "createTime": "2026-06-22T03:21:43.181343Z",
+          "create_time": "2026-06-22T03:21:43.181343Z",
+          "createdBy": {
+            "system": {
+              "serviceName": "argus-hivemind"
+            }
+          },
+          "created_by": {
+            "system": {
+              "serviceName": "argus-hivemind"
+            }
+          },
+          "description": "ARGUS ISR: asset alfred-asset-01 \u2192 track cv-zorn-alfred-track",
+          "initialEntities": [
+            {
+              "entity": {
+                "entityId": "alfred-asset-01"
+              },
+              "snapshot": false
+            },
+            {
+              "entity": {
+                "entityId": "cv-zorn-alfred-track"
+              },
+              "snapshot": false
+            }
+          ],
+          "isExecutedElsewhere": false,
+          "lastUpdateTime": "2026-06-22T03:21:43.181343Z",
+          "lastUpdatedBy": {
+            "system": {
+              "serviceName": "argus-hivemind"
+            }
+          },
+          "last_update_time": "2026-06-22T03:21:43.181343Z",
+          "last_updated_by": {
+            "system": {
+              "serviceName": "argus-hivemind"
+            }
+          },
+          "relations": {
+            "assignee": {
+              "system": {
+                "entityId": "alfred-asset-01",
+                "entity_id": "alfred-asset-01"
+              }
+            }
+          },
+          "specification": {
+            "@type": "type.googleapis.com/anduril.tasks.v2.Investigate",
+            "objective": {
+              "entity_id": "cv-zorn-alfred-track"
+            },
+            "type": "type.googleapis.com/anduril.tasks.v2.Investigate"
+          },
+          "status": {
+            "status": "STATUS_CREATED"
+          },
+          "taskId": "task-2e79ed72-478d-4e64-9616-bc6963b78cac",
+          "task_id": "task-2e79ed72-478d-4e64-9616-bc6963b78cac",
+          "version": {
+            "definitionVersion": 1,
+            "definition_version": 1,
+            "statusVersion": 1,
+            "status_version": 1,
+            "taskId": "task-2e79ed72-478d-4e64-9616-bc6963b78cac",
+            "task_id": "task-2e79ed72-478d-4e64-9616-bc6963b78cac"
+          }
+        }
+      ],
+      "track": {
+        "aliases": null,
+        "correlation": null,
+        "createdTime": "2026-06-22T03:21:39.130203Z",
+        "dataClassification": null,
+        "description": "RF-DETR detection: small_uas (cam cam-01)",
+        "dimensions": null,
+        "entityId": "cv-zorn-alfred-track",
+        "entity_id": "cv-zorn-alfred-track",
+        "expiryTime": "2026-06-22T03:21:49.130223Z",
+        "geoDetails": null,
+        "geoShape": null,
+        "groupDetails": null,
+        "health": null,
+        "indicators": null,
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "acceleration": null,
+          "attitudeEnu": null,
+          "position": {
+            "altitudeAglMeters": null,
+            "altitudeAsfMeters": null,
+            "altitudeHaeMeters": null,
+            "latitudeDegrees": 37.775,
+            "longitudeDegrees": -122.418,
+            "pressureDepthMeters": null
+          },
+          "speedMps": null,
+          "velocityEnu": null
+        },
+        "locationUncertainty": null,
+        "media": null,
+        "milView": {
+          "disposition": "DISPOSITION_SUSPICIOUS",
+          "environment": null,
+          "nationality": null
+        },
+        "noExpiry": null,
+        "ontology": {
+          "platformType": "small_uas",
+          "specificType": null,
+          "template": "TEMPLATE_TRACK"
+        },
+        "orbit": null,
+        "overrides": {
+          "mil_view.disposition": "DISPOSITION_SUSPICIOUS"
+        },
+        "payloads": null,
+        "powerState": null,
+        "provenance": {
+          "dataType": null,
+          "integrationName": "argus-rfdetr",
+          "sourceDescription": null,
+          "sourceId": null,
+          "sourceUpdateTime": "2026-06-22T03:21:39.130677Z"
+        },
+        "relationships": null,
+        "routeDetails": null,
+        "schedules": null,
+        "sensors": null,
+        "signal": null,
+        "status": null,
+        "supplies": null,
+        "symbology": null,
+        "targetPriority": null,
+        "taskCatalog": null,
+        "tracked": {
+          "lastMeasurementTime": null,
+          "lineOfBearing": null,
+          "numberOfObjects": null,
+          "radarCrossSection": null,
+          "sensorHits": null,
+          "trackQualityWrapper": 9
+        },
+        "transponderCodes": null,
+        "visualDetails": null
+      }
+    },
+    "runtime_shim": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/tyler-alfred-agent/.zorn-cert-runtime/sitecustomize.py",
+    "server_log": "INFO:     Started server process [4258]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on https://127.0.0.1:51285 (Press CTRL+C to quit)\nINFO:     127.0.0.1:51291 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51294 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51296 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51296 - \"POST /api/v1/entities/stream HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51298 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51300 - \"GET /api/v1/entities/cv-zorn-alfred-track HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51302 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51304 - \"GET /api/v1/entities/cv-zorn-alfred-track HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51306 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51308 - \"GET /api/v1/entities/cv-zorn-alfred-track HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51310 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51298 - \"PUT /api/v1/entities/cv-zorn-alfred-track/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51298 - \"POST /api/v1/tasks HTTP/1.1\" 201 Created\nINFO:     127.0.0.1:51312 - \"GET /api/v1/entities/cv-zorn-alfred-track HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:51314 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [4258]\n",
+    "tasks.create": {
+      "tasks": [
+        {
+          "author": {
+            "system": {
+              "serviceName": "argus-hivemind"
+            }
+          },
+          "createTime": "2026-06-22T03:21:43.181343Z",
+          "create_time": "2026-06-22T03:21:43.181343Z",
+          "createdBy": {
+            "system": {
+              "serviceName": "argus-hivemind"
+            }
+          },
+          "created_by": {
+            "system": {
+              "serviceName": "argus-hivemind"
+            }
+          },
+          "description": "ARGUS ISR: asset alfred-asset-01 \u2192 track cv-zorn-alfred-track",
+          "initialEntities": [
+            {
+              "entity": {
+                "entityId": "alfred-asset-01"
+              },
+              "snapshot": false
+            },
+            {
+              "entity": {
+                "entityId": "cv-zorn-alfred-track"
+              },
+              "snapshot": false
+            }
+          ],
+          "isExecutedElsewhere": false,
+          "lastUpdateTime": "2026-06-22T03:21:43.181343Z",
+          "lastUpdatedBy": {
+            "system": {
+              "serviceName": "argus-hivemind"
+            }
+          },
+          "last_update_time": "2026-06-22T03:21:43.181343Z",
+          "last_updated_by": {
+            "system": {
+              "serviceName": "argus-hivemind"
+            }
+          },
+          "relations": {
+            "assignee": {
+              "system": {
+                "entityId": "alfred-asset-01",
+                "entity_id": "alfred-asset-01"
+              }
+            }
+          },
+          "specification": {
+            "@type": "type.googleapis.com/anduril.tasks.v2.Investigate",
+            "objective": {
+              "entity_id": "cv-zorn-alfred-track"
+            },
+            "type": "type.googleapis.com/anduril.tasks.v2.Investigate"
+          },
+          "status": {
+            "status": "STATUS_CREATED"
+          },
+          "taskId": "task-2e79ed72-478d-4e64-9616-bc6963b78cac",
+          "task_id": "task-2e79ed72-478d-4e64-9616-bc6963b78cac",
+          "version": {
+            "definitionVersion": 1,
+            "definition_version": 1,
+            "statusVersion": 1,
+            "status_version": 1,
+            "taskId": "task-2e79ed72-478d-4e64-9616-bc6963b78cac",
+            "task_id": "task-2e79ed72-478d-4e64-9616-bc6963b78cac"
+          }
+        }
+      ]
+    }
+  },
+  "failed": [],
+  "fixture": "tyler-alfred-agent",
+  "missing": [],
+  "mode": "stress",
+  "passed": [
+    "entities.publish",
+    "entities.stream",
+    "entities.override",
+    "tasks.create",
+    "local_mock"
+  ],
+  "result": "pass",
+  "zorn_version": "0.1.0"
+}

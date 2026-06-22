@@ -1,0 +1,56 @@
+coverage:
+  - capability: entities.publish
+    official_sample: AIS REST/gRPC
+    third_party_fixture: MAVLink, DragonSync, ADS-B
+    synthetic_scenario: BA-001
+    status: required
+  - capability: entities.stream
+    official_sample: Entity Visualizer
+    third_party_fixture: Maven
+    synthetic_scenario: BA-007
+    status: required
+  - capability: entities.override
+    official_sample: Auto Recon
+    third_party_fixture: DeepProve, ALFRED
+    synthetic_scenario: BA-005
+    status: required
+  - capability: tasks.create
+    official_sample: Auto Recon
+    third_party_fixture: DeepProve
+    synthetic_scenario: ADS-002
+    status: required
+  - capability: tasks.listen_as_agent
+    official_sample: Auto Recon
+    third_party_fixture: DeepProve
+    synthetic_scenario: ADS-003
+    status: required
+  - capability: tasks.update_status
+    official_sample: Auto Recon
+    third_party_fixture: DeepProve
+    synthetic_scenario: ADS-004
+    status: required
+  - capability: objects.upload
+    official_sample: Objects
+    third_party_fixture: null
+    synthetic_scenario: BA-006
+    status: required
+  - capability: objects.thumbnail_linkage
+    official_sample: Thumbnail
+    third_party_fixture: null
+    synthetic_scenario: BA-006
+    status: required
+  - capability: fusion.track_correlation
+    official_sample: null
+    third_party_fixture: DragonSync/Maven-ish
+    synthetic_scenario: BA-004
+    status: zorn_specific
+  - capability: effects.intercept
+    official_sample: null
+    third_party_fixture: null
+    synthetic_scenario: ADS-006/ADS-007
+    status: zorn_specific
+  - capability: replay.deterministic
+    official_sample: null
+    third_party_fixture: null
+    synthetic_scenario: all scenarios
+    status: zorn_specific

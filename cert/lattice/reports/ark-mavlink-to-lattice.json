@@ -1,0 +1,311 @@
+{
+  "details": {
+    "auth.bearer_token": {
+      "entity": {
+        "aliases": {
+          "name": "ARK Drone"
+        },
+        "createdTime": "2026-06-22T02:00:14.496505Z",
+        "description": "Friendly drone asset",
+        "entityId": "drone-1",
+        "entity_id": "drone-1",
+        "expiryTime": "2026-06-22T02:10:14.496507Z",
+        "health": {
+          "connectionStatus": "CONNECTION_STATUS_ONLINE",
+          "healthStatus": "HEALTH_STATUS_HEALTHY",
+          "updateTime": "2026-06-22T02:00:14.496511Z"
+        },
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "attitudeEnu": {
+            "w": 4.329780281177467e-17,
+            "x": 0.7071067811865476,
+            "y": 0.7071067811865475,
+            "z": 4.329780281177466e-17
+          },
+          "position": {
+            "altitudeAglMeters": 87.3,
+            "altitudeHaeMeters": 120.5,
+            "latitudeDegrees": 37.7749,
+            "longitudeDegrees": -122.4194
+          },
+          "velocityEnu": {
+            "e": 4.5,
+            "n": 11.2,
+            "u": 1.1
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_FRIENDLY",
+          "environment": "ENVIRONMENT_AIR"
+        },
+        "ontology": {
+          "platformType": "UAV",
+          "template": "TEMPLATE_ASSET"
+        },
+        "provenance": {
+          "dataType": "telemetry",
+          "integrationName": "mavsdk_integration",
+          "sourceUpdateTime": "2026-06-22T02:00:14.496511Z"
+        },
+        "taskCatalog": {
+          "taskDefinitions": [
+            {
+              "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.VisualId"
+            },
+            {
+              "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Monitor"
+            },
+            {
+              "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Investigate"
+            }
+          ]
+        }
+      }
+    },
+    "command": [
+      "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/ark-mavlink-to-lattice/.venv/bin/python",
+      "lattice_publisher.py"
+    ],
+    "entities.attitude": {
+      "attitude": {
+        "w": 4.329780281177467e-17,
+        "x": 0.7071067811865476,
+        "y": 0.7071067811865475,
+        "z": 4.329780281177466e-17
+      }
+    },
+    "entities.health": {
+      "health": {
+        "connectionStatus": "CONNECTION_STATUS_ONLINE",
+        "healthStatus": "HEALTH_STATUS_HEALTHY",
+        "updateTime": "2026-06-22T02:00:14.496511Z"
+      }
+    },
+    "entities.location": {
+      "location": {
+        "attitudeEnu": {
+          "w": 4.329780281177467e-17,
+          "x": 0.7071067811865476,
+          "y": 0.7071067811865475,
+          "z": 4.329780281177466e-17
+        },
+        "position": {
+          "altitudeAglMeters": 87.3,
+          "altitudeHaeMeters": 120.5,
+          "latitudeDegrees": 37.7749,
+          "longitudeDegrees": -122.4194
+        },
+        "velocityEnu": {
+          "e": 4.5,
+          "n": 11.2,
+          "u": 1.1
+        }
+      }
+    },
+    "entities.ontology": {
+      "ontology": {
+        "platformType": "UAV",
+        "template": "TEMPLATE_ASSET"
+      }
+    },
+    "entities.provenance": {
+      "provenance": {
+        "dataType": "telemetry",
+        "integrationName": "mavsdk_integration",
+        "sourceUpdateTime": "2026-06-22T02:00:14.496511Z"
+      }
+    },
+    "entities.publish": {
+      "entity": {
+        "aliases": {
+          "name": "ARK Drone"
+        },
+        "createdTime": "2026-06-22T02:00:14.496505Z",
+        "description": "Friendly drone asset",
+        "entityId": "drone-1",
+        "entity_id": "drone-1",
+        "expiryTime": "2026-06-22T02:10:14.496507Z",
+        "health": {
+          "connectionStatus": "CONNECTION_STATUS_ONLINE",
+          "healthStatus": "HEALTH_STATUS_HEALTHY",
+          "updateTime": "2026-06-22T02:00:14.496511Z"
+        },
+        "isLive": true,
+        "is_live": true,
+        "location": {
+          "attitudeEnu": {
+            "w": 4.329780281177467e-17,
+            "x": 0.7071067811865476,
+            "y": 0.7071067811865475,
+            "z": 4.329780281177466e-17
+          },
+          "position": {
+            "altitudeAglMeters": 87.3,
+            "altitudeHaeMeters": 120.5,
+            "latitudeDegrees": 37.7749,
+            "longitudeDegrees": -122.4194
+          },
+          "velocityEnu": {
+            "e": 4.5,
+            "n": 11.2,
+            "u": 1.1
+          }
+        },
+        "milView": {
+          "disposition": "DISPOSITION_FRIENDLY",
+          "environment": "ENVIRONMENT_AIR"
+        },
+        "ontology": {
+          "platformType": "UAV",
+          "template": "TEMPLATE_ASSET"
+        },
+        "provenance": {
+          "dataType": "telemetry",
+          "integrationName": "mavsdk_integration",
+          "sourceUpdateTime": "2026-06-22T02:00:14.496511Z"
+        },
+        "taskCatalog": {
+          "taskDefinitions": [
+            {
+              "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.VisualId"
+            },
+            {
+              "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Monitor"
+            },
+            {
+              "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Investigate"
+            }
+          ]
+        }
+      }
+    },
+    "entities.task_catalog": {
+      "task_catalog": {
+        "taskDefinitions": [
+          {
+            "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.VisualId"
+          },
+          {
+            "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Monitor"
+          },
+          {
+            "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Investigate"
+          }
+        ]
+      }
+    },
+    "entities.velocity_enu": {
+      "velocity": {
+        "e": 4.5,
+        "n": 11.2,
+        "u": 1.1
+      }
+    },
+    "entity": {
+      "aliases": {
+        "name": "ARK Drone"
+      },
+      "createdTime": "2026-06-22T02:00:14.496505Z",
+      "description": "Friendly drone asset",
+      "entityId": "drone-1",
+      "entity_id": "drone-1",
+      "expiryTime": "2026-06-22T02:10:14.496507Z",
+      "health": {
+        "connectionStatus": "CONNECTION_STATUS_ONLINE",
+        "healthStatus": "HEALTH_STATUS_HEALTHY",
+        "updateTime": "2026-06-22T02:00:14.496511Z"
+      },
+      "isLive": true,
+      "is_live": true,
+      "location": {
+        "attitudeEnu": {
+          "w": 4.329780281177467e-17,
+          "x": 0.7071067811865476,
+          "y": 0.7071067811865475,
+          "z": 4.329780281177466e-17
+        },
+        "position": {
+          "altitudeAglMeters": 87.3,
+          "altitudeHaeMeters": 120.5,
+          "latitudeDegrees": 37.7749,
+          "longitudeDegrees": -122.4194
+        },
+        "velocityEnu": {
+          "e": 4.5,
+          "n": 11.2,
+          "u": 1.1
+        }
+      },
+      "milView": {
+        "disposition": "DISPOSITION_FRIENDLY",
+        "environment": "ENVIRONMENT_AIR"
+      },
+      "ontology": {
+        "platformType": "UAV",
+        "template": "TEMPLATE_ASSET"
+      },
+      "provenance": {
+        "dataType": "telemetry",
+        "integrationName": "mavsdk_integration",
+        "sourceUpdateTime": "2026-06-22T02:00:14.496511Z"
+      },
+      "taskCatalog": {
+        "taskDefinitions": [
+          {
+            "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.VisualId"
+          },
+          {
+            "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Monitor"
+          },
+          {
+            "taskSpecificationUrl": "type.googleapis.com/anduril.tasks.v2.Investigate"
+          }
+        ]
+      }
+    },
+    "install": {
+      "args": [
+        "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/ark-mavlink-to-lattice/.venv/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "anduril-lattice-sdk",
+        "numpy",
+        "scipy"
+      ],
+      "returncode": 0,
+      "stderr": "WARNING: The directory '/Users/rick/Library/Caches/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.\n",
+      "stdout": "Requirement already satisfied: anduril-lattice-sdk in ./.venv/lib/python3.12/site-packages (4.14.0)\nRequirement already satisfied: numpy in ./.venv/lib/python3.12/site-packages (2.5.0)\nRequirement already satisfied: scipy in ./.venv/lib/python3.12/site-packages (1.18.0)\nRequirement already satisfied: httpx>=0.21.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk) (0.28.1)\nRequirement already satisfied: pydantic>=1.9.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk) (2.13.4)\nRequirement already satisfied: pydantic-core<3.0.0,>=2.18.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk) (2.46.4)\nRequirement already satisfied: typing_extensions>=4.0.0 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk) (4.15.0)\nRequirement already satisfied: anyio in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk) (4.14.0)\nRequirement already satisfied: certifi in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk) (2026.6.17)\nRequirement already satisfied: httpcore==1.* in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk) (1.0.9)\nRequirement already satisfied: idna in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk) (3.18)\nRequirement already satisfied: h11>=0.16 in ./.venv/lib/python3.12/site-packages (from httpcore==1.*->httpx>=0.21.2->anduril-lattice-sdk) (0.16.0)\nRequirement already satisfied: annotated-types>=0.6.0 in ./.venv/lib/python3.12/site-packages (from pydantic>=1.9.2->anduril-lattice-sdk) (0.7.0)\nRequirement already satisfied: typing-inspection>=0.4.2 in ./.venv/lib/python3.12/site-packages (from pydantic>=1.9.2->anduril-lattice-sdk) (0.4.2)\n"
+    },
+    "process": {
+      "args": [
+        "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/ark-mavlink-to-lattice/.venv/bin/python",
+        "lattice_publisher.py"
+      ],
+      "cwd": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/ark-mavlink-to-lattice",
+      "returncode": -15,
+      "stdout": "2026-06-21 21:00:14 [INFO] Publishing Entity:\n2026-06-21 21:00:14 [INFO]   Position: (37.774900, -122.419400)\n2026-06-21 21:00:14 [INFO]   Altitude: HAE=120.50m, AGL=87.30m\n2026-06-21 21:00:14 [INFO]   Velocity: N=11.20, E=4.50\n2026-06-21 21:00:14 [INFO]   Quaternion: w=0.0000, x=0.7071, y=0.7071, z=0.0000\n2026-06-21 21:00:14 [INFO] HTTP Request: PUT https://localhost:61717/api/v1/entities \"HTTP/1.1 200 OK\"\n"
+    },
+    "runtime_shim": "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-h1wprj48/ark-runtime-shim/sitecustomize.py",
+    "server_log": "INFO:     Started server process [25042]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on https://127.0.0.1:61717 (Press CTRL+C to quit)\nINFO:     127.0.0.1:61731 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61733 - \"GET /api/v1/entities/drone-1 HTTP/1.1\" 404 Not Found\nINFO:     127.0.0.1:61735 - \"GET /api/v1/entities/drone-1 HTTP/1.1\" 404 Not Found\nINFO:     127.0.0.1:61737 - \"GET /api/v1/entities/drone-1 HTTP/1.1\" 404 Not Found\nINFO:     127.0.0.1:61742 - \"GET /api/v1/entities/drone-1 HTTP/1.1\" 404 Not Found\nINFO:     127.0.0.1:61745 - \"GET /api/v1/entities/drone-1 HTTP/1.1\" 404 Not Found\nINFO:     127.0.0.1:61747 - \"GET /api/v1/entities/drone-1 HTTP/1.1\" 404 Not Found\nINFO:     127.0.0.1:61749 - \"GET /api/v1/entities/drone-1 HTTP/1.1\" 404 Not Found\nINFO:     127.0.0.1:61751 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:61753 - \"GET /api/v1/entities/drone-1 HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [25042]\n"
+  },
+  "failed": [],
+  "fixture": "ark-mavlink-to-lattice",
+  "missing": [],
+  "mode": "strict",
+  "passed": [
+    "auth.bearer_token",
+    "entities.publish",
+    "entities.location",
+    "entities.velocity_enu",
+    "entities.attitude",
+    "entities.health",
+    "entities.ontology",
+    "entities.provenance",
+    "entities.task_catalog"
+  ],
+  "result": "pass",
+  "zorn_version": "0.1.0"
+}
