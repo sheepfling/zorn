@@ -9,6 +9,7 @@ Canonical repo notes live here.
 - `reference/zorn-next-*.json` records the next milestone execution plan.
 - `reference/zorn-showcase-*.json` records showcase milestones and planned scenario coverage.
 - `design/alpha-readiness-roadmap.md` maps the technical roadmap to Alpha 1/2/3 release gates.
+- `design/alpha1-gap-closure-plan.md` captures the FastDIS-driven corrective work needed to turn Alpha1.1 into a stricter Alpha 1 without expanding the public surface.
 - `design/zorn-lattice-ecosystem-architecture.md` defines module boundaries for SDK, C2, autonomy, mesh, partner, adapter, and domain work.
 - `design/zorn-full-feature-showcase-roadmap.md` defines the Z0-Z12 showcase plan.
 - `design/zorn-product-boundaries.md` defines the separation between the compatibility data plane and Zorn product apps.

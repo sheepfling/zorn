@@ -161,12 +161,22 @@ Alpha 3 Product UI
 
 ## Current Priority
 
-The next implementation priority is Alpha 1:
+The immediate implementation priority is now Alpha 1 corrective hardening:
 
-1. Build the DIS Entity State PDU adapter.
-2. Add replay fixture and deterministic event assertions.
-3. Produce a `zorn-cert` report for DIS readiness.
-4. Keep existing SDK/sample compatibility checks green.
+1. Close the FastDIS entity parity gaps:
+   - gRPC override request parsing
+   - gRPC non-live parity
+   - override removal restoring shared state across transports
+2. Make OAuth-dev tokens distinct and expiring without inventing new auth
+   surfaces.
+3. Keep FastDIS and replay lanes on the same public Entity/Task/Object
+   interfaces used by SDK/sample certification.
+4. After the above is green, resume the DIS Entity State adapter and replay
+   tranche.
+
+The detailed corrective plan is in:
+
+- `design/alpha1-gap-closure-plan.md`
 
 ## Alpha 1 Evidence
 
