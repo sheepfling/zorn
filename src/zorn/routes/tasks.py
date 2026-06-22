@@ -7,7 +7,7 @@ from typing import Annotated, Any
 from fastapi import APIRouter, Body, Depends, HTTPException, Request, status
 from fastapi.responses import StreamingResponse
 
-from ..compat import bool_from_payload, heartbeat_seconds_from_payload, int_from_payload
+from ..compat import bool_from_payload, heartbeat_seconds_from_payload
 from ..config import AppSettings
 from ..db import Database
 from ..dependencies import get_settings, get_task_store, require_auth
@@ -73,16 +73,6 @@ def update_task_status(
 ####
 
 
-@router.post("/tasks/{task_id}/status")
-def update_task_status_post_alias(
-    task_id: str,
-    store: Annotated[TaskStore, Depends(get_task_store)],
-    payload: dict[str, Any] = Body(default_factory=dict),
-) -> dict[str, Any]:
-    return update_task_status(task_id=task_id, store=store, payload=payload)
-####
-
-
 @router.put("/tasks/{task_id}/cancel")
 def cancel_task(
     task_id: str,
@@ -97,34 +87,12 @@ def cancel_task(
 ####
 
 
-@router.post("/tasks/{task_id}/cancel")
-def cancel_task_post_alias(
-    task_id: str,
-    store: Annotated[TaskStore, Depends(get_task_store)],
-    payload: dict[str, Any] = Body(default_factory=dict),
-) -> dict[str, Any]:
-    return cancel_task(task_id=task_id, store=store, payload=payload)
-####
-
-
 @router.post("/tasks/query")
 def query_tasks(
     store: Annotated[TaskStore, Depends(get_task_store)],
     payload: dict[str, Any] = Body(default_factory=dict),
 ) -> dict[str, Any]:
     return {"tasks": store.query(payload)}
-####
-
-
-@router.post("/tasks/events")
-async def poll_task_events(
-    request: Request,
-    store: Annotated[TaskStore, Depends(get_task_store)],
-) -> dict[str, Any]:
-    body = await _json_body(request)
-    after_sequence = int_from_payload(body, "afterSequence", "fromSequence", default=0)
-    limit = int_from_payload(body, "limit", default=100)
-    return {"events": store.poll_tasks(after_sequence=after_sequence, limit=limit)}
 ####
 
 
@@ -237,31 +205,6 @@ async def stream_as_agent(
                 next_heartbeat = time.monotonic() + heartbeat_seconds
             ####
             await asyncio.sleep(settings.poll_interval_seconds)
-        ####
-    ####
-
-    return StreamingResponse(generate(), media_type="text/event-stream")
-####
-
-
-@router.post("/tasks/{task_id}/manual-control/stream")
-async def manual_control_stream(
-    task_id: str,
-    request: Request,
-    settings: Annotated[AppSettings, Depends(get_settings)],
-) -> StreamingResponse:
-    body = await _json_body(request)
-    heartbeat_seconds = heartbeat_seconds_from_payload(
-        body,
-        default_seconds=settings.heartbeat_seconds,
-        millisecond_keys=("heartbeatIntervalMs", "heartbeatIntervalMS"),
-    )
-    _ = task_id
-
-    async def generate() -> Any:
-        while not await request.is_disconnected():
-            yield format_sse("HEARTBEAT", {"heartbeat": heartbeat_payload(), **heartbeat_payload()})
-            await asyncio.sleep(heartbeat_seconds)
         ####
     ####
 

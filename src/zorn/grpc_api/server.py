@@ -7,10 +7,8 @@ from ..config import AppSettings, load_settings
 from ..runtime import StoreBundle, build_store_bundle
 from .auth import AuthInterceptor
 from .contract import assert_lattice_grpc_contract
-from .health import add_health_service, health_service_names
 from .entity_manager import EntityManagerServiceFactory
 from .proto_modules import LatticeProtoModules, assert_official_package_versions, load_lattice_proto_modules
-from .reflection import add_reflection_service
 from .task_manager import TaskManagerServiceFactory
 from .tls import bind_server
 
@@ -61,8 +59,6 @@ def build_grpc_server(
     ).build()
     proto_modules.entity_api_grpc.add_EntityManagerAPIServicer_to_server(entity_service, server)
     proto_modules.task_api_grpc.add_TaskManagerAPIServicer_to_server(task_service, server)
-    add_health_service(server)
-    add_reflection_service(server, proto_modules=proto_modules, extra_service_names=health_service_names())
     return server
 ####
 
@@ -73,4 +69,3 @@ def run() -> None:
     except KeyboardInterrupt:
         return
 ####
-

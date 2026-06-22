@@ -8,12 +8,6 @@ import grpc
 from ..config import AppSettings
 
 
-PUBLIC_GRPC_METHOD_PREFIXES: tuple[str, ...] = (
-    "/grpc.health.v1.Health/",
-    "/grpc.reflection.v1alpha.ServerReflection/",
-)
-
-
 def token_is_allowed(settings: AppSettings, token: str | None) -> bool:
     if settings.auth_mode == "none":
         return True
@@ -50,7 +44,7 @@ class AuthInterceptor(grpc.aio.ServerInterceptor):
         if handler is None:
             return None
         ####
-        if self.settings.auth_mode == "none" or _is_public_method(handler_call_details.method):
+        if self.settings.auth_mode == "none":
             return handler
         ####
         token = bearer_token_from_metadata(tuple(handler_call_details.invocation_metadata or ()))
@@ -60,12 +54,6 @@ class AuthInterceptor(grpc.aio.ServerInterceptor):
         return _wrap_unauthenticated(handler)
     ####
 ####
-
-
-def _is_public_method(method: str | None) -> bool:
-    return any((method or "").startswith(prefix) for prefix in PUBLIC_GRPC_METHOD_PREFIXES)
-####
-
 
 def _wrap_unauthenticated(handler: grpc.RpcMethodHandler) -> grpc.RpcMethodHandler:
     async def abort_unary_unary(request: Any, context: grpc.aio.ServicerContext) -> Any:

@@ -77,15 +77,6 @@ async def poll_entity_events(
 ####
 
 
-@router.post("/events/poll")
-async def poll_entity_events_alias(
-    request: Request,
-    store: Annotated[EntityStore, Depends(get_entity_store)],
-) -> dict[str, Any]:
-    return await poll_entity_events(request=request, store=store)
-####
-
-
 @router.post("/stream")
 async def stream_entity_events(
     request: Request,

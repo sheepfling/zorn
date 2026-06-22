@@ -20,7 +20,7 @@ What is already proven:
 
 - official sample corpus runs end to end;
 - major REST surfaces for entities, tasks, and objects work;
-- gRPC descriptors, reflection, health, and public Python generated-client smoke work;
+- gRPC descriptor audits and public Python generated-client smoke work;
 - several third-party integrations publish or consume data against Zorn.
 
 What is not yet proven strongly enough:

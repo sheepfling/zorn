@@ -31,6 +31,45 @@ def test_healthz_is_not_used_as_bearer_token_compatibility_proof() -> None:
     assert '"endpoint": "PUT /api/v1/entities"' in runner
 
 
+def test_default_app_mounts_only_strict_runtime_surface(tmp_path: Path) -> None:
+    settings = AppSettings(
+        auth_mode="none",
+        database_url=f"sqlite:///{tmp_path / 'strict.db'}",
+        object_root=tmp_path / "objects",
+    )
+    app = build_app(settings)
+    mounted_methods = {
+        (str(getattr(route, "path", "")), method)
+        for route in app.routes
+        for method in getattr(route, "methods", set())
+    }
+    assert ("/healthz", "GET") not in mounted_methods
+    assert ("/api/v1/entities/events/poll", "POST") not in mounted_methods
+    assert ("/api/v1/tasks/{task_id}/status", "POST") not in mounted_methods
+    assert ("/api/v1/tasks/{task_id}/cancel", "POST") not in mounted_methods
+    assert ("/api/v1/tasks/events", "POST") not in mounted_methods
+    assert ("/api/v1/tasks/{task_id}/manual-control/stream", "POST") not in mounted_methods
+
+    with TestClient(app) as client:
+        healthz = client.get("/healthz")
+        assert healthz.status_code == 404
+
+        entity_poll_alias = client.post("/api/v1/entities/events/poll", json={})
+        assert entity_poll_alias.status_code == 404
+
+        task_status_post_alias = client.post("/api/v1/tasks/task-a/status", json={})
+        assert task_status_post_alias.status_code == 405
+
+        task_cancel_post_alias = client.post("/api/v1/tasks/task-a/cancel", json={})
+        assert task_cancel_post_alias.status_code == 405
+
+        task_events_helper = client.post("/api/v1/tasks/events", json={})
+        assert task_events_helper.status_code == 405
+
+        manual_control_placeholder = client.post("/api/v1/tasks/task-a/manual-control/stream", json={})
+        assert manual_control_placeholder.status_code == 404
+
+
 def test_static_auth_distinguishes_missing_invalid_valid_and_sandbox_headers(tmp_path: Path) -> None:
     with _client(tmp_path, auth_mode="static") as client:
         missing = client.get("/api/v1/entities/missing")

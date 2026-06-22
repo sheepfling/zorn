@@ -17,7 +17,7 @@ Status: implemented baseline.
 - Pinned certification fixtures live in `cert/lattice/fixtures.yaml`.
 - Capability pass conditions live in `cert/lattice/capabilities.yaml`.
 - `zorn-cert list`, `clone`, `run`, and `report` provide the executable corpus surface.
-- gRPC descriptor audit, reflection, health, generated Python client calls, and AIS REST certification are covered.
+- gRPC descriptor audit, generated Python client calls, and AIS REST certification are covered.
 
 ## S5.2: Behavioral compliance hardening
 

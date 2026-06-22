@@ -60,7 +60,7 @@ Primary scope:
 - Official SDK smoke coverage for Python, Go, JavaScript, Java, C++, and Rust where tooling is available.
 - Official sample apps exercised with adaptation-tier reporting.
 - REST Entities, Tasks, and Objects behavior hardened against sample and SDK expectations.
-- gRPC EntityManager and TaskManager reflection, health, auth metadata, TLS modes, and generated-client calls.
+- gRPC EntityManager and TaskManager auth metadata, TLS modes, descriptor audits, and generated-client calls.
 - Golden gRPC wire fixtures for entity publish/get/stream and task create/update/cancel/listen.
 - Negative and stress certification: bad auth, stale updates, bad task transitions, reconnects, heartbeats, concurrent publish-stream.
 - Object byte fidelity, metadata, list, download, delete, and thumbnail/entity linkage.

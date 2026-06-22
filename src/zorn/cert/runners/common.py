@@ -255,8 +255,8 @@ def start_https_zorn_server(
             raise RuntimeError(f"temporary Zorn HTTPS server exited early: {last_error}")
         ####
         try:
-            status, payload = http_json("GET", f"{base_url}/healthz", token=token, cafile=cert_path)
-            if status == 200 and payload.get("ok") is True:
+            status, payload = http_json("POST", f"{base_url}/api/v1/oauth/token", token=token, cafile=cert_path, payload={"client_id": "zorn-cert", "client_secret": "zorn-cert"})
+            if status == 200 and payload.get("access_token"):
                 return HttpsServerHandle(base_url=base_url, cafile=cert_path, process=process, workspace=workspace)
             ####
             last_error = json.dumps(payload)
@@ -266,7 +266,7 @@ def start_https_zorn_server(
         time.sleep(0.2)
     ####
     stop_https_zorn_server(HttpsServerHandle(base_url=base_url, cafile=cert_path, process=process, workspace=workspace))
-    raise RuntimeError(f"temporary Zorn HTTPS server failed health check: {last_error}")
+    raise RuntimeError(f"temporary Zorn HTTPS server failed readiness check: {last_error}")
 ####
 
 
@@ -314,8 +314,8 @@ def start_http_zorn_server(*, repo_root: Path, token: str) -> HttpsServerHandle:
             raise RuntimeError(f"temporary Zorn HTTP server exited early: {last_error}")
         ####
         try:
-            status, payload = http_json("GET", f"{base_url}/healthz", token=token)
-            if status == 200 and payload.get("ok") is True:
+            status, payload = http_json("POST", f"{base_url}/api/v1/oauth/token", token=token, payload={"client_id": "zorn-cert", "client_secret": "zorn-cert"})
+            if status == 200 and payload.get("access_token"):
                 return HttpsServerHandle(base_url=base_url, cafile=None, process=process, workspace=workspace)
             ####
             last_error = json.dumps(payload)
@@ -325,7 +325,7 @@ def start_http_zorn_server(*, repo_root: Path, token: str) -> HttpsServerHandle:
         time.sleep(0.2)
     ####
     stop_https_zorn_server(HttpsServerHandle(base_url=base_url, cafile=None, process=process, workspace=workspace))
-    raise RuntimeError(f"temporary Zorn HTTP server failed health check: {last_error}")
+    raise RuntimeError(f"temporary Zorn HTTP server failed readiness check: {last_error}")
 ####
 
 
@@ -413,8 +413,8 @@ def start_dual_transport_zorn_server(*, repo_root: Path, token: str) -> DualTran
             break
         ####
         try:
-            status, payload = http_json("GET", f"{rest_base_url}/healthz", token=token, cafile=cert_path)
-            if status == 200 and payload.get("ok") is True:
+            status, payload = http_json("POST", f"{rest_base_url}/api/v1/oauth/token", token=token, cafile=cert_path, payload={"client_id": "zorn-cert", "client_secret": "zorn-cert"})
+            if status == 200 and payload.get("access_token"):
                 break
             ####
             rest_last_error = json.dumps(payload)
@@ -426,7 +426,7 @@ def start_dual_transport_zorn_server(*, repo_root: Path, token: str) -> DualTran
     if rest_process.poll() is not None:
         _terminate_process(rest_process)
         shutil.rmtree(workspace, ignore_errors=True)
-        raise RuntimeError(f"temporary Zorn dual transport REST server failed health check: {rest_last_error}")
+        raise RuntimeError(f"temporary Zorn dual transport REST server failed readiness check: {rest_last_error}")
     ####
     grpc_process = subprocess.Popen(
         grpc_command,
@@ -449,8 +449,8 @@ def start_dual_transport_zorn_server(*, repo_root: Path, token: str) -> DualTran
             break
         ####
         try:
-            status, payload = http_json("GET", f"{rest_base_url}/healthz", token=token, cafile=cert_path)
-            if status == 200 and payload.get("ok") is True and _tcp_ready("127.0.0.1", grpc_port):
+            status, payload = http_json("POST", f"{rest_base_url}/api/v1/oauth/token", token=token, cafile=cert_path, payload={"client_id": "zorn-cert", "client_secret": "zorn-cert"})
+            if status == 200 and payload.get("access_token") and _tcp_ready("127.0.0.1", grpc_port):
                 return DualTransportServerHandle(
                     rest_base_url=rest_base_url,
                     grpc_target=grpc_target,
@@ -478,7 +478,7 @@ def start_dual_transport_zorn_server(*, repo_root: Path, token: str) -> DualTran
             workspace=workspace,
         )
     )
-    raise RuntimeError(f"temporary Zorn dual transport server failed health check: {last_error}")
+    raise RuntimeError(f"temporary Zorn dual transport server failed readiness check: {last_error}")
 ####
 
 
@@ -539,8 +539,8 @@ def start_http_insecure_grpc_zorn_server(*, repo_root: Path, token: str) -> Dual
             break
         ####
         try:
-            status, payload = http_json("GET", f"{rest_base_url}/healthz", token=token)
-            if status == 200 and payload.get("ok") is True:
+            status, payload = http_json("POST", f"{rest_base_url}/api/v1/oauth/token", token=token, payload={"client_id": "zorn-cert", "client_secret": "zorn-cert"})
+            if status == 200 and payload.get("access_token"):
                 break
             ####
             rest_last_error = json.dumps(payload)
@@ -552,7 +552,7 @@ def start_http_insecure_grpc_zorn_server(*, repo_root: Path, token: str) -> Dual
     if rest_process.poll() is not None:
         _terminate_process(rest_process)
         shutil.rmtree(workspace, ignore_errors=True)
-        raise RuntimeError(f"temporary Zorn HTTP+gRPC REST server failed health check: {rest_last_error}")
+        raise RuntimeError(f"temporary Zorn HTTP+gRPC REST server failed readiness check: {rest_last_error}")
     ####
     grpc_process = subprocess.Popen(
         grpc_command,
@@ -575,8 +575,8 @@ def start_http_insecure_grpc_zorn_server(*, repo_root: Path, token: str) -> Dual
             break
         ####
         try:
-            status, payload = http_json("GET", f"{rest_base_url}/healthz", token=token)
-            if status == 200 and payload.get("ok") is True and _tcp_ready("127.0.0.1", grpc_port):
+            status, payload = http_json("POST", f"{rest_base_url}/api/v1/oauth/token", token=token, payload={"client_id": "zorn-cert", "client_secret": "zorn-cert"})
+            if status == 200 and payload.get("access_token") and _tcp_ready("127.0.0.1", grpc_port):
                 return DualTransportServerHandle(
                     rest_base_url=rest_base_url,
                     grpc_target=grpc_target,
@@ -604,7 +604,7 @@ def start_http_insecure_grpc_zorn_server(*, repo_root: Path, token: str) -> Dual
             workspace=workspace,
         )
     )
-    raise RuntimeError(f"temporary Zorn HTTP+insecure gRPC server failed health check: {last_error}")
+    raise RuntimeError(f"temporary Zorn HTTP+insecure gRPC server failed readiness check: {last_error}")
 ####
 
 

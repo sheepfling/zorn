@@ -24,3 +24,4 @@ def test_grpc_config_is_env_driven(monkeypatch) -> None:
     assert settings.grpc_strict_proto_audit is False
     assert settings.grpc_enforce_task_status_version is False
 ####
+
