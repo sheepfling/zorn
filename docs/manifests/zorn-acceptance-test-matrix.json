@@ -1,0 +1,325 @@
+{
+  "schema_version": "2026-06-22.1",
+  "acceptance_tests": [
+    {
+      "id": "Z3-AT01",
+      "milestone": "Z3",
+      "lane": "LANE-SANDBOX",
+      "description": "Resetting the same seed twice yields the same entity/task/object/event counts and ordered event hashes.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z3-AT02",
+      "milestone": "Z3",
+      "lane": "LANE-SANDBOX",
+      "description": "Two environments can contain the same entityId without state collision.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z3-AT03",
+      "milestone": "Z3",
+      "lane": "LANE-SANDBOX",
+      "description": "Simulated time pause prevents expiry and task timeline advancement.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z3-AT04",
+      "milestone": "Z3",
+      "lane": "LANE-SANDBOX",
+      "description": "Exported environment can be imported into a clean database and pass equality checks.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z4-AT01",
+      "milestone": "Z4",
+      "lane": "LANE-DEVELOPER-CONSOLE",
+      "description": "Entity Explorer displays seeded asset, track, and geo-entity examples.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z4-AT02",
+      "milestone": "Z4",
+      "lane": "LANE-DEVELOPER-CONSOLE",
+      "description": "Task Explorer displays Create \u2192 Update \u2192 Cancel/Complete timeline.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z4-AT03",
+      "milestone": "Z4",
+      "lane": "LANE-DEVELOPER-CONSOLE",
+      "description": "Object Explorer previews a thumbnail object and shows metadata.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z4-AT04",
+      "milestone": "Z4",
+      "lane": "LANE-DEVELOPER-CONSOLE",
+      "description": "Stream Inspector shows entity stream heartbeats and live create/update/delete events.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z5-AT01",
+      "milestone": "Z5",
+      "lane": "LANE-C2",
+      "description": "AIS or synthetic entity replay moves icons on the map through entity stream updates.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z5-AT02",
+      "milestone": "Z5",
+      "lane": "LANE-C2",
+      "description": "Selecting an entity highlights it in the map, list, and detail panel.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z5-AT03",
+      "milestone": "Z5",
+      "lane": "LANE-C2",
+      "description": "Creating a mock investigation task shows it on the task board and routes it to a mock agent.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z5-AT04",
+      "milestone": "Z5",
+      "lane": "LANE-C2",
+      "description": "Alert rule triggers on a seeded unknown track near a configured training zone.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z6-AT01",
+      "milestone": "Z6",
+      "lane": "LANE-ADAPTERS",
+      "description": "AIS replay creates moving surface tracks visible in /c2 and /developer-console.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z6-AT02",
+      "milestone": "Z6",
+      "lane": "LANE-ADAPTERS",
+      "description": "DIS fixture creates asset/track entities with stable IDs and deterministic provenance.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z6-AT03",
+      "milestone": "Z6",
+      "lane": "LANE-ADAPTERS",
+      "description": "Adapter failure is surfaced as health status without crashing the server.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z6-AT04",
+      "milestone": "Z6",
+      "lane": "LANE-ADAPTERS",
+      "description": "Replay can pause/resume through the sandbox clock.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z7-AT01",
+      "milestone": "Z7",
+      "lane": "LANE-OBJECTS-MEDIA",
+      "description": "Uploading a thumbnail object makes it visible on selected entity detail.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z7-AT02",
+      "milestone": "Z7",
+      "lane": "LANE-OBJECTS-MEDIA",
+      "description": "Deleting an object updates browser state and event log.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z7-AT03",
+      "milestone": "Z7",
+      "lane": "LANE-OBJECTS-MEDIA",
+      "description": "Evidence export contains manifest, events, tasks, objects, and checksums.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z7-AT04",
+      "milestone": "Z7",
+      "lane": "LANE-OBJECTS-MEDIA",
+      "description": "Object metadata remains REST-compatible while local distribution metadata remains namespaced.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z8-AT01",
+      "milestone": "Z8",
+      "lane": "LANE-AUTONOMY",
+      "description": "A task created in /c2 routes to a matching mock agent via ListenAsAgent.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z8-AT02",
+      "milestone": "Z8",
+      "lane": "LANE-AUTONOMY",
+      "description": "Agent status progresses through sent/accepted/in-progress/complete or failed.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z8-AT03",
+      "milestone": "Z8",
+      "lane": "LANE-AUTONOMY",
+      "description": "Cancel request interrupts task and records terminal status.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z8-AT04",
+      "milestone": "Z8",
+      "lane": "LANE-AUTONOMY",
+      "description": "Mission graph pauses at human approval gate and resumes only after operator approval.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z9-AT01",
+      "milestone": "Z9",
+      "lane": "LANE-MESH",
+      "description": "Partitioning a node stops remote event visibility while local state continues.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z9-AT02",
+      "milestone": "Z9",
+      "lane": "LANE-MESH",
+      "description": "Reconnect replays queued events in deterministic order.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z9-AT03",
+      "milestone": "Z9",
+      "lane": "LANE-MESH",
+      "description": "Object unavailable on a node shows a clear simulated fetch failure.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z9-AT04",
+      "milestone": "Z9",
+      "lane": "LANE-MESH",
+      "description": "Replication trace explains how a final entity state was chosen after conflict.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z10-AT01",
+      "milestone": "Z10",
+      "lane": "LANE-PARTNER",
+      "description": "A sample AIS adapter package installs and declares entity-publishing capability.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z10-AT02",
+      "milestone": "Z10",
+      "lane": "LANE-PARTNER",
+      "description": "A mock agent package installs and declares TaskCatalog support.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z10-AT03",
+      "milestone": "Z10",
+      "lane": "LANE-PARTNER",
+      "description": "Conformance runner executes package tests in a reset sandbox.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z10-AT04",
+      "milestone": "Z10",
+      "lane": "LANE-PARTNER",
+      "description": "Scorecard accurately reports pass/fail and exercised capabilities.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z11-AT01",
+      "milestone": "Z11",
+      "lane": "LANE-DOMAINS",
+      "description": "Each domain pack can be reset, run, paused, exported, and replayed.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z11-AT02",
+      "milestone": "Z11",
+      "lane": "LANE-DOMAINS",
+      "description": "Each pack exercises at least three of: Entities, Tasks, Objects, UI, adapters, agents, mesh.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z11-AT03",
+      "milestone": "Z11",
+      "lane": "LANE-DOMAINS",
+      "description": "C-UAS pack contains no engagement recommendation, targeting, weapon-release, or fire-control workflow.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z11-AT04",
+      "milestone": "Z11",
+      "lane": "LANE-DOMAINS",
+      "description": "All packs generate a scenario report object and event summary.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z12-AT01",
+      "milestone": "Z12",
+      "lane": "LANE-SHOWCASE",
+      "description": "A fresh clone can run the showcase bundle and produce a report without manual data setup.",
+      "level": "scenario",
+      "automation_target": "showcase runner"
+    },
+    {
+      "id": "Z12-AT02",
+      "milestone": "Z12",
+      "lane": "LANE-SHOWCASE",
+      "description": "Evaluation report includes compatibility, scenario, UI, adapter, agent, object, and mesh sections.",
+      "level": "scenario",
+      "automation_target": "showcase runner"
+    },
+    {
+      "id": "Z12-AT03",
+      "milestone": "Z12",
+      "lane": "LANE-SHOWCASE",
+      "description": "Each demo has a runbook with expected operator/developer observations.",
+      "level": "scenario",
+      "automation_target": "showcase runner"
+    },
+    {
+      "id": "Z12-AT04",
+      "milestone": "Z12",
+      "lane": "LANE-SHOWCASE",
+      "description": "Release matrix lists supported, partial, and intentionally unsupported features.",
+      "level": "scenario",
+      "automation_target": "showcase runner"
+    }
+  ]
+}

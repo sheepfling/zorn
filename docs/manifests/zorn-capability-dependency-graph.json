@@ -1,0 +1,252 @@
+{
+  "schema_version": "2026-06-22.1",
+  "nodes": [
+    {
+      "id": "Z3",
+      "name": "Sandbox Environment Manager",
+      "lane": "LANE-SANDBOX"
+    },
+    {
+      "id": "Z4",
+      "name": "Developer Console MVP",
+      "lane": "LANE-DEVELOPER-CONSOLE"
+    },
+    {
+      "id": "Z5",
+      "name": "Operator C2 MVP",
+      "lane": "LANE-C2"
+    },
+    {
+      "id": "Z6",
+      "name": "Sensor, Track, and Protocol Adapters",
+      "lane": "LANE-ADAPTERS"
+    },
+    {
+      "id": "Z7",
+      "name": "Objects, Media, Reports, and Evidence Workflows",
+      "lane": "LANE-OBJECTS-MEDIA"
+    },
+    {
+      "id": "Z8",
+      "name": "Mission Autonomy and Taskable Agents",
+      "lane": "LANE-AUTONOMY"
+    },
+    {
+      "id": "Z9",
+      "name": "Mesh and Edge Simulation",
+      "lane": "LANE-MESH"
+    },
+    {
+      "id": "Z10",
+      "name": "Partner-Style Integration System",
+      "lane": "LANE-PARTNER"
+    },
+    {
+      "id": "Z11",
+      "name": "Domain Scenario Packs",
+      "lane": "LANE-DOMAINS"
+    },
+    {
+      "id": "Z12",
+      "name": "Rich Showcase Bundle and Evaluation Mode",
+      "lane": "LANE-SHOWCASE"
+    }
+  ],
+  "edges": [
+    {
+      "from": "Z0",
+      "to": "Z3",
+      "reason": "Z3 requires Z0 baseline"
+    },
+    {
+      "from": "Z1",
+      "to": "Z3",
+      "reason": "Z3 requires Z1 baseline"
+    },
+    {
+      "from": "Z2",
+      "to": "Z3",
+      "reason": "Z3 requires Z2 baseline"
+    },
+    {
+      "from": "Z1",
+      "to": "Z4",
+      "reason": "Z4 requires Z1 baseline"
+    },
+    {
+      "from": "Z2",
+      "to": "Z4",
+      "reason": "Z4 requires Z2 baseline"
+    },
+    {
+      "from": "Z3",
+      "to": "Z4",
+      "reason": "Z4 requires Z3 baseline"
+    },
+    {
+      "from": "Z3",
+      "to": "Z5",
+      "reason": "Z5 requires Z3 baseline"
+    },
+    {
+      "from": "Z4",
+      "to": "Z5",
+      "reason": "Z5 requires Z4 baseline"
+    },
+    {
+      "from": "Z3",
+      "to": "Z6",
+      "reason": "Z6 requires Z3 baseline"
+    },
+    {
+      "from": "Z4",
+      "to": "Z6",
+      "reason": "Z6 requires Z4 baseline"
+    },
+    {
+      "from": "Z5",
+      "to": "Z6",
+      "reason": "Z6 requires Z5 baseline"
+    },
+    {
+      "from": "Z3",
+      "to": "Z7",
+      "reason": "Z7 requires Z3 baseline"
+    },
+    {
+      "from": "Z4",
+      "to": "Z7",
+      "reason": "Z7 requires Z4 baseline"
+    },
+    {
+      "from": "Z5",
+      "to": "Z7",
+      "reason": "Z7 requires Z5 baseline"
+    },
+    {
+      "from": "Z3",
+      "to": "Z8",
+      "reason": "Z8 requires Z3 baseline"
+    },
+    {
+      "from": "Z4",
+      "to": "Z8",
+      "reason": "Z8 requires Z4 baseline"
+    },
+    {
+      "from": "Z5",
+      "to": "Z8",
+      "reason": "Z8 requires Z5 baseline"
+    },
+    {
+      "from": "Z6",
+      "to": "Z8",
+      "reason": "Z8 requires Z6 baseline"
+    },
+    {
+      "from": "Z3",
+      "to": "Z9",
+      "reason": "Z9 requires Z3 baseline"
+    },
+    {
+      "from": "Z7",
+      "to": "Z9",
+      "reason": "Z9 requires Z7 baseline"
+    },
+    {
+      "from": "Z2",
+      "to": "Z10",
+      "reason": "Z10 requires Z2 baseline"
+    },
+    {
+      "from": "Z3",
+      "to": "Z10",
+      "reason": "Z10 requires Z3 baseline"
+    },
+    {
+      "from": "Z4",
+      "to": "Z10",
+      "reason": "Z10 requires Z4 baseline"
+    },
+    {
+      "from": "Z6",
+      "to": "Z10",
+      "reason": "Z10 requires Z6 baseline"
+    },
+    {
+      "from": "Z5",
+      "to": "Z11",
+      "reason": "Z11 requires Z5 baseline"
+    },
+    {
+      "from": "Z6",
+      "to": "Z11",
+      "reason": "Z11 requires Z6 baseline"
+    },
+    {
+      "from": "Z7",
+      "to": "Z11",
+      "reason": "Z11 requires Z7 baseline"
+    },
+    {
+      "from": "Z8",
+      "to": "Z11",
+      "reason": "Z11 requires Z8 baseline"
+    },
+    {
+      "from": "Z9",
+      "to": "Z11",
+      "reason": "Z11 requires Z9 baseline"
+    },
+    {
+      "from": "Z10",
+      "to": "Z11",
+      "reason": "Z11 requires Z10 baseline"
+    },
+    {
+      "from": "Z3",
+      "to": "Z12",
+      "reason": "Z12 requires Z3 baseline"
+    },
+    {
+      "from": "Z4",
+      "to": "Z12",
+      "reason": "Z12 requires Z4 baseline"
+    },
+    {
+      "from": "Z5",
+      "to": "Z12",
+      "reason": "Z12 requires Z5 baseline"
+    },
+    {
+      "from": "Z6",
+      "to": "Z12",
+      "reason": "Z12 requires Z6 baseline"
+    },
+    {
+      "from": "Z7",
+      "to": "Z12",
+      "reason": "Z12 requires Z7 baseline"
+    },
+    {
+      "from": "Z8",
+      "to": "Z12",
+      "reason": "Z12 requires Z8 baseline"
+    },
+    {
+      "from": "Z9",
+      "to": "Z12",
+      "reason": "Z12 requires Z9 baseline"
+    },
+    {
+      "from": "Z10",
+      "to": "Z12",
+      "reason": "Z12 requires Z10 baseline"
+    },
+    {
+      "from": "Z11",
+      "to": "Z12",
+      "reason": "Z12 requires Z11 baseline"
+    }
+  ]
+}

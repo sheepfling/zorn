@@ -1,0 +1,83 @@
+{
+  "schema_version": "2026-06-22.1",
+  "risks": [
+    {
+      "id": "RISK-001",
+      "category": "contract-drift",
+      "risk": "Official public SDK/proto behavior changes faster than the mock implementation.",
+      "impact": "Compatibility regressions in clients and sample apps.",
+      "mitigation": "Keep descriptor audit, sample-app harness, and compatibility matrix as release gates.",
+      "owners": [
+        "LANE-CORE"
+      ]
+    },
+    {
+      "id": "RISK-002",
+      "category": "legal-branding",
+      "risk": "Zorn could be mistaken for an official or affiliated product.",
+      "impact": "Brand/trademark and trust problems.",
+      "mitigation": "Use name-neutral internals, clear disclaimers, no Anduril marks or proprietary UI replication.",
+      "owners": [
+        "LANE-SHOWCASE",
+        "LANE-PARTNER"
+      ]
+    },
+    {
+      "id": "RISK-003",
+      "category": "safety",
+      "risk": "Domain scenarios drift toward operational targeting or weapon employment workflows.",
+      "impact": "Unsafe or inappropriate capabilities.",
+      "mitigation": "Keep C-UAS and defense scenarios limited to surveillance, investigation, reporting, readiness, and non-kinetic tasking.",
+      "owners": [
+        "LANE-C2",
+        "LANE-AUTONOMY",
+        "LANE-DOMAINS"
+      ]
+    },
+    {
+      "id": "RISK-004",
+      "category": "architecture",
+      "risk": "Zorn-only features leak into public-compatible proto/API layers.",
+      "impact": "Incompatibility and confusing boundaries.",
+      "mitigation": "Place local UI/plugin/scenario/mesh metadata in sidecar state, local manifests, reports, and UI-internal read models only.",
+      "owners": [
+        "LANE-CORE",
+        "LANE-DEVELOPER-CONSOLE",
+        "LANE-MESH"
+      ]
+    },
+    {
+      "id": "RISK-005",
+      "category": "scope",
+      "risk": "UI polish consumes effort before data/stream/task behavior is reliable.",
+      "impact": "Good-looking but brittle demos.",
+      "mitigation": "Build Developer Console and acceptance matrix before operator-grade COP polish.",
+      "owners": [
+        "LANE-DEVELOPER-CONSOLE",
+        "LANE-C2"
+      ]
+    },
+    {
+      "id": "RISK-006",
+      "category": "performance",
+      "risk": "Dense scenario packs overwhelm stream/event/UI performance.",
+      "impact": "Demos fail under realistic track counts.",
+      "mitigation": "Add performance budgets and synthetic load tests starting in Z5/Z6.",
+      "owners": [
+        "LANE-C2",
+        "LANE-ADAPTERS",
+        "LANE-MESH"
+      ]
+    },
+    {
+      "id": "RISK-007",
+      "category": "supply-chain",
+      "risk": "Generated proto packages or public SDK dependencies are unavailable or unexpectedly changed.",
+      "impact": "gRPC compatibility workflow breaks.",
+      "mitigation": "Pin versions, audit checksums/descriptors, and maintain documented export/snapshot steps.",
+      "owners": [
+        "LANE-CORE"
+      ]
+    }
+  ]
+}

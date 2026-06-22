@@ -1,0 +1,325 @@
+{
+  "schema_version": "2026-06-22.1",
+  "sources": [
+    {
+      "id": "SRC-LATTICE-CONCEPTS",
+      "title": "Building with Lattice",
+      "url": "https://developer.anduril.com/guides/concepts/overview",
+      "notes": "Defines apps, integrations, data services; Entities, Tasks, Objects; REST/gRPC protocol split."
+    },
+    {
+      "id": "SRC-LATTICE-ENTITIES",
+      "title": "Entities overview",
+      "url": "https://developer.anduril.com/guides/entities/overview",
+      "notes": "Defines entities as component bags powering the COP; asset/track/geo-entity shapes and lifecycle."
+    },
+    {
+      "id": "SRC-LATTICE-TASKS",
+      "title": "Tasks overview",
+      "url": "https://developer.anduril.com/guides/tasks/overview",
+      "notes": "Defines deliberate sequential tasks, TaskCatalog, lifecycle, routing, status updates."
+    },
+    {
+      "id": "SRC-LATTICE-DEV-CONSOLE",
+      "title": "Lattice Developer Console changelog",
+      "url": "https://developer.anduril.com/changelog",
+      "notes": "Lists Developer Console features: Entity Explorer, Task Explorer, Object Explorer, schemas, /developer-console and /c2."
+    },
+    {
+      "id": "SRC-LATTICE-MIGRATION",
+      "title": "Migrate to v2",
+      "url": "https://developer.anduril.com/reference/overview/versioning/migrating-to-v2",
+      "notes": "Confirms REST/gRPC availability and Buf-generated gRPC artifacts."
+    },
+    {
+      "id": "SRC-LATTICE-C2",
+      "title": "Lattice Command & Control",
+      "url": "https://www.anduril.com/lattice/command-and-control",
+      "notes": "Public lane for C2/common operating picture and battle-management positioning."
+    },
+    {
+      "id": "SRC-LATTICE-AUTONOMY",
+      "title": "Lattice Mission Autonomy",
+      "url": "https://www.anduril.com/lattice/mission-autonomy",
+      "notes": "Public lane for mission autonomy and human-supervised multi-asset autonomy."
+    },
+    {
+      "id": "SRC-LATTICE-MESH",
+      "title": "Lattice Mesh",
+      "url": "https://www.anduril.com/lattice/lattice-mesh",
+      "notes": "Public lane for tactical-edge data distribution and mesh-like workflows."
+    },
+    {
+      "id": "SRC-LATTICE-SDK",
+      "title": "Lattice SDK",
+      "url": "https://www.anduril.com/lattice/lattice-sdk",
+      "notes": "Public lane for SDK apps, data services, and hardware integrations."
+    },
+    {
+      "id": "SRC-LATTICE-PARTNER",
+      "title": "Lattice Partner Program",
+      "url": "https://www.anduril.com/lattice/lattice-partner-program",
+      "notes": "Public lane for partner resources, sandboxes, validation, and reference applications."
+    }
+  ],
+  "lanes": [
+    {
+      "id": "LANE-CORE",
+      "name": "Compatibility Kernel",
+      "mission": "Keep public-compatible REST/gRPC behavior stable while all higher-level Zorn modules expand around it.",
+      "milestones": [
+        "Z0",
+        "Z1",
+        "Z2"
+      ],
+      "modules": [
+        "c2_compat_sandbox.core",
+        "c2_compat_sandbox.routes",
+        "c2_compat_sandbox.grpc_api"
+      ],
+      "outputs": [
+        "descriptor audit",
+        "contract tests",
+        "REST/gRPC compatibility report"
+      ],
+      "sources": [
+        "SRC-LATTICE-CONCEPTS",
+        "SRC-LATTICE-MIGRATION"
+      ]
+    },
+    {
+      "id": "LANE-SANDBOX",
+      "name": "Sandbox Environment Manager",
+      "mission": "Provide resettable, seedable, replayable local environments that resemble developer sandboxes.",
+      "milestones": [
+        "Z3"
+      ],
+      "modules": [
+        "c2_compat_sandbox.environments",
+        "c2_compat_sandbox.fixtures",
+        "c2_compat_sandbox.clock"
+      ],
+      "outputs": [
+        "environment registry",
+        "seed/reset/export APIs",
+        "deterministic clock"
+      ],
+      "sources": [
+        "SRC-LATTICE-CONCEPTS",
+        "SRC-LATTICE-DEV-CONSOLE"
+      ]
+    },
+    {
+      "id": "LANE-DEVELOPER-CONSOLE",
+      "name": "Developer Console",
+      "mission": "Expose a debugging console for entities, tasks, objects, streams, schemas, and compatibility status.",
+      "milestones": [
+        "Z4"
+      ],
+      "modules": [
+        "zorn-ui/developer-console",
+        "c2_compat_sandbox.local_inspection"
+      ],
+      "outputs": [
+        "Entity Explorer",
+        "Task Explorer",
+        "Object Explorer",
+        "stream inspector"
+      ],
+      "sources": [
+        "SRC-LATTICE-DEV-CONSOLE",
+        "SRC-LATTICE-ENTITIES",
+        "SRC-LATTICE-TASKS"
+      ]
+    },
+    {
+      "id": "LANE-C2",
+      "name": "Operator C2",
+      "mission": "Build a map-first COP and tasking surface for rich showcase scenarios without copying proprietary UI design.",
+      "milestones": [
+        "Z5"
+      ],
+      "modules": [
+        "zorn-ui/c2",
+        "zorn-ui/map",
+        "zorn-ui/task-board"
+      ],
+      "outputs": [
+        "live COP",
+        "entity details",
+        "task board",
+        "media panel",
+        "alerts"
+      ],
+      "sources": [
+        "SRC-LATTICE-C2",
+        "SRC-LATTICE-ENTITIES",
+        "SRC-LATTICE-TASKS"
+      ]
+    },
+    {
+      "id": "LANE-ADAPTERS",
+      "name": "Sensors, Tracks, and Protocol Adapters",
+      "mission": "Translate simulation and open feed protocols into public-compatible entities, tasks, objects, and events.",
+      "milestones": [
+        "Z6"
+      ],
+      "modules": [
+        "zorn-adapter-ais",
+        "zorn-adapter-dis",
+        "zorn-adapter-hla",
+        "zorn-adapter-cot"
+      ],
+      "outputs": [
+        "AIS adapter",
+        "DIS Entity State adapter",
+        "adapter health monitor",
+        "mapping registry"
+      ],
+      "sources": [
+        "SRC-LATTICE-CONCEPTS",
+        "SRC-LATTICE-ENTITIES"
+      ]
+    },
+    {
+      "id": "LANE-OBJECTS-MEDIA",
+      "name": "Objects, Media, Reports, and Evidence",
+      "mission": "Turn the Objects API into visible workflows: thumbnails, reports, manifests, scenario evidence, and exports.",
+      "milestones": [
+        "Z7"
+      ],
+      "modules": [
+        "c2_compat_sandbox.objects",
+        "zorn-ui/object-browser",
+        "zorn-evidence"
+      ],
+      "outputs": [
+        "object browser",
+        "thumbnail workflow",
+        "evidence bundle exporter"
+      ],
+      "sources": [
+        "SRC-LATTICE-CONCEPTS",
+        "SRC-LATTICE-DEV-CONSOLE"
+      ]
+    },
+    {
+      "id": "LANE-AUTONOMY",
+      "name": "Mission Autonomy and Taskable Agents",
+      "mission": "Exercise TaskCatalog routing, multi-agent tasking, human-supervised mission graphs, and mock autonomy.",
+      "milestones": [
+        "Z8"
+      ],
+      "modules": [
+        "zorn-agent-runtime",
+        "zorn-mission-graph",
+        "zorn-agents"
+      ],
+      "outputs": [
+        "agent registry",
+        "mission graph runner",
+        "mock agents",
+        "human approval gates"
+      ],
+      "sources": [
+        "SRC-LATTICE-AUTONOMY",
+        "SRC-LATTICE-TASKS"
+      ]
+    },
+    {
+      "id": "LANE-MESH",
+      "name": "Mesh and Edge Simulation",
+      "mission": "Simulate local-first event distribution, object availability, partitions, reconnection, and constrained links.",
+      "milestones": [
+        "Z9"
+      ],
+      "modules": [
+        "zorn-mesh-sim",
+        "zorn-node",
+        "zorn-replication"
+      ],
+      "outputs": [
+        "node registry",
+        "link profiles",
+        "partition simulator",
+        "replication trace"
+      ],
+      "sources": [
+        "SRC-LATTICE-MESH",
+        "SRC-LATTICE-CONCEPTS"
+      ]
+    },
+    {
+      "id": "LANE-PARTNER",
+      "name": "Partner-Style Integration System",
+      "mission": "Provide a local partner sandbox experience for packages, manifests, conformance tests, and compatibility scorecards.",
+      "milestones": [
+        "Z10"
+      ],
+      "modules": [
+        "zorn-partner-registry",
+        "zorn-plugin-runner",
+        "zorn-conformance"
+      ],
+      "outputs": [
+        "plugin manifest schema",
+        "integration catalog",
+        "scorecards",
+        "reference datasets"
+      ],
+      "sources": [
+        "SRC-LATTICE-PARTNER",
+        "SRC-LATTICE-SDK"
+      ]
+    },
+    {
+      "id": "LANE-DOMAINS",
+      "name": "Domain Scenario Packs",
+      "mission": "Package rich but safe demonstrations across maritime, DIS, C-UAS surveillance, space tracking, undersea, and readiness workflows.",
+      "milestones": [
+        "Z11"
+      ],
+      "modules": [
+        "zorn-domain-maritime",
+        "zorn-domain-dis",
+        "zorn-domain-cuas",
+        "zorn-domain-space",
+        "zorn-domain-undersea"
+      ],
+      "outputs": [
+        "scenario packs",
+        "fixtures",
+        "runbooks",
+        "synthetic data generators"
+      ],
+      "sources": [
+        "SRC-LATTICE-C2",
+        "SRC-LATTICE-AUTONOMY",
+        "SRC-LATTICE-MESH"
+      ]
+    },
+    {
+      "id": "LANE-SHOWCASE",
+      "name": "Showcase and Evaluation Mode",
+      "mission": "Make the whole environment demonstrable, repeatable, measurable, and presentable.",
+      "milestones": [
+        "Z12"
+      ],
+      "modules": [
+        "zorn-showcase-runner",
+        "zorn-eval",
+        "zorn-recording"
+      ],
+      "outputs": [
+        "one-command demos",
+        "evaluation reports",
+        "recordings",
+        "compatibility matrix"
+      ],
+      "sources": [
+        "SRC-LATTICE-SDK",
+        "SRC-LATTICE-PARTNER"
+      ]
+    }
+  ]
+}

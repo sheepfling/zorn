@@ -1,0 +1,3027 @@
+{
+  "schema_version": "2026-06-22.1",
+  "codename": "Zorn",
+  "name_portability": "Codename is configurable and swappable; internal packages remain product-neutral.",
+  "contract_boundary": {
+    "lattice_compatible": [
+      "Entities REST/gRPC",
+      "Tasks REST/gRPC",
+      "Objects REST",
+      "OAuth dev shim",
+      "official public Buf-generated gRPC descriptors"
+    ],
+    "zorn_only": [
+      "sandbox manager",
+      "developer console",
+      "operator C2 UI",
+      "scenario engine",
+      "mesh simulator",
+      "partner package registry",
+      "domain packs",
+      "UI state"
+    ],
+    "rule": "Never create local replacement Lattice protos; place extensions in local files, sidecar state, manifests, reports, or UI-internal read models."
+  },
+  "sources": [
+    {
+      "id": "SRC-LATTICE-CONCEPTS",
+      "title": "Building with Lattice",
+      "url": "https://developer.anduril.com/guides/concepts/overview",
+      "notes": "Defines apps, integrations, data services; Entities, Tasks, Objects; REST/gRPC protocol split."
+    },
+    {
+      "id": "SRC-LATTICE-ENTITIES",
+      "title": "Entities overview",
+      "url": "https://developer.anduril.com/guides/entities/overview",
+      "notes": "Defines entities as component bags powering the COP; asset/track/geo-entity shapes and lifecycle."
+    },
+    {
+      "id": "SRC-LATTICE-TASKS",
+      "title": "Tasks overview",
+      "url": "https://developer.anduril.com/guides/tasks/overview",
+      "notes": "Defines deliberate sequential tasks, TaskCatalog, lifecycle, routing, status updates."
+    },
+    {
+      "id": "SRC-LATTICE-DEV-CONSOLE",
+      "title": "Lattice Developer Console changelog",
+      "url": "https://developer.anduril.com/changelog",
+      "notes": "Lists Developer Console features: Entity Explorer, Task Explorer, Object Explorer, schemas, /developer-console and /c2."
+    },
+    {
+      "id": "SRC-LATTICE-MIGRATION",
+      "title": "Migrate to v2",
+      "url": "https://developer.anduril.com/reference/overview/versioning/migrating-to-v2",
+      "notes": "Confirms REST/gRPC availability and Buf-generated gRPC artifacts."
+    },
+    {
+      "id": "SRC-LATTICE-C2",
+      "title": "Lattice Command & Control",
+      "url": "https://www.anduril.com/lattice/command-and-control",
+      "notes": "Public lane for C2/common operating picture and battle-management positioning."
+    },
+    {
+      "id": "SRC-LATTICE-AUTONOMY",
+      "title": "Lattice Mission Autonomy",
+      "url": "https://www.anduril.com/lattice/mission-autonomy",
+      "notes": "Public lane for mission autonomy and human-supervised multi-asset autonomy."
+    },
+    {
+      "id": "SRC-LATTICE-MESH",
+      "title": "Lattice Mesh",
+      "url": "https://www.anduril.com/lattice/lattice-mesh",
+      "notes": "Public lane for tactical-edge data distribution and mesh-like workflows."
+    },
+    {
+      "id": "SRC-LATTICE-SDK",
+      "title": "Lattice SDK",
+      "url": "https://www.anduril.com/lattice/lattice-sdk",
+      "notes": "Public lane for SDK apps, data services, and hardware integrations."
+    },
+    {
+      "id": "SRC-LATTICE-PARTNER",
+      "title": "Lattice Partner Program",
+      "url": "https://www.anduril.com/lattice/lattice-partner-program",
+      "notes": "Public lane for partner resources, sandboxes, validation, and reference applications."
+    }
+  ],
+  "lanes": [
+    {
+      "id": "LANE-CORE",
+      "name": "Compatibility Kernel",
+      "mission": "Keep public-compatible REST/gRPC behavior stable while all higher-level Zorn modules expand around it.",
+      "milestones": [
+        "Z0",
+        "Z1",
+        "Z2"
+      ],
+      "modules": [
+        "c2_compat_sandbox.core",
+        "c2_compat_sandbox.routes",
+        "c2_compat_sandbox.grpc_api"
+      ],
+      "outputs": [
+        "descriptor audit",
+        "contract tests",
+        "REST/gRPC compatibility report"
+      ],
+      "sources": [
+        "SRC-LATTICE-CONCEPTS",
+        "SRC-LATTICE-MIGRATION"
+      ]
+    },
+    {
+      "id": "LANE-SANDBOX",
+      "name": "Sandbox Environment Manager",
+      "mission": "Provide resettable, seedable, replayable local environments that resemble developer sandboxes.",
+      "milestones": [
+        "Z3"
+      ],
+      "modules": [
+        "c2_compat_sandbox.environments",
+        "c2_compat_sandbox.fixtures",
+        "c2_compat_sandbox.clock"
+      ],
+      "outputs": [
+        "environment registry",
+        "seed/reset/export APIs",
+        "deterministic clock"
+      ],
+      "sources": [
+        "SRC-LATTICE-CONCEPTS",
+        "SRC-LATTICE-DEV-CONSOLE"
+      ]
+    },
+    {
+      "id": "LANE-DEVELOPER-CONSOLE",
+      "name": "Developer Console",
+      "mission": "Expose a debugging console for entities, tasks, objects, streams, schemas, and compatibility status.",
+      "milestones": [
+        "Z4"
+      ],
+      "modules": [
+        "zorn-ui/developer-console",
+        "c2_compat_sandbox.local_inspection"
+      ],
+      "outputs": [
+        "Entity Explorer",
+        "Task Explorer",
+        "Object Explorer",
+        "stream inspector"
+      ],
+      "sources": [
+        "SRC-LATTICE-DEV-CONSOLE",
+        "SRC-LATTICE-ENTITIES",
+        "SRC-LATTICE-TASKS"
+      ]
+    },
+    {
+      "id": "LANE-C2",
+      "name": "Operator C2",
+      "mission": "Build a map-first COP and tasking surface for rich showcase scenarios without copying proprietary UI design.",
+      "milestones": [
+        "Z5"
+      ],
+      "modules": [
+        "zorn-ui/c2",
+        "zorn-ui/map",
+        "zorn-ui/task-board"
+      ],
+      "outputs": [
+        "live COP",
+        "entity details",
+        "task board",
+        "media panel",
+        "alerts"
+      ],
+      "sources": [
+        "SRC-LATTICE-C2",
+        "SRC-LATTICE-ENTITIES",
+        "SRC-LATTICE-TASKS"
+      ]
+    },
+    {
+      "id": "LANE-ADAPTERS",
+      "name": "Sensors, Tracks, and Protocol Adapters",
+      "mission": "Translate simulation and open feed protocols into public-compatible entities, tasks, objects, and events.",
+      "milestones": [
+        "Z6"
+      ],
+      "modules": [
+        "zorn-adapter-ais",
+        "zorn-adapter-dis",
+        "zorn-adapter-hla",
+        "zorn-adapter-cot"
+      ],
+      "outputs": [
+        "AIS adapter",
+        "DIS Entity State adapter",
+        "adapter health monitor",
+        "mapping registry"
+      ],
+      "sources": [
+        "SRC-LATTICE-CONCEPTS",
+        "SRC-LATTICE-ENTITIES"
+      ]
+    },
+    {
+      "id": "LANE-OBJECTS-MEDIA",
+      "name": "Objects, Media, Reports, and Evidence",
+      "mission": "Turn the Objects API into visible workflows: thumbnails, reports, manifests, scenario evidence, and exports.",
+      "milestones": [
+        "Z7"
+      ],
+      "modules": [
+        "c2_compat_sandbox.objects",
+        "zorn-ui/object-browser",
+        "zorn-evidence"
+      ],
+      "outputs": [
+        "object browser",
+        "thumbnail workflow",
+        "evidence bundle exporter"
+      ],
+      "sources": [
+        "SRC-LATTICE-CONCEPTS",
+        "SRC-LATTICE-DEV-CONSOLE"
+      ]
+    },
+    {
+      "id": "LANE-AUTONOMY",
+      "name": "Mission Autonomy and Taskable Agents",
+      "mission": "Exercise TaskCatalog routing, multi-agent tasking, human-supervised mission graphs, and mock autonomy.",
+      "milestones": [
+        "Z8"
+      ],
+      "modules": [
+        "zorn-agent-runtime",
+        "zorn-mission-graph",
+        "zorn-agents"
+      ],
+      "outputs": [
+        "agent registry",
+        "mission graph runner",
+        "mock agents",
+        "human approval gates"
+      ],
+      "sources": [
+        "SRC-LATTICE-AUTONOMY",
+        "SRC-LATTICE-TASKS"
+      ]
+    },
+    {
+      "id": "LANE-MESH",
+      "name": "Mesh and Edge Simulation",
+      "mission": "Simulate local-first event distribution, object availability, partitions, reconnection, and constrained links.",
+      "milestones": [
+        "Z9"
+      ],
+      "modules": [
+        "zorn-mesh-sim",
+        "zorn-node",
+        "zorn-replication"
+      ],
+      "outputs": [
+        "node registry",
+        "link profiles",
+        "partition simulator",
+        "replication trace"
+      ],
+      "sources": [
+        "SRC-LATTICE-MESH",
+        "SRC-LATTICE-CONCEPTS"
+      ]
+    },
+    {
+      "id": "LANE-PARTNER",
+      "name": "Partner-Style Integration System",
+      "mission": "Provide a local partner sandbox experience for packages, manifests, conformance tests, and compatibility scorecards.",
+      "milestones": [
+        "Z10"
+      ],
+      "modules": [
+        "zorn-partner-registry",
+        "zorn-plugin-runner",
+        "zorn-conformance"
+      ],
+      "outputs": [
+        "plugin manifest schema",
+        "integration catalog",
+        "scorecards",
+        "reference datasets"
+      ],
+      "sources": [
+        "SRC-LATTICE-PARTNER",
+        "SRC-LATTICE-SDK"
+      ]
+    },
+    {
+      "id": "LANE-DOMAINS",
+      "name": "Domain Scenario Packs",
+      "mission": "Package rich but safe demonstrations across maritime, DIS, C-UAS surveillance, space tracking, undersea, and readiness workflows.",
+      "milestones": [
+        "Z11"
+      ],
+      "modules": [
+        "zorn-domain-maritime",
+        "zorn-domain-dis",
+        "zorn-domain-cuas",
+        "zorn-domain-space",
+        "zorn-domain-undersea"
+      ],
+      "outputs": [
+        "scenario packs",
+        "fixtures",
+        "runbooks",
+        "synthetic data generators"
+      ],
+      "sources": [
+        "SRC-LATTICE-C2",
+        "SRC-LATTICE-AUTONOMY",
+        "SRC-LATTICE-MESH"
+      ]
+    },
+    {
+      "id": "LANE-SHOWCASE",
+      "name": "Showcase and Evaluation Mode",
+      "mission": "Make the whole environment demonstrable, repeatable, measurable, and presentable.",
+      "milestones": [
+        "Z12"
+      ],
+      "modules": [
+        "zorn-showcase-runner",
+        "zorn-eval",
+        "zorn-recording"
+      ],
+      "outputs": [
+        "one-command demos",
+        "evaluation reports",
+        "recordings",
+        "compatibility matrix"
+      ],
+      "sources": [
+        "SRC-LATTICE-SDK",
+        "SRC-LATTICE-PARTNER"
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "Z3",
+      "name": "Sandbox Environment Manager",
+      "lane": "LANE-SANDBOX",
+      "objective": "Introduce first-class local environments with isolation, deterministic time, seed/reset/export, fixture packs, and scenario bootstrap files and commands.",
+      "why_now": "Every rich showcase needs repeatability. Environment management prevents the C2 UI, sample app tests, adapters, and mesh simulation from fighting over shared state.",
+      "depends_on": [
+        "Z0",
+        "Z1",
+        "Z2"
+      ],
+      "modules": [
+        "c2_compat_sandbox.environments",
+        "c2_compat_sandbox.fixtures",
+        "c2_compat_sandbox.clock",
+        "c2_compat_sandbox.local_inspection"
+      ],
+      "epics": [
+        {
+          "id": "Z3-E1",
+          "name": "Environment registry",
+          "stories": [
+            "Create/list/get/delete local environment records.",
+            "Attach environment_id to entities, tasks, objects, and event log rows without breaking existing default behavior.",
+            "Expose active environment selection through startup configuration and UI-local files."
+          ]
+        },
+        {
+          "id": "Z3-E2",
+          "name": "Seed, reset, export, and import",
+          "stories": [
+            "Add seed packs for empty, AIS demo, DIS demo, C-UAS surveillance demo, and autonomy patrol demo.",
+            "Implement deterministic reset that clears current state and replays seed data.",
+            "Export environment state as jsonl plus object metadata manifest."
+          ]
+        },
+        {
+          "id": "Z3-E3",
+          "name": "Deterministic clock",
+          "stories": [
+            "Add real-time and simulated-time modes.",
+            "Allow pause/resume/speed multiplier for scenarios.",
+            "Ensure TTL/expiry, task status timestamps, and event ordering can use simulated time."
+          ]
+        },
+        {
+          "id": "Z3-E4",
+          "name": "Fixture and schema pack manager",
+          "stories": [
+            "Register fixture packs with metadata, source, safety classification, and supported scenarios.",
+            "Validate fixture packs before loading.",
+            "Expose fixture pack status in Developer Console."
+          ]
+        }
+      ],
+      "deliverables": [
+        "Environment manifests and CLI inspection commands.",
+        "Seed/reset/export/import commands.",
+        "Scenario clock service.",
+        "Fixture pack manifest schema.",
+        "CI seed smoke test."
+      ],
+      "acceptance_tests": [
+        "Resetting the same seed twice yields the same entity/task/object/event counts and ordered event hashes.",
+        "Two environments can contain the same entityId without state collision.",
+        "Simulated time pause prevents expiry and task timeline advancement.",
+        "Exported environment can be imported into a clean database and pass equality checks."
+      ],
+      "showcase_signal": "A user can pick a scenario pack, reset it, run it, pause time, and export the resulting state for debugging.",
+      "non_goals": [
+        "No cloud multi-tenant security claims.",
+        "No production-grade identity provider integration."
+      ]
+    },
+    {
+      "id": "Z4",
+      "name": "Developer Console MVP",
+      "lane": "LANE-DEVELOPER-CONSOLE",
+      "objective": "Build the first web console for inspecting, filtering, validating, and debugging entities, tasks, objects, streams, schemas, and compatibility results.",
+      "why_now": "The console becomes the workspace for contract hardening, sample-app debugging, adapter development, and scenario authoring.",
+      "depends_on": [
+        "Z1",
+        "Z2",
+        "Z3"
+      ],
+      "modules": [
+        "zorn-ui/developer-console",
+        "c2_compat_sandbox.local_inspection",
+        "zorn-ui/shared"
+      ],
+      "epics": [
+        {
+          "id": "Z4-E1",
+          "name": "Entity Explorer",
+          "stories": [
+            "Browse/filter/search entities by template, disposition, environment, source, liveness, and last update.",
+            "Open entity detail with component cards, raw JSON, provenance, and event history.",
+            "Validate selected entity against known public-compatible schema checks and local lint rules."
+          ]
+        },
+        {
+          "id": "Z4-E2",
+          "name": "Task Explorer",
+          "stories": [
+            "Browse tasks by status, assignee, task type URL, creator, and terminal/non-terminal state.",
+            "Show task lifecycle timeline, status payloads, errors, progress, result, and relation graph.",
+            "Expose manual create/status/cancel actions in dev mode."
+          ]
+        },
+        {
+          "id": "Z4-E3",
+          "name": "Object Explorer",
+          "stories": [
+            "Browse objects by path prefix, size, checksum, expiry, and linked entity.",
+            "Preview supported images/text/json and download raw objects.",
+            "Show object upload/delete events and TTL status."
+          ]
+        },
+        {
+          "id": "Z4-E4",
+          "name": "Stream and compatibility inspector",
+          "stories": [
+            "Display active SSE/gRPC streams, heartbeat cadence, event counts, reconnects, and last error.",
+            "Render descriptor audit and sample-app compatibility status.",
+            "Export debug bundle with state snapshot, event log tail, and compatibility report."
+          ]
+        }
+      ],
+      "deliverables": [
+        "/developer-console web app shell.",
+        "Entity, Task, Object Explorer pages.",
+        "Stream Inspector page.",
+        "Compatibility Matrix page.",
+        "Debug bundle export."
+      ],
+      "acceptance_tests": [
+        "Entity Explorer displays seeded asset, track, and geo-entity examples.",
+        "Task Explorer displays Create \u2192 Update \u2192 Cancel/Complete timeline.",
+        "Object Explorer previews a thumbnail object and shows metadata.",
+        "Stream Inspector shows entity stream heartbeats and live create/update/delete events."
+      ],
+      "showcase_signal": "A developer can explain exactly why the COP looks the way it does by drilling from UI object to entity component to event to source integration.",
+      "non_goals": [
+        "No pixel clone of any proprietary UI.",
+        "No operator-grade authorization model yet."
+      ]
+    },
+    {
+      "id": "Z5",
+      "name": "Operator C2 MVP",
+      "lane": "LANE-C2",
+      "objective": "Create a map-first operator view that turns live entities, tasks, objects, and streams into a believable common operational picture.",
+      "why_now": "This is the first milestone that makes Zorn feel like a rich environment rather than a backend test server.",
+      "depends_on": [
+        "Z3",
+        "Z4"
+      ],
+      "modules": [
+        "zorn-ui/c2",
+        "zorn-ui/map",
+        "zorn-ui/task-board",
+        "zorn-ui/media-panel"
+      ],
+      "epics": [
+        {
+          "id": "Z5-E1",
+          "name": "Map-first COP shell",
+          "stories": [
+            "Render entities with location on a map using template/disposition/environment-derived symbology.",
+            "Display trails, headings, speed, altitude/depth, and stale/live/deleted state.",
+            "Support layer toggles for assets, tracks, geo-entities, trails, coverage, labels, and tasks."
+          ]
+        },
+        {
+          "id": "Z5-E2",
+          "name": "Object list and selection",
+          "stories": [
+            "List assets, tracks, geo-entities, alerts, and active tasks in side rail.",
+            "Support search and filters aligned with Entity Explorer.",
+            "Show selected entity detail with core telemetry, provenance, media, and task actions."
+          ]
+        },
+        {
+          "id": "Z5-E3",
+          "name": "Task board and operator actions",
+          "stories": [
+            "Show pending/assigned/in-progress/completed/failed/canceled task lanes.",
+            "Create allowed mock tasks against selected assets/tracks/areas.",
+            "Cancel tasks and show status timeline updates in the side panel."
+          ]
+        },
+        {
+          "id": "Z5-E4",
+          "name": "Alerts and watchlists",
+          "stories": [
+            "Create local watchlist rules for stale asset, unknown track near zone, task failure, and object expiry.",
+            "Render non-kinetic alerts in map/list panels.",
+            "Allow operator acknowledgement as local UI state."
+          ]
+        }
+      ],
+      "deliverables": [
+        "/c2 web app shell.",
+        "Map renderer with live entity stream.",
+        "Layer manager and object list.",
+        "Selected entity details with task/media panels.",
+        "Task board and basic alert drawer."
+      ],
+      "acceptance_tests": [
+        "AIS or synthetic entity replay moves icons on the map through entity stream updates.",
+        "Selecting an entity highlights it in the map, list, and detail panel.",
+        "Creating a mock investigation task shows it on the task board and routes it to a mock agent.",
+        "Alert rule triggers on a seeded unknown track near a configured training zone."
+      ],
+      "showcase_signal": "An observer sees a live, explainable COP with moving tracks, selected details, tasking, alerts, and media attachments.",
+      "non_goals": [
+        "No real-world targeting, engagement recommendation, or weapon-release workflow.",
+        "No copying proprietary Anduril visual identity."
+      ]
+    },
+    {
+      "id": "Z6",
+      "name": "Sensor, Track, and Protocol Adapters",
+      "lane": "LANE-ADAPTERS",
+      "objective": "Build adapter infrastructure and initial AIS/DIS/HLA/CoT-style ingest paths that feed public-compatible entities/events into Zorn.",
+      "why_now": "Adapters make the environment look alive and prove Zorn can serve as a simulation integration platform.",
+      "depends_on": [
+        "Z3",
+        "Z4",
+        "Z5"
+      ],
+      "modules": [
+        "zorn-adapter-framework",
+        "zorn-adapter-ais",
+        "zorn-adapter-dis",
+        "zorn-adapter-hla",
+        "zorn-adapter-cot"
+      ],
+      "epics": [
+        {
+          "id": "Z6-E1",
+          "name": "Adapter framework",
+          "stories": [
+            "Define adapter lifecycle: configure, validate, start, pause, stop, health, metrics.",
+            "Add adapter-to-entity mapping registry with source/provenance rules.",
+            "Expose adapter health and throughput in Developer Console."
+          ]
+        },
+        {
+          "id": "Z6-E2",
+          "name": "AIS adapter",
+          "stories": [
+            "Convert AIS vessel fixtures into surface track/entity updates.",
+            "Map MMSI/callsign/name into aliases and provenance.",
+            "Support replay speed and deterministic event order."
+          ]
+        },
+        {
+          "id": "Z6-E3",
+          "name": "DIS Entity State adapter",
+          "stories": [
+            "Map DIS entity identifiers to stable entityId/aliases.",
+            "Map DIS location, velocity, orientation, force ID, domain, and entity type into compatible entity components.",
+            "Add namespace policy for exercise ID and site/application/entity IDs."
+          ]
+        },
+        {
+          "id": "Z6-E4",
+          "name": "Sensor and detection modeling",
+          "stories": [
+            "Represent generic sensor coverage as geo shapes and sensor components.",
+            "Represent detections as tracks or source-linked entity updates.",
+            "Preserve source confidence/quality as tracked/provenance metadata when available."
+          ]
+        }
+      ],
+      "deliverables": [
+        "Adapter plugin base classes and manifests.",
+        "AIS fixture replay.",
+        "DIS Entity State PDU mapping skeleton.",
+        "Adapter health/metrics page.",
+        "Mapping registry docs."
+      ],
+      "acceptance_tests": [
+        "AIS replay creates moving surface tracks visible in /c2 and /developer-console.",
+        "DIS fixture creates asset/track entities with stable IDs and deterministic provenance.",
+        "Adapter failure is surfaced as health status without crashing the server.",
+        "Replay can pause/resume through the sandbox clock."
+      ],
+      "showcase_signal": "External/simulated data feeds become live COP objects with traceable mappings and health telemetry.",
+      "non_goals": [
+        "No operational sensor-fusion claims.",
+        "No classified protocol support.",
+        "No live unapproved network ingest by default."
+      ]
+    },
+    {
+      "id": "Z7",
+      "name": "Objects, Media, Reports, and Evidence Workflows",
+      "lane": "LANE-OBJECTS-MEDIA",
+      "objective": "Turn object storage into visible workflows for thumbnails, reports, manifests, sensor captures, replay artifacts, and exportable evidence bundles.",
+      "why_now": "Media and reports make demos richer and exercise the full Entities + Objects relationship rather than entity telemetry alone.",
+      "depends_on": [
+        "Z3",
+        "Z4",
+        "Z5"
+      ],
+      "modules": [
+        "c2_compat_sandbox.objects",
+        "zorn-ui/object-browser",
+        "zorn-evidence",
+        "zorn-reporting"
+      ],
+      "epics": [
+        {
+          "id": "Z7-E1",
+          "name": "Object metadata hardening",
+          "stories": [
+            "Add checksum/size/content-type/expiry/path-prefix query behavior to tests.",
+            "Support object lifecycle events for upload/delete/expiry.",
+            "Represent object-to-entity linkage in local indexes without altering public object API."
+          ]
+        },
+        {
+          "id": "Z7-E2",
+          "name": "Thumbnail and media flow",
+          "stories": [
+            "Upload image object and attach it to selected entity media component/override where compatible.",
+            "Preview image and basic text/json content in entity detail and object browser.",
+            "Generate synthetic thumbnails for seeded tracks/assets."
+          ]
+        },
+        {
+          "id": "Z7-E3",
+          "name": "Reports and evidence bundles",
+          "stories": [
+            "Generate scenario report object with entity/task/event summaries.",
+            "Export evidence bundle with objects, event log, task timeline, and compatibility report.",
+            "Add redaction hooks for sensitive/local-only fields."
+          ]
+        },
+        {
+          "id": "Z7-E4",
+          "name": "Object distribution simulation hooks",
+          "stories": [
+            "Add local object availability metadata to support later mesh simulation.",
+            "Track which simulated nodes have each object.",
+            "Expose object distribution state as Zorn-only metadata in UI."
+          ]
+        }
+      ],
+      "deliverables": [
+        "Object lifecycle events.",
+        "Object/entity linkage index.",
+        "Thumbnail demo workflow.",
+        "Scenario report generator.",
+        "Evidence bundle exporter."
+      ],
+      "acceptance_tests": [
+        "Uploading a thumbnail object makes it visible on selected entity detail.",
+        "Deleting an object updates browser state and event log.",
+        "Evidence export contains manifest, events, tasks, objects, and checksums.",
+        "Object metadata remains REST-compatible while local distribution metadata remains namespaced."
+      ],
+      "showcase_signal": "A demo can show track thumbnails, generated reports, downloadable object artifacts, and a complete scenario evidence package.",
+      "non_goals": [
+        "No evidentiary chain-of-custody certification.",
+        "No sensitive media processing by default."
+      ]
+    },
+    {
+      "id": "Z8",
+      "name": "Mission Autonomy and Taskable Agents",
+      "lane": "LANE-AUTONOMY",
+      "objective": "Build mock agents and mission graph execution to exercise task catalogs, task routing, status updates, cancellation, and human-supervised autonomy.",
+      "why_now": "Taskable agents make the task API meaningful and enable richer multi-asset demos without needing real robotics.",
+      "depends_on": [
+        "Z3",
+        "Z4",
+        "Z5",
+        "Z6"
+      ],
+      "modules": [
+        "zorn-agent-runtime",
+        "zorn-mission-graph",
+        "zorn-agents/mock_uav",
+        "zorn-agents/mock_camera",
+        "zorn-agents/mock_radar"
+      ],
+      "epics": [
+        {
+          "id": "Z8-E1",
+          "name": "Agent registry and TaskCatalog matching",
+          "stories": [
+            "Register mock agents as entities with TaskCatalog components.",
+            "Match task specification type URLs to capable agents.",
+            "Render agent capability and last heartbeat in Developer Console and /c2."
+          ]
+        },
+        {
+          "id": "Z8-E2",
+          "name": "Mock agent runtime",
+          "stories": [
+            "Implement agent loop: listen, accept, update progress, complete/fail/cancel.",
+            "Support deterministic behavior under sandbox clock.",
+            "Publish agent telemetry and status entities while executing tasks."
+          ]
+        },
+        {
+          "id": "Z8-E3",
+          "name": "Mission graph DSL",
+          "stories": [
+            "Define local YAML/JSON mission graph with tasks, dependencies, gates, and rollback/cancel behavior.",
+            "Add human approval gates before simulated task execution where appropriate.",
+            "Render mission graph timeline in UI."
+          ]
+        },
+        {
+          "id": "Z8-E4",
+          "name": "Agent outputs",
+          "stories": [
+            "Agents can publish new entity observations, task status, and object attachments.",
+            "Camera-like agent can attach synthetic thumbnail/report objects.",
+            "Failure modes generate errors visible in task timeline."
+          ]
+        }
+      ],
+      "deliverables": [
+        "Agent registry.",
+        "Mock agent runtime.",
+        "TaskCatalog matcher.",
+        "Mission graph runner.",
+        "Human approval gate UI."
+      ],
+      "acceptance_tests": [
+        "A task created in /c2 routes to a matching mock agent via ListenAsAgent.",
+        "Agent status progresses through sent/accepted/in-progress/complete or failed.",
+        "Cancel request interrupts task and records terminal status.",
+        "Mission graph pauses at human approval gate and resumes only after operator approval."
+      ],
+      "showcase_signal": "The environment demonstrates human-supervised multi-agent task execution with visible task lifecycles and agent-generated outputs.",
+      "non_goals": [
+        "No autonomous weapon behavior.",
+        "No real asset control.",
+        "No engagement or targeting recommendations."
+      ]
+    },
+    {
+      "id": "Z9",
+      "name": "Mesh and Edge Simulation",
+      "lane": "LANE-MESH",
+      "objective": "Simulate distributed edge behavior: node-local event logs, constrained links, partitions, reconnect, object availability, and deterministic reconciliation.",
+      "why_now": "Mesh-like behavior distinguishes Zorn from a single-node mock and lets demos show tactical-edge constraints safely.",
+      "depends_on": [
+        "Z3",
+        "Z7"
+      ],
+      "modules": [
+        "zorn-mesh-sim",
+        "zorn-node",
+        "zorn-replication",
+        "zorn-ui/mesh-panel"
+      ],
+      "epics": [
+        {
+          "id": "Z9-E1",
+          "name": "Node registry and topology",
+          "stories": [
+            "Define simulated nodes with roles, location, storage, and connectivity profile.",
+            "Render topology graph in Developer Console.",
+            "Allow scenario packs to declare node topology."
+          ]
+        },
+        {
+          "id": "Z9-E2",
+          "name": "Event replication simulator",
+          "stories": [
+            "Replicate entity/task/object events between nodes according to link profiles.",
+            "Queue events during partitions and replay on reconnect.",
+            "Expose replication lag and conflict resolution trace."
+          ]
+        },
+        {
+          "id": "Z9-E3",
+          "name": "Object distribution simulator",
+          "stories": [
+            "Track object availability per node.",
+            "Simulate object fetch failures when partitioned or unavailable.",
+            "Surface object distribution state in Object Explorer and C2 media panel."
+          ]
+        },
+        {
+          "id": "Z9-E4",
+          "name": "Degraded-link profiles",
+          "stories": [
+            "Support latency, bandwidth, packet loss, and offline profiles.",
+            "Apply link profiles to streams and object transfers in simulated mode.",
+            "Add UI controls to toggle network impairment during demos."
+          ]
+        }
+      ],
+      "deliverables": [
+        "Mesh node/topology manifest.",
+        "Partition/reconnect simulator.",
+        "Replication trace viewer.",
+        "Object availability model.",
+        "Degraded-link controls."
+      ],
+      "acceptance_tests": [
+        "Partitioning a node stops remote event visibility while local state continues.",
+        "Reconnect replays queued events in deterministic order.",
+        "Object unavailable on a node shows a clear simulated fetch failure.",
+        "Replication trace explains how a final entity state was chosen after conflict."
+      ],
+      "showcase_signal": "A demo can disconnect an edge node, continue local operations, then reconnect and show deterministic reconciliation.",
+      "non_goals": [
+        "No proprietary Lattice Mesh implementation claim.",
+        "No production networking stack.",
+        "No covert communications features."
+      ]
+    },
+    {
+      "id": "Z10",
+      "name": "Partner-Style Integration System",
+      "lane": "LANE-PARTNER",
+      "objective": "Create local partner-style integration workflows: package manifests, capability catalogs, conformance suites, reference datasets, and scorecards.",
+      "why_now": "The partner lane turns Zorn into a showcase platform where adapters/apps/agents can be installed, evaluated, and compared.",
+      "depends_on": [
+        "Z2",
+        "Z3",
+        "Z4",
+        "Z6"
+      ],
+      "modules": [
+        "zorn-partner-registry",
+        "zorn-plugin-runner",
+        "zorn-conformance",
+        "zorn-ui/partner-console"
+      ],
+      "epics": [
+        {
+          "id": "Z10-E1",
+          "name": "Integration package manifest",
+          "stories": [
+            "Define package types: app, adapter, agent, data-service, scenario-pack, domain-pack.",
+            "Declare inputs, outputs, API dependencies, task definitions, objects, permissions, and safety notes.",
+            "Validate manifests and show errors before installation."
+          ]
+        },
+        {
+          "id": "Z10-E2",
+          "name": "Capability catalog",
+          "stories": [
+            "Index installed integrations by capabilities and supported scenarios.",
+            "Show compatibility status with REST, gRPC, sample apps, and scenario packs.",
+            "Render integration health and recent events."
+          ]
+        },
+        {
+          "id": "Z10-E3",
+          "name": "Conformance runner",
+          "stories": [
+            "Run package-specific tests against a clean sandbox.",
+            "Generate scorecard: API calls exercised, events emitted, objects created, tasks routed.",
+            "Export scorecard as JSON and human-readable report."
+          ]
+        },
+        {
+          "id": "Z10-E4",
+          "name": "Reference data packs",
+          "stories": [
+            "Bundle known-good fixtures for AIS, DIS, media, tasks, and mesh partitions.",
+            "Declare data provenance and safety boundaries.",
+            "Use reference packs in CI and showcase mode."
+          ]
+        }
+      ],
+      "deliverables": [
+        "zorn-package.json schema.",
+        "Plugin registry and installer skeleton.",
+        "Capability catalog UI.",
+        "Conformance test runner.",
+        "Scorecard export."
+      ],
+      "acceptance_tests": [
+        "A sample AIS adapter package installs and declares entity-publishing capability.",
+        "A mock agent package installs and declares TaskCatalog support.",
+        "Conformance runner executes package tests in a reset sandbox.",
+        "Scorecard accurately reports pass/fail and exercised capabilities."
+      ],
+      "showcase_signal": "Zorn can act as a local partner sandbox where integrations are discovered, installed, tested, and scored.",
+      "non_goals": [
+        "No claim of official Anduril partner validation.",
+        "No execution of untrusted plugin code without explicit local opt-in."
+      ]
+    },
+    {
+      "id": "Z11",
+      "name": "Domain Scenario Packs",
+      "lane": "LANE-DOMAINS",
+      "objective": "Package rich, safe, repeatable domain showcases that exercise C2, adapters, autonomy, objects, and mesh behavior.",
+      "why_now": "Domain packs are the showcase surface: they demonstrate why the platform exists and provide regression scenarios for development.",
+      "depends_on": [
+        "Z5",
+        "Z6",
+        "Z7",
+        "Z8",
+        "Z9",
+        "Z10"
+      ],
+      "modules": [
+        "zorn-domain-maritime",
+        "zorn-domain-dis",
+        "zorn-domain-cuas",
+        "zorn-domain-space",
+        "zorn-domain-undersea",
+        "zorn-domain-readiness"
+      ],
+      "epics": [
+        {
+          "id": "Z11-E1",
+          "name": "Maritime AIS + media pack",
+          "stories": [
+            "Replay AIS tracks with vessel identities and routes.",
+            "Attach synthetic manifest/thumbnail objects.",
+            "Trigger watchlist alerts for training-only rule examples."
+          ]
+        },
+        {
+          "id": "Z11-E2",
+          "name": "DIS multi-domain replay pack",
+          "stories": [
+            "Replay air/surface/ground/subsurface simulated entities.",
+            "Show adapter mapping from raw sim identifiers to public-compatible components.",
+            "Exercise stream and UI performance with dense tracks."
+          ]
+        },
+        {
+          "id": "Z11-E3",
+          "name": "C-UAS surveillance and investigation pack",
+          "stories": [
+            "Represent sensors, surveillance zones, unknown tracks, and investigation tasks safely.",
+            "Route non-kinetic investigation task to mock sensor/camera agent.",
+            "Generate synthetic report object after task completion."
+          ]
+        },
+        {
+          "id": "Z11-E4",
+          "name": "Space, undersea, and readiness packs",
+          "stories": [
+            "Create high-altitude/space-track mock entities with uncertainty and sparse updates.",
+            "Create undersea sparse-comms scenario with delayed entity updates and mesh partition behavior.",
+            "Create asset readiness checklist workflow with automated/mock readings and human signoff."
+          ]
+        }
+      ],
+      "deliverables": [
+        "Maritime scenario pack.",
+        "DIS multi-domain scenario pack.",
+        "C-UAS surveillance scenario pack with safety constraints.",
+        "Space-track mock pack.",
+        "Undersea sparse-comms pack.",
+        "Readiness checklist pack."
+      ],
+      "acceptance_tests": [
+        "Each domain pack can be reset, run, paused, exported, and replayed.",
+        "Each pack exercises at least three of: Entities, Tasks, Objects, UI, adapters, agents, mesh.",
+        "C-UAS pack contains no engagement recommendation, targeting, weapon-release, or fire-control workflow.",
+        "All packs generate a scenario report object and event summary."
+      ],
+      "showcase_signal": "A reviewer can choose from multiple realistic-looking but safe scenarios that show the breadth of the ecosystem.",
+      "non_goals": [
+        "No real operational tactics.",
+        "No live weapons/effectors.",
+        "No classified data or controlled datasets."
+      ]
+    },
+    {
+      "id": "Z12",
+      "name": "Rich Showcase Bundle and Evaluation Mode",
+      "lane": "LANE-SHOWCASE",
+      "objective": "Create a polished, repeatable demo/evaluation experience that launches Zorn, runs scenarios, records evidence, and produces reports.",
+      "why_now": "Once features exist, the project needs a clean story that proves the ecosystem in one command and generates artifacts for review.",
+      "depends_on": [
+        "Z3",
+        "Z4",
+        "Z5",
+        "Z6",
+        "Z7",
+        "Z8",
+        "Z9",
+        "Z10",
+        "Z11"
+      ],
+      "modules": [
+        "zorn-showcase-runner",
+        "zorn-eval",
+        "zorn-recording",
+        "zorn-docs"
+      ],
+      "epics": [
+        {
+          "id": "Z12-E1",
+          "name": "One-command showcase runner",
+          "stories": [
+            "Start REST, gRPC, UI, agents, adapters, mesh sim, and selected scenario pack.",
+            "Check dependency health before scenario starts.",
+            "Provide deterministic cleanup/reset between runs."
+          ]
+        },
+        {
+          "id": "Z12-E2",
+          "name": "Evaluation metrics",
+          "stories": [
+            "Record entities published, tasks created/routed/completed, objects created, stream reconnects, mesh lag, and compatibility results.",
+            "Emit machine-readable metrics JSON.",
+            "Render human-readable evaluation report."
+          ]
+        },
+        {
+          "id": "Z12-E3",
+          "name": "Demo recordings and narrative runbooks",
+          "stories": [
+            "Capture API transcripts and UI state snapshots during scenario execution.",
+            "Create operator, developer, partner, and evaluator runbooks.",
+            "Document expected observations and success signals for each demo."
+          ]
+        },
+        {
+          "id": "Z12-E4",
+          "name": "Release readiness and packaging",
+          "stories": [
+            "Package docker-compose local stack.",
+            "Add versioned fixture/data bundles.",
+            "Generate compatibility matrix and limitation list for each release."
+          ]
+        }
+      ],
+      "deliverables": [
+        "Showcase runner CLI.",
+        "Evaluation metrics/report generator.",
+        "Scenario runbooks.",
+        "Docker compose stack.",
+        "Release compatibility matrix."
+      ],
+      "acceptance_tests": [
+        "A fresh clone can run the showcase bundle and produce a report without manual data setup.",
+        "Evaluation report includes compatibility, scenario, UI, adapter, agent, object, and mesh sections.",
+        "Each demo has a runbook with expected operator/developer observations.",
+        "Release matrix lists supported, partial, and intentionally unsupported features."
+      ],
+      "showcase_signal": "Zorn can be demonstrated as a complete local environment with API compatibility, COP UI, adapters, agents, mesh simulation, partner integration, and scenario reports.",
+      "non_goals": [
+        "No claim of official Lattice certification.",
+        "No production deployment guarantee."
+      ]
+    }
+  ],
+  "backlog": [
+    {
+      "id": "Z3-E1-S01",
+      "milestone": "Z3",
+      "lane": "LANE-SANDBOX",
+      "epic": "Z3-E1",
+      "title": "Create/list/get/delete local environment records",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z3 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z3-E1-S02",
+      "milestone": "Z3",
+      "lane": "LANE-SANDBOX",
+      "epic": "Z3-E1",
+      "title": "Attach environment_id to entities, tasks, objects, and event log rows without breaking existing default behavior",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z3 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z3-E1-S03",
+      "milestone": "Z3",
+      "lane": "LANE-SANDBOX",
+      "epic": "Z3-E1",
+      "title": "Expose active environment selection through startup configuration and UI-local files",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z3 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z3-E2-S01",
+      "milestone": "Z3",
+      "lane": "LANE-SANDBOX",
+      "epic": "Z3-E2",
+      "title": "Add seed packs for empty, AIS demo, DIS demo, C-UAS surveillance demo, and autonomy patrol demo",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z3 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z3-E2-S02",
+      "milestone": "Z3",
+      "lane": "LANE-SANDBOX",
+      "epic": "Z3-E2",
+      "title": "Implement deterministic reset that clears current state and replays seed data",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z3 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z3-E2-S03",
+      "milestone": "Z3",
+      "lane": "LANE-SANDBOX",
+      "epic": "Z3-E2",
+      "title": "Export environment state as jsonl plus object metadata manifest",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z3 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z3-E3-S01",
+      "milestone": "Z3",
+      "lane": "LANE-SANDBOX",
+      "epic": "Z3-E3",
+      "title": "Add real-time and simulated-time modes",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z3 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z3-E3-S02",
+      "milestone": "Z3",
+      "lane": "LANE-SANDBOX",
+      "epic": "Z3-E3",
+      "title": "Allow pause/resume/speed multiplier for scenarios",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z3 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z3-E3-S03",
+      "milestone": "Z3",
+      "lane": "LANE-SANDBOX",
+      "epic": "Z3-E3",
+      "title": "Ensure TTL/expiry, task status timestamps, and event ordering can use simulated time",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z3 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z3-E4-S01",
+      "milestone": "Z3",
+      "lane": "LANE-SANDBOX",
+      "epic": "Z3-E4",
+      "title": "Register fixture packs with metadata, source, safety classification, and supported scenarios",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z3 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z3-E4-S02",
+      "milestone": "Z3",
+      "lane": "LANE-SANDBOX",
+      "epic": "Z3-E4",
+      "title": "Validate fixture packs before loading",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z3 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z3-E4-S03",
+      "milestone": "Z3",
+      "lane": "LANE-SANDBOX",
+      "epic": "Z3-E4",
+      "title": "Expose fixture pack status in Developer Console",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z3 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z4-E1-S01",
+      "milestone": "Z4",
+      "lane": "LANE-DEVELOPER-CONSOLE",
+      "epic": "Z4-E1",
+      "title": "Browse/filter/search entities by template, disposition, environment, source, liveness, and last update",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z4 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z4-E1-S02",
+      "milestone": "Z4",
+      "lane": "LANE-DEVELOPER-CONSOLE",
+      "epic": "Z4-E1",
+      "title": "Open entity detail with component cards, raw JSON, provenance, and event history",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z4 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z4-E1-S03",
+      "milestone": "Z4",
+      "lane": "LANE-DEVELOPER-CONSOLE",
+      "epic": "Z4-E1",
+      "title": "Validate selected entity against known public-compatible schema checks and local lint rules",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z4 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z4-E2-S01",
+      "milestone": "Z4",
+      "lane": "LANE-DEVELOPER-CONSOLE",
+      "epic": "Z4-E2",
+      "title": "Browse tasks by status, assignee, task type URL, creator, and terminal/non-terminal state",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z4 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z4-E2-S02",
+      "milestone": "Z4",
+      "lane": "LANE-DEVELOPER-CONSOLE",
+      "epic": "Z4-E2",
+      "title": "Show task lifecycle timeline, status payloads, errors, progress, result, and relation graph",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z4 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z4-E2-S03",
+      "milestone": "Z4",
+      "lane": "LANE-DEVELOPER-CONSOLE",
+      "epic": "Z4-E2",
+      "title": "Expose manual create/status/cancel actions in dev mode",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z4 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z4-E3-S01",
+      "milestone": "Z4",
+      "lane": "LANE-DEVELOPER-CONSOLE",
+      "epic": "Z4-E3",
+      "title": "Browse objects by path prefix, size, checksum, expiry, and linked entity",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z4 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z4-E3-S02",
+      "milestone": "Z4",
+      "lane": "LANE-DEVELOPER-CONSOLE",
+      "epic": "Z4-E3",
+      "title": "Preview supported images/text/json and download raw objects",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z4 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z4-E3-S03",
+      "milestone": "Z4",
+      "lane": "LANE-DEVELOPER-CONSOLE",
+      "epic": "Z4-E3",
+      "title": "Show object upload/delete events and TTL status",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z4 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z4-E4-S01",
+      "milestone": "Z4",
+      "lane": "LANE-DEVELOPER-CONSOLE",
+      "epic": "Z4-E4",
+      "title": "Display active SSE/gRPC streams, heartbeat cadence, event counts, reconnects, and last error",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z4 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z4-E4-S02",
+      "milestone": "Z4",
+      "lane": "LANE-DEVELOPER-CONSOLE",
+      "epic": "Z4-E4",
+      "title": "Render descriptor audit and sample-app compatibility status",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z4 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z4-E4-S03",
+      "milestone": "Z4",
+      "lane": "LANE-DEVELOPER-CONSOLE",
+      "epic": "Z4-E4",
+      "title": "Export debug bundle with state snapshot, event log tail, and compatibility report",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z4 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z5-E1-S01",
+      "milestone": "Z5",
+      "lane": "LANE-C2",
+      "epic": "Z5-E1",
+      "title": "Render entities with location on a map using template/disposition/environment-derived symbology",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z5 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z5-E1-S02",
+      "milestone": "Z5",
+      "lane": "LANE-C2",
+      "epic": "Z5-E1",
+      "title": "Display trails, headings, speed, altitude/depth, and stale/live/deleted state",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z5 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z5-E1-S03",
+      "milestone": "Z5",
+      "lane": "LANE-C2",
+      "epic": "Z5-E1",
+      "title": "Support layer toggles for assets, tracks, geo-entities, trails, coverage, labels, and tasks",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z5 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z5-E2-S01",
+      "milestone": "Z5",
+      "lane": "LANE-C2",
+      "epic": "Z5-E2",
+      "title": "List assets, tracks, geo-entities, alerts, and active tasks in side rail",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z5 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z5-E2-S02",
+      "milestone": "Z5",
+      "lane": "LANE-C2",
+      "epic": "Z5-E2",
+      "title": "Support search and filters aligned with Entity Explorer",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z5 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z5-E2-S03",
+      "milestone": "Z5",
+      "lane": "LANE-C2",
+      "epic": "Z5-E2",
+      "title": "Show selected entity detail with core telemetry, provenance, media, and task actions",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z5 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z5-E3-S01",
+      "milestone": "Z5",
+      "lane": "LANE-C2",
+      "epic": "Z5-E3",
+      "title": "Show pending/assigned/in-progress/completed/failed/canceled task lanes",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z5 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z5-E3-S02",
+      "milestone": "Z5",
+      "lane": "LANE-C2",
+      "epic": "Z5-E3",
+      "title": "Create allowed mock tasks against selected assets/tracks/areas",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z5 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z5-E3-S03",
+      "milestone": "Z5",
+      "lane": "LANE-C2",
+      "epic": "Z5-E3",
+      "title": "Cancel tasks and show status timeline updates in the side panel",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z5 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z5-E4-S01",
+      "milestone": "Z5",
+      "lane": "LANE-C2",
+      "epic": "Z5-E4",
+      "title": "Create local watchlist rules for stale asset, unknown track near zone, task failure, and object expiry",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z5 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z5-E4-S02",
+      "milestone": "Z5",
+      "lane": "LANE-C2",
+      "epic": "Z5-E4",
+      "title": "Render non-kinetic alerts in map/list panels",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z5 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z5-E4-S03",
+      "milestone": "Z5",
+      "lane": "LANE-C2",
+      "epic": "Z5-E4",
+      "title": "Allow operator acknowledgement as local UI state",
+      "type": "feature",
+      "priority": "P0",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z5 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z6-E1-S01",
+      "milestone": "Z6",
+      "lane": "LANE-ADAPTERS",
+      "epic": "Z6-E1",
+      "title": "Define adapter lifecycle: configure, validate, start, pause, stop, health, metrics",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z6 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z6-E1-S02",
+      "milestone": "Z6",
+      "lane": "LANE-ADAPTERS",
+      "epic": "Z6-E1",
+      "title": "Add adapter-to-entity mapping registry with source/provenance rules",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z6 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z6-E1-S03",
+      "milestone": "Z6",
+      "lane": "LANE-ADAPTERS",
+      "epic": "Z6-E1",
+      "title": "Expose adapter health and throughput in Developer Console",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z6 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z6-E2-S01",
+      "milestone": "Z6",
+      "lane": "LANE-ADAPTERS",
+      "epic": "Z6-E2",
+      "title": "Convert AIS vessel fixtures into surface track/entity updates",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z6 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z6-E2-S02",
+      "milestone": "Z6",
+      "lane": "LANE-ADAPTERS",
+      "epic": "Z6-E2",
+      "title": "Map MMSI/callsign/name into aliases and provenance",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z6 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z6-E2-S03",
+      "milestone": "Z6",
+      "lane": "LANE-ADAPTERS",
+      "epic": "Z6-E2",
+      "title": "Support replay speed and deterministic event order",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z6 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z6-E3-S01",
+      "milestone": "Z6",
+      "lane": "LANE-ADAPTERS",
+      "epic": "Z6-E3",
+      "title": "Map DIS entity identifiers to stable entityId/aliases",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z6 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z6-E3-S02",
+      "milestone": "Z6",
+      "lane": "LANE-ADAPTERS",
+      "epic": "Z6-E3",
+      "title": "Map DIS location, velocity, orientation, force ID, domain, and entity type into compatible entity components",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z6 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z6-E3-S03",
+      "milestone": "Z6",
+      "lane": "LANE-ADAPTERS",
+      "epic": "Z6-E3",
+      "title": "Add namespace policy for exercise ID and site/application/entity IDs",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z6 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z6-E4-S01",
+      "milestone": "Z6",
+      "lane": "LANE-ADAPTERS",
+      "epic": "Z6-E4",
+      "title": "Represent generic sensor coverage as geo shapes and sensor components",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z6 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z6-E4-S02",
+      "milestone": "Z6",
+      "lane": "LANE-ADAPTERS",
+      "epic": "Z6-E4",
+      "title": "Represent detections as tracks or source-linked entity updates",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z6 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z6-E4-S03",
+      "milestone": "Z6",
+      "lane": "LANE-ADAPTERS",
+      "epic": "Z6-E4",
+      "title": "Preserve source confidence/quality as tracked/provenance metadata when available",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z6 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z7-E1-S01",
+      "milestone": "Z7",
+      "lane": "LANE-OBJECTS-MEDIA",
+      "epic": "Z7-E1",
+      "title": "Add checksum/size/content-type/expiry/path-prefix query behavior to tests",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z7 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z7-E1-S02",
+      "milestone": "Z7",
+      "lane": "LANE-OBJECTS-MEDIA",
+      "epic": "Z7-E1",
+      "title": "Support object lifecycle events for upload/delete/expiry",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z7 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z7-E1-S03",
+      "milestone": "Z7",
+      "lane": "LANE-OBJECTS-MEDIA",
+      "epic": "Z7-E1",
+      "title": "Represent object-to-entity linkage in local indexes without altering public object API",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z7 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z7-E2-S01",
+      "milestone": "Z7",
+      "lane": "LANE-OBJECTS-MEDIA",
+      "epic": "Z7-E2",
+      "title": "Upload image object and attach it to selected entity media component/override where compatible",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z7 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z7-E2-S02",
+      "milestone": "Z7",
+      "lane": "LANE-OBJECTS-MEDIA",
+      "epic": "Z7-E2",
+      "title": "Preview image and basic text/json content in entity detail and object browser",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z7 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z7-E2-S03",
+      "milestone": "Z7",
+      "lane": "LANE-OBJECTS-MEDIA",
+      "epic": "Z7-E2",
+      "title": "Generate synthetic thumbnails for seeded tracks/assets",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z7 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z7-E3-S01",
+      "milestone": "Z7",
+      "lane": "LANE-OBJECTS-MEDIA",
+      "epic": "Z7-E3",
+      "title": "Generate scenario report object with entity/task/event summaries",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z7 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z7-E3-S02",
+      "milestone": "Z7",
+      "lane": "LANE-OBJECTS-MEDIA",
+      "epic": "Z7-E3",
+      "title": "Export evidence bundle with objects, event log, task timeline, and compatibility report",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z7 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z7-E3-S03",
+      "milestone": "Z7",
+      "lane": "LANE-OBJECTS-MEDIA",
+      "epic": "Z7-E3",
+      "title": "Add redaction hooks for sensitive/local-only fields",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z7 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z7-E4-S01",
+      "milestone": "Z7",
+      "lane": "LANE-OBJECTS-MEDIA",
+      "epic": "Z7-E4",
+      "title": "Add local object availability metadata to support later mesh simulation",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z7 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z7-E4-S02",
+      "milestone": "Z7",
+      "lane": "LANE-OBJECTS-MEDIA",
+      "epic": "Z7-E4",
+      "title": "Track which simulated nodes have each object",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z7 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z7-E4-S03",
+      "milestone": "Z7",
+      "lane": "LANE-OBJECTS-MEDIA",
+      "epic": "Z7-E4",
+      "title": "Expose object distribution state as Zorn-only metadata in UI",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z7 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z8-E1-S01",
+      "milestone": "Z8",
+      "lane": "LANE-AUTONOMY",
+      "epic": "Z8-E1",
+      "title": "Register mock agents as entities with TaskCatalog components",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z8 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z8-E1-S02",
+      "milestone": "Z8",
+      "lane": "LANE-AUTONOMY",
+      "epic": "Z8-E1",
+      "title": "Match task specification type URLs to capable agents",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z8 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z8-E1-S03",
+      "milestone": "Z8",
+      "lane": "LANE-AUTONOMY",
+      "epic": "Z8-E1",
+      "title": "Render agent capability and last heartbeat in Developer Console and /c2",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z8 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z8-E2-S01",
+      "milestone": "Z8",
+      "lane": "LANE-AUTONOMY",
+      "epic": "Z8-E2",
+      "title": "Implement agent loop: listen, accept, update progress, complete/fail/cancel",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z8 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z8-E2-S02",
+      "milestone": "Z8",
+      "lane": "LANE-AUTONOMY",
+      "epic": "Z8-E2",
+      "title": "Support deterministic behavior under sandbox clock",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z8 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z8-E2-S03",
+      "milestone": "Z8",
+      "lane": "LANE-AUTONOMY",
+      "epic": "Z8-E2",
+      "title": "Publish agent telemetry and status entities while executing tasks",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z8 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z8-E3-S01",
+      "milestone": "Z8",
+      "lane": "LANE-AUTONOMY",
+      "epic": "Z8-E3",
+      "title": "Define local YAML/JSON mission graph with tasks, dependencies, gates, and rollback/cancel behavior",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z8 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z8-E3-S02",
+      "milestone": "Z8",
+      "lane": "LANE-AUTONOMY",
+      "epic": "Z8-E3",
+      "title": "Add human approval gates before simulated task execution where appropriate",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z8 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z8-E3-S03",
+      "milestone": "Z8",
+      "lane": "LANE-AUTONOMY",
+      "epic": "Z8-E3",
+      "title": "Render mission graph timeline in UI",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z8 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z8-E4-S01",
+      "milestone": "Z8",
+      "lane": "LANE-AUTONOMY",
+      "epic": "Z8-E4",
+      "title": "Agents can publish new entity observations, task status, and object attachments",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z8 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z8-E4-S02",
+      "milestone": "Z8",
+      "lane": "LANE-AUTONOMY",
+      "epic": "Z8-E4",
+      "title": "Camera-like agent can attach synthetic thumbnail/report objects",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z8 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z8-E4-S03",
+      "milestone": "Z8",
+      "lane": "LANE-AUTONOMY",
+      "epic": "Z8-E4",
+      "title": "Failure modes generate errors visible in task timeline",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z8 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z9-E1-S01",
+      "milestone": "Z9",
+      "lane": "LANE-MESH",
+      "epic": "Z9-E1",
+      "title": "Define simulated nodes with roles, location, storage, and connectivity profile",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z9 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z9-E1-S02",
+      "milestone": "Z9",
+      "lane": "LANE-MESH",
+      "epic": "Z9-E1",
+      "title": "Render topology graph in Developer Console",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z9 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z9-E1-S03",
+      "milestone": "Z9",
+      "lane": "LANE-MESH",
+      "epic": "Z9-E1",
+      "title": "Allow scenario packs to declare node topology",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z9 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z9-E2-S01",
+      "milestone": "Z9",
+      "lane": "LANE-MESH",
+      "epic": "Z9-E2",
+      "title": "Replicate entity/task/object events between nodes according to link profiles",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z9 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z9-E2-S02",
+      "milestone": "Z9",
+      "lane": "LANE-MESH",
+      "epic": "Z9-E2",
+      "title": "Queue events during partitions and replay on reconnect",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z9 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z9-E2-S03",
+      "milestone": "Z9",
+      "lane": "LANE-MESH",
+      "epic": "Z9-E2",
+      "title": "Expose replication lag and conflict resolution trace",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z9 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z9-E3-S01",
+      "milestone": "Z9",
+      "lane": "LANE-MESH",
+      "epic": "Z9-E3",
+      "title": "Track object availability per node",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z9 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z9-E3-S02",
+      "milestone": "Z9",
+      "lane": "LANE-MESH",
+      "epic": "Z9-E3",
+      "title": "Simulate object fetch failures when partitioned or unavailable",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z9 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z9-E3-S03",
+      "milestone": "Z9",
+      "lane": "LANE-MESH",
+      "epic": "Z9-E3",
+      "title": "Surface object distribution state in Object Explorer and C2 media panel",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z9 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z9-E4-S01",
+      "milestone": "Z9",
+      "lane": "LANE-MESH",
+      "epic": "Z9-E4",
+      "title": "Support latency, bandwidth, packet loss, and offline profiles",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z9 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z9-E4-S02",
+      "milestone": "Z9",
+      "lane": "LANE-MESH",
+      "epic": "Z9-E4",
+      "title": "Apply link profiles to streams and object transfers in simulated mode",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z9 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z9-E4-S03",
+      "milestone": "Z9",
+      "lane": "LANE-MESH",
+      "epic": "Z9-E4",
+      "title": "Add UI controls to toggle network impairment during demos",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z9 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z10-E1-S01",
+      "milestone": "Z10",
+      "lane": "LANE-PARTNER",
+      "epic": "Z10-E1",
+      "title": "Define package types: app, adapter, agent, data-service, scenario-pack, domain-pack",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z10 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z10-E1-S02",
+      "milestone": "Z10",
+      "lane": "LANE-PARTNER",
+      "epic": "Z10-E1",
+      "title": "Declare inputs, outputs, API dependencies, task definitions, objects, permissions, and safety notes",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z10 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z10-E1-S03",
+      "milestone": "Z10",
+      "lane": "LANE-PARTNER",
+      "epic": "Z10-E1",
+      "title": "Validate manifests and show errors before installation",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z10 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z10-E2-S01",
+      "milestone": "Z10",
+      "lane": "LANE-PARTNER",
+      "epic": "Z10-E2",
+      "title": "Index installed integrations by capabilities and supported scenarios",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z10 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z10-E2-S02",
+      "milestone": "Z10",
+      "lane": "LANE-PARTNER",
+      "epic": "Z10-E2",
+      "title": "Show compatibility status with REST, gRPC, sample apps, and scenario packs",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z10 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z10-E2-S03",
+      "milestone": "Z10",
+      "lane": "LANE-PARTNER",
+      "epic": "Z10-E2",
+      "title": "Render integration health and recent events",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z10 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z10-E3-S01",
+      "milestone": "Z10",
+      "lane": "LANE-PARTNER",
+      "epic": "Z10-E3",
+      "title": "Run package-specific tests against a clean sandbox",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z10 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z10-E3-S02",
+      "milestone": "Z10",
+      "lane": "LANE-PARTNER",
+      "epic": "Z10-E3",
+      "title": "Generate scorecard: API calls exercised, events emitted, objects created, tasks routed",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z10 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z10-E3-S03",
+      "milestone": "Z10",
+      "lane": "LANE-PARTNER",
+      "epic": "Z10-E3",
+      "title": "Export scorecard as JSON and human-readable report",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z10 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z10-E4-S01",
+      "milestone": "Z10",
+      "lane": "LANE-PARTNER",
+      "epic": "Z10-E4",
+      "title": "Bundle known-good fixtures for AIS, DIS, media, tasks, and mesh partitions",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z10 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z10-E4-S02",
+      "milestone": "Z10",
+      "lane": "LANE-PARTNER",
+      "epic": "Z10-E4",
+      "title": "Declare data provenance and safety boundaries",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z10 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z10-E4-S03",
+      "milestone": "Z10",
+      "lane": "LANE-PARTNER",
+      "epic": "Z10-E4",
+      "title": "Use reference packs in CI and showcase mode",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z10 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z11-E1-S01",
+      "milestone": "Z11",
+      "lane": "LANE-DOMAINS",
+      "epic": "Z11-E1",
+      "title": "Replay AIS tracks with vessel identities and routes",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z11 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z11-E1-S02",
+      "milestone": "Z11",
+      "lane": "LANE-DOMAINS",
+      "epic": "Z11-E1",
+      "title": "Attach synthetic manifest/thumbnail objects",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z11 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z11-E1-S03",
+      "milestone": "Z11",
+      "lane": "LANE-DOMAINS",
+      "epic": "Z11-E1",
+      "title": "Trigger watchlist alerts for training-only rule examples",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z11 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z11-E2-S01",
+      "milestone": "Z11",
+      "lane": "LANE-DOMAINS",
+      "epic": "Z11-E2",
+      "title": "Replay air/surface/ground/subsurface simulated entities",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z11 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z11-E2-S02",
+      "milestone": "Z11",
+      "lane": "LANE-DOMAINS",
+      "epic": "Z11-E2",
+      "title": "Show adapter mapping from raw sim identifiers to public-compatible components",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z11 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z11-E2-S03",
+      "milestone": "Z11",
+      "lane": "LANE-DOMAINS",
+      "epic": "Z11-E2",
+      "title": "Exercise stream and UI performance with dense tracks",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z11 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z11-E3-S01",
+      "milestone": "Z11",
+      "lane": "LANE-DOMAINS",
+      "epic": "Z11-E3",
+      "title": "Represent sensors, surveillance zones, unknown tracks, and investigation tasks safely",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z11 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z11-E3-S02",
+      "milestone": "Z11",
+      "lane": "LANE-DOMAINS",
+      "epic": "Z11-E3",
+      "title": "Route non-kinetic investigation task to mock sensor/camera agent",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z11 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z11-E3-S03",
+      "milestone": "Z11",
+      "lane": "LANE-DOMAINS",
+      "epic": "Z11-E3",
+      "title": "Generate synthetic report object after task completion",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z11 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z11-E4-S01",
+      "milestone": "Z11",
+      "lane": "LANE-DOMAINS",
+      "epic": "Z11-E4",
+      "title": "Create high-altitude/space-track mock entities with uncertainty and sparse updates",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z11 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z11-E4-S02",
+      "milestone": "Z11",
+      "lane": "LANE-DOMAINS",
+      "epic": "Z11-E4",
+      "title": "Create undersea sparse-comms scenario with delayed entity updates and mesh partition behavior",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z11 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z11-E4-S03",
+      "milestone": "Z11",
+      "lane": "LANE-DOMAINS",
+      "epic": "Z11-E4",
+      "title": "Create asset readiness checklist workflow with automated/mock readings and human signoff",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z11 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z12-E1-S01",
+      "milestone": "Z12",
+      "lane": "LANE-SHOWCASE",
+      "epic": "Z12-E1",
+      "title": "Start REST, gRPC, UI, agents, adapters, mesh sim, and selected scenario pack",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z12 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z12-E1-S02",
+      "milestone": "Z12",
+      "lane": "LANE-SHOWCASE",
+      "epic": "Z12-E1",
+      "title": "Check dependency health before scenario starts",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z12 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z12-E1-S03",
+      "milestone": "Z12",
+      "lane": "LANE-SHOWCASE",
+      "epic": "Z12-E1",
+      "title": "Provide deterministic cleanup/reset between runs",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z12 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z12-E2-S01",
+      "milestone": "Z12",
+      "lane": "LANE-SHOWCASE",
+      "epic": "Z12-E2",
+      "title": "Record entities published, tasks created/routed/completed, objects created, stream reconnects, mesh lag, and compatibility results",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z12 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z12-E2-S02",
+      "milestone": "Z12",
+      "lane": "LANE-SHOWCASE",
+      "epic": "Z12-E2",
+      "title": "Emit machine-readable metrics JSON",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z12 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z12-E2-S03",
+      "milestone": "Z12",
+      "lane": "LANE-SHOWCASE",
+      "epic": "Z12-E2",
+      "title": "Render human-readable evaluation report",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z12 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z12-E3-S01",
+      "milestone": "Z12",
+      "lane": "LANE-SHOWCASE",
+      "epic": "Z12-E3",
+      "title": "Capture API transcripts and UI state snapshots during scenario execution",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z12 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z12-E3-S02",
+      "milestone": "Z12",
+      "lane": "LANE-SHOWCASE",
+      "epic": "Z12-E3",
+      "title": "Create operator, developer, partner, and evaluator runbooks",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z12 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z12-E3-S03",
+      "milestone": "Z12",
+      "lane": "LANE-SHOWCASE",
+      "epic": "Z12-E3",
+      "title": "Document expected observations and success signals for each demo",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z12 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z12-E4-S01",
+      "milestone": "Z12",
+      "lane": "LANE-SHOWCASE",
+      "epic": "Z12-E4",
+      "title": "Package docker-compose local stack",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z12 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z12-E4-S02",
+      "milestone": "Z12",
+      "lane": "LANE-SHOWCASE",
+      "epic": "Z12-E4",
+      "title": "Add versioned fixture/data bundles",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z12 acceptance tests and include in the milestone report."
+    },
+    {
+      "id": "Z12-E4-S03",
+      "milestone": "Z12",
+      "lane": "LANE-SHOWCASE",
+      "epic": "Z12-E4",
+      "title": "Generate compatibility matrix and limitation list for each release",
+      "type": "feature",
+      "priority": "P1",
+      "status": "planned",
+      "acceptance_hint": "Demonstrate through Z12 acceptance tests and include in the milestone report."
+    }
+  ],
+  "acceptance_tests": [
+    {
+      "id": "Z3-AT01",
+      "milestone": "Z3",
+      "lane": "LANE-SANDBOX",
+      "description": "Resetting the same seed twice yields the same entity/task/object/event counts and ordered event hashes.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z3-AT02",
+      "milestone": "Z3",
+      "lane": "LANE-SANDBOX",
+      "description": "Two environments can contain the same entityId without state collision.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z3-AT03",
+      "milestone": "Z3",
+      "lane": "LANE-SANDBOX",
+      "description": "Simulated time pause prevents expiry and task timeline advancement.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z3-AT04",
+      "milestone": "Z3",
+      "lane": "LANE-SANDBOX",
+      "description": "Exported environment can be imported into a clean database and pass equality checks.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z4-AT01",
+      "milestone": "Z4",
+      "lane": "LANE-DEVELOPER-CONSOLE",
+      "description": "Entity Explorer displays seeded asset, track, and geo-entity examples.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z4-AT02",
+      "milestone": "Z4",
+      "lane": "LANE-DEVELOPER-CONSOLE",
+      "description": "Task Explorer displays Create \u2192 Update \u2192 Cancel/Complete timeline.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z4-AT03",
+      "milestone": "Z4",
+      "lane": "LANE-DEVELOPER-CONSOLE",
+      "description": "Object Explorer previews a thumbnail object and shows metadata.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z4-AT04",
+      "milestone": "Z4",
+      "lane": "LANE-DEVELOPER-CONSOLE",
+      "description": "Stream Inspector shows entity stream heartbeats and live create/update/delete events.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z5-AT01",
+      "milestone": "Z5",
+      "lane": "LANE-C2",
+      "description": "AIS or synthetic entity replay moves icons on the map through entity stream updates.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z5-AT02",
+      "milestone": "Z5",
+      "lane": "LANE-C2",
+      "description": "Selecting an entity highlights it in the map, list, and detail panel.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z5-AT03",
+      "milestone": "Z5",
+      "lane": "LANE-C2",
+      "description": "Creating a mock investigation task shows it on the task board and routes it to a mock agent.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z5-AT04",
+      "milestone": "Z5",
+      "lane": "LANE-C2",
+      "description": "Alert rule triggers on a seeded unknown track near a configured training zone.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z6-AT01",
+      "milestone": "Z6",
+      "lane": "LANE-ADAPTERS",
+      "description": "AIS replay creates moving surface tracks visible in /c2 and /developer-console.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z6-AT02",
+      "milestone": "Z6",
+      "lane": "LANE-ADAPTERS",
+      "description": "DIS fixture creates asset/track entities with stable IDs and deterministic provenance.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z6-AT03",
+      "milestone": "Z6",
+      "lane": "LANE-ADAPTERS",
+      "description": "Adapter failure is surfaced as health status without crashing the server.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z6-AT04",
+      "milestone": "Z6",
+      "lane": "LANE-ADAPTERS",
+      "description": "Replay can pause/resume through the sandbox clock.",
+      "level": "integration",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z7-AT01",
+      "milestone": "Z7",
+      "lane": "LANE-OBJECTS-MEDIA",
+      "description": "Uploading a thumbnail object makes it visible on selected entity detail.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z7-AT02",
+      "milestone": "Z7",
+      "lane": "LANE-OBJECTS-MEDIA",
+      "description": "Deleting an object updates browser state and event log.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z7-AT03",
+      "milestone": "Z7",
+      "lane": "LANE-OBJECTS-MEDIA",
+      "description": "Evidence export contains manifest, events, tasks, objects, and checksums.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z7-AT04",
+      "milestone": "Z7",
+      "lane": "LANE-OBJECTS-MEDIA",
+      "description": "Object metadata remains REST-compatible while local distribution metadata remains namespaced.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z8-AT01",
+      "milestone": "Z8",
+      "lane": "LANE-AUTONOMY",
+      "description": "A task created in /c2 routes to a matching mock agent via ListenAsAgent.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z8-AT02",
+      "milestone": "Z8",
+      "lane": "LANE-AUTONOMY",
+      "description": "Agent status progresses through sent/accepted/in-progress/complete or failed.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z8-AT03",
+      "milestone": "Z8",
+      "lane": "LANE-AUTONOMY",
+      "description": "Cancel request interrupts task and records terminal status.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z8-AT04",
+      "milestone": "Z8",
+      "lane": "LANE-AUTONOMY",
+      "description": "Mission graph pauses at human approval gate and resumes only after operator approval.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z9-AT01",
+      "milestone": "Z9",
+      "lane": "LANE-MESH",
+      "description": "Partitioning a node stops remote event visibility while local state continues.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z9-AT02",
+      "milestone": "Z9",
+      "lane": "LANE-MESH",
+      "description": "Reconnect replays queued events in deterministic order.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z9-AT03",
+      "milestone": "Z9",
+      "lane": "LANE-MESH",
+      "description": "Object unavailable on a node shows a clear simulated fetch failure.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z9-AT04",
+      "milestone": "Z9",
+      "lane": "LANE-MESH",
+      "description": "Replication trace explains how a final entity state was chosen after conflict.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z10-AT01",
+      "milestone": "Z10",
+      "lane": "LANE-PARTNER",
+      "description": "A sample AIS adapter package installs and declares entity-publishing capability.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z10-AT02",
+      "milestone": "Z10",
+      "lane": "LANE-PARTNER",
+      "description": "A mock agent package installs and declares TaskCatalog support.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z10-AT03",
+      "milestone": "Z10",
+      "lane": "LANE-PARTNER",
+      "description": "Conformance runner executes package tests in a reset sandbox.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z10-AT04",
+      "milestone": "Z10",
+      "lane": "LANE-PARTNER",
+      "description": "Scorecard accurately reports pass/fail and exercised capabilities.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z11-AT01",
+      "milestone": "Z11",
+      "lane": "LANE-DOMAINS",
+      "description": "Each domain pack can be reset, run, paused, exported, and replayed.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z11-AT02",
+      "milestone": "Z11",
+      "lane": "LANE-DOMAINS",
+      "description": "Each pack exercises at least three of: Entities, Tasks, Objects, UI, adapters, agents, mesh.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z11-AT03",
+      "milestone": "Z11",
+      "lane": "LANE-DOMAINS",
+      "description": "C-UAS pack contains no engagement recommendation, targeting, weapon-release, or fire-control workflow.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z11-AT04",
+      "milestone": "Z11",
+      "lane": "LANE-DOMAINS",
+      "description": "All packs generate a scenario report object and event summary.",
+      "level": "scenario",
+      "automation_target": "pytest + scenario runner"
+    },
+    {
+      "id": "Z12-AT01",
+      "milestone": "Z12",
+      "lane": "LANE-SHOWCASE",
+      "description": "A fresh clone can run the showcase bundle and produce a report without manual data setup.",
+      "level": "scenario",
+      "automation_target": "showcase runner"
+    },
+    {
+      "id": "Z12-AT02",
+      "milestone": "Z12",
+      "lane": "LANE-SHOWCASE",
+      "description": "Evaluation report includes compatibility, scenario, UI, adapter, agent, object, and mesh sections.",
+      "level": "scenario",
+      "automation_target": "showcase runner"
+    },
+    {
+      "id": "Z12-AT03",
+      "milestone": "Z12",
+      "lane": "LANE-SHOWCASE",
+      "description": "Each demo has a runbook with expected operator/developer observations.",
+      "level": "scenario",
+      "automation_target": "showcase runner"
+    },
+    {
+      "id": "Z12-AT04",
+      "milestone": "Z12",
+      "lane": "LANE-SHOWCASE",
+      "description": "Release matrix lists supported, partial, and intentionally unsupported features.",
+      "level": "scenario",
+      "automation_target": "showcase runner"
+    }
+  ],
+  "dependency_edges": [
+    {
+      "from": "Z0",
+      "to": "Z3",
+      "reason": "Z3 requires Z0 baseline"
+    },
+    {
+      "from": "Z1",
+      "to": "Z3",
+      "reason": "Z3 requires Z1 baseline"
+    },
+    {
+      "from": "Z2",
+      "to": "Z3",
+      "reason": "Z3 requires Z2 baseline"
+    },
+    {
+      "from": "Z1",
+      "to": "Z4",
+      "reason": "Z4 requires Z1 baseline"
+    },
+    {
+      "from": "Z2",
+      "to": "Z4",
+      "reason": "Z4 requires Z2 baseline"
+    },
+    {
+      "from": "Z3",
+      "to": "Z4",
+      "reason": "Z4 requires Z3 baseline"
+    },
+    {
+      "from": "Z3",
+      "to": "Z5",
+      "reason": "Z5 requires Z3 baseline"
+    },
+    {
+      "from": "Z4",
+      "to": "Z5",
+      "reason": "Z5 requires Z4 baseline"
+    },
+    {
+      "from": "Z3",
+      "to": "Z6",
+      "reason": "Z6 requires Z3 baseline"
+    },
+    {
+      "from": "Z4",
+      "to": "Z6",
+      "reason": "Z6 requires Z4 baseline"
+    },
+    {
+      "from": "Z5",
+      "to": "Z6",
+      "reason": "Z6 requires Z5 baseline"
+    },
+    {
+      "from": "Z3",
+      "to": "Z7",
+      "reason": "Z7 requires Z3 baseline"
+    },
+    {
+      "from": "Z4",
+      "to": "Z7",
+      "reason": "Z7 requires Z4 baseline"
+    },
+    {
+      "from": "Z5",
+      "to": "Z7",
+      "reason": "Z7 requires Z5 baseline"
+    },
+    {
+      "from": "Z3",
+      "to": "Z8",
+      "reason": "Z8 requires Z3 baseline"
+    },
+    {
+      "from": "Z4",
+      "to": "Z8",
+      "reason": "Z8 requires Z4 baseline"
+    },
+    {
+      "from": "Z5",
+      "to": "Z8",
+      "reason": "Z8 requires Z5 baseline"
+    },
+    {
+      "from": "Z6",
+      "to": "Z8",
+      "reason": "Z8 requires Z6 baseline"
+    },
+    {
+      "from": "Z3",
+      "to": "Z9",
+      "reason": "Z9 requires Z3 baseline"
+    },
+    {
+      "from": "Z7",
+      "to": "Z9",
+      "reason": "Z9 requires Z7 baseline"
+    },
+    {
+      "from": "Z2",
+      "to": "Z10",
+      "reason": "Z10 requires Z2 baseline"
+    },
+    {
+      "from": "Z3",
+      "to": "Z10",
+      "reason": "Z10 requires Z3 baseline"
+    },
+    {
+      "from": "Z4",
+      "to": "Z10",
+      "reason": "Z10 requires Z4 baseline"
+    },
+    {
+      "from": "Z6",
+      "to": "Z10",
+      "reason": "Z10 requires Z6 baseline"
+    },
+    {
+      "from": "Z5",
+      "to": "Z11",
+      "reason": "Z11 requires Z5 baseline"
+    },
+    {
+      "from": "Z6",
+      "to": "Z11",
+      "reason": "Z11 requires Z6 baseline"
+    },
+    {
+      "from": "Z7",
+      "to": "Z11",
+      "reason": "Z11 requires Z7 baseline"
+    },
+    {
+      "from": "Z8",
+      "to": "Z11",
+      "reason": "Z11 requires Z8 baseline"
+    },
+    {
+      "from": "Z9",
+      "to": "Z11",
+      "reason": "Z11 requires Z9 baseline"
+    },
+    {
+      "from": "Z10",
+      "to": "Z11",
+      "reason": "Z11 requires Z10 baseline"
+    },
+    {
+      "from": "Z3",
+      "to": "Z12",
+      "reason": "Z12 requires Z3 baseline"
+    },
+    {
+      "from": "Z4",
+      "to": "Z12",
+      "reason": "Z12 requires Z4 baseline"
+    },
+    {
+      "from": "Z5",
+      "to": "Z12",
+      "reason": "Z12 requires Z5 baseline"
+    },
+    {
+      "from": "Z6",
+      "to": "Z12",
+      "reason": "Z12 requires Z6 baseline"
+    },
+    {
+      "from": "Z7",
+      "to": "Z12",
+      "reason": "Z12 requires Z7 baseline"
+    },
+    {
+      "from": "Z8",
+      "to": "Z12",
+      "reason": "Z12 requires Z8 baseline"
+    },
+    {
+      "from": "Z9",
+      "to": "Z12",
+      "reason": "Z12 requires Z9 baseline"
+    },
+    {
+      "from": "Z10",
+      "to": "Z12",
+      "reason": "Z12 requires Z10 baseline"
+    },
+    {
+      "from": "Z11",
+      "to": "Z12",
+      "reason": "Z12 requires Z11 baseline"
+    }
+  ],
+  "risks": [
+    {
+      "id": "RISK-001",
+      "category": "contract-drift",
+      "risk": "Official public SDK/proto behavior changes faster than the mock implementation.",
+      "impact": "Compatibility regressions in clients and sample apps.",
+      "mitigation": "Keep descriptor audit, sample-app harness, and compatibility matrix as release gates.",
+      "owners": [
+        "LANE-CORE"
+      ]
+    },
+    {
+      "id": "RISK-002",
+      "category": "legal-branding",
+      "risk": "Zorn could be mistaken for an official or affiliated product.",
+      "impact": "Brand/trademark and trust problems.",
+      "mitigation": "Use name-neutral internals, clear disclaimers, no Anduril marks or proprietary UI replication.",
+      "owners": [
+        "LANE-SHOWCASE",
+        "LANE-PARTNER"
+      ]
+    },
+    {
+      "id": "RISK-003",
+      "category": "safety",
+      "risk": "Domain scenarios drift toward operational targeting or weapon employment workflows.",
+      "impact": "Unsafe or inappropriate capabilities.",
+      "mitigation": "Keep C-UAS and defense scenarios limited to surveillance, investigation, reporting, readiness, and non-kinetic tasking.",
+      "owners": [
+        "LANE-C2",
+        "LANE-AUTONOMY",
+        "LANE-DOMAINS"
+      ]
+    },
+    {
+      "id": "RISK-004",
+      "category": "architecture",
+      "risk": "Zorn-only features leak into public-compatible proto/API layers.",
+      "impact": "Incompatibility and confusing boundaries.",
+      "mitigation": "Place local UI/plugin/scenario/mesh metadata in sidecar state, local manifests, reports, and UI-internal read models only.",
+      "owners": [
+        "LANE-CORE",
+        "LANE-DEVELOPER-CONSOLE",
+        "LANE-MESH"
+      ]
+    },
+    {
+      "id": "RISK-005",
+      "category": "scope",
+      "risk": "UI polish consumes effort before data/stream/task behavior is reliable.",
+      "impact": "Good-looking but brittle demos.",
+      "mitigation": "Build Developer Console and acceptance matrix before operator-grade COP polish.",
+      "owners": [
+        "LANE-DEVELOPER-CONSOLE",
+        "LANE-C2"
+      ]
+    },
+    {
+      "id": "RISK-006",
+      "category": "performance",
+      "risk": "Dense scenario packs overwhelm stream/event/UI performance.",
+      "impact": "Demos fail under realistic track counts.",
+      "mitigation": "Add performance budgets and synthetic load tests starting in Z5/Z6.",
+      "owners": [
+        "LANE-C2",
+        "LANE-ADAPTERS",
+        "LANE-MESH"
+      ]
+    },
+    {
+      "id": "RISK-007",
+      "category": "supply-chain",
+      "risk": "Generated proto packages or public SDK dependencies are unavailable or unexpectedly changed.",
+      "impact": "gRPC compatibility workflow breaks.",
+      "mitigation": "Pin versions, audit checksums/descriptors, and maintain documented export/snapshot steps.",
+      "owners": [
+        "LANE-CORE"
+      ]
+    }
+  ]
+}

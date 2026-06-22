@@ -15,7 +15,7 @@
       "zorn_specific_public_routes",
       "local_replacement_lattice_protos",
       "third_party_contracts_based_on_cli_reports",
-      "module_specific_data_plane_endpoints"
+      "module_specific_internal_state"
     ]
   },
   "lanes": [

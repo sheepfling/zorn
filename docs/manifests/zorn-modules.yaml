@@ -11,7 +11,7 @@ boundary:
     - grpc_tasks
   forbidden_public_surfaces:
     - zorn_specific_routes
-    - module_specific_endpoints
+    - module_specific_internal_state
     - local_replacement_lattice_protos
     - cli_report_as_integration_contract
 modules:
