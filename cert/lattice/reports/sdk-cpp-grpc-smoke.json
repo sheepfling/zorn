@@ -2,38 +2,14 @@
   "adaptation_tier": "runtime_shim",
   "details": {
     "fixture_dir": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/sdk-cpp-grpc-smoke",
-    "language": "cpp",
-    "missing_tools": [],
-    "reason": "cpp direct gRPC SDK smoke runner is scaffolded but not implemented yet",
+    "grpc_config": null,
+    "protobuf_config": null,
+    "reason": "system gRPC/protobuf C++ development packages are required for sdk-cpp-grpc-smoke",
     "required_tools": [
       "cmake",
-      "protoc"
-    ],
-    "sample_source_files": [
-      "src/anduril/entitymanager/v1/classification.pub.grpc.pb.cc",
-      "src/anduril/entitymanager/v1/classification.pub.grpc.pb.h",
-      "src/anduril/entitymanager/v1/classification.pub.pb.cc",
-      "src/anduril/entitymanager/v1/classification.pub.pb.h",
-      "src/anduril/entitymanager/v1/dimensions.pub.grpc.pb.cc",
-      "src/anduril/entitymanager/v1/dimensions.pub.grpc.pb.h",
-      "src/anduril/entitymanager/v1/dimensions.pub.pb.cc",
-      "src/anduril/entitymanager/v1/dimensions.pub.pb.h",
-      "src/anduril/entitymanager/v1/entity.pub.grpc.pb.cc",
-      "src/anduril/entitymanager/v1/entity.pub.grpc.pb.h",
-      "src/anduril/entitymanager/v1/entity.pub.pb.cc",
-      "src/anduril/entitymanager/v1/entity.pub.pb.h",
-      "src/anduril/entitymanager/v1/entity_manager_grpcapi.pub.grpc.pb.cc",
-      "src/anduril/entitymanager/v1/entity_manager_grpcapi.pub.grpc.pb.h",
-      "src/anduril/entitymanager/v1/entity_manager_grpcapi.pub.pb.cc",
-      "src/anduril/entitymanager/v1/entity_manager_grpcapi.pub.pb.h",
-      "src/anduril/entitymanager/v1/filter.pub.grpc.pb.cc",
-      "src/anduril/entitymanager/v1/filter.pub.grpc.pb.h",
-      "src/anduril/entitymanager/v1/filter.pub.pb.cc",
-      "src/anduril/entitymanager/v1/filter.pub.pb.h"
-    ],
-    "source_file_count": 188,
-    "target": "http://localhost:8080",
-    "token_configured": true
+      "gRPCConfig.cmake",
+      "protobuf-config.cmake"
+    ]
   },
   "failed": [],
   "fixture": "sdk-cpp-grpc-smoke",

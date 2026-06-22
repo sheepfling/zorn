@@ -38,9 +38,13 @@ def test_spec_rest_flow_prefers_public_entity_events_envelope(monkeypatch, tmp_p
             "entities.overrides.apply",
             "entities.overrides.clear",
             "entities.long_poll",
+            "entities.stream_sse",
             "tasks.create",
             "tasks.get",
             "tasks.query",
+            "tasks.listen_as_agent",
+            "tasks.stream",
+            "tasks.stream_as_agent",
             "tasks.update_status",
             "tasks.cancel",
             "objects.upload",
@@ -71,6 +75,20 @@ def test_spec_rest_flow_prefers_public_entity_events_envelope(monkeypatch, tmp_p
             else (200, b"zorn spec rest smoke\n", {})
         ),
     )
+    sse_calls: list[tuple[str, str, dict[str, object] | None]] = []
+
+    def fake_http_sse_event(method: str, url: str, **kwargs):
+        payload = kwargs.get("payload")
+        sse_calls.append((method, url, payload if isinstance(payload, dict) else None))
+        if url.endswith("/api/v1/entities/stream"):
+            return 200, "entity", {"entity": {"entityId": "openapi-fixture-entity"}}
+        if url.endswith("/api/v1/tasks/stream"):
+            return 200, "PREEXISTING", {"eventType": "PREEXISTING", "task": {"taskId": "openapi-fixture-task"}}
+        if url.endswith("/api/v1/agent/stream"):
+            return 200, "ExecuteRequest", {"executeRequest": {"task": {"taskId": "openapi-fixture-task"}}}
+        raise AssertionError(f"unexpected SSE request: {method} {url}")
+
+    monkeypatch.setattr(run_contract_fixture, "http_sse_event", fake_http_sse_event)
 
     def fake_http_json(method: str, url: str, **_kwargs):
         if url.endswith("/api/v1/oauth/token"):
@@ -86,11 +104,13 @@ def test_spec_rest_flow_prefers_public_entity_events_envelope(monkeypatch, tmp_p
         if url.endswith("/api/v1/entities/events"):
             return 200, {"sessionToken": "1", "entityEvents": [{"entity": {"entityId": "openapi-fixture-entity"}}]}
         if url.endswith("/api/v1/tasks") and method == "POST":
-            return 201, {"taskId": "openapi-fixture-task", "version": {"statusVersion": 1}}
+            return 201, {"taskId": "openapi-fixture-task", "version": {"statusVersion": 1}, "assigneeId": "openapi-fixture-agent"}
         if url.endswith("/api/v1/tasks/openapi-fixture-task") and method == "GET":
             return 200, {"taskId": "openapi-fixture-task"}
         if url.endswith("/api/v1/tasks/query"):
             return 200, {"tasks": [{"taskId": "openapi-fixture-task"}]}
+        if url.endswith("/api/v1/agent/listen"):
+            return 200, {"executeRequest": {"task": {"taskId": "openapi-fixture-task"}}}
         if url.endswith("/api/v1/tasks/openapi-fixture-task/status"):
             return 200, {"taskId": "openapi-fixture-task"}
         if url.endswith("/api/v1/tasks/openapi-fixture-task/cancel"):
@@ -119,3 +139,8 @@ def test_spec_rest_flow_prefers_public_entity_events_envelope(monkeypatch, tmp_p
     assert report["details"]["executed"] is True
     assert "reason" not in report["details"]
     assert report["details"]["entities.long_poll"]["entityEvents"][0]["entity"]["entityId"] == "openapi-fixture-entity"
+    assert {url for _method, url, _payload in sse_calls} == {
+        "http://zorn.test/api/v1/entities/stream",
+        "http://zorn.test/api/v1/tasks/stream",
+        "http://zorn.test/api/v1/agent/stream",
+    }

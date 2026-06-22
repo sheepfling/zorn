@@ -6,7 +6,8 @@ Zorn compatibility is measured by black-box clients, not by descriptor shape alo
 |---|---|---|
 | gRPC descriptor audit | `scripts/proto_contract_report.py --assert --pretty` | Passing |
 | gRPC strict runtime surface | `tests/compat/test_grpc_strict_surface.py` | Passing: health and reflection are not exposed by the Lattice-surrogate gRPC server |
-| Python generated gRPC client | `tests/compat/test_grpc_python_client.py` | Entity/task smoke in progress |
+| Python generated gRPC client | `tests/compat/test_grpc_python_client.py` | Passing: generated Buf Python client can publish/get entities, create tasks, listen-as-agent, and update task status |
+| REST↔gRPC transport parity | `tests/compat/test_transport_parity.py` | Passing: REST-published entities/tasks are visible over gRPC, gRPC-published entities/tasks are visible over REST, and task cancel wrappers plus task-stream terminal updates remain aligned across both transports |
 | Official Go SDK client | `tests/compat/test_go_sdk_client.py` | Passing: direct public Go SDK can publish/get entities, create tasks, and receive an execute request via listen-as-agent |
 | Go generated gRPC client | `tests/compat/test_go_sdk_client.py` | Upstream blocked: official public proto `go_package` options point at private `ghe.anduril.dev/...` imports, so a true public generated Go gRPC client is not directly consumable yet |
 | sample-app-ais-integration-rest | `zorn-cert run anduril-sample-ais-rest` | Passing |

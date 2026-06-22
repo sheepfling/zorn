@@ -452,12 +452,10 @@ fixtures:
       - tasks.stream
       - tasks.listen_as_agent
       - tasks.stream_as_agent
-      - tasks.manual_control_frames
       - objects.upload
       - objects.download
       - objects.metadata
       - objects.list
-      - objects.list_deleted
       - objects.delete
   - id: api-evangelist-postman-rest
     repo: https://github.com/api-evangelist/anduril.git

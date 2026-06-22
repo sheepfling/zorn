@@ -156,3 +156,145 @@ async def test_grpc_static_auth_rejects_invalid_token(grpc_auth_server: GrpcComp
             )
     ####
     assert exc_info.value.code() == grpc.StatusCode.UNAUTHENTICATED
+
+
+async def test_grpc_cancel_rejects_already_terminal_task(
+    grpc_compat_server: GrpcCompatServer,
+    grpc_channel: grpc.aio.Channel,
+) -> None:
+    proto_modules = grpc_compat_server.proto_modules
+    task_stub = proto_modules.task_api_grpc.TaskManagerAPIStub(grpc_channel)
+
+    await task_stub.CreateTask(
+        proto_modules.task_api.CreateTaskRequest(
+            task_id="compat-python-cancel-terminal-task",
+            display_name="Cancel terminal task",
+        )
+    )
+    await task_stub.CancelTask(
+        proto_modules.task_api.CancelTaskRequest(
+            task_id="compat-python-cancel-terminal-task",
+        )
+    )
+
+    with pytest.raises(grpc.aio.AioRpcError) as exc_info:
+        await task_stub.CancelTask(
+            proto_modules.task_api.CancelTaskRequest(
+                task_id="compat-python-cancel-terminal-task",
+            )
+        )
+
+    assert exc_info.value.code() == grpc.StatusCode.FAILED_PRECONDITION
+
+
+async def test_grpc_manual_control_stream_closes_when_task_becomes_terminal(
+    grpc_compat_server: GrpcCompatServer,
+    grpc_channel: grpc.aio.Channel,
+) -> None:
+    proto_modules = grpc_compat_server.proto_modules
+    task_stub = proto_modules.task_api_grpc.TaskManagerAPIStub(grpc_channel)
+
+    await task_stub.CreateTask(
+        proto_modules.task_api.CreateTaskRequest(
+            task_id="compat-python-manual-control-task",
+            display_name="Manual control terminal close",
+        )
+    )
+
+    frame_call = task_stub.ListenForManualControlFrames(
+        proto_modules.task_api.ListenForManualControlFramesRequest(
+            task_id="compat-python-manual-control-task",
+        )
+    )
+    await task_stub.CancelTask(
+        proto_modules.task_api.CancelTaskRequest(
+            task_id="compat-python-manual-control-task",
+        )
+    )
+
+    response = await asyncio.wait_for(frame_call.read(), timeout=2)
+    assert response is grpc.aio.EOF
+
+
+async def test_grpc_stream_tasks_excludes_terminal_preexisting_tasks(
+    grpc_compat_server: GrpcCompatServer,
+    grpc_channel: grpc.aio.Channel,
+) -> None:
+    proto_modules = grpc_compat_server.proto_modules
+    task_stub = proto_modules.task_api_grpc.TaskManagerAPIStub(grpc_channel)
+
+    await task_stub.CreateTask(
+        proto_modules.task_api.CreateTaskRequest(
+            task_id="compat-python-terminal-preexisting",
+            display_name="Terminal preexisting",
+        )
+    )
+    await task_stub.CancelTask(
+        proto_modules.task_api.CancelTaskRequest(
+            task_id="compat-python-terminal-preexisting",
+        )
+    )
+    await task_stub.CreateTask(
+        proto_modules.task_api.CreateTaskRequest(
+            task_id="compat-python-open-preexisting",
+            display_name="Open preexisting",
+        )
+    )
+
+    stream = task_stub.StreamTasks(
+        proto_modules.task_api.StreamTasksRequest(
+            heartbeat_interval_ms=0,
+        )
+    )
+    response = await asyncio.wait_for(stream.read(), timeout=2)
+    stream.cancel()
+
+    assert response.task_event.task.version.task_id == "compat-python-open-preexisting"
+
+
+async def test_grpc_manual_control_missing_task_is_not_found(
+    grpc_compat_server: GrpcCompatServer,
+    grpc_channel: grpc.aio.Channel,
+) -> None:
+    proto_modules = grpc_compat_server.proto_modules
+    task_stub = proto_modules.task_api_grpc.TaskManagerAPIStub(grpc_channel)
+
+    frame_call = task_stub.ListenForManualControlFrames(
+        proto_modules.task_api.ListenForManualControlFramesRequest(
+            task_id="compat-python-missing-manual-control-task",
+        )
+    )
+
+    with pytest.raises(grpc.aio.AioRpcError) as exc_info:
+        await asyncio.wait_for(frame_call.read(), timeout=2)
+
+    assert exc_info.value.code() == grpc.StatusCode.NOT_FOUND
+
+
+async def test_grpc_manual_control_terminal_task_closes_immediately(
+    grpc_compat_server: GrpcCompatServer,
+    grpc_channel: grpc.aio.Channel,
+) -> None:
+    proto_modules = grpc_compat_server.proto_modules
+    task_stub = proto_modules.task_api_grpc.TaskManagerAPIStub(grpc_channel)
+
+    await task_stub.CreateTask(
+        proto_modules.task_api.CreateTaskRequest(
+            task_id="compat-python-terminal-manual-control-task",
+            display_name="Terminal manual control",
+        )
+    )
+    await task_stub.CancelTask(
+        proto_modules.task_api.CancelTaskRequest(
+            task_id="compat-python-terminal-manual-control-task",
+        )
+    )
+
+    frame_call = task_stub.ListenForManualControlFrames(
+        proto_modules.task_api.ListenForManualControlFramesRequest(
+            task_id="compat-python-terminal-manual-control-task",
+        )
+    )
+
+    response = await asyncio.wait_for(frame_call.read(), timeout=2)
+    assert response is grpc.aio.EOF

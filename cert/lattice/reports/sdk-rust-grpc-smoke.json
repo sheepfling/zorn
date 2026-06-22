@@ -1,43 +1,99 @@
 {
   "adaptation_tier": "runtime_shim",
   "details": {
+    "auth.grpc_bearer_metadata": {
+      "metadata": "authorization: Bearer <token>",
+      "ok": true
+    },
+    "cargo_run": {
+      "args": [
+        "/opt/homebrew/bin/cargo",
+        "run",
+        "--quiet"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"auth.grpc_bearer_metadata\": {\n    \"metadata\": \"authorization: Bearer <token>\",\n    \"ok\": true\n  },\n  \"entities.get\": {\n    \"entity_id\": \"grpc-wire-entity-get\",\n    \"ok\": true\n  },\n  \"entities.grpc_stream\": {\n    \"entity_id\": \"grpc-wire-entity-publish\",\n    \"ok\": true\n  },\n  \"entities.publish\": {\n    \"entity_id\": \"grpc-wire-entity-publish\",\n    \"ok\": true\n  },\n  \"tasks.create\": {\n    \"ok\": true,\n    \"task_id\": \"grpc-wire-task-create\"\n  },\n  \"tasks.listen_as_agent\": {\n    \"ok\": true,\n    \"task_id\": \"grpc-wire-task-listen\"\n  },\n  \"tasks.update_status\": {\n    \"ok\": true,\n    \"status_version\": 2,\n    \"task_id\": \"grpc-wire-task-update\"\n  },\n  \"transport.grpc_protobuf\": {\n    \"grpc_target\": \"127.0.0.1:56245\",\n    \"ok\": true\n  }\n}\n"
+    },
+    "entities.get": {
+      "entity_id": "grpc-wire-entity-get",
+      "ok": true
+    },
+    "entities.grpc_stream": {
+      "entity_id": "grpc-wire-entity-publish",
+      "ok": true
+    },
+    "entities.publish": {
+      "entity_id": "grpc-wire-entity-publish",
+      "ok": true
+    },
     "fixture_dir": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/sdk-rust-grpc-smoke",
+    "grpc_fixture_dir": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/tests/fixtures/grpc",
+    "grpc_server_log": "",
     "language": "rust",
-    "missing_tools": [],
-    "reason": "rust direct gRPC SDK smoke runner is scaffolded but not implemented yet",
     "required_tools": [
-      "cargo",
-      "protoc"
+      "cargo"
     ],
-    "sample_source_files": [
-      "src/anduril.entitymanager.v1.rs",
-      "src/anduril.entitymanager.v1.serde.rs",
-      "src/anduril.entitymanager.v1.tonic.rs",
-      "src/anduril.ontology.v1.rs",
-      "src/anduril.ontology.v1.serde.rs",
-      "src/anduril.taskmanager.v1.rs",
-      "src/anduril.taskmanager.v1.serde.rs",
-      "src/anduril.taskmanager.v1.tonic.rs",
-      "src/anduril.tasks.ad.desertguardian.common.v1.rs",
-      "src/anduril.tasks.ad.desertguardian.common.v1.serde.rs",
-      "src/anduril.tasks.ad.desertguardian.rf.v1.rs",
-      "src/anduril.tasks.ad.desertguardian.rf.v1.serde.rs",
-      "src/anduril.tasks.ads.thirdparty.v1.rs",
-      "src/anduril.tasks.ads.thirdparty.v1.serde.rs",
-      "src/anduril.tasks.jadc2.thirdparty.v1.rs",
-      "src/anduril.tasks.jadc2.thirdparty.v1.serde.rs",
-      "src/anduril.tasks.v2.rs",
-      "src/anduril.tasks.v2.serde.rs",
-      "src/anduril.type.rs",
-      "src/anduril.type.serde.rs"
-    ],
-    "source_file_count": 22,
-    "target": "http://localhost:8080",
-    "token_configured": true
+    "results": {
+      "auth.grpc_bearer_metadata": {
+        "metadata": "authorization: Bearer <token>",
+        "ok": true
+      },
+      "entities.get": {
+        "entity_id": "grpc-wire-entity-get",
+        "ok": true
+      },
+      "entities.grpc_stream": {
+        "entity_id": "grpc-wire-entity-publish",
+        "ok": true
+      },
+      "entities.publish": {
+        "entity_id": "grpc-wire-entity-publish",
+        "ok": true
+      },
+      "tasks.create": {
+        "ok": true,
+        "task_id": "grpc-wire-task-create"
+      },
+      "tasks.listen_as_agent": {
+        "ok": true,
+        "task_id": "grpc-wire-task-listen"
+      },
+      "tasks.update_status": {
+        "ok": true,
+        "status_version": 2,
+        "task_id": "grpc-wire-task-update"
+      },
+      "transport.grpc_protobuf": {
+        "grpc_target": "127.0.0.1:56245",
+        "ok": true
+      }
+    },
+    "server_log": "INFO:     Started server process [34536]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://127.0.0.1:56244 (Press CTRL+C to quit)\nINFO:     127.0.0.1:56249 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:56250 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:56252 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:56254 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:56257 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [34536]\n",
+    "smoke_root": "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-rust-sdk-smoke-x1xreogd",
+    "tasks.create": {
+      "ok": true,
+      "task_id": "grpc-wire-task-create"
+    },
+    "tasks.listen_as_agent": {
+      "ok": true,
+      "task_id": "grpc-wire-task-listen"
+    },
+    "tasks.update_status": {
+      "ok": true,
+      "status_version": 2,
+      "task_id": "grpc-wire-task-update"
+    },
+    "transport.grpc_protobuf": {
+      "grpc_target": "127.0.0.1:56245",
+      "ok": true
+    }
   },
   "failed": [],
   "fixture": "sdk-rust-grpc-smoke",
-  "missing": [
+  "missing": [],
+  "mode": "strict",
+  "passed": [
     "auth.grpc_bearer_metadata",
     "transport.grpc_protobuf",
     "entities.publish",
@@ -47,8 +103,6 @@
     "tasks.listen_as_agent",
     "tasks.update_status"
   ],
-  "mode": "strict",
-  "passed": [],
-  "result": "blocked",
+  "result": "pass",
   "zorn_version": "0.1.0"
 }

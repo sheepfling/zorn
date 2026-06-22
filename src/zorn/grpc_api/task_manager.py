@@ -111,12 +111,17 @@ class TaskManagerServiceFactory:
                     await context.abort(grpc.StatusCode.INVALID_ARGUMENT, "CancelTaskRequest.task_id is required")
                     raise AssertionError("unreachable after gRPC abort")
                 ####
-                task = task_store.cancel(
-                    task_id,
-                    payload,
-                    terminal_status="STATUS_DONE_NOT_OK",
-                    error_code="ERROR_CODE_CANCELLED",
-                )
+                try:
+                    task = task_store.cancel(
+                        task_id,
+                        payload,
+                        terminal_status="STATUS_DONE_NOT_OK",
+                        error_code="ERROR_CODE_CANCELLED",
+                    )
+                except TerminalTaskUpdateError as exc:
+                    await context.abort(grpc.StatusCode.FAILED_PRECONDITION, str(exc))
+                    raise AssertionError("unreachable after gRPC abort")
+                ####
                 if task is None:
                     await context.abort(grpc.StatusCode.NOT_FOUND, f"task not found: {task_id}")
                     raise AssertionError("unreachable after gRPC abort")

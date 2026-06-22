@@ -56,7 +56,7 @@ def milliseconds_to_seconds(value: int | float | None, default_seconds: float) -
     if value is None:
         return default_seconds
     ####
-    return max(float(value) / 1000.0, 0.001)
+    return max(float(value) / 1000.0, 0.0)
 ####
 
 
@@ -75,7 +75,7 @@ def heartbeat_seconds_from_payload(
     for key in second_keys:
         if key in payload:
             try:
-                return max(float(payload[key]), 0.001)
+                return max(float(payload[key]), 0.0)
             except (TypeError, ValueError):
                 return default_seconds
             ####

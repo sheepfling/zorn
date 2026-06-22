@@ -173,6 +173,9 @@ def test_task_lifecycle_rejects_duplicates_stale_status_and_terminal_updates(cli
     cancelled = client.put("/api/v1/tasks/lifecycle-task/cancel", json={"reason": "operator"})
     assert cancelled.status_code == 200
 
+    repeated_cancel = client.put("/api/v1/tasks/lifecycle-task/cancel", json={"reason": "operator"})
+    assert repeated_cancel.status_code == 409
+
     terminal_update = client.put(
         "/api/v1/tasks/lifecycle-task/status",
         json={"statusVersion": 3, "newStatus": {"status": "STATUS_EXECUTING"}},
@@ -211,3 +214,18 @@ def test_object_missing_and_deleted_paths_fail_cleanly(client: TestClient) -> No
 
     deleted_get = client.get("/api/v1/objects/tmp/object.bin")
     assert deleted_get.status_code == 404
+
+
+def test_expired_object_path_fails_cleanly(client: TestClient) -> None:
+    upload = client.post(
+        "/api/v1/objects/tmp/expired.bin",
+        content=b"bytes",
+        headers={"Time-To-Live": "0"},
+    )
+    assert upload.status_code == 200
+
+    expired_head = client.head("/api/v1/objects/tmp/expired.bin")
+    assert expired_head.status_code == 404
+
+    expired_get = client.get("/api/v1/objects/tmp/expired.bin")
+    assert expired_get.status_code == 404

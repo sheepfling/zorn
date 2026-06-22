@@ -119,6 +119,70 @@ def http_bytes(
 ####
 
 
+def http_sse_event(
+    method: str,
+    url: str,
+    *,
+    token: str,
+    payload: dict[str, Any] | None = None,
+    timeout: float = 10.0,
+    cafile: Path | None = None,
+    headers: dict[str, str] | None = None,
+) -> tuple[int, str | None, dict[str, Any]]:
+    body = None if payload is None else json.dumps(payload).encode("utf-8")
+    request_headers = {
+        "Accept": "text/event-stream",
+        "Authorization": f"Bearer {token}",
+        "Content-Type": "application/json",
+        "x-api-key": token,
+        "x-anduril-sandbox": "zorn-cert",
+    }
+    if headers:
+        request_headers.update(headers)
+    ####
+    req = request.Request(url, data=body, headers=request_headers, method=method)
+    context = ssl.create_default_context(cafile=str(cafile)) if cafile else None
+    try:
+        with request.urlopen(req, timeout=timeout, context=context) as response:
+            event_name: str | None = None
+            data_lines: list[str] = []
+            while True:
+                raw_line = response.readline()
+                if raw_line == b"":
+                    break
+                ####
+                line = raw_line.decode("utf-8").strip()
+                if not line:
+                    if data_lines:
+                        payload_text = "\n".join(data_lines)
+                        return response.status, event_name, json.loads(payload_text)
+                    ####
+                    event_name = None
+                    data_lines = []
+                    continue
+                ####
+                if line.startswith("event:"):
+                    event_name = line.removeprefix("event:").strip()
+                    continue
+                ####
+                if line.startswith("data:"):
+                    data_lines.append(line.removeprefix("data:").strip())
+                ####
+            ####
+            return response.status, event_name, {}
+        ####
+    except error.HTTPError as exc:
+        text = exc.read().decode("utf-8")
+        try:
+            payload = json.loads(text) if text else {}
+        except json.JSONDecodeError:
+            payload = {"error": text}
+        ####
+        return exc.code, None, payload
+    ####
+####
+
+
 def base_report(*, fixture_id: str, mode: str) -> dict[str, Any]:
     return {
         "fixture": fixture_id,

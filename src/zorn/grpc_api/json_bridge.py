@@ -210,6 +210,7 @@ def make_task_event_response(
     event_type: str,
     task: dict[str, Any],
 ) -> Message:
+    task = _proto_safe_task_payload(task)
     response = response_type()
     task_event_payload = {
         "eventType": _event_type_json(event_type),
@@ -244,6 +245,7 @@ def make_agent_response(
     if task is None:
         return make_heartbeat_response(response_type)
     ####
+    task = _proto_safe_task_payload(task)
     request_field = {
         "ExecuteRequest": "executeRequest",
         "CancelRequest": "cancelRequest",
@@ -253,22 +255,27 @@ def make_agent_response(
     snake_field = _camel_to_snake(request_field)
     if has_field(response, snake_field):
         submessage = getattr(response, snake_field)
-        _fill_event_message(
-            submessage,
-            object_field="task",
-            object_payload=task,
-            object_type=task_type,
-            event_type=request_type.upper(),
-        )
+        if request_type == "ExecuteRequest":
+            _fill_event_message(
+                submessage,
+                object_field="task",
+                object_payload=task,
+                object_type=task_type,
+                event_type=request_type.upper(),
+            )
+        else:
+            _fill_agent_request_message(submessage, request_type=request_type, task=task)
+        ####
         return response
     ####
-    request_payload = {request_field: {"task": strip_private_fields(task)}}
-    snake_request_payload = {_camel_to_snake(request_field): {"task": strip_private_fields(task)}}
+    agent_payload = _agent_request_payload(request_type, task)
+    request_payload = {request_field: agent_payload}
+    snake_request_payload = {_camel_to_snake(request_field): agent_payload}
     for payload in (
         {"request": request_payload},
         {"request": snake_request_payload},
-        {request_field: {"task": strip_private_fields(task)}},
-        {_camel_to_snake(request_field): {"task": strip_private_fields(task)}},
+        {request_field: agent_payload},
+        {_camel_to_snake(request_field): agent_payload},
     ):
         try:
             return parse_dict(response_type, payload)
@@ -276,7 +283,7 @@ def make_agent_response(
             continue
         ####
     ####
-    if has_field(response, "request"):
+    if request_type == "ExecuteRequest" and has_field(response, "request"):
         wrapper = getattr(response, "request")
         if has_field(wrapper, snake_field):
             submessage = getattr(wrapper, snake_field)
@@ -323,6 +330,103 @@ def _fill_event_message(
     elif has_field(event, object_field):
         copy_parsed_submessage(event, object_field, object_payload)
     ####
+####
+
+
+def _agent_request_payload(request_type: str, task: dict[str, Any]) -> dict[str, Any]:
+    stripped = strip_private_fields(task)
+    if request_type == "ExecuteRequest":
+        return {"task": stripped}
+    ####
+    task_id = _task_id_from_payload(task)
+    assignee = _assignee_from_task(task)
+    author = _author_from_task(task)
+    payload: dict[str, Any] = {}
+    if isinstance(task_id, str) and task_id:
+        payload["taskId"] = task_id
+    ####
+    if isinstance(assignee, dict):
+        payload["assignee"] = strip_private_fields(assignee)
+    ####
+    if isinstance(author, dict):
+        payload["author"] = strip_private_fields(author)
+    ####
+    return payload
+####
+
+
+def _fill_agent_request_message(submessage: Message, *, request_type: str, task: dict[str, Any]) -> None:
+    del request_type
+    task_id = _task_id_from_payload(task)
+    if isinstance(task_id, str) and task_id and has_field(submessage, "task_id"):
+        setattr(submessage, "task_id", task_id)
+    ####
+    assignee = _assignee_from_task(task)
+    if isinstance(assignee, dict) and has_field(submessage, "assignee"):
+        copy_parsed_submessage(submessage, "assignee", assignee)
+    ####
+    author = _author_from_task(task)
+    if isinstance(author, dict) and has_field(submessage, "author"):
+        copy_parsed_submessage(submessage, "author", author)
+    ####
+####
+
+
+def _task_id_from_payload(task: dict[str, Any]) -> str | None:
+    for key in ("taskId", "task_id"):
+        value = task.get(key)
+        if isinstance(value, str) and value:
+            return value
+        ####
+    ####
+    version = task.get("version")
+    if isinstance(version, dict):
+        for key in ("taskId", "task_id"):
+            value = version.get(key)
+            if isinstance(value, str) and value:
+                return value
+            ####
+        ####
+    ####
+    return None
+####
+
+
+def _assignee_from_task(task: dict[str, Any]) -> dict[str, Any] | None:
+    relations = task.get("relations")
+    if not isinstance(relations, dict):
+        return None
+    ####
+    assignee = relations.get("assignee")
+    return assignee if isinstance(assignee, dict) else None
+####
+
+
+def _author_from_task(task: dict[str, Any]) -> dict[str, Any] | None:
+    for key in ("lastUpdatedBy", "last_updated_by", "createdBy", "created_by", "author"):
+        value = task.get(key)
+        if isinstance(value, dict):
+            return value
+        ####
+    ####
+    return None
+####
+
+
+def _proto_safe_task_payload(task: dict[str, Any]) -> dict[str, Any]:
+    normalized = dict(task)
+    status_payload = normalized.get("status")
+    if isinstance(status_payload, dict):
+        status_dict = dict(status_payload)
+        status_value = status_dict.get("status")
+        if isinstance(status_value, str) and status_value in {"STATUS_CANCELED", "STATUS_CANCELLED"}:
+            status_dict["status"] = "STATUS_DONE_NOT_OK"
+        ####
+        normalized["status"] = status_dict
+    elif isinstance(status_payload, str) and status_payload in {"STATUS_CANCELED", "STATUS_CANCELLED"}:
+        normalized["status"] = {"status": "STATUS_DONE_NOT_OK"}
+    ####
+    return normalized
 ####
 
 

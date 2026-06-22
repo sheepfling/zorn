@@ -79,7 +79,11 @@ def cancel_task(
     store: Annotated[TaskStore, Depends(get_task_store)],
     payload: dict[str, Any] = Body(default_factory=dict),
 ) -> dict[str, Any]:
-    task = store.cancel(task_id, payload)
+    try:
+        task = store.cancel(task_id, payload)
+    except TerminalTaskUpdateError as exc:
+        raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=str(exc)) from exc
+    ####
     if task is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="task not found")
     ####
@@ -92,7 +96,7 @@ def query_tasks(
     store: Annotated[TaskStore, Depends(get_task_store)],
     payload: dict[str, Any] = Body(default_factory=dict),
 ) -> dict[str, Any]:
-    return {"tasks": store.query(payload)}
+    return {"tasks": store.query(payload), "next_page_token": None}
 ####
 
 
@@ -115,7 +119,9 @@ async def stream_tasks(
     async def generate() -> Any:
         if include_preexisting:
             for task in store.list_open():
-                yield format_sse("PREEXISTING", {"eventType": "PREEXISTING", "task": task})
+                if _task_matches_stream_request(task, body):
+                    yield format_sse("PREEXISTING", {"eventType": "PREEXISTING", "task": task})
+                ####
             ####
         ####
         with database.session() as session:
@@ -128,7 +134,11 @@ async def stream_tasks(
             ####
             for row in rows:
                 cursor = max(cursor, row.id)
-                yield format_sse(row.event_type, event_to_payload(row))
+                event = event_to_payload(row)
+                event_task = event.get("task")
+                if isinstance(event_task, dict) and _task_matches_stream_request(event_task, body):
+                    yield format_sse(row.event_type, event)
+                ####
             ####
             if time.monotonic() >= next_heartbeat:
                 yield format_sse("HEARTBEAT", {"heartbeat": heartbeat_payload(), **heartbeat_payload()})
@@ -240,4 +250,110 @@ def _assignee_id_from_body(body: dict[str, Any]) -> str | None:
         ####
     ####
     return None
+####
+
+
+def _task_matches_stream_request(task: dict[str, Any], payload: dict[str, Any]) -> bool:
+    parent_task_id = _first_string(payload, "parentTaskId", "parent_task_id")
+    if parent_task_id is not None and _nested_string(task, ["relations", "parentTaskId"]) != parent_task_id:
+        return False
+    ####
+    assignee_id = _assignee_id_from_body(payload)
+    if assignee_id is not None and _task_assignee_id(task) != assignee_id:
+        return False
+    ####
+    task_type = _task_type_filter(payload)
+    if task_type is not None and _task_type(task) != task_type:
+        return False
+    ####
+    statuses = _status_filter_values(payload)
+    if statuses and _status_value(task) not in statuses:
+        return False
+    ####
+    return True
+####
+
+
+def _status_filter_values(payload: dict[str, Any]) -> set[str]:
+    status_filter = payload.get("statusFilter") or payload.get("status_filter")
+    if not isinstance(status_filter, dict):
+        return set()
+    ####
+    values = status_filter.get("statuses") or status_filter.get("status") or []
+    if isinstance(values, str):
+        return {values}
+    ####
+    if isinstance(values, list):
+        return {value for value in values if isinstance(value, str)}
+    ####
+    return set()
+####
+
+
+def _status_value(task: dict[str, Any]) -> str | None:
+    status = task.get("status")
+    if isinstance(status, dict):
+        raw = status.get("status")
+        return raw if isinstance(raw, str) else None
+    ####
+    return status if isinstance(status, str) else None
+####
+
+
+def _task_type_filter(filters: dict[str, Any]) -> str | None:
+    raw = filters.get("taskType") or filters.get("task_type") or filters.get("type")
+    if isinstance(raw, str):
+        return raw
+    ####
+    if isinstance(raw, dict):
+        candidate = raw.get("type") or raw.get("url") or raw.get("@type") or raw.get("typeUrl") or raw.get("type_url")
+        return candidate if isinstance(candidate, str) else None
+    ####
+    return None
+####
+
+
+def _task_type(task: dict[str, Any]) -> str | None:
+    specification = task.get("specification")
+    if isinstance(specification, dict):
+        raw = specification.get("@type") or specification.get("type") or specification.get("typeUrl") or specification.get("type_url")
+        return raw if isinstance(raw, str) else None
+    ####
+    return None
+####
+
+
+def _first_string(payload: dict[str, Any], *keys: str) -> str | None:
+    for key in keys:
+        value = payload.get(key)
+        if isinstance(value, str) and value:
+            return value
+        ####
+    ####
+    return None
+####
+
+
+def _nested_string(payload: dict[str, Any], path: list[str]) -> str | None:
+    current: object = payload
+    for segment in path:
+        if not isinstance(current, dict):
+            return None
+        ####
+        current = current.get(segment)
+    ####
+    return current if isinstance(current, str) and current else None
+####
+
+
+def _task_assignee_id(task: dict[str, Any]) -> str | None:
+    relations = task.get("relations")
+    if not isinstance(relations, dict):
+        return None
+    ####
+    assignee = relations.get("assignee")
+    if not isinstance(assignee, dict):
+        return None
+    ####
+    return _nested_string(assignee, ["system", "entityId"]) or _nested_string(assignee, ["system", "entity_id"])
 ####

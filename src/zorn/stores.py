@@ -115,6 +115,7 @@ class EntityStore:
 
     def get(self, entity_id: str) -> dict[str, Any] | None:
         with self.database.session() as session:
+            self._expire_due_entities(session, entity_ids=[entity_id])
             row = session.get(EntityRow, entity_id)
             return dict(row.payload) if row is not None else None
         ####
@@ -122,6 +123,7 @@ class EntityStore:
 
     def list_live(self) -> list[dict[str, Any]]:
         with self.database.session() as session:
+            self._expire_due_entities(session)
             now = utc_now()
             rows = session.scalars(
                 select(EntityRow)
@@ -135,6 +137,7 @@ class EntityStore:
 
     def poll(self, after_sequence: int = 0, limit: int = 100) -> list[dict[str, Any]]:
         with self.database.session() as session:
+            self._expire_due_entities(session)
             return [event_to_payload(row) for row in poll_events(
                 session,
                 stream="entity",
@@ -206,6 +209,40 @@ class EntityStore:
             return False
         ####
         return incoming_time <= existing_time
+    ####
+
+    def _expire_due_entities(self, session: Any, *, entity_ids: list[str] | None = None) -> None:
+        now = utc_now()
+        statement = select(EntityRow).where(EntityRow.is_live.is_(True)).where(EntityRow.expiry_time.is_not(None))
+        if entity_ids:
+            statement = statement.where(EntityRow.entity_id.in_(entity_ids))
+        ####
+        rows = session.scalars(statement).all()
+        expired = False
+        for row in rows:
+            expiry_time = parse_iso_datetime(row.expiry_time)
+            if expiry_time is None or expiry_time > now:
+                continue
+            ####
+            payload = dict(row.payload)
+            payload["isLive"] = False
+            payload["is_live"] = False
+            row.payload = payload
+            row.is_live = False
+            row.updated_at = now
+            event = add_event(
+                session,
+                stream="entity",
+                subject_id=row.entity_id,
+                event_type="DELETED",
+                payload={"eventType": "DELETED", "entity": payload, "time": to_iso(now)},
+            )
+            row.sequence = event.id
+            expired = True
+        ####
+        if expired:
+            session.commit()
+        ####
     ####
 
     @staticmethod
@@ -350,13 +387,17 @@ class TaskStore:
 
     def query(self, filters: dict[str, Any] | None = None) -> list[dict[str, Any]]:
         filters = filters or {}
-        status_filter = self._query_scalar(filters, "status")
-        assignee_filter = self._query_scalar(filters, "assigneeId") or self._query_scalar(filters, "assignee_id")
+        status_filters = self._query_status_values(filters)
+        assignee_filter = (
+            self._query_scalar(filters, "assigneeId")
+            or self._query_scalar(filters, "assignee_id")
+            or self._query_assignee_id(filters)
+        )
         task_type_filter = self._task_type_filter(filters)
         with self.database.session() as session:
             statement = select(TaskRow).order_by(TaskRow.sequence.asc())
-            if isinstance(status_filter, str) and status_filter:
-                statement = statement.where(TaskRow.status == status_filter)
+            if status_filters:
+                statement = statement.where(TaskRow.status.in_(status_filters))
             ####
             if isinstance(assignee_filter, str) and assignee_filter:
                 statement = statement.where(TaskRow.assignee_id == assignee_filter)
@@ -444,6 +485,9 @@ class TaskStore:
             row = session.get(TaskRow, task_id)
             if row is None:
                 return None
+            ####
+            if row.is_terminal:
+                raise TerminalTaskUpdateError(f"Task is already terminal: {task_id}")
             ####
             task_payload = dict(row.payload)
             status_value = str(cancel_payload.get("status") or terminal_status)
@@ -689,13 +733,57 @@ class TaskStore:
     ####
 
     @staticmethod
-    def _task_type_filter(filters: dict[str, Any]) -> str | None:
-        raw = filters.get("taskType") or filters.get("type")
+    def _query_status_values(filters: dict[str, Any]) -> list[str]:
+        scalar = TaskStore._query_scalar(filters, "status")
+        if isinstance(scalar, str) and scalar:
+            return [scalar]
+        ####
+        raw = filters.get("statuses")
+        if isinstance(raw, list):
+            return [value for value in raw if isinstance(value, str) and value]
+        ####
+        status_filter = filters.get("statusFilter") or filters.get("status_filter")
+        if not isinstance(raw, dict) and isinstance(status_filter, dict):
+            raw = status_filter
+        ####
+        if isinstance(raw, dict):
+            nested = raw.get("statuses") or raw.get("values") or raw.get("status") or []
+            if isinstance(nested, str):
+                return [nested] if nested else []
+            ####
+            if isinstance(nested, list):
+                return [value for value in nested if isinstance(value, str) and value]
+            ####
+        ####
+        return []
+    ####
+
+    @staticmethod
+    def _query_assignee_id(filters: dict[str, Any]) -> str | None:
+        raw = filters.get("assignee")
         if isinstance(raw, str):
             return raw
         ####
         if isinstance(raw, dict):
-            candidate = raw.get("type") or raw.get("url") or raw.get("@type")
+            system = raw.get("system")
+            if isinstance(system, dict):
+                entity_id = system.get("entityId") or system.get("entity_id")
+                return entity_id if isinstance(entity_id, str) and entity_id else None
+            ####
+            entity_id = raw.get("entityId") or raw.get("entity_id")
+            return entity_id if isinstance(entity_id, str) and entity_id else None
+        ####
+        return None
+    ####
+
+    @staticmethod
+    def _task_type_filter(filters: dict[str, Any]) -> str | None:
+        raw = filters.get("taskType") or filters.get("task_type") or filters.get("type")
+        if isinstance(raw, str):
+            return raw
+        ####
+        if isinstance(raw, dict):
+            candidate = raw.get("type") or raw.get("url") or raw.get("@type") or raw.get("typeUrl") or raw.get("type_url")
             return candidate if isinstance(candidate, str) else None
         ####
         return None
@@ -705,7 +793,7 @@ class TaskStore:
     def _task_type(task: dict[str, Any]) -> str | None:
         specification = task.get("specification")
         if isinstance(specification, dict):
-            raw = specification.get("@type") or specification.get("type")
+            raw = specification.get("@type") or specification.get("type") or specification.get("typeUrl") or specification.get("type_url")
             return raw if isinstance(raw, str) else None
         ####
         return None
@@ -787,6 +875,9 @@ class ObjectStore:
             if row is None:
                 return None
             ####
+            if self._prune_if_expired(session, row):
+                return None
+            ####
             file_path = self._file_path(normalized_path)
             if not file_path.exists():
                 return None
@@ -799,6 +890,9 @@ class ObjectStore:
         normalized_path = self._normalize_path(object_path)
         with self.database.session() as session:
             row = session.get(ObjectRow, normalized_path)
+            if row is not None and self._prune_if_expired(session, row):
+                return None
+            ####
             return self._row_to_payload(row) if row is not None else None
         ####
     ####
@@ -839,7 +933,14 @@ class ObjectStore:
                 statement = statement.where(ObjectRow.object_path.startswith(normalized_prefix))
             ####
             rows = session.scalars(statement).all()
-            return [self._row_to_payload(row) for row in rows]
+            active_rows: list[ObjectRow] = []
+            for row in rows:
+                if self._prune_if_expired(session, row):
+                    continue
+                ####
+                active_rows.append(row)
+            ####
+            return [self._row_to_payload(row) for row in active_rows]
         ####
     ####
 
@@ -849,6 +950,31 @@ class ObjectStore:
 
     def _file_path(self, object_path: str) -> Path:
         return self.root / object_path
+    ####
+
+    def _prune_if_expired(self, session: Any, row: ObjectRow) -> bool:
+        expiry_time = parse_iso_datetime(row.expiry_time)
+        if expiry_time is None or expiry_time > utc_now():
+            return False
+        ####
+        add_event(
+            session,
+            stream="object",
+            subject_id=row.object_path,
+            event_type="DELETED",
+            payload={"eventType": "DELETED", "object": self._row_to_payload(row)},
+        )
+        session.execute(delete(ObjectRow).where(ObjectRow.object_path == row.object_path))
+        session.commit()
+        file_path = self._file_path(row.object_path)
+        if file_path.exists():
+            if file_path.is_dir():
+                shutil.rmtree(file_path)
+            else:
+                file_path.unlink()
+            ####
+        ####
+        return True
     ####
 
     @staticmethod
