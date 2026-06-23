@@ -10,6 +10,7 @@ Canonical repo notes live here.
 - `reference/zorn-showcase-*.json` records showcase milestones and planned scenario coverage.
 - `design/alpha-readiness-roadmap.md` maps the technical roadmap to Alpha 1/2/3 release gates.
 - `design/alpha1-gap-closure-plan.md` captures the external-evaluator corrective work needed to turn Alpha1.1 into a stricter Alpha 1 without expanding the public surface.
+- `design/alpha1-closeout-checklist.md` captures the concrete Alpha 1 exit gate, accepted blocker, and accepted defer list.
 - `design/zorn-alpha-expansion-plan.md` captures the downstream Alpha 2/3 plan for the tactical sandbox and UI layers above the strict surrogate core.
 - `design/zorn-configuration.md` documents the startup configuration surface, including the optional TOML profile and the broader non-auth knobs.
 - `design/strict-startup-contract.md` captures the fail-fast startup profile used to keep the surrogate aligned with the public Lattice boundary.

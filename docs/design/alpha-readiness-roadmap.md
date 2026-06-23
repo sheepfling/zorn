@@ -210,6 +210,7 @@ The immediate downstream implementation priority after Alpha 1 is:
 The detailed boundary and corrective plans are in:
 
 - `design/alpha1-gap-closure-plan.md`
+- `design/alpha1-closeout-checklist.md`
 - `design/strict-startup-contract.md`
 - `design/zorn-product-boundaries.md`
 
