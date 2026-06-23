@@ -309,6 +309,31 @@ def test_oauth_dev_token_expires_on_rest_surface(tmp_path: Path) -> None:
         assert expired.json()["detail"] == "Invalid token"
 
 
+def test_oauth_scoped_token_is_enforced_on_rest_routes(tmp_path: Path) -> None:
+    with _client(tmp_path, auth_mode="oauth-dev") as client:
+        token_response = client.post(
+            "/api/v1/oauth/token",
+            json={"client_id": "dev", "client_secret": "dev", "scope": "entities"},
+        )
+        assert token_response.status_code == 200
+        token = token_response.json()["access_token"]
+
+        entity_publish = client.put(
+            "/api/v1/entities",
+            json={"entityId": "scope-entity", "isLive": True},
+            headers={"Authorization": f"Bearer {token}"},
+        )
+        assert entity_publish.status_code == 200
+
+        task_create = client.post(
+            "/api/v1/tasks",
+            json={"taskId": "scope-task", "displayName": "Scope task"},
+            headers={"Authorization": f"Bearer {token}"},
+        )
+        assert task_create.status_code == 403
+        assert task_create.json()["detail"] == "Insufficient OAuth scope"
+
+
 def test_stale_entity_update_does_not_emit_extra_lifecycle_event(client: TestClient) -> None:
     first = client.put(
         "/api/v1/entities",

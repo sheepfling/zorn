@@ -5,6 +5,7 @@ from typing import Annotated
 from fastapi import Depends, Header, HTTPException, Request, status
 
 from .config import AppSettings
+from .auth_scopes import required_scope_for_rest_path
 from .oauth_dev import OAuthDevTokenStore
 from .stores import EntityStore, ObjectStore, TaskStore
 
@@ -55,6 +56,12 @@ def require_auth(
     ####
     oauth_dev_token_store: OAuthDevTokenStore = request.app.state.oauth_dev_token_store
     if settings.auth_mode == "oauth-dev" and oauth_dev_token_store.is_valid(token):
+        if token not in settings.static_tokens:
+            required_scope = required_scope_for_rest_path(str(request.url.path))
+            if required_scope and not oauth_dev_token_store.token_scope_allows(token, required_scope):
+                raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Insufficient OAuth scope")
+            ####
+        ####
         return
     ####
     raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Invalid token")

@@ -195,6 +195,46 @@ async def test_grpc_oauth_issued_token_is_accepted_and_then_expires(grpc_oauth_s
     assert exc_info.value.code() == grpc.StatusCode.UNAUTHENTICATED
 
 
+async def test_grpc_oauth_scoped_token_is_enforced_on_task_routes(grpc_oauth_server: GrpcCompatServer) -> None:
+    proto_modules = grpc_oauth_server.proto_modules
+    app = build_app(grpc_oauth_server.settings)
+    with TestClient(app) as client:
+        token_response = client.post(
+            "/api/v1/oauth/token",
+            json={"client_id": "dev", "client_secret": "dev", "scope": "entities"},
+        )
+        assert token_response.status_code == 200
+        token = token_response.json()["access_token"]
+    ####
+
+    async with grpc.aio.insecure_channel(grpc_oauth_server.address) as channel:
+        entity_stub = proto_modules.entity_api_grpc.EntityManagerAPIStub(channel)
+        task_stub = proto_modules.task_api_grpc.TaskManagerAPIStub(channel)
+        await entity_stub.PublishEntity(
+            proto_modules.entity_api.PublishEntityRequest(
+                entity=proto_modules.entity.Entity(
+                    entity_id="grpc-scope-entity",
+                    description="scoped token entity",
+                    is_live=True,
+                    no_expiry=True,
+                )
+            ),
+            metadata=(("authorization", f"Bearer {token}"),),
+        )
+
+        with pytest.raises(grpc.aio.AioRpcError) as exc_info:
+            await task_stub.CreateTask(
+                proto_modules.task_api.CreateTaskRequest(
+                    task_id="grpc-scope-task",
+                    display_name="Scoped token task",
+                ),
+                metadata=(("authorization", f"Bearer {token}"),),
+            )
+    ####
+    assert exc_info.value.code() == grpc.StatusCode.PERMISSION_DENIED
+    assert "scope" in exc_info.value.details().lower()
+
+
 async def test_grpc_static_auth_requires_sandbox_metadata_when_enabled(grpc_sandbox_auth_server: GrpcCompatServer) -> None:
     proto_modules = grpc_sandbox_auth_server.proto_modules
     async with grpc.aio.insecure_channel(grpc_sandbox_auth_server.address) as channel:

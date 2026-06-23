@@ -6,6 +6,7 @@ from typing import Any
 import grpc
 
 from ..config import AppSettings
+from ..auth_scopes import required_scope_for_grpc_method
 from ..oauth_dev import OAuthDevTokenStore
 
 
@@ -77,11 +78,20 @@ class AuthInterceptor(grpc.aio.ServerInterceptor):
         if self.settings.require_sandbox_header and not has_required_sandbox_metadata(metadata):
             return _wrap_permission_denied(handler, "Missing sandbox header")
         ####
+        required_scope = required_scope_for_grpc_method(handler_call_details.method or "")
         token = bearer_token_from_metadata(
             metadata,
             allow_legacy_sandbox_bearer=self.settings.grpc_sandbox_auth_mode == "legacy_bearer",
         )
         if token_is_allowed(self.settings, self.token_store, token):
+            if (
+                self.settings.auth_mode == "oauth-dev"
+                and token not in self.settings.static_tokens
+                and required_scope is not None
+                and not self.token_store.token_scope_allows(token, required_scope)
+            ):
+                return _wrap_permission_denied(handler, "Insufficient OAuth scope")
+            ####
             return handler
         ####
         return _wrap_unauthenticated(handler)
