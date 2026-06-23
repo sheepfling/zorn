@@ -353,6 +353,44 @@ def test_oauth_dev_token_expires_on_rest_surface(tmp_path: Path) -> None:
         assert expired.json()["detail"] == "Invalid token"
 
 
+def test_oauth_dev_token_rotates_on_new_issue_in_strict_mode(tmp_path: Path) -> None:
+    settings = AppSettings(
+        auth_mode="oauth-dev",
+        static_tokens=["dev-token"],
+        oauth_dev_token_mode="strict",
+        oauth_dev_token_ttl_seconds=3600,
+        oauth_dev_signing_secret="rotation-secret",
+        oauth_scope_mode="informational",
+        require_sandbox_header=False,
+        database_url=f"sqlite:///{tmp_path / 'rotation.db'}",
+        object_root=tmp_path / "objects",
+    )
+
+    with TestClient(build_app(settings)) as client:
+        first = client.post("/api/v1/oauth/token", json={"client_id": "dev", "client_secret": "dev"})
+        second = client.post("/api/v1/oauth/token", json={"client_id": "dev", "client_secret": "dev"})
+        assert first.status_code == 200
+        assert second.status_code == 200
+        first_token = first.json()["access_token"]
+        second_token = second.json()["access_token"]
+        assert first_token != second_token
+
+        first_rejected = client.put(
+            "/api/v1/entities",
+            json={"entityId": "rotated-first", "isLive": True},
+            headers={"Authorization": f"Bearer {first_token}"},
+        )
+        second_accepted = client.put(
+            "/api/v1/entities",
+            json={"entityId": "rotated-second", "isLive": True},
+            headers={"Authorization": f"Bearer {second_token}"},
+        )
+
+        assert first_rejected.status_code == 403
+        assert first_rejected.json()["detail"] == "Invalid token"
+        assert second_accepted.status_code == 200
+
+
 def test_oauth_scoped_token_is_enforced_on_rest_routes(tmp_path: Path) -> None:
     with _client(tmp_path, auth_mode="oauth-dev") as client:
         token_response = client.post(

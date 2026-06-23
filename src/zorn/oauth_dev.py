@@ -25,6 +25,7 @@ class OAuthDevTokenStore:
     def __init__(self, settings: AppSettings) -> None:
         self.settings = settings
         self._secret = self._resolve_secret(settings)
+        self._active_jti: str | None = None
     ####
 
     @staticmethod
@@ -44,15 +45,17 @@ class OAuthDevTokenStore:
             token = self.settings.static_tokens[0] if self.settings.static_tokens else "dev-token"
             return IssuedOAuthDevToken(token=token, scope=effective_scope, expires_in=expires_in)
         ####
+        jti = secrets.token_hex(12)
         payload = {
             "iat": int(now.timestamp()),
             "exp": int((now + timedelta(seconds=expires_in)).timestamp()),
             "scope": effective_scope,
-            "jti": secrets.token_hex(12),
+            "jti": jti,
         }
         encoded = _urlsafe_b64(json.dumps(payload, separators=(",", ":"), sort_keys=True).encode("utf-8"))
         signature = hmac.new(self._secret, encoded.encode("ascii"), hashlib.sha256).hexdigest()
         token = f"zorn-oauth-dev.{encoded}.{signature}"
+        self._active_jti = jti
         return IssuedOAuthDevToken(token=token, scope=str(payload["scope"]), expires_in=expires_in)
     ####
 
@@ -87,6 +90,15 @@ class OAuthDevTokenStore:
         ####
         if expiry <= int(utc_now().timestamp()):
             return None
+        ####
+        if self.settings.oauth_dev_token_mode == "strict":
+            jti = payload.get("jti")
+            if not isinstance(jti, str) or not jti:
+                return None
+            ####
+            if self._active_jti is not None and jti != self._active_jti:
+                return None
+            ####
         ####
         return payload if isinstance(payload, dict) else None
     ####

@@ -176,7 +176,8 @@ create a new runtime API.
 
 Auth realism is intentionally startup-driven:
 
-- issued OAuth-dev tokens are signed at startup from a configured secret
+- issued OAuth-dev tokens are signed at startup from a configured secret and
+  rotate so only the most recently issued strict token remains active
 - token issuance can be switched into a looser startup-only compatibility
   profile when required, but strict startup keeps the strict mode selected
 - bearer and sandbox metadata are validated through the existing REST/gRPC
