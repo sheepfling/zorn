@@ -2,7 +2,7 @@
 
 `entity_state_replay.jsonl` is an evaluation-only fixture. Each line is a
 neutral JSON representation of a DIS Entity State update that can later be
-produced by a PCAP/FastDIS reader outside this repo.
+produced by an external reader outside this repo.
 
 The fixture covers:
 

@@ -1,6 +1,6 @@
 # Alpha 1 Gap Closure Plan
 
-This plan takes the Alpha1.1 FastDIS gap evidence and turns it into a
+This plan takes the Alpha1.1 external evaluator gap evidence and turns it into a
 correction tranche for a stricter, more usable Alpha 1.
 
 Checkpoint commit for this plan:
@@ -23,12 +23,12 @@ inside the existing public contract:
 
 ## Current Gaps
 
-The FastDIS gap bundle identifies three real weak areas:
+The external evaluator gap bundle identifies three real weak areas:
 
 1. Entity parity across REST and gRPC is incomplete.
 2. OAuth/auth lifecycle behavior is still too static.
-3. FastDIS still needs some Zorn-shaped handling instead of relying only on the
-   public-surrogate behavior.
+3. Some external evaluator flows still need Zorn-shaped handling instead of
+   relying only on the public-surrogate behavior.
 
 These are the concrete failures called out by the gap bundle:
 
@@ -63,7 +63,8 @@ If a behavior is unknown on real Lattice, Alpha 1 should either:
 ## Workstream A: Entity Parity Closure
 
 This is the highest-value Alpha 1 corrective work because it directly affects
-FastDIS entity publication, stream verification, and cross-transport trust.
+external evaluator entity publication, stream verification, and cross-transport
+trust.
 
 ### A1. Fix gRPC override request parsing
 
@@ -93,7 +94,7 @@ Acceptance:
 
 Current problem:
 
-- FastDIS reports `RemoveEntityOverride` fails with
+- The gap evidence reports `RemoveEntityOverride` fails with
   `entity_id and field_path are required`.
 
 Correction:
@@ -233,7 +234,7 @@ Reason:
 Alpha 1 should keep `scope` informational unless a public SDK/sample/app
 actually depends on enforcement behavior that can be observed and tested.
 
-## Workstream C: Remove Remaining FastDIS Cheat Pressure
+## Workstream C: Remove Remaining External Evaluator Cheat Pressure
 
 The server and the adapter lane need to meet in the public contract, not in
 special-case glue.
@@ -242,7 +243,7 @@ special-case glue.
 
 Correction:
 
-- FastDIS and replay paths should drive Zorn through the same public API
+- External evaluator and replay paths should drive Zorn through the same public API
   transport abstraction used by certification.
 - No direct internal store access.
 - No adapter-only runtime route calls.
@@ -254,7 +255,7 @@ Correction:
 - rely on real publish/update/non-live semantics from the entity store and event
   log
 - keep stream ordering and non-live transitions deterministic enough that
-  FastDIS does not need to fabricate additional rows to satisfy checks
+  external evaluators do not need to fabricate additional rows to satisfy checks
 
 ### C3. Keep task/object pressure honest
 
@@ -262,14 +263,14 @@ Correction:
 
 - Continue proving tasks and objects only through the existing public routes and
   official SDK/sample lanes.
-- Do not add Alpha 1-only helper behavior to make FastDIS appear healthier than
-  the underlying surrogate actually is.
+- Do not add Alpha 1-only helper behavior to make the underlying surrogate
+  appear healthier than it actually is.
 
 ## Definition of Done for Alpha 1
 
 Alpha 1 is ready when these are true:
 
-1. FastDIS entity parity probe is green for:
+1. Entity parity probe is green for:
    - REST publish -> gRPC read/stream
    - gRPC publish -> REST read/events
    - REST override -> gRPC read
@@ -280,7 +281,7 @@ Alpha 1 is ready when these are true:
    - gRPC non-live -> REST read
 2. OAuth-dev uses distinct issued tokens with real expiry enforcement.
 3. REST and gRPC auth both honor the configured bearer/sandbox startup modes.
-4. FastDIS no longer needs synthetic entity lifecycle rows to satisfy stream
+4. External evaluators no longer need synthetic entity lifecycle rows to satisfy stream
    verification.
 5. All of the above are proven by current tests and certification artifacts, not
    by prose or a Zorn-only diagnostics route.
@@ -293,7 +294,7 @@ Alpha 1 is ready when these are true:
 4. Add issued-token store with expiry enforcement behind existing OAuth-dev
    flow.
 5. Accept sandbox-header metadata on gRPC when required by startup config.
-6. Re-run FastDIS gap probes and promote the remaining unknowns to explicit
+6. Re-run external evaluator gap probes and promote the remaining unknowns to explicit
    documented defer items.
 
 ## Explicit Defer Items

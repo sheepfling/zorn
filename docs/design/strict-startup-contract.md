@@ -78,8 +78,9 @@ strict surrogate claim.
 ## Relationship To Alpha 1
 
 Strict startup is a guardrail for Alpha 1 and later profiles. It helps ensure
-that the process used by FastDIS, sample apps, and cert fixtures is the same
-shape the surrogate intends to support, without widening the public API surface.
+that the process used by external clients, sample apps, and cert fixtures is
+the same shape the surrogate intends to support, without widening the public
+API surface.
 
 The same startup contract can be expressed either through `C2_COMPAT_*`
 environment variables or an optional `zorn.toml` profile. Env vars override the
