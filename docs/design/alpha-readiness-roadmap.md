@@ -185,7 +185,7 @@ The detailed corrective plan is in:
 
 The first Alpha 1 implementation slice is fixture-driven:
 
-- Evaluation helper package: `src/zorn/adapters/dis/`.
+- Evaluation helper package: `eval_dis/`.
 - Replay fixture: `tests/fixtures/dis/entity_state_replay.jsonl`.
 - Fixture notes: `tests/fixtures/dis/README.md`.
 - Tests: `tests/test_dis_entity_state_adapter.py`.

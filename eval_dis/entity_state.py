@@ -8,7 +8,7 @@ import math
 from pathlib import Path
 from typing import Any, cast
 
-from ...time_utils import to_iso, utc_now
+from zorn.time_utils import to_iso, utc_now
 
 
 @dataclass(frozen=True, slots=True)

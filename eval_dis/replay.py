@@ -4,8 +4,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Protocol
 
-from ...replay import PublicApiTransport, replay_api_operations
-from .entity_state import DisEntityState, dis_entity_id, entity_state_to_zorn_entity, load_entity_state_jsonl
+from zorn.replay import PublicApiTransport, replay_api_operations
+from eval_dis.entity_state import DisEntityState, dis_entity_id, entity_state_to_zorn_entity, load_entity_state_jsonl
 
 
 class EntityPublisher(Protocol):

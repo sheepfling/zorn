@@ -17,7 +17,7 @@
       "id": "ECO-ADAPTER-001",
       "priority": "P0",
       "text": "Protocol adapters must publish through Entity, Task, Object, Auth, and stream surfaces rather than adapter-specific endpoints.",
-      "evidence": ["tests/fixtures/dis/entity_state_replay.jsonl", "src/zorn/adapters/dis"]
+      "evidence": ["tests/fixtures/dis/entity_state_replay.jsonl", "eval_dis"]
     },
     {
       "id": "ECO-C2-001",

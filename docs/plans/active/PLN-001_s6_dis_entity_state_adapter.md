@@ -8,7 +8,7 @@ DIS into a core runtime concept.
 
 ## Scope
 
-- Define a local adapter package under `src/zorn/adapters/dis/`.
+- Define a local adapter helper under `eval_dis/`.
 - Add a small internal neutral representation for DIS Entity State data.
 - Map DIS Entity State fields to Zorn entity payloads.
 - Add fixture-driven tests for deterministic mappings.
@@ -54,7 +54,7 @@ Entity API.
 
 ## Current Status
 
-Initial JSONL replay is implemented under `src/zorn/adapters/dis/`. It is a
+Initial JSONL replay is implemented under `eval_dis/`. It is a
 neutral fixture path, not full PCAP parsing. The helper emits a report with
 passed, failed, missing, entities, and events fields. Normal replay uses the
 existing `/api/v1/entities` and `/api/v1/entities/events` routes; private store

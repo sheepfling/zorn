@@ -6,7 +6,7 @@ from pathlib import Path
 from fastapi.testclient import TestClient
 
 from zorn import AppSettings
-from zorn.adapters.dis import (
+from eval_dis import (
     dis_entity_id,
     entity_state_to_zorn_entity,
     load_entity_state_jsonl,
