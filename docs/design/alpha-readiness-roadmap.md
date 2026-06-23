@@ -1,10 +1,26 @@
 # Alpha Readiness Roadmap
 
 This roadmap translates the technical S5-S12 plan into product-readiness gates.
-It is intentionally honest about maturity: Alpha 1 should be a strict public
-Lattice surrogate, Alpha 2 should be a much more faithful Lattice-compatible
-data plane, and Alpha 3 should add browser-visible product apps without
-polluting the data plane.
+It is intentionally honest about maturity: Alpha 1 is the strict public
+Lattice surrogate, Alpha 2 builds the tactical sandbox layer on top of it, and
+Alpha 3 adds browser-visible product apps without polluting the data plane.
+
+## Big Picture
+
+Zorn should be built as a two-layer system:
+
+- A strict Lattice-compatible core limited to public Entities, Tasks, Objects,
+  OAuth-dev, REST, and public Buf-generated gRPC for Entities and Tasks.
+- A Zorn-native environment layer for C2, developer console, scenario control,
+  mesh simulation, replay, adapters, and operator workflows that consumes the
+  core through those same public interfaces rather than extending or replacing
+  them.
+
+The architectural rule is simple:
+
+- C2, mesh, replay, scenarios, and UI are product-layer capabilities, not
+  Lattice-contract capabilities.
+- They sit above the strict surrogate core, never inside it.
 
 ## Alpha 1: Strict Surrogate Ready
 
@@ -45,51 +61,67 @@ Exit label:
 `Alpha 1 Strict Surrogate Ready`: suitable for local public client integration
 and demos, with known gaps documented in reports.
 
-## Alpha 2: Vetted Data Plane
+## Alpha 2: Tactical Sandbox Layer
 
-Goal: make Zorn a materially more faithful Lattice-compatible data plane across
-Entities, Tasks, Objects, auth, streams, and gRPC.
+Goal: add a Zorn-native tactical sandbox layer for scenarios, adapters, replay,
+mock agents, and degraded-network behavior while keeping all integration
+behavior routed through the public Lattice-compatible core.
 
-Alpha 2 is where Zorn moves from "useful DIS harness" to "credible public
-Lattice surrogate for SDK/sample app behavior." The UI remains separate and is
-not allowed to define data-plane behavior.
+Alpha 2 starts only after the Alpha 1 surrogate is trustworthy. The purpose is
+not to widen the public contract. The purpose is to exercise richer tactical
+behavior by publishing and observing through the existing public core.
 
 Primary scope:
 
-- Official SDK smoke coverage for Python, Go, JavaScript, Java, C++, and Rust where tooling is available.
-- Official sample apps exercised with adaptation-tier reporting.
-- REST Entities, Tasks, and Objects behavior hardened against sample and SDK expectations.
-- gRPC EntityManager and TaskManager auth metadata, TLS modes, descriptor audits, and generated-client calls.
-- Golden gRPC wire fixtures for entity publish/get/stream and task create/update/cancel/listen.
-- Negative and stress certification: bad auth, stale updates, bad task transitions, reconnects, heartbeats, concurrent publish-stream.
-- Object byte fidelity, metadata, list, download, delete, and thumbnail/entity linkage.
-- Task lifecycle ordering, status versions, agent delivery, cancellation, and no duplicate agent delivery.
-- Protobuf `Any`, enums, timestamps, durations, and unknown fields round-trip where expected.
-- Scenario certification starts for BA-001, BA-007, ADS-002, ADS-003, and ADS-004.
+- Sandbox environment manager:
+  - environment selection
+  - seed/reset/export
+  - deterministic clock
+  - fixture/scenario packs
+- Tactical adapters outside the core package:
+  - AIS replay
+  - DIS replay
+  - later protocol adapters using the same public publish/listen paths
+- Scenario and replay controls:
+  - deterministic time
+  - pause/resume/seek/speed
+  - recorded event/state replay through public routes
+- Mock agents and taskable behavior:
+  - TaskCatalog-style entities
+  - listen/execute/status/complete/cancel loops
+  - synthetic media/report publication through Objects
+- Mesh/degraded-network simulation:
+  - simulated nodes
+  - replication delay/partition/reconnect
+  - object availability and queue behavior
+- Scenario certification starts for BA-001, BA-007, ADS-002, ADS-003, and
+  ADS-004 using the Alpha 1 public core.
 
 Acceptance criteria:
 
-- `zorn-cert validate-contracts` passes.
-- SDK Python, Go, and JavaScript direct smokes pass full-surface contracts.
-- Java/C++/Rust tracks either pass or report explicit environment/schema blockers.
-- Official AIS REST and AIS gRPC publish moving entities.
-- Official Objects and Thumbnail workflows pass with byte/link fidelity.
-- Entity visualizer has browser-visible proof, not only transport proof.
-- Auto Recon-style task creation and agent listening work through the expected lifecycle.
-- Golden gRPC fixtures pass or produce compatibility reports with actionable failures.
-- Compatibility reports distinguish `endpoint_token_only`, `runtime_env_translation`, `transport_proxy`, `runtime_shim`, and `local_overlay`.
+- Environment reset and seed produce repeatable entity/task/object/event state.
+- AIS and DIS evaluation helpers can drive the same public entity/event
+  surfaces without special-case runtime APIs.
+- Mock agents receive tasks through the public task lifecycle and publish
+  resulting entity/object updates through the same core routes.
+- Scenario clock and replay affect expiry, event ordering, and task timing
+  deterministically.
+- Mesh simulation stays local to Zorn product behavior and does not redefine
+  the compatibility contract.
+- Alpha 1 compatibility evidence remains green while Alpha 2 features are
+  enabled around it.
 
 Non-goals:
 
-- Production security posture.
+- Inventing new public API surfaces.
 - Proprietary mesh behavior.
 - Full operator UI.
-- General-purpose plugin marketplace.
+- Replacing SDK/sample certification with scenario-only proof.
 
 Exit label:
 
-`Alpha 2 Vetted Data Plane`: suitable for broad local compatibility testing
-against public SDKs, sample apps, and tactical protocol adapters.
+`Alpha 2 Tactical Sandbox Layer`: suitable for local scenario, replay,
+adapter, and mock-agent workflows built on top of the strict surrogate core.
 
 ## Alpha 3: Product UI
 
@@ -123,7 +155,7 @@ Primary scope:
 Acceptance criteria:
 
 - `/developer-console` can inspect entities, tasks, objects, streams, and compatibility reports from a live Zorn run.
-- A DIS replay is visible as moving tracks in the browser.
+- A replayed entity scenario is visible as moving tracks in the browser.
 - Selecting an entity shows canonical component data and provenance.
 - Taskable assets expose task catalog actions when available.
 - Object thumbnails/media links remain visible after refresh.
@@ -143,16 +175,16 @@ Zorn runs.
 
 ## Dependency Order
 
-Alpha 1 feeds Alpha 2 with strict public API pressure. Alpha 2 feeds Alpha 3
-with trustworthy data-plane behavior. Alpha 3 proves behavior visually, but does
-not define the behavior.
+Alpha 1 feeds Alpha 2 with a trustworthy compatibility core. Alpha 2 feeds
+Alpha 3 with deterministic scenario, replay, agent, and mesh behavior. Alpha 3
+proves behavior visually, but does not define the data plane.
 
 ```text
 Alpha 1 Strict Surrogate Ready
   -> public API replay, entity streams, reports
 
-Alpha 2 Vetted Data Plane
-  -> SDK/sample/gRPC/object/task lifecycle parity
+Alpha 2 Tactical Sandbox Layer
+  -> environments, replay, adapters, agents, mesh simulation
 
 Alpha 3 Product UI
   -> /developer-console, /c2, visual certification
@@ -160,26 +192,26 @@ Alpha 3 Product UI
 
 ## Current Priority
 
-The immediate implementation priority is now Alpha 1 corrective hardening:
+The immediate downstream implementation priority after Alpha 1 is:
 
-1. Close the remaining entity parity gaps:
-   - gRPC override request parsing
-   - gRPC non-live parity
-   - override removal restoring shared state across transports
-2. Make OAuth-dev tokens distinct and expiring without inventing new auth
-   surfaces.
-3. Add a strict startup profile that refuses to boot unless auth, sandbox,
-   proto-audit, and OAuth-dev trust-seed settings match the intended surrogate
-   mode.
-4. Keep evaluation helpers and replay lanes on the same public
-   Entity/Task/Object interfaces used by SDK/sample certification.
-5. After the above is green, resume any evaluation-only adapter helpers that
-   exercise the same public routes.
+1. Freeze Alpha 1 compatibility evidence as the protected core gate.
+2. Build Z3 sandbox environment manager:
+   - environment_id
+   - seed/reset/export
+   - deterministic clock
+3. Resume evaluation-only adapters outside the Zorn package:
+   - AIS first
+   - DIS second
+4. Build Alpha 2 mock-agent/task routing on top of the public task core.
+5. Add mesh/degraded-network simulation only after environment and replay state
+   are deterministic.
+6. Start Alpha 3 `/developer-console` before `/c2`.
 
-The detailed corrective plan is in:
+The detailed boundary and corrective plans are in:
 
 - `design/alpha1-gap-closure-plan.md`
 - `design/strict-startup-contract.md`
+- `design/zorn-product-boundaries.md`
 
 ## Alpha 1 Evidence
 

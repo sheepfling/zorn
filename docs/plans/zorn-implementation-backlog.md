@@ -1,5 +1,79 @@
 # Zorn implementation backlog
 
+This backlog is downstream from Alpha 1 compatibility work. It assumes the
+strict public Lattice surrogate core is the protected foundation and that
+everything below consumes that core instead of extending the compatibility
+surface.
+
+## Execution Rules
+
+- Alpha 2 and Alpha 3 work must not add new third-party-facing runtime routes
+  to the compatibility data plane.
+- Adapters, replay, agents, mesh simulation, and UI must publish and observe
+  through existing Entities, Tasks, Objects, OAuth-dev, REST, streams, and
+  public gRPC surfaces.
+- Local-only state belongs in environment records, scenario files, UI state,
+  read models, or partner/plugin metadata, not in the public surrogate
+  contract.
+
+## Phase Order
+
+1. Alpha 1 protected core:
+   - keep compatibility evidence green
+   - treat it as a gate on all downstream work
+2. Alpha 2 tactical sandbox layer:
+   - environments
+   - replay/scenario control
+   - evaluation-only adapters
+   - mock agents
+   - mesh simulation
+3. Alpha 3 product UI:
+   - `/developer-console`
+   - `/c2`
+
+## Recommended Build Order
+
+The next practical build order should be:
+
+1. `Z3-E1` through `Z3-E4`
+   - environment manager, seed/reset/export, deterministic clock, fixture packs
+2. `Z6-E2` before `Z6-E3`
+   - AIS replay first, then DIS replay
+3. `Z8-E1` through `Z8-E4`
+   - mock agents only after scenario/environment control exists
+4. `Z9-E1` through `Z9-E4`
+   - mesh simulation only after replay state is deterministic
+5. `Z4-E1` through `Z4-E4`
+   - `/developer-console` before `/c2`
+6. `Z5-E1` through `Z5-E4`
+   - operator UI only after the debug surface can explain the underlying state
+
+## Alpha 2 Focus
+
+These backlog lanes define the Alpha 2 tactical sandbox layer:
+
+- `LANE-SANDBOX`
+- `LANE-ADAPTERS`
+- `LANE-AUTONOMY`
+- `LANE-MESH`
+- `LANE-OBJECTS-MEDIA`
+
+Alpha 2 is done when those lanes produce deterministic scenario, replay,
+adapter, mock-agent, and mesh behavior without changing the strict compatibility
+contract.
+
+## Alpha 3 Focus
+
+These backlog lanes define the Alpha 3 product UI layer:
+
+- `LANE-DEVELOPER-CONSOLE`
+- `LANE-C2`
+- `LANE-SHOWCASE`
+
+Alpha 3 is done when `/developer-console` and `/c2` can explain and visualize
+Alpha 2 behavior without forcing any UI-local requirement back into the public
+data plane.
+
 | Story ID | Milestone | Epic | Lane | Priority | Title |
 |---|---|---|---|---|---|
 | Z3-E1-S01 | Z3 | Z3-E1 | LANE-SANDBOX | P0 | Create/list/get/delete local environment records |
