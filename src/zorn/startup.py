@@ -25,6 +25,12 @@ def validate_strict_startup(settings: AppSettings) -> None:
     if not settings.grpc_strict_proto_audit:
         errors.append("C2_COMPAT_GRPC_STRICT_PROTO_AUDIT must be true in strict startup mode")
     ####
+    if settings.grpc_sandbox_auth_mode != "strict_separate":
+        errors.append("C2_COMPAT_GRPC_SANDBOX_AUTH_MODE must be strict_separate in strict startup mode")
+    ####
+    if settings.oauth_scope_mode != "informational":
+        errors.append("C2_COMPAT_OAUTH_SCOPE_MODE must be informational in strict startup mode")
+    ####
     if settings.auth_mode == "oauth-dev" and settings.oauth_dev_token_ttl_seconds <= 0:
         errors.append("C2_COMPAT_OAUTH_DEV_TOKEN_TTL_SECONDS must be positive in oauth-dev strict startup mode")
     ####

@@ -141,6 +141,39 @@ async def grpc_sandbox_auth_server(tmp_path: Path, proto_modules: LatticeProtoMo
 
 
 @pytest.fixture()
+async def grpc_strict_sandbox_auth_server(tmp_path: Path, proto_modules: LatticeProtoModules) -> AsyncGenerator[GrpcCompatServer]:
+    settings = AppSettings(
+        auth_mode="oauth-dev",
+        static_tokens=["dev-token"],
+        oauth_dev_token_ttl_seconds=3600,
+        oauth_dev_signing_secret="grpc-strict-sandbox-secret",
+        oauth_scope_mode="informational",
+        require_sandbox_header=True,
+        grpc_sandbox_auth_mode="strict_separate",
+        strict_startup=True,
+        grpc_strict_proto_audit=True,
+        database_url=f"sqlite:///{tmp_path / 'grpc_strict_sandbox_auth.db'}",
+        object_root=tmp_path / "objects",
+        grpc_port=0,
+        poll_interval_seconds=0.01,
+    )
+    stores = build_store_bundle(settings)
+    server = build_grpc_server(stores=stores, proto_modules=proto_modules)
+    port = server.add_insecure_port("127.0.0.1:0")
+    await server.start()
+    try:
+        yield GrpcCompatServer(
+            address=f"127.0.0.1:{port}",
+            settings=settings,
+            proto_modules=proto_modules,
+        )
+    finally:
+        await server.stop(0)
+    ####
+####
+
+
+@pytest.fixture()
 async def grpc_channel(grpc_compat_server: GrpcCompatServer) -> AsyncGenerator[grpc.aio.Channel]:
     channel = grpc.aio.insecure_channel(grpc_compat_server.address)
     try:

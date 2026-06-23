@@ -62,6 +62,7 @@ artifacts = [
   "docs/reference/ui/*",
   "examples/runbooks/*.md",
   "examples/scenarios/*.json",
+  "zorn.example.toml",
   "proto/zorn/**/*.proto",
   "tests/fixtures/**/*.jsonl",
   "tests/fixtures/**/*.yaml",

@@ -221,6 +221,35 @@ async def test_grpc_static_auth_requires_sandbox_metadata_when_enabled(grpc_sand
     assert exc_info.value.code() == grpc.StatusCode.PERMISSION_DENIED
 
 
+async def test_grpc_strict_auth_requires_separate_bearer_and_sandbox_metadata(
+    grpc_strict_sandbox_auth_server: GrpcCompatServer,
+) -> None:
+    proto_modules = grpc_strict_sandbox_auth_server.proto_modules
+    async with grpc.aio.insecure_channel(grpc_strict_sandbox_auth_server.address) as channel:
+        stub = proto_modules.entity_api_grpc.EntityManagerAPIStub(channel)
+        entity = proto_modules.entity.Entity(
+            entity_id="grpc-strict-sandbox-auth-entity",
+            description="strict sandbox metadata required",
+            is_live=True,
+            no_expiry=True,
+        )
+        with pytest.raises(grpc.aio.AioRpcError) as legacy_exc_info:
+            await stub.PublishEntity(
+                proto_modules.entity_api.PublishEntityRequest(entity=entity),
+                metadata=(("anduril-sandbox-authorization", "Bearer dev-token"),),
+            )
+
+        await stub.PublishEntity(
+            proto_modules.entity_api.PublishEntityRequest(entity=entity),
+            metadata=(
+                ("authorization", "Bearer dev-token"),
+                ("x-anduril-sandbox", "zorn-cert"),
+            ),
+        )
+
+    assert legacy_exc_info.value.code() == grpc.StatusCode.UNAUTHENTICATED
+
+
 async def test_grpc_cancel_rejects_already_terminal_task(
     grpc_compat_server: GrpcCompatServer,
     grpc_channel: grpc.aio.Channel,

@@ -1,0 +1,32 @@
+[app]
+product_name = "Zorn"
+compatibility_target = "Public SDK-style workflows"
+api_prefix = "/api/v1"
+
+[auth]
+mode = "oauth-dev"
+static_tokens = ["dev-token"]
+oauth_dev_token_ttl_seconds = 3600
+oauth_dev_signing_secret_file = "./secrets/oauth-dev.seed"
+oauth_scope_mode = "informational"
+require_sandbox_header = true
+grpc_sandbox_auth_mode = "strict_separate"
+strict_startup = true
+
+[storage]
+database_url = "sqlite:///./var/zorn.db"
+object_root = "./var/objects"
+max_object_bytes = 67108864
+
+[behavior]
+allow_generated_entity_ids = true
+enforce_source_update_time = true
+heartbeat_seconds = 15.0
+poll_interval_seconds = 0.25
+
+[grpc]
+host = "127.0.0.1"
+port = 50051
+tls_mode = "insecure"
+strict_proto_audit = true
+enforce_task_status_version = true

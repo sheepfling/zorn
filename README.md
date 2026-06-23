@@ -39,13 +39,15 @@ The repo includes replay tooling and fixtures that exercise those public routes:
 1. Install `uv` and Python 3.12+.
 2. Run `uv sync --extra dev --extra grpc`.
 3. Run `.venv/bin/python -m pytest tests/test_public_api_replay.py tests/test_dis_entity_state_adapter.py tests/test_entities.py tests/test_tasks.py tests/test_objects.py`.
-4. Start the REST API:
+4. Optionally copy `zorn.example.toml` to `zorn.toml` and edit it, or use
+   `C2_COMPAT_*` environment variables directly. Env vars override TOML.
+5. Start the REST API:
 
    ```bash
    C2_COMPAT_AUTH_MODE=none .venv/bin/uvicorn zorn.main:app --host 127.0.0.1 --port 8080
    ```
 
-5. In another shell, run the Alpha 1 replay checks:
+6. In another shell, run the Alpha 1 replay checks:
 
    ```bash
    .venv/bin/zorn replay dis tests/fixtures/dis/entity_state_replay.jsonl \

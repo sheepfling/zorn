@@ -20,11 +20,21 @@ def token_is_allowed(settings: AppSettings, token_store: OAuthDevTokenStore, tok
 ####
 
 
-def bearer_token_from_metadata(metadata: tuple[tuple[str, str], ...]) -> str | None:
+def bearer_token_from_metadata(
+    metadata: tuple[tuple[str, str], ...],
+    *,
+    allow_legacy_sandbox_bearer: bool = True,
+) -> str | None:
     for key, value in metadata:
         normalized_key = key.lower()
-        if normalized_key in {"authorization", "anduril-sandbox-authorization"} and value.lower().startswith("bearer "):
+        if normalized_key == "authorization" and value.lower().startswith("bearer "):
             return value.split(" ", 1)[1].strip()
+        ####
+        if normalized_key == "anduril-sandbox-authorization" and value.lower().startswith("bearer "):
+            if allow_legacy_sandbox_bearer:
+                return value.split(" ", 1)[1].strip()
+            ####
+            continue
         ####
         if normalized_key == "x-api-key":
             return value.strip()
@@ -67,7 +77,10 @@ class AuthInterceptor(grpc.aio.ServerInterceptor):
         if self.settings.require_sandbox_header and not has_required_sandbox_metadata(metadata):
             return _wrap_permission_denied(handler, "Missing sandbox header")
         ####
-        token = bearer_token_from_metadata(metadata)
+        token = bearer_token_from_metadata(
+            metadata,
+            allow_legacy_sandbox_bearer=self.settings.grpc_sandbox_auth_mode == "legacy_bearer",
+        )
         if token_is_allowed(self.settings, self.token_store, token):
             return handler
         ####
