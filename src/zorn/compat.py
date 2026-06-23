@@ -10,6 +10,13 @@ OBJECT_PATH_PATTERN = re.compile(r"^[a-zA-Z0-9/_=\-.]+$")
 
 ENTITY_ALWAYS_INCLUDED_COMPONENTS: set[str] = {"entityId"}
 ENTITY_INTERNAL_STATE_KEY = "_zornInternal"
+ENTITY_PUBLIC_ALIASES: dict[str, str] = {
+    "entity_id": "entityId",
+    "expiry_time": "expiryTime",
+    "is_live": "isLive",
+    "mil_view": "milView",
+    "no_expiry": "noExpiry",
+}
 
 
 def first_present(payload: dict[str, Any], *keys: str) -> Any:
@@ -118,12 +125,42 @@ def select_entity_components(entity: dict[str, Any], components: list[str] | Non
             selected[key] = entity[key]
         ####
     ####
-    return selected
+    return entity_public_payload(selected)
 ####
 
 
 def entity_public_payload(entity: dict[str, Any]) -> dict[str, Any]:
-    return {key: value for key, value in entity.items() if key != ENTITY_INTERNAL_STATE_KEY}
+    payload = {key: value for key, value in entity.items() if key != ENTITY_INTERNAL_STATE_KEY}
+    for raw_name, wire_name in ENTITY_PUBLIC_ALIASES.items():
+        if raw_name in payload:
+            payload.setdefault(wire_name, payload[raw_name])
+            payload.pop(raw_name, None)
+        ####
+    ####
+    provenance = payload.get("provenance")
+    if isinstance(provenance, dict):
+        normalized = dict(provenance)
+        if "source_update_time" in normalized:
+            normalized.setdefault("sourceUpdateTime", normalized["source_update_time"])
+            normalized.pop("source_update_time", None)
+        ####
+        payload["provenance"] = normalized
+    ####
+    metadata = payload.get("metadata")
+    if isinstance(metadata, dict):
+        normalized_metadata = dict(metadata)
+        provenance = normalized_metadata.get("provenance")
+        if isinstance(provenance, dict):
+            normalized_provenance = dict(provenance)
+            if "source_update_time" in normalized_provenance:
+                normalized_provenance.setdefault("sourceUpdateTime", normalized_provenance["source_update_time"])
+                normalized_provenance.pop("source_update_time", None)
+            ####
+            normalized_metadata["provenance"] = normalized_provenance
+        ####
+        payload["metadata"] = normalized_metadata
+    ####
+    return payload
 ####
 
 

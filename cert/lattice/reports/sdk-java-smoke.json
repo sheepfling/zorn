@@ -1,23 +1,180 @@
 {
   "adaptation_tier": "runtime_shim",
   "details": {
-    "fixture_dir": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/sdk-java-smoke",
-    "gradlew": "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/sdk-java-smoke/gradlew",
-    "java_path": "/usr/bin/java",
-    "java_probe": {
+    "auth.bearer_token": {
+      "constructed": true
+    },
+    "auth.oauth_client_credentials": {
+      "constructed": true
+    },
+    "driver": {
       "args": [
-        "/usr/bin/java",
-        "-version"
+        "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/sdk-java-smoke/gradlew",
+        "-p",
+        "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/sdk-java-smoke/.zorn-cert-sdk-java-smoke",
+        "run",
+        "--no-daemon",
+        "--quiet"
       ],
-      "returncode": 1,
-      "stderr": "The operation couldn\u2019t be completed. Unable to locate a Java Runtime.\nPlease visit http://www.java.com for information on installing Java.\n\n",
+      "returncode": 0,
+      "stderr": "Caught exception: Could not start the FSEvents stream: /Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/sdk-java-smoke\nNote: /Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/sdk-java-smoke/.zorn-cert-sdk-java-smoke/src/main/java/zorn/cert/SdkJavaSmoke.java uses unchecked or unsafe operations.\nNote: Recompile with -Xlint:unchecked for details.\n",
       "stdout": ""
     },
-    "reason": "local Java runtime is required for sdk-java-smoke"
+    "driver_results": {
+      "results": {
+        "auth.bearer_token": {
+          "evidence": {
+            "constructed": true
+          },
+          "ok": true
+        },
+        "auth.oauth_client_credentials": {
+          "evidence": {
+            "constructed": true
+          },
+          "ok": true
+        },
+        "entities.get": {
+          "evidence": {
+            "entityId": "sdk-java-asset"
+          },
+          "ok": true
+        },
+        "entities.overrides.apply": {
+          "evidence": {
+            "milView": {
+              "disposition": "DISPOSITION_HOSTILE"
+            },
+            "mil_view": null
+          },
+          "ok": true
+        },
+        "entities.overrides.clear": {
+          "evidence": {
+            "entityId": "sdk-java-asset"
+          },
+          "ok": true
+        },
+        "entities.publish": {
+          "evidence": {
+            "entityId": "sdk-java-asset"
+          },
+          "ok": true
+        },
+        "objects.delete": {
+          "evidence": {
+            "objectPath": "sdk-java-smoke/object.txt"
+          },
+          "ok": true
+        },
+        "objects.download": {
+          "evidence": {
+            "bytes": 20
+          },
+          "ok": true
+        },
+        "objects.list": {
+          "evidence": {
+            "objectPath": "sdk-java-smoke/object.txt"
+          },
+          "ok": true
+        },
+        "objects.metadata": {
+          "evidence": {
+            "objectPath": "sdk-java-smoke/object.txt"
+          },
+          "ok": true
+        },
+        "objects.upload": {
+          "evidence": {
+            "objectPath": "sdk-java-smoke/object.txt"
+          },
+          "ok": true
+        },
+        "tasks.create": {
+          "evidence": {
+            "taskId": "sdk-java-task"
+          },
+          "ok": true
+        },
+        "tasks.get": {
+          "evidence": {
+            "taskId": "sdk-java-task"
+          },
+          "ok": true
+        },
+        "tasks.query": {
+          "evidence": {
+            "count": 1
+          },
+          "ok": true
+        },
+        "tasks.update_status": {
+          "evidence": {
+            "taskId": "sdk-java-task"
+          },
+          "ok": true
+        },
+        "transport.rest_json": {
+          "evidence": {
+            "sdk": "com.anduril:lattice-sdk"
+          },
+          "ok": true
+        }
+      }
+    },
+    "entities.get": {
+      "entityId": "sdk-java-asset"
+    },
+    "entities.overrides.apply": {
+      "milView": {
+        "disposition": "DISPOSITION_HOSTILE"
+      },
+      "mil_view": null
+    },
+    "entities.overrides.clear": {
+      "entityId": "sdk-java-asset"
+    },
+    "entities.publish": {
+      "entityId": "sdk-java-asset"
+    },
+    "objects.delete": {
+      "objectPath": "sdk-java-smoke/object.txt"
+    },
+    "objects.download": {
+      "bytes": 20
+    },
+    "objects.list": {
+      "objectPath": "sdk-java-smoke/object.txt"
+    },
+    "objects.metadata": {
+      "objectPath": "sdk-java-smoke/object.txt"
+    },
+    "objects.upload": {
+      "objectPath": "sdk-java-smoke/object.txt"
+    },
+    "server_log": "INFO:     Started server process [11819]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://127.0.0.1:64861 (Press CTRL+C to quit)\nINFO:     127.0.0.1:64869 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64877 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64877 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64877 - \"GET /api/v1/entities/sdk-java-asset HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64877 - \"PUT /api/v1/entities/sdk-java-asset/override/mil_view.disposition HTTP/1.1\" 200 OK\nWARNING:  Unsupported upgrade request.\nINFO:     127.0.0.1:64881 - \"GET /api/v1/entities/sdk-java-asset HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64877 - \"DELETE /api/v1/entities/sdk-java-asset/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64877 - \"POST /api/v1/tasks HTTP/1.1\" 201 Created\nINFO:     127.0.0.1:64877 - \"GET /api/v1/tasks/sdk-java-task HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64877 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64877 - \"PUT /api/v1/tasks/sdk-java-task/status HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64877 - \"POST /api/v1/objects/sdk-java-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64877 - \"GET /api/v1/objects?prefix=sdk-java-smoke HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64877 - \"HEAD /api/v1/objects/sdk-java-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64877 - \"GET /api/v1/objects/sdk-java-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64877 - \"DELETE /api/v1/objects/sdk-java-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [11819]\n",
+    "tasks.create": {
+      "taskId": "sdk-java-task"
+    },
+    "tasks.get": {
+      "taskId": "sdk-java-task"
+    },
+    "tasks.query": {
+      "count": 1
+    },
+    "tasks.update_status": {
+      "taskId": "sdk-java-task"
+    },
+    "transport.rest_json": {
+      "sdk": "com.anduril:lattice-sdk"
+    }
   },
   "failed": [],
   "fixture": "sdk-java-smoke",
-  "missing": [
+  "missing": [],
+  "mode": "strict",
+  "passed": [
     "auth.oauth_client_credentials",
     "auth.bearer_token",
     "transport.rest_json",
@@ -27,15 +184,14 @@
     "entities.overrides.clear",
     "tasks.create",
     "tasks.get",
+    "tasks.query",
     "tasks.update_status",
     "objects.upload",
-    "objects.metadata",
     "objects.list",
+    "objects.metadata",
     "objects.download",
     "objects.delete"
   ],
-  "mode": "strict",
-  "passed": [],
-  "result": "blocked",
+  "result": "pass",
   "zorn_version": "0.1.0"
 }

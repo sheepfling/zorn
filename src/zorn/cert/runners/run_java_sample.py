@@ -258,7 +258,9 @@ def run_java_sample(*, fixture: Any, fixture_dir: Path, target: str, token: str,
 def _run_sdk_java_smoke(*, fixture: Any, fixture_dir: Path, token: str, mode: str) -> dict[str, Any]:
     report = base_report(fixture_id=fixture.id, mode=mode)
     repo_root = Path(__file__).resolve().parents[4]
-    java_path = shutil.which("java")
+    tooling_root = repo_root / ".tooling"
+    java_home = _discover_java_home(tooling_root)
+    java_path = str(java_home / "bin" / "java") if java_home else shutil.which("java")
     java_probe = None if java_path is None else run_command([java_path, "-version"], cwd=fixture_dir, timeout=10.0)
     if java_path is None or java_probe is None or java_probe.returncode != 0:
         report["result"] = "blocked"
@@ -266,6 +268,7 @@ def _run_sdk_java_smoke(*, fixture: Any, fixture_dir: Path, token: str, mode: st
         report["details"] = {
             "reason": "local Java runtime is required for sdk-java-smoke",
             "fixture_dir": str(fixture_dir),
+            "java_home": str(java_home) if java_home else None,
             "java_path": java_path,
             "java_probe": None
             if java_probe is None
@@ -286,6 +289,7 @@ def _run_sdk_java_smoke(*, fixture: Any, fixture_dir: Path, token: str, mode: st
         report["details"] = {
             "reason": "official Java SDK Gradle wrapper is missing",
             "fixture_dir": str(fixture_dir),
+            "java_home": str(java_home) if java_home else None,
             "java_path": java_path,
             "gradlew": str(gradlew),
         }
@@ -295,6 +299,8 @@ def _run_sdk_java_smoke(*, fixture: Any, fixture_dir: Path, token: str, mode: st
     smoke_dir = fixture_dir / ".zorn-cert-sdk-java-smoke"
     source_dir = smoke_dir / "src" / "main" / "java" / "zorn" / "cert"
     source_dir.mkdir(parents=True, exist_ok=True)
+    gradle_home = smoke_dir / ".gradle-home"
+    gradle_home.mkdir(parents=True, exist_ok=True)
     (smoke_dir / "settings.gradle").write_text(
         f"""
 pluginManagement {{
@@ -318,10 +324,6 @@ includeBuild('{fixture_dir.as_posix()}')
         """
 plugins {
     id 'application'
-}
-
-repositories {
-    mavenCentral()
 }
 
 dependencies {
@@ -357,6 +359,16 @@ java {
             cwd=fixture_dir,
             env={
                 **os.environ,
+                "JAVA_HOME": str(java_home) if java_home else "",
+                "PATH": (
+                    str(java_home / "bin")
+                    + os.pathsep
+                    + os.environ.get("PATH", "")
+                    if java_home
+                    else os.environ.get("PATH", "")
+                ),
+                "GRADLE_USER_HOME": str(gradle_home),
+                "HOME": str(gradle_home),
                 "ZORN_BASE_URL": server.base_url,
                 "ZORN_TOKEN": token,
                 "ZORN_OUTPUT": str(output_path),
@@ -396,6 +408,7 @@ def _sdk_java_smoke_source() -> str:
 package zorn.cert;
 
 import com.anduril.Lattice;
+import com.anduril.resources.entities.requests.EntityOverride;
 import com.anduril.resources.objects.requests.ListObjectsRequest;
 import com.anduril.resources.tasks.requests.TaskCreation;
 import com.anduril.resources.tasks.requests.TaskQuery;
@@ -404,6 +417,7 @@ import com.anduril.types.Entity;
 import com.anduril.types.Location;
 import com.anduril.types.Ontology;
 import com.anduril.types.OntologyTemplate;
+import com.anduril.types.MilViewDisposition;
 import com.anduril.types.PathMetadata;
 import com.anduril.types.Position;
 import com.anduril.types.Provenance;
@@ -411,9 +425,14 @@ import com.anduril.types.Task;
 import com.anduril.types.TaskQueryResults;
 import com.anduril.types.TaskStatus;
 import com.anduril.types.TaskStatusStatus;
+import com.anduril.types.TaskVersion;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -470,6 +489,45 @@ public final class SdkJavaSmoke {
         record("entities.publish", entityId.equals(published.getEntityId().orElse("")), evidence("entityId", published.getEntityId().orElse("")));
         Entity fetched = oauthClient.entities().getEntity(entityId);
         record("entities.get", entityId.equals(fetched.getEntityId().orElse("")), evidence("entityId", fetched.getEntityId().orElse("")));
+        Entity overridden = oauthClient.entities().overrideEntity(
+                entityId,
+                "mil_view.disposition",
+                EntityOverride.builder()
+                        .entity(Entity.builder()
+                                .milView(com.anduril.types.MilView.builder()
+                                        .disposition(MilViewDisposition.DISPOSITION_HOSTILE)
+                                        .build())
+                                .build())
+                        .build());
+        Thread.sleep(1000);
+        HttpClient rawHttp = HttpClient.newHttpClient();
+        HttpRequest rawRequest = HttpRequest.newBuilder()
+                .uri(URI.create(baseUrl + "/api/v1/entities/" + entityId))
+                .header("Authorization", "Bearer " + token)
+                .header("Anduril-Sandbox-Authorization", "Bearer " + token)
+                .header("x-anduril-sandbox", "zorn-cert")
+                .GET()
+                .build();
+        HttpResponse<String> rawResponse = rawHttp.send(rawRequest, HttpResponse.BodyHandlers.ofString());
+        String rawEntityBody = rawResponse.body();
+        Map<String, Object> rawEntity = new ObjectMapper().readValue(rawEntityBody, Map.class);
+        Object milView = rawEntity.get("milView");
+        Object legacyMilView = rawEntity.get("mil_view");
+        boolean hostile = false;
+        if (milView instanceof Map) {
+            Map<?, ?> milViewMap = (Map<?, ?>) milView;
+            Object disposition = milViewMap.get("disposition");
+            hostile = "DISPOSITION_HOSTILE".equals(String.valueOf(disposition));
+        }
+        Map<String, Object> overrideEvidence = new LinkedHashMap<>();
+        overrideEvidence.put("milView", milView);
+        overrideEvidence.put("mil_view", legacyMilView);
+        record(
+                "entities.overrides.apply",
+                rawResponse.statusCode() == 200 && hostile && legacyMilView == null,
+                overrideEvidence);
+        Entity cleared = oauthClient.entities().removeEntityOverride(entityId, "mil_view.disposition");
+        record("entities.overrides.clear", entityId.equals(cleared.getEntityId().orElse("")), evidence("entityId", cleared.getEntityId().orElse("")));
 
         String taskId = "sdk-java-task";
         Task created = oauthClient.tasks().createTask(TaskCreation.builder()
@@ -477,17 +535,17 @@ public final class SdkJavaSmoke {
                 .displayName("SDK Java smoke task")
                 .description("Created by Zorn Java SDK smoke")
                 .build());
-        record("tasks.create", taskId.equals(created.getTaskId().orElse("")), evidence("taskId", created.getTaskId().orElse("")));
+        record("tasks.create", taskId.equals(created.getVersion().flatMap(TaskVersion::getTaskId).orElse("")), evidence("taskId", created.getVersion().flatMap(TaskVersion::getTaskId).orElse("")));
         Task task = oauthClient.tasks().getTask(taskId);
-        record("tasks.get", taskId.equals(task.getTaskId().orElse("")), evidence("taskId", task.getTaskId().orElse("")));
+        record("tasks.get", taskId.equals(task.getVersion().flatMap(TaskVersion::getTaskId).orElse("")), evidence("taskId", task.getVersion().flatMap(TaskVersion::getTaskId).orElse("")));
         TaskQueryResults query = oauthClient.tasks().queryTasks(TaskQuery.builder().build());
-        boolean queryFound = query.getTasks().stream().anyMatch(candidate -> taskId.equals(candidate.getTaskId().orElse("")));
-        record("tasks.query", queryFound, evidence("count", query.getTasks().size()));
+        boolean queryFound = query.getTasks().orElse(java.util.List.of()).stream().anyMatch(candidate -> taskId.equals(candidate.getVersion().flatMap(TaskVersion::getTaskId).orElse("")));
+        record("tasks.query", queryFound, evidence("count", query.getTasks().orElse(java.util.List.of()).size()));
         Task updated = oauthClient.tasks().updateTaskStatus(taskId, TaskStatusUpdate.builder()
-                .statusVersion(0)
+                .statusVersion(1)
                 .newStatus(TaskStatus.builder().status(TaskStatusStatus.STATUS_EXECUTING).build())
                 .build());
-        record("tasks.update_status", taskId.equals(updated.getTaskId().orElse("")), evidence("taskId", updated.getTaskId().orElse("")));
+        record("tasks.update_status", taskId.equals(updated.getVersion().flatMap(TaskVersion::getTaskId).orElse("")), evidence("taskId", updated.getVersion().flatMap(TaskVersion::getTaskId).orElse("")));
 
         String objectPath = "sdk-java-smoke/object.txt";
         byte[] bytes = "zorn java sdk smoke\n".getBytes(StandardCharsets.UTF_8);
@@ -550,8 +608,17 @@ public final class SdkJavaSmoke {
 
 
 def _discover_java_home(tooling_root: Path) -> Path | None:
-    matches = sorted(tooling_root.glob("jdk-*/Contents/Home"))
-    return matches[0] if matches else None
+    candidates = sorted(tooling_root.glob("jdk-*/Contents/Home"))
+    candidates.extend(
+        path
+        for path in (
+            Path("/opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home"),
+            Path("/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home"),
+            Path("/usr/local/opt/openjdk/libexec/openjdk.jdk/Contents/Home"),
+        )
+        if path.exists()
+    )
+    return candidates[0] if candidates else None
 ####
 
 

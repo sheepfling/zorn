@@ -204,6 +204,7 @@ def test_entity_override_updates_effective_value(client: TestClient) -> None:
 
     assert override.status_code == 200
     assert override.json()["milView"]["disposition"] == "DISPOSITION_SUSPICIOUS"
+    assert "mil_view" not in override.json()
     assert override.json()["overrides"]["mil_view.disposition"] == "DISPOSITION_SUSPICIOUS"
 ####
 
