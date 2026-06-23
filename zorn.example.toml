@@ -7,6 +7,7 @@ api_prefix = "/api/v1"
 mode = "oauth-dev"
 static_tokens = ["dev-token"]
 oauth_dev_token_ttl_seconds = 3600
+oauth_dev_token_mode = "strict"
 oauth_dev_signing_secret_file = "./secrets/oauth-dev.seed"
 oauth_scope_mode = "informational"
 require_sandbox_header = true

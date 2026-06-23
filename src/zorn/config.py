@@ -16,6 +16,7 @@ class AppSettings(BaseModel):
     api_prefix: str = "/api/v1"
     auth_mode: Literal["none", "static", "oauth-dev"] = "none"
     static_tokens: list[str] = Field(default_factory=lambda: ["dev-token"])
+    oauth_dev_token_mode: Literal["strict", "compat_static"] = "strict"
     oauth_dev_token_ttl_seconds: int = 3600
     oauth_dev_signing_secret: str | None = None
     oauth_scope_mode: Literal["informational", "locked"] = "informational"
@@ -301,6 +302,11 @@ def load_settings(config_path: Path | str | None = None) -> AppSettings:
         or _optional_secret_from_file("C2_COMPAT_OAUTH_DEV_SIGNING_SECRET_FILE")
         or _oauth_secret_from_toml(toml_data, toml_dir)
     )
+    oauth_dev_token_mode = _source_value(
+        "C2_COMPAT_OAUTH_DEV_TOKEN_MODE",
+        _toml_string(toml_data, "auth", "oauth_dev_token_mode", "token_mode"),
+        "strict",
+    )
     oauth_scope_mode = _source_value(
         "C2_COMPAT_OAUTH_SCOPE_MODE",
         _toml_string(toml_data, "auth", "oauth_scope_mode", "scope_mode"),
@@ -409,6 +415,7 @@ def load_settings(config_path: Path | str | None = None) -> AppSettings:
         api_prefix=api_prefix,
         auth_mode=auth_mode,  # type: ignore[arg-type]
         static_tokens=static_tokens,
+        oauth_dev_token_mode=oauth_dev_token_mode,  # type: ignore[arg-type]
         oauth_dev_token_ttl_seconds=oauth_dev_token_ttl_seconds,
         oauth_dev_signing_secret=oauth_dev_signing_secret,
         oauth_scope_mode=oauth_scope_mode,  # type: ignore[arg-type]

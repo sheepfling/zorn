@@ -47,6 +47,7 @@ change the public Lattice contract.
 - `auth_mode`
 - `static_tokens`
 - `oauth_dev_token_ttl_seconds`
+- `oauth_dev_token_mode`
 - `oauth_dev_signing_secret`
 - `oauth_dev_signing_secret_file`
 - `oauth_scope_mode`
@@ -61,6 +62,10 @@ The important auth-only knobs are:
 
 - `oauth_dev_signing_secret` or `oauth_dev_signing_secret_file` to seed issued
   OAuth-dev tokens at startup
+- `oauth_dev_token_mode` to choose strict signed tokens or a static-bearer
+  compatibility profile
+- `oauth_dev_token_mode` to choose strict signed tokens or a looser
+  compatibility profile that reuses startup bearer state
 - `oauth_scope_mode` to keep scope informational or to lock the issuance path
 - `grpc_sandbox_auth_mode` to separate or relax the sandbox metadata story for
   fault-injection profiles
@@ -116,6 +121,7 @@ api_prefix = "/api/v1"
 mode = "oauth-dev"
 static_tokens = ["dev-token"]
 oauth_dev_token_ttl_seconds = 3600
+oauth_dev_token_mode = "strict"
 oauth_dev_signing_secret_file = "./secrets/oauth-dev.seed"
 oauth_scope_mode = "informational"
 require_sandbox_header = true
@@ -171,6 +177,8 @@ create a new runtime API.
 Auth realism is intentionally startup-driven:
 
 - issued OAuth-dev tokens are signed at startup from a configured secret
+- token issuance can be switched into a looser startup-only compatibility
+  profile when required, but strict startup keeps the strict mode selected
 - bearer and sandbox metadata are validated through the existing REST/gRPC
   paths
 - refresh-token semantics remain a live-Lattice gap until a real route proves

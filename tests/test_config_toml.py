@@ -24,6 +24,7 @@ api_prefix = "/compat/v1"
 mode = "oauth-dev"
 static_tokens = ["alpha-token", "beta-token"]
 oauth_dev_token_ttl_seconds = 1234
+oauth_dev_token_mode = "strict"
 oauth_dev_signing_secret_file = "./secrets/oauth-dev.seed"
 oauth_scope_mode = "informational"
 require_sandbox_header = true
@@ -60,6 +61,7 @@ enforce_task_status_version = false
     assert settings.api_prefix == "/compat/v1"
     assert settings.auth_mode == "oauth-dev"
     assert settings.static_tokens == ["alpha-token", "beta-token"]
+    assert settings.oauth_dev_token_mode == "strict"
     assert settings.oauth_dev_token_ttl_seconds == 1234
     assert settings.oauth_dev_signing_secret == "toml-secret"
     assert settings.oauth_scope_mode == "informational"
@@ -93,6 +95,7 @@ product_name = "Toml Zorn"
 [auth]
 mode = "static"
 static_tokens = ["toml-token"]
+oauth_dev_token_mode = "compat_static"
 
 [grpc]
 port = 50055
@@ -110,6 +113,7 @@ tls_mode = "provided"
 
     assert settings.product_name == "Env Zorn"
     assert settings.static_tokens == ["env-a", "env-b"]
+    assert settings.oauth_dev_token_mode == "compat_static"
     assert settings.grpc_port == 50099
     assert settings.grpc_tls_mode == "insecure"
     assert settings.grpc_use_tls is False

@@ -31,10 +31,13 @@ def validate_strict_startup(settings: AppSettings) -> None:
     if settings.oauth_scope_mode != "informational":
         errors.append("C2_COMPAT_OAUTH_SCOPE_MODE must be informational in strict startup mode")
     ####
+    if settings.oauth_dev_token_mode != "strict":
+        errors.append("C2_COMPAT_OAUTH_DEV_TOKEN_MODE must be strict in strict startup mode")
+    ####
     if settings.auth_mode == "oauth-dev" and settings.oauth_dev_token_ttl_seconds <= 0:
         errors.append("C2_COMPAT_OAUTH_DEV_TOKEN_TTL_SECONDS must be positive in oauth-dev strict startup mode")
     ####
-    if settings.auth_mode == "oauth-dev" and not settings.oauth_dev_signing_secret:
+    if settings.auth_mode == "oauth-dev" and settings.oauth_dev_token_mode == "strict" and not settings.oauth_dev_signing_secret:
         errors.append(
             "C2_COMPAT_OAUTH_DEV_SIGNING_SECRET or C2_COMPAT_OAUTH_DEV_SIGNING_SECRET_FILE must be set in oauth-dev strict startup mode"
         )

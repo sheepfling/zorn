@@ -40,6 +40,10 @@ class OAuthDevTokenStore:
         now = utc_now()
         expires_in = max(int(self.settings.oauth_dev_token_ttl_seconds), 1)
         effective_scope = scope or "entities tasks objects"
+        if self.settings.oauth_dev_token_mode == "compat_static":
+            token = self.settings.static_tokens[0] if self.settings.static_tokens else "dev-token"
+            return IssuedOAuthDevToken(token=token, scope=effective_scope, expires_in=expires_in)
+        ####
         payload = {
             "iat": int(now.timestamp()),
             "exp": int((now + timedelta(seconds=expires_in)).timestamp()),

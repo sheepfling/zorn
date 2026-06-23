@@ -82,6 +82,7 @@ def test_strict_startup_boots_with_faithful_profile(tmp_path: Path) -> None:
         auth_mode="oauth-dev",
         static_tokens=["dev-token"],
         oauth_dev_token_ttl_seconds=3600,
+        oauth_dev_token_mode="strict",
         oauth_dev_signing_secret=secret_file.read_text(encoding="utf-8").strip(),
         oauth_scope_mode="informational",
         require_sandbox_header=True,
@@ -107,6 +108,7 @@ def test_strict_startup_can_source_oauth_secret_from_file(tmp_path: Path, monkey
     monkeypatch.setenv("C2_COMPAT_AUTH_MODE", "oauth-dev")
     monkeypatch.setenv("C2_COMPAT_STATIC_TOKENS", "dev-token")
     monkeypatch.setenv("C2_COMPAT_OAUTH_DEV_TOKEN_TTL_SECONDS", "3600")
+    monkeypatch.setenv("C2_COMPAT_OAUTH_DEV_TOKEN_MODE", "strict")
     monkeypatch.setenv("C2_COMPAT_OAUTH_DEV_SIGNING_SECRET_FILE", str(secret_file))
     monkeypatch.setenv("C2_COMPAT_OAUTH_SCOPE_MODE", "informational")
     monkeypatch.setenv("C2_COMPAT_REQUIRE_SANDBOX_HEADER", "true")
@@ -131,20 +133,22 @@ def test_strict_startup_can_source_oauth_secret_from_file(tmp_path: Path, monkey
         "require_sandbox_header",
         "grpc_strict_proto_audit",
         "oauth_dev_token_ttl_seconds",
+        "oauth_dev_token_mode",
         "grpc_sandbox_auth_mode",
         "oauth_scope_mode",
         "expected_fragment",
     ),
     [
-        ("none", True, True, 3600, "legacy_bearer", "informational", "C2_COMPAT_AUTH_MODE must not be none"),
-        ("oauth-dev", False, True, 3600, "legacy_bearer", "informational", "C2_COMPAT_REQUIRE_SANDBOX_HEADER must be true"),
-        ("oauth-dev", True, False, 3600, "legacy_bearer", "informational", "C2_COMPAT_GRPC_STRICT_PROTO_AUDIT must be true"),
-        ("oauth-dev", True, True, 0, "legacy_bearer", "informational", "C2_COMPAT_OAUTH_DEV_TOKEN_TTL_SECONDS must be positive"),
+        ("none", True, True, 3600, "strict", "legacy_bearer", "informational", "C2_COMPAT_AUTH_MODE must not be none"),
+        ("oauth-dev", False, True, 3600, "strict", "legacy_bearer", "informational", "C2_COMPAT_REQUIRE_SANDBOX_HEADER must be true"),
+        ("oauth-dev", True, False, 3600, "strict", "legacy_bearer", "informational", "C2_COMPAT_GRPC_STRICT_PROTO_AUDIT must be true"),
+        ("oauth-dev", True, True, 0, "strict", "legacy_bearer", "informational", "C2_COMPAT_OAUTH_DEV_TOKEN_TTL_SECONDS must be positive"),
         (
             "oauth-dev",
             True,
             True,
             3600,
+            "strict",
             "legacy_bearer",
             "informational",
             "C2_COMPAT_OAUTH_DEV_SIGNING_SECRET or C2_COMPAT_OAUTH_DEV_SIGNING_SECRET_FILE must be set",
@@ -154,6 +158,17 @@ def test_strict_startup_can_source_oauth_secret_from_file(tmp_path: Path, monkey
             True,
             True,
             3600,
+            "compat_static",
+            "legacy_bearer",
+            "informational",
+            "C2_COMPAT_OAUTH_DEV_TOKEN_MODE must be strict",
+        ),
+        (
+            "oauth-dev",
+            True,
+            True,
+            3600,
+            "strict",
             "legacy_bearer",
             "locked",
             "C2_COMPAT_OAUTH_SCOPE_MODE must be informational",
@@ -163,6 +178,7 @@ def test_strict_startup_can_source_oauth_secret_from_file(tmp_path: Path, monkey
             True,
             True,
             3600,
+            "strict",
             "legacy_bearer",
             "informational",
             "C2_COMPAT_GRPC_SANDBOX_AUTH_MODE must be strict_separate",
@@ -175,6 +191,7 @@ def test_strict_startup_rejects_invalid_profiles(
     require_sandbox_header: bool,
     grpc_strict_proto_audit: bool,
     oauth_dev_token_ttl_seconds: int,
+    oauth_dev_token_mode: str,
     grpc_sandbox_auth_mode: str,
     oauth_scope_mode: str,
     expected_fragment: str,
@@ -183,6 +200,7 @@ def test_strict_startup_rejects_invalid_profiles(
         auth_mode=auth_mode,  # type: ignore[arg-type]
         static_tokens=["dev-token"],
         oauth_dev_token_ttl_seconds=oauth_dev_token_ttl_seconds,
+        oauth_dev_token_mode=cast(Literal["strict", "compat_static"], oauth_dev_token_mode),
         grpc_sandbox_auth_mode=cast(Literal["legacy_bearer", "strict_separate"], grpc_sandbox_auth_mode),
         oauth_scope_mode=cast(Literal["informational", "locked"], oauth_scope_mode),
         require_sandbox_header=require_sandbox_header,
@@ -218,6 +236,32 @@ def test_oauth_scope_locked_mode_rejects_requested_scope(tmp_path: Path) -> None
         rejected = client.post("/api/v1/oauth/token", json={"client_id": "dev", "client_secret": "dev", "scope": "entities streams"})
         assert rejected.status_code == 400
         assert rejected.json()["detail"] == "Requested OAuth scope is not enabled in this startup profile."
+
+
+def test_oauth_compat_static_mode_reuses_static_bearer_state(tmp_path: Path) -> None:
+    settings = AppSettings(
+        auth_mode="oauth-dev",
+        static_tokens=["compat-token"],
+        oauth_dev_token_mode="compat_static",
+        oauth_dev_token_ttl_seconds=3600,
+        oauth_scope_mode="informational",
+        require_sandbox_header=False,
+        database_url=f"sqlite:///{tmp_path / 'compat-static.db'}",
+        object_root=tmp_path / "objects",
+    )
+
+    with TestClient(build_app(settings)) as client:
+        token_response = client.post("/api/v1/oauth/token", json={"client_id": "dev", "client_secret": "dev", "scope": "entities"})
+        assert token_response.status_code == 200
+        assert token_response.json()["access_token"] == "compat-token"
+
+        publish = client.put(
+            "/api/v1/entities",
+            json={"entityId": "compat-static-entity", "isLive": True},
+            headers={"Authorization": "Bearer compat-token"},
+        )
+        assert publish.status_code == 200
+        assert publish.json()["entityId"] == "compat-static-entity"
 
 
 def test_oauth_token_route_rejects_invalid_grant_type_and_missing_client_credentials(tmp_path: Path) -> None:

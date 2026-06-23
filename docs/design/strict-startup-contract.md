@@ -16,6 +16,7 @@ The strict startup profile exists to keep the surrogate honest:
 - sandbox header enforcement must be enabled
 - gRPC descriptor auditing must remain enabled
 - OAuth-dev tokens must be issued and validated as real lifecycle tokens
+- OAuth-dev token issuance must stay in strict mode for the faithful profile
 - OAuth scope handling should stay informational in strict mode
 - gRPC sandbox metadata should remain separate from bearer credentials in the
   faithful profile
@@ -30,6 +31,7 @@ When `C2_COMPAT_STRICT_STARTUP=true`, the process must validate:
 - `C2_COMPAT_REQUIRE_SANDBOX_HEADER=true`
 - `C2_COMPAT_GRPC_STRICT_PROTO_AUDIT=true`
 - `C2_COMPAT_OAUTH_DEV_TOKEN_TTL_SECONDS` is positive when `oauth-dev` is used
+- `C2_COMPAT_OAUTH_DEV_TOKEN_MODE=strict`
 - `C2_COMPAT_OAUTH_DEV_SIGNING_SECRET` or `C2_COMPAT_OAUTH_DEV_SIGNING_SECRET_FILE` is set when `oauth-dev` is used
 - `C2_COMPAT_OAUTH_SCOPE_MODE=informational`
 - `C2_COMPAT_GRPC_SANDBOX_AUTH_MODE=strict_separate`
@@ -43,6 +45,7 @@ C2_COMPAT_STRICT_STARTUP=true
 C2_COMPAT_AUTH_MODE=oauth-dev
 C2_COMPAT_REQUIRE_SANDBOX_HEADER=true
 C2_COMPAT_GRPC_STRICT_PROTO_AUDIT=true
+C2_COMPAT_OAUTH_DEV_TOKEN_MODE=strict
 C2_COMPAT_OAUTH_DEV_TOKEN_TTL_SECONDS=3600
 C2_COMPAT_OAUTH_DEV_SIGNING_SECRET=replace-with-real-seed
 C2_COMPAT_OAUTH_SCOPE_MODE=informational
@@ -67,7 +70,10 @@ actually running in a weaker auth mode.
 - new startup API routes
 - startup-time replacement of the public Lattice contract
 
-The non-strict compatibility profile may keep `C2_COMPAT_GRPC_SANDBOX_AUTH_MODE=legacy_bearer` and `C2_COMPAT_OAUTH_SCOPE_MODE=locked` for fault injection or adapter testing, but those settings are not part of the strict surrogate claim.
+The non-strict compatibility profile may keep `C2_COMPAT_GRPC_SANDBOX_AUTH_MODE=legacy_bearer`,
+`C2_COMPAT_OAUTH_SCOPE_MODE=locked`, and `C2_COMPAT_OAUTH_DEV_TOKEN_MODE=compat_static`
+for fault injection or adapter testing, but those settings are not part of the
+strict surrogate claim.
 
 ## Relationship To Alpha 1
 
