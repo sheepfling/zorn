@@ -341,7 +341,7 @@ def main():
         httpx_client=http_client,
     )
 
-    oauth_token = client.oauth.get_token().access_token
+    oauth_token = client.oauth.get_token(client_id="zorn-client", client_secret="zorn-secret").access_token
     record(results, "auth.oauth_client_credentials", isinstance(oauth_token, str) and len(oauth_token) > 0, {{"token_prefix": oauth_token[:8]}})
     record(results, "auth.bearer_token", token_client.entities is not None, {{"client": "constructed"}})
     record(results, "auth.sandbox_header", True, {{"header": "Anduril-Sandbox-Authorization"}})
@@ -494,6 +494,8 @@ if __name__ == "__main__":
             **os.environ,
             "SSL_CERT_FILE": str(server.cafile),
             "REQUESTS_CA_BUNDLE": str(server.cafile),
+            "PYTHONPATH": str(fixture_dir / "src")
+            + (os.pathsep + os.environ["PYTHONPATH"] if os.environ.get("PYTHONPATH") else ""),
         }
         run = run_command([str(python), str(driver)], cwd=fixture_dir, env=env, timeout=180.0)
         report["details"]["command"] = run.args

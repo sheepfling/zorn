@@ -1,4 +1,5 @@
 {
+  "adaptation_tier": "endpoint_token_only",
   "details": {
     "download_command": {
       "args": [
@@ -9,7 +10,7 @@
         "--path",
         "N113PF.jpeg",
         "--file",
-        "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-mglynmhb/downloaded.bin"
+        "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-0zpiqziw/downloaded.bin"
       ],
       "returncode": 0,
       "stderr": "",
@@ -88,12 +89,12 @@
           {
             "checksumSha256": "ce2f0f2fd7524a4f3c19fcfee91923edca6c7db9c4472472fb37e607b33465b1",
             "contentType": "application/octet-stream",
-            "createdTime": "2026-06-22T01:19:22.835624Z",
+            "createdTime": "2026-06-23T01:49:14.572916Z",
             "expiryTime": null,
             "metadata": {},
             "objectPath": "N113PF.jpeg",
             "sizeBytes": 110041,
-            "updatedTime": "2026-06-22T01:19:22.835624Z"
+            "updatedTime": "2026-06-23T01:49:14.572916Z"
           }
         ],
         "path_metadatas": [
@@ -104,14 +105,14 @@
               "checksum": "ce2f0f2fd7524a4f3c19fcfee91923edca6c7db9c4472472fb37e607b33465b1",
               "path": "N113PF.jpeg"
             },
-            "createdTime": "2026-06-22T01:19:22.835624Z",
+            "createdTime": "2026-06-23T01:49:14.572916Z",
             "expiry_time": null,
-            "last_updated_at": "2026-06-22T01:19:22.835624Z",
+            "last_updated_at": "2026-06-23T01:49:14.572916Z",
             "metadata": {},
             "objectPath": "N113PF.jpeg",
             "sizeBytes": 110041,
             "size_bytes": 110041,
-            "updatedTime": "2026-06-22T01:19:22.835624Z"
+            "updatedTime": "2026-06-23T01:49:14.572916Z"
           }
         ]
       },
@@ -121,12 +122,12 @@
       "object": {
         "checksumSha256": "ce2f0f2fd7524a4f3c19fcfee91923edca6c7db9c4472472fb37e607b33465b1",
         "contentType": "application/octet-stream",
-        "createdTime": "2026-06-22T01:19:22.835624Z",
+        "createdTime": "2026-06-23T01:49:14.572916Z",
         "expiryTime": null,
         "metadata": {},
         "objectPath": "N113PF.jpeg",
         "sizeBytes": 110041,
-        "updatedTime": "2026-06-22T01:19:22.835624Z"
+        "updatedTime": "2026-06-23T01:49:14.572916Z"
       }
     },
     "objects.thumbnail_linkage": {
@@ -157,16 +158,16 @@
       "object": {
         "checksumSha256": "ce2f0f2fd7524a4f3c19fcfee91923edca6c7db9c4472472fb37e607b33465b1",
         "contentType": "application/octet-stream",
-        "createdTime": "2026-06-22T01:19:22.835624Z",
+        "createdTime": "2026-06-23T01:49:14.572916Z",
         "expiryTime": null,
         "metadata": {},
         "objectPath": "N113PF.jpeg",
         "sizeBytes": 110041,
-        "updatedTime": "2026-06-22T01:19:22.835624Z"
+        "updatedTime": "2026-06-23T01:49:14.572916Z"
       },
       "status": 200
     },
-    "runtime_shim": "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-mglynmhb/thumbnail-runtime-shim/sitecustomize.py",
+    "runtime_shim": "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-0zpiqziw/thumbnail-runtime-shim/sitecustomize.py",
     "seed_entity": {
       "entity": {
         "_compat": {
@@ -180,7 +181,7 @@
       },
       "status": 200
     },
-    "server_log": "INFO:     Started server process [75122]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on https://127.0.0.1:60147 (Press CTRL+C to quit)\nINFO:     127.0.0.1:60159 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60161 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60163 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60165 - \"POST /api/v1/objects/N113PF.jpeg HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60165 - \"PUT /api/v1/entities/zorn-cert-thumbnail-entity/override/media.media HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60167 - \"GET /api/v1/objects HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60169 - \"GET /api/v1/entities/zorn-cert-thumbnail-entity HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60171 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60173 - \"GET /api/v1/objects/N113PF.jpeg HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:60175 - \"GET /api/v1/objects/N113PF.jpeg HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [75122]\n",
+    "server_log": "INFO:     Started server process [88889]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on https://127.0.0.1:63747 (Press CTRL+C to quit)\nINFO:     127.0.0.1:63753 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63755 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63757 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63759 - \"POST /api/v1/objects/N113PF.jpeg HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63759 - \"PUT /api/v1/entities/zorn-cert-thumbnail-entity/override/media.media HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63761 - \"GET /api/v1/objects HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63763 - \"GET /api/v1/entities/zorn-cert-thumbnail-entity HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63765 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63767 - \"GET /api/v1/objects/N113PF.jpeg HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63769 - \"GET /api/v1/objects/N113PF.jpeg HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [88889]\n",
     "upload_command": {
       "args": [
         "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/anduril-sample-thumbnail/.venv/bin/python",

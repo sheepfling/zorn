@@ -1,8 +1,9 @@
 {
+  "adaptation_tier": "runtime_shim",
   "details": {
     "auth.bearer_token": "constructed",
     "auth.oauth_client_credentials": {
-      "access_token": "dev-token",
+      "access_token": "zorn-oauth-dev.eyJleHAiOjE3ODIxODI4MDEsImlhdCI6MTc4MjE3OTIwMSwianRpIjoiYjY5OTA2MTE5ZjZlMDU1YmU4ZDRhYzZhIiwic2NvcGUiOiJsb2NhbC1kZXYifQ.8b40fbf8e38d2cc62a2b8bb51aa565da79229c49491c83dcc752b2822d76f724",
       "expires_in": 3600,
       "scope": "local-dev",
       "token_type": "Bearer"
@@ -15,7 +16,7 @@
       ],
       "returncode": 0,
       "stderr": "",
-      "stdout": "{\"auth.bearer_token\":{\"ok\":true,\"evidence\":\"constructed\"},\"auth.oauth_client_credentials\":{\"ok\":true,\"evidence\":{\"access_token\":\"dev-token\",\"token_type\":\"Bearer\",\"expires_in\":3600,\"scope\":\"local-dev\"}},\"entities.get\":{\"ok\":true,\"evidence\":{\"entityId\":\"sdk-go-asset\",\"description\":\"SDK Go asset\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7801,\"longitudeDegrees\":-122.4202,\"altitudeHaeMeters\":40}},\"ontology\":{\"platformType\":\"UAV\",\"template\":\"TEMPLATE_ASSET\"},\"provenance\":{\"integrationName\":\"sdk-go-smoke\",\"sourceId\":\"sdk-go-smoke\"}}},\"entities.long_poll\":{\"ok\":true,\"evidence\":{\"sessionToken\":\"2\",\"entityEvents\":[{\"eventType\":\"CREATE\",\"entity\":{\"entityId\":\"sdk-go-asset\",\"description\":\"SDK Go asset\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7801,\"longitudeDegrees\":-122.4202,\"altitudeHaeMeters\":40}},\"ontology\":{\"platformType\":\"UAV\",\"template\":\"TEMPLATE_ASSET\"},\"provenance\":{\"integrationName\":\"sdk-go-smoke\",\"sourceId\":\"sdk-go-smoke\"}},\"time\":\"2026-06-22T04:35:49Z\"},{\"eventType\":\"CREATE\",\"entity\":{\"entityId\":\"sdk-go-track\",\"description\":\"SDK Go track\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7801,\"longitudeDegrees\":-122.421,\"altitudeHaeMeters\":40}},\"milView\":{\"disposition\":\"DISPOSITION_ASSUMED_FRIENDLY\"},\"ontology\":{\"platformType\":\"UAS\",\"template\":\"TEMPLATE_TRACK\"},\"provenance\":{\"integrationName\":\"sdk-go-smoke\",\"sourceId\":\"sdk-go-smoke\"}},\"time\":\"2026-06-22T04:35:49Z\"}]}},\"entities.overrides.apply\":{\"ok\":true,\"evidence\":{\"entityId\":\"sdk-go-track\",\"description\":\"SDK Go track\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7801,\"longitudeDegrees\":-122.421,\"altitudeHaeMeters\":40}},\"milView\":{\"disposition\":\"DISPOSITION_HOSTILE\"},\"ontology\":{\"platformType\":\"UAS\",\"template\":\"TEMPLATE_TRACK\"},\"provenance\":{\"integrationName\":\"sdk-go-smoke\",\"sourceId\":\"sdk-go-smoke\"},\"overrides\":{}}},\"entities.overrides.clear\":{\"ok\":true,\"evidence\":{\"entityId\":\"sdk-go-track\",\"description\":\"SDK Go track\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7801,\"longitudeDegrees\":-122.421,\"altitudeHaeMeters\":40}},\"milView\":{\"disposition\":\"DISPOSITION_HOSTILE\"},\"ontology\":{\"platformType\":\"UAS\",\"template\":\"TEMPLATE_TRACK\"},\"provenance\":{\"integrationName\":\"sdk-go-smoke\",\"sourceId\":\"sdk-go-smoke\"},\"overrides\":{}}},\"entities.publish\":{\"ok\":true,\"evidence\":{\"entityId\":\"sdk-go-asset\",\"description\":\"SDK Go asset\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7801,\"longitudeDegrees\":-122.4202,\"altitudeHaeMeters\":40}},\"ontology\":{\"platformType\":\"UAV\",\"template\":\"TEMPLATE_ASSET\"},\"provenance\":{\"integrationName\":\"sdk-go-smoke\",\"sourceId\":\"sdk-go-smoke\"}}},\"entities.stream_sse\":{\"ok\":true,\"evidence\":[{\"eventType\":\"EVENT_TYPE_PREEXISTING\",\"entity\":{\"entityId\":\"sdk-go-asset\",\"description\":\"SDK Go asset\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7801,\"longitudeDegrees\":-122.4202,\"altitudeHaeMeters\":40}},\"ontology\":{\"platformType\":\"UAV\",\"template\":\"TEMPLATE_ASSET\"},\"provenance\":{\"integrationName\":\"sdk-go-smoke\",\"sourceId\":\"sdk-go-smoke\"}},\"time\":\"2026-06-22T04:35:49Z\",\"event\":\"entity\"},{\"eventType\":\"EVENT_TYPE_PREEXISTING\",\"entity\":{\"entityId\":\"sdk-go-track\",\"description\":\"SDK Go track\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7801,\"longitudeDegrees\":-122.421,\"altitudeHaeMeters\":40}},\"milView\":{\"disposition\":\"DISPOSITION_ASSUMED_FRIENDLY\"},\"ontology\":{\"platformType\":\"UAS\",\"template\":\"TEMPLATE_TRACK\"},\"provenance\":{\"integrationName\":\"sdk-go-smoke\",\"sourceId\":\"sdk-go-smoke\"}},\"time\":\"2026-06-22T04:35:49Z\",\"event\":\"entity\"}]},\"entities.track\":{\"ok\":true,\"evidence\":{\"entityId\":\"sdk-go-track\",\"description\":\"SDK Go track\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7801,\"longitudeDegrees\":-122.421,\"altitudeHaeMeters\":40}},\"milView\":{\"disposition\":\"DISPOSITION_ASSUMED_FRIENDLY\"},\"ontology\":{\"platformType\":\"UAS\",\"template\":\"TEMPLATE_TRACK\"},\"provenance\":{\"integrationName\":\"sdk-go-smoke\",\"sourceId\":\"sdk-go-smoke\"}}},\"objects.delete\":{\"ok\":true,\"evidence\":{\"delete_error\":null,\"metadata_after_delete\":null,\"metadata_error\":{}}},\"objects.download\":{\"ok\":true,\"evidence\":\"zorn sdk go smoke\\n\"},\"objects.list\":{\"ok\":true,\"evidence\":[\"sdk-go-smoke/object.txt\"]},\"objects.metadata\":{\"ok\":true,\"evidence\":{\"Checksum\":[\"06cf2c541a53f4b5d89c01c0615ce655cf22da3815d4868d77ecbc0c0bbaa3d0\"],\"Content-Length\":[\"18\"],\"Content-Type\":[\"application/json\"],\"Date\":[\"Mon, 22 Jun 2026 04:35:48 GMT\"],\"Etag\":[\"06cf2c541a53f4b5d89c01c0615ce655cf22da3815d4868d77ecbc0c0bbaa3d0\"],\"Last-Modified\":[\"2026-06-22T04:35:49.426584Z\"],\"Path\":[\"sdk-go-smoke/object.txt\"],\"Server\":[\"uvicorn\"],\"X-Checksum-Sha256\":[\"06cf2c541a53f4b5d89c01c0615ce655cf22da3815d4868d77ecbc0c0bbaa3d0\"],\"X-Object-Path\":[\"sdk-go-smoke/object.txt\"]}},\"objects.upload\":{\"ok\":true,\"evidence\":{\"content_identifier\":{\"path\":\"sdk-go-smoke/object.txt\",\"checksum\":\"06cf2c541a53f4b5d89c01c0615ce655cf22da3815d4868d77ecbc0c0bbaa3d0\"},\"size_bytes\":18,\"last_updated_at\":\"2026-06-22T04:35:49Z\"}},\"tasks.cancel\":{\"ok\":true,\"evidence\":{\"version\":{\"taskId\":\"sdk-go-task\",\"definitionVersion\":1,\"statusVersion\":3},\"displayName\":\"SDK Go task\",\"createdBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"lastUpdatedBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"status\":{\"status\":\"STATUS_CANCELED\"},\"relations\":{\"assignee\":{\"system\":{\"entityId\":\"sdk-go-asset\"}}},\"description\":\"Direct Go SDK cert smoke\",\"lastUpdateTime\":\"2026-06-22T04:35:49Z\",\"createTime\":\"2026-06-22T04:35:49Z\"}},\"tasks.create\":{\"ok\":true,\"evidence\":{\"version\":{\"taskId\":\"sdk-go-task\",\"definitionVersion\":1,\"statusVersion\":1},\"displayName\":\"SDK Go task\",\"createdBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"lastUpdatedBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"status\":{\"status\":\"STATUS_CREATED\"},\"relations\":{\"assignee\":{\"system\":{\"entityId\":\"sdk-go-asset\"}}},\"description\":\"Direct Go SDK cert smoke\",\"lastUpdateTime\":\"2026-06-22T04:35:49Z\",\"createTime\":\"2026-06-22T04:35:49Z\"}},\"tasks.get\":{\"ok\":true,\"evidence\":{\"version\":{\"taskId\":\"sdk-go-task\",\"definitionVersion\":1,\"statusVersion\":1},\"displayName\":\"SDK Go task\",\"createdBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"lastUpdatedBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"status\":{\"status\":\"STATUS_CREATED\"},\"relations\":{\"assignee\":{\"system\":{\"entityId\":\"sdk-go-asset\"}}},\"description\":\"Direct Go SDK cert smoke\",\"lastUpdateTime\":\"2026-06-22T04:35:49Z\",\"createTime\":\"2026-06-22T04:35:49Z\"}},\"tasks.listen_as_agent\":{\"ok\":true,\"evidence\":{\"executeRequest\":{\"task\":{\"version\":{\"taskId\":\"sdk-go-task\",\"definitionVersion\":1,\"statusVersion\":1},\"displayName\":\"SDK Go task\",\"createdBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"lastUpdatedBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"status\":{\"status\":\"STATUS_CREATED\"},\"relations\":{\"assignee\":{\"system\":{\"entityId\":\"sdk-go-asset\"}}},\"description\":\"Direct Go SDK cert smoke\",\"lastUpdateTime\":\"2026-06-22T04:35:49Z\",\"createTime\":\"2026-06-22T04:35:49Z\"}}}},\"tasks.query\":{\"ok\":true,\"evidence\":{\"tasks\":[{\"version\":{\"taskId\":\"sdk-go-task\",\"definitionVersion\":1,\"statusVersion\":1},\"displayName\":\"SDK Go task\",\"createdBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"lastUpdatedBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"status\":{\"status\":\"STATUS_CREATED\"},\"relations\":{\"assignee\":{\"system\":{\"entityId\":\"sdk-go-asset\"}}},\"description\":\"Direct Go SDK cert smoke\",\"lastUpdateTime\":\"2026-06-22T04:35:49Z\",\"createTime\":\"2026-06-22T04:35:49Z\"}]}},\"tasks.update_status\":{\"ok\":true,\"evidence\":{\"version\":{\"taskId\":\"sdk-go-task\",\"definitionVersion\":1,\"statusVersion\":2},\"displayName\":\"SDK Go task\",\"createdBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"lastUpdatedBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"status\":{\"status\":\"STATUS_EXECUTING\"},\"relations\":{\"assignee\":{\"system\":{\"entityId\":\"sdk-go-asset\"}}},\"description\":\"Direct Go SDK cert smoke\",\"lastUpdateTime\":\"2026-06-22T04:35:49Z\",\"createTime\":\"2026-06-22T04:35:49Z\"}},\"transport.rest_json\":{\"ok\":true,\"evidence\":\"github.com/anduril/lattice-sdk-go/v4\"}}\n"
+      "stdout": "{\"auth.bearer_token\":{\"ok\":true,\"evidence\":\"constructed\"},\"auth.oauth_client_credentials\":{\"ok\":true,\"evidence\":{\"access_token\":\"zorn-oauth-dev.eyJleHAiOjE3ODIxODI4MDEsImlhdCI6MTc4MjE3OTIwMSwianRpIjoiYjY5OTA2MTE5ZjZlMDU1YmU4ZDRhYzZhIiwic2NvcGUiOiJsb2NhbC1kZXYifQ.8b40fbf8e38d2cc62a2b8bb51aa565da79229c49491c83dcc752b2822d76f724\",\"token_type\":\"Bearer\",\"expires_in\":3600,\"scope\":\"local-dev\"}},\"entities.get\":{\"ok\":true,\"evidence\":{\"entityId\":\"sdk-go-asset\",\"description\":\"SDK Go asset\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7801,\"longitudeDegrees\":-122.4202,\"altitudeHaeMeters\":40}},\"ontology\":{\"platformType\":\"UAV\",\"template\":\"TEMPLATE_ASSET\"},\"provenance\":{\"integrationName\":\"sdk-go-smoke\",\"sourceId\":\"sdk-go-smoke\"}}},\"entities.long_poll\":{\"ok\":true,\"evidence\":{\"sessionToken\":\"2\",\"entityEvents\":[{\"eventType\":\"CREATE\",\"entity\":{\"entityId\":\"sdk-go-asset\",\"description\":\"SDK Go asset\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7801,\"longitudeDegrees\":-122.4202,\"altitudeHaeMeters\":40}},\"ontology\":{\"platformType\":\"UAV\",\"template\":\"TEMPLATE_ASSET\"},\"provenance\":{\"integrationName\":\"sdk-go-smoke\",\"sourceId\":\"sdk-go-smoke\"}},\"time\":\"2026-06-23T01:46:41Z\"},{\"eventType\":\"CREATE\",\"entity\":{\"entityId\":\"sdk-go-track\",\"description\":\"SDK Go track\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7801,\"longitudeDegrees\":-122.421,\"altitudeHaeMeters\":40}},\"milView\":{\"disposition\":\"DISPOSITION_ASSUMED_FRIENDLY\"},\"ontology\":{\"platformType\":\"UAS\",\"template\":\"TEMPLATE_TRACK\"},\"provenance\":{\"integrationName\":\"sdk-go-smoke\",\"sourceId\":\"sdk-go-smoke\"}},\"time\":\"2026-06-23T01:46:41Z\"}]}},\"entities.overrides.apply\":{\"ok\":true,\"evidence\":{\"entityId\":\"sdk-go-track\",\"description\":\"SDK Go track\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7801,\"longitudeDegrees\":-122.421,\"altitudeHaeMeters\":40}},\"milView\":{\"disposition\":\"DISPOSITION_HOSTILE\"},\"ontology\":{\"platformType\":\"UAS\",\"template\":\"TEMPLATE_TRACK\"},\"provenance\":{\"integrationName\":\"sdk-go-smoke\",\"sourceId\":\"sdk-go-smoke\"},\"overrides\":{}}},\"entities.overrides.clear\":{\"ok\":true,\"evidence\":{\"entityId\":\"sdk-go-track\",\"description\":\"SDK Go track\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7801,\"longitudeDegrees\":-122.421,\"altitudeHaeMeters\":40}},\"milView\":{\"disposition\":\"DISPOSITION_ASSUMED_FRIENDLY\"},\"ontology\":{\"platformType\":\"UAS\",\"template\":\"TEMPLATE_TRACK\"},\"provenance\":{\"integrationName\":\"sdk-go-smoke\",\"sourceId\":\"sdk-go-smoke\"},\"overrides\":{}}},\"entities.publish\":{\"ok\":true,\"evidence\":{\"entityId\":\"sdk-go-asset\",\"description\":\"SDK Go asset\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7801,\"longitudeDegrees\":-122.4202,\"altitudeHaeMeters\":40}},\"ontology\":{\"platformType\":\"UAV\",\"template\":\"TEMPLATE_ASSET\"},\"provenance\":{\"integrationName\":\"sdk-go-smoke\",\"sourceId\":\"sdk-go-smoke\"}}},\"entities.stream_sse\":{\"ok\":true,\"evidence\":[{\"eventType\":\"EVENT_TYPE_PREEXISTING\",\"entity\":{\"entityId\":\"sdk-go-asset\",\"description\":\"SDK Go asset\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7801,\"longitudeDegrees\":-122.4202,\"altitudeHaeMeters\":40}},\"ontology\":{\"platformType\":\"UAV\",\"template\":\"TEMPLATE_ASSET\"},\"provenance\":{\"integrationName\":\"sdk-go-smoke\",\"sourceId\":\"sdk-go-smoke\"}},\"time\":\"2026-06-23T01:46:41Z\",\"event\":\"entity\"},{\"eventType\":\"EVENT_TYPE_PREEXISTING\",\"entity\":{\"entityId\":\"sdk-go-track\",\"description\":\"SDK Go track\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7801,\"longitudeDegrees\":-122.421,\"altitudeHaeMeters\":40}},\"milView\":{\"disposition\":\"DISPOSITION_ASSUMED_FRIENDLY\"},\"ontology\":{\"platformType\":\"UAS\",\"template\":\"TEMPLATE_TRACK\"},\"provenance\":{\"integrationName\":\"sdk-go-smoke\",\"sourceId\":\"sdk-go-smoke\"}},\"time\":\"2026-06-23T01:46:41Z\",\"event\":\"entity\"}]},\"entities.track\":{\"ok\":true,\"evidence\":{\"entityId\":\"sdk-go-track\",\"description\":\"SDK Go track\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7801,\"longitudeDegrees\":-122.421,\"altitudeHaeMeters\":40}},\"milView\":{\"disposition\":\"DISPOSITION_ASSUMED_FRIENDLY\"},\"ontology\":{\"platformType\":\"UAS\",\"template\":\"TEMPLATE_TRACK\"},\"provenance\":{\"integrationName\":\"sdk-go-smoke\",\"sourceId\":\"sdk-go-smoke\"}}},\"objects.delete\":{\"ok\":true,\"evidence\":{\"delete_error\":null,\"metadata_after_delete\":null,\"metadata_error\":{}}},\"objects.download\":{\"ok\":true,\"evidence\":\"zorn sdk go smoke\\n\"},\"objects.list\":{\"ok\":true,\"evidence\":[\"sdk-go-smoke/object.txt\"]},\"objects.metadata\":{\"ok\":true,\"evidence\":{\"Checksum\":[\"06cf2c541a53f4b5d89c01c0615ce655cf22da3815d4868d77ecbc0c0bbaa3d0\"],\"Content-Length\":[\"18\"],\"Content-Type\":[\"application/json\"],\"Date\":[\"Tue, 23 Jun 2026 01:46:40 GMT\"],\"Etag\":[\"06cf2c541a53f4b5d89c01c0615ce655cf22da3815d4868d77ecbc0c0bbaa3d0\"],\"Last-Modified\":[\"2026-06-23T01:46:41.128784Z\"],\"Path\":[\"sdk-go-smoke/object.txt\"],\"Server\":[\"uvicorn\"],\"X-Checksum-Sha256\":[\"06cf2c541a53f4b5d89c01c0615ce655cf22da3815d4868d77ecbc0c0bbaa3d0\"],\"X-Object-Path\":[\"sdk-go-smoke/object.txt\"]}},\"objects.upload\":{\"ok\":true,\"evidence\":{\"content_identifier\":{\"path\":\"sdk-go-smoke/object.txt\",\"checksum\":\"06cf2c541a53f4b5d89c01c0615ce655cf22da3815d4868d77ecbc0c0bbaa3d0\"},\"size_bytes\":18,\"last_updated_at\":\"2026-06-23T01:46:41Z\"}},\"tasks.cancel\":{\"ok\":true,\"evidence\":{\"version\":{\"taskId\":\"sdk-go-task\",\"definitionVersion\":1,\"statusVersion\":3},\"displayName\":\"SDK Go task\",\"createdBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"lastUpdatedBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"status\":{\"status\":\"STATUS_CANCELED\"},\"relations\":{\"assignee\":{\"system\":{\"entityId\":\"sdk-go-asset\"}}},\"description\":\"Direct Go SDK cert smoke\",\"lastUpdateTime\":\"2026-06-23T01:46:41Z\",\"createTime\":\"2026-06-23T01:46:41Z\"}},\"tasks.create\":{\"ok\":true,\"evidence\":{\"version\":{\"taskId\":\"sdk-go-task\",\"definitionVersion\":1,\"statusVersion\":1},\"displayName\":\"SDK Go task\",\"createdBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"lastUpdatedBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"status\":{\"status\":\"STATUS_CREATED\"},\"relations\":{\"assignee\":{\"system\":{\"entityId\":\"sdk-go-asset\"}}},\"description\":\"Direct Go SDK cert smoke\",\"lastUpdateTime\":\"2026-06-23T01:46:41Z\",\"createTime\":\"2026-06-23T01:46:41Z\"}},\"tasks.get\":{\"ok\":true,\"evidence\":{\"version\":{\"taskId\":\"sdk-go-task\",\"definitionVersion\":1,\"statusVersion\":1},\"displayName\":\"SDK Go task\",\"createdBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"lastUpdatedBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"status\":{\"status\":\"STATUS_CREATED\"},\"relations\":{\"assignee\":{\"system\":{\"entityId\":\"sdk-go-asset\"}}},\"description\":\"Direct Go SDK cert smoke\",\"lastUpdateTime\":\"2026-06-23T01:46:41Z\",\"createTime\":\"2026-06-23T01:46:41Z\"}},\"tasks.listen_as_agent\":{\"ok\":true,\"evidence\":{\"executeRequest\":{\"task\":{\"version\":{\"taskId\":\"sdk-go-task\",\"definitionVersion\":1,\"statusVersion\":1},\"displayName\":\"SDK Go task\",\"createdBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"lastUpdatedBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"status\":{\"status\":\"STATUS_CREATED\"},\"relations\":{\"assignee\":{\"system\":{\"entityId\":\"sdk-go-asset\"}}},\"description\":\"Direct Go SDK cert smoke\",\"lastUpdateTime\":\"2026-06-23T01:46:41Z\",\"createTime\":\"2026-06-23T01:46:41Z\"}}}},\"tasks.query\":{\"ok\":true,\"evidence\":{\"tasks\":[{\"version\":{\"taskId\":\"sdk-go-task\",\"definitionVersion\":1,\"statusVersion\":1},\"displayName\":\"SDK Go task\",\"createdBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"lastUpdatedBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"status\":{\"status\":\"STATUS_CREATED\"},\"relations\":{\"assignee\":{\"system\":{\"entityId\":\"sdk-go-asset\"}}},\"description\":\"Direct Go SDK cert smoke\",\"lastUpdateTime\":\"2026-06-23T01:46:41Z\",\"createTime\":\"2026-06-23T01:46:41Z\"}]}},\"tasks.update_status\":{\"ok\":true,\"evidence\":{\"version\":{\"taskId\":\"sdk-go-task\",\"definitionVersion\":1,\"statusVersion\":2},\"displayName\":\"SDK Go task\",\"createdBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"lastUpdatedBy\":{\"system\":{\"serviceName\":\"local-compat-sandbox\"}},\"status\":{\"status\":\"STATUS_EXECUTING\"},\"relations\":{\"assignee\":{\"system\":{\"entityId\":\"sdk-go-asset\"}}},\"description\":\"Direct Go SDK cert smoke\",\"lastUpdateTime\":\"2026-06-23T01:46:41Z\",\"createTime\":\"2026-06-23T01:46:41Z\"}},\"transport.rest_json\":{\"ok\":true,\"evidence\":\"github.com/anduril/lattice-sdk-go/v4\"}}\n"
     },
     "entities.get": {
       "description": "SDK Go asset",
@@ -63,7 +64,7 @@
             }
           },
           "eventType": "CREATE",
-          "time": "2026-06-22T04:35:49Z"
+          "time": "2026-06-23T01:46:41Z"
         },
         {
           "entity": {
@@ -91,7 +92,7 @@
             }
           },
           "eventType": "CREATE",
-          "time": "2026-06-22T04:35:49Z"
+          "time": "2026-06-23T01:46:41Z"
         }
       ],
       "sessionToken": "2"
@@ -133,7 +134,7 @@
         }
       },
       "milView": {
-        "disposition": "DISPOSITION_HOSTILE"
+        "disposition": "DISPOSITION_ASSUMED_FRIENDLY"
       },
       "noExpiry": true,
       "ontology": {
@@ -192,7 +193,7 @@
         },
         "event": "entity",
         "eventType": "EVENT_TYPE_PREEXISTING",
-        "time": "2026-06-22T04:35:49Z"
+        "time": "2026-06-23T01:46:41Z"
       },
       {
         "entity": {
@@ -221,7 +222,7 @@
         },
         "event": "entity",
         "eventType": "EVENT_TYPE_PREEXISTING",
-        "time": "2026-06-22T04:35:49Z"
+        "time": "2026-06-23T01:46:41Z"
       }
     ],
     "entities.track": {
@@ -278,13 +279,13 @@
         "application/json"
       ],
       "Date": [
-        "Mon, 22 Jun 2026 04:35:48 GMT"
+        "Tue, 23 Jun 2026 01:46:40 GMT"
       ],
       "Etag": [
         "06cf2c541a53f4b5d89c01c0615ce655cf22da3815d4868d77ecbc0c0bbaa3d0"
       ],
       "Last-Modified": [
-        "2026-06-22T04:35:49.426584Z"
+        "2026-06-23T01:46:41.128784Z"
       ],
       "Path": [
         "sdk-go-smoke/object.txt"
@@ -304,7 +305,7 @@
         "checksum": "06cf2c541a53f4b5d89c01c0615ce655cf22da3815d4868d77ecbc0c0bbaa3d0",
         "path": "sdk-go-smoke/object.txt"
       },
-      "last_updated_at": "2026-06-22T04:35:49Z",
+      "last_updated_at": "2026-06-23T01:46:41Z",
       "size_bytes": 18
     },
     "sdk_results": {
@@ -314,7 +315,7 @@
       },
       "auth.oauth_client_credentials": {
         "evidence": {
-          "access_token": "dev-token",
+          "access_token": "zorn-oauth-dev.eyJleHAiOjE3ODIxODI4MDEsImlhdCI6MTc4MjE3OTIwMSwianRpIjoiYjY5OTA2MTE5ZjZlMDU1YmU4ZDRhYzZhIiwic2NvcGUiOiJsb2NhbC1kZXYifQ.8b40fbf8e38d2cc62a2b8bb51aa565da79229c49491c83dcc752b2822d76f724",
           "expires_in": 3600,
           "scope": "local-dev",
           "token_type": "Bearer"
@@ -371,7 +372,7 @@
                 }
               },
               "eventType": "CREATE",
-              "time": "2026-06-22T04:35:49Z"
+              "time": "2026-06-23T01:46:41Z"
             },
             {
               "entity": {
@@ -399,7 +400,7 @@
                 }
               },
               "eventType": "CREATE",
-              "time": "2026-06-22T04:35:49Z"
+              "time": "2026-06-23T01:46:41Z"
             }
           ],
           "sessionToken": "2"
@@ -447,7 +448,7 @@
             }
           },
           "milView": {
-            "disposition": "DISPOSITION_HOSTILE"
+            "disposition": "DISPOSITION_ASSUMED_FRIENDLY"
           },
           "noExpiry": true,
           "ontology": {
@@ -512,7 +513,7 @@
             },
             "event": "entity",
             "eventType": "EVENT_TYPE_PREEXISTING",
-            "time": "2026-06-22T04:35:49Z"
+            "time": "2026-06-23T01:46:41Z"
           },
           {
             "entity": {
@@ -541,7 +542,7 @@
             },
             "event": "entity",
             "eventType": "EVENT_TYPE_PREEXISTING",
-            "time": "2026-06-22T04:35:49Z"
+            "time": "2026-06-23T01:46:41Z"
           }
         ],
         "ok": true
@@ -603,13 +604,13 @@
             "application/json"
           ],
           "Date": [
-            "Mon, 22 Jun 2026 04:35:48 GMT"
+            "Tue, 23 Jun 2026 01:46:40 GMT"
           ],
           "Etag": [
             "06cf2c541a53f4b5d89c01c0615ce655cf22da3815d4868d77ecbc0c0bbaa3d0"
           ],
           "Last-Modified": [
-            "2026-06-22T04:35:49.426584Z"
+            "2026-06-23T01:46:41.128784Z"
           ],
           "Path": [
             "sdk-go-smoke/object.txt"
@@ -632,14 +633,14 @@
             "checksum": "06cf2c541a53f4b5d89c01c0615ce655cf22da3815d4868d77ecbc0c0bbaa3d0",
             "path": "sdk-go-smoke/object.txt"
           },
-          "last_updated_at": "2026-06-22T04:35:49Z",
+          "last_updated_at": "2026-06-23T01:46:41Z",
           "size_bytes": 18
         },
         "ok": true
       },
       "tasks.cancel": {
         "evidence": {
-          "createTime": "2026-06-22T04:35:49Z",
+          "createTime": "2026-06-23T01:46:41Z",
           "createdBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -647,7 +648,7 @@
           },
           "description": "Direct Go SDK cert smoke",
           "displayName": "SDK Go task",
-          "lastUpdateTime": "2026-06-22T04:35:49Z",
+          "lastUpdateTime": "2026-06-23T01:46:41Z",
           "lastUpdatedBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -673,7 +674,7 @@
       },
       "tasks.create": {
         "evidence": {
-          "createTime": "2026-06-22T04:35:49Z",
+          "createTime": "2026-06-23T01:46:41Z",
           "createdBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -681,7 +682,7 @@
           },
           "description": "Direct Go SDK cert smoke",
           "displayName": "SDK Go task",
-          "lastUpdateTime": "2026-06-22T04:35:49Z",
+          "lastUpdateTime": "2026-06-23T01:46:41Z",
           "lastUpdatedBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -707,7 +708,7 @@
       },
       "tasks.get": {
         "evidence": {
-          "createTime": "2026-06-22T04:35:49Z",
+          "createTime": "2026-06-23T01:46:41Z",
           "createdBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -715,7 +716,7 @@
           },
           "description": "Direct Go SDK cert smoke",
           "displayName": "SDK Go task",
-          "lastUpdateTime": "2026-06-22T04:35:49Z",
+          "lastUpdateTime": "2026-06-23T01:46:41Z",
           "lastUpdatedBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -743,7 +744,7 @@
         "evidence": {
           "executeRequest": {
             "task": {
-              "createTime": "2026-06-22T04:35:49Z",
+              "createTime": "2026-06-23T01:46:41Z",
               "createdBy": {
                 "system": {
                   "serviceName": "local-compat-sandbox"
@@ -751,7 +752,7 @@
               },
               "description": "Direct Go SDK cert smoke",
               "displayName": "SDK Go task",
-              "lastUpdateTime": "2026-06-22T04:35:49Z",
+              "lastUpdateTime": "2026-06-23T01:46:41Z",
               "lastUpdatedBy": {
                 "system": {
                   "serviceName": "local-compat-sandbox"
@@ -781,7 +782,7 @@
         "evidence": {
           "tasks": [
             {
-              "createTime": "2026-06-22T04:35:49Z",
+              "createTime": "2026-06-23T01:46:41Z",
               "createdBy": {
                 "system": {
                   "serviceName": "local-compat-sandbox"
@@ -789,7 +790,7 @@
               },
               "description": "Direct Go SDK cert smoke",
               "displayName": "SDK Go task",
-              "lastUpdateTime": "2026-06-22T04:35:49Z",
+              "lastUpdateTime": "2026-06-23T01:46:41Z",
               "lastUpdatedBy": {
                 "system": {
                   "serviceName": "local-compat-sandbox"
@@ -817,7 +818,7 @@
       },
       "tasks.update_status": {
         "evidence": {
-          "createTime": "2026-06-22T04:35:49Z",
+          "createTime": "2026-06-23T01:46:41Z",
           "createdBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -825,7 +826,7 @@
           },
           "description": "Direct Go SDK cert smoke",
           "displayName": "SDK Go task",
-          "lastUpdateTime": "2026-06-22T04:35:49Z",
+          "lastUpdateTime": "2026-06-23T01:46:41Z",
           "lastUpdatedBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -854,9 +855,9 @@
         "ok": true
       }
     },
-    "server_log": "INFO:     Started server process [88077]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://127.0.0.1:53341 (Press CTRL+C to quit)\nINFO:     127.0.0.1:53345 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53347 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53347 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53347 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53347 - \"GET /api/v1/entities/sdk-go-asset HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53347 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53347 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53347 - \"POST /api/v1/entities/stream HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53347 - \"PUT /api/v1/entities/sdk-go-track/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53347 - \"DELETE /api/v1/entities/sdk-go-track/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53347 - \"POST /api/v1/tasks HTTP/1.1\" 201 Created\nINFO:     127.0.0.1:53347 - \"GET /api/v1/tasks/sdk-go-task HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53347 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53347 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53347 - \"PUT /api/v1/tasks/sdk-go-task/status HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53347 - \"PUT /api/v1/tasks/sdk-go-task/cancel HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53347 - \"POST /api/v1/objects/sdk-go-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53347 - \"HEAD /api/v1/objects/sdk-go-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53347 - \"GET /api/v1/objects?prefix=sdk-go-smoke HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53347 - \"GET /api/v1/objects/sdk-go-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53347 - \"DELETE /api/v1/objects/sdk-go-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53349 - \"HEAD /api/v1/objects/sdk-go-smoke/object.txt HTTP/1.1\" 404 Not Found\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [88077]\n",
+    "server_log": "INFO:     Started server process [85532]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://127.0.0.1:63574 (Press CTRL+C to quit)\nINFO:     127.0.0.1:63577 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63578 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63578 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63578 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63578 - \"GET /api/v1/entities/sdk-go-asset HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63578 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63578 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63578 - \"POST /api/v1/entities/stream HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63578 - \"PUT /api/v1/entities/sdk-go-track/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63578 - \"DELETE /api/v1/entities/sdk-go-track/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63578 - \"POST /api/v1/tasks HTTP/1.1\" 201 Created\nINFO:     127.0.0.1:63578 - \"GET /api/v1/tasks/sdk-go-task HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63578 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63578 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63578 - \"PUT /api/v1/tasks/sdk-go-task/status HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63578 - \"PUT /api/v1/tasks/sdk-go-task/cancel HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63578 - \"POST /api/v1/objects/sdk-go-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63578 - \"HEAD /api/v1/objects/sdk-go-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63578 - \"GET /api/v1/objects?prefix=sdk-go-smoke HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63578 - \"GET /api/v1/objects/sdk-go-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63578 - \"DELETE /api/v1/objects/sdk-go-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:63579 - \"HEAD /api/v1/objects/sdk-go-smoke/object.txt HTTP/1.1\" 404 Not Found\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [85532]\n",
     "tasks.cancel": {
-      "createTime": "2026-06-22T04:35:49Z",
+      "createTime": "2026-06-23T01:46:41Z",
       "createdBy": {
         "system": {
           "serviceName": "local-compat-sandbox"
@@ -864,7 +865,7 @@
       },
       "description": "Direct Go SDK cert smoke",
       "displayName": "SDK Go task",
-      "lastUpdateTime": "2026-06-22T04:35:49Z",
+      "lastUpdateTime": "2026-06-23T01:46:41Z",
       "lastUpdatedBy": {
         "system": {
           "serviceName": "local-compat-sandbox"
@@ -887,7 +888,7 @@
       }
     },
     "tasks.create": {
-      "createTime": "2026-06-22T04:35:49Z",
+      "createTime": "2026-06-23T01:46:41Z",
       "createdBy": {
         "system": {
           "serviceName": "local-compat-sandbox"
@@ -895,7 +896,7 @@
       },
       "description": "Direct Go SDK cert smoke",
       "displayName": "SDK Go task",
-      "lastUpdateTime": "2026-06-22T04:35:49Z",
+      "lastUpdateTime": "2026-06-23T01:46:41Z",
       "lastUpdatedBy": {
         "system": {
           "serviceName": "local-compat-sandbox"
@@ -918,7 +919,7 @@
       }
     },
     "tasks.get": {
-      "createTime": "2026-06-22T04:35:49Z",
+      "createTime": "2026-06-23T01:46:41Z",
       "createdBy": {
         "system": {
           "serviceName": "local-compat-sandbox"
@@ -926,7 +927,7 @@
       },
       "description": "Direct Go SDK cert smoke",
       "displayName": "SDK Go task",
-      "lastUpdateTime": "2026-06-22T04:35:49Z",
+      "lastUpdateTime": "2026-06-23T01:46:41Z",
       "lastUpdatedBy": {
         "system": {
           "serviceName": "local-compat-sandbox"
@@ -951,7 +952,7 @@
     "tasks.listen_as_agent": {
       "executeRequest": {
         "task": {
-          "createTime": "2026-06-22T04:35:49Z",
+          "createTime": "2026-06-23T01:46:41Z",
           "createdBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -959,7 +960,7 @@
           },
           "description": "Direct Go SDK cert smoke",
           "displayName": "SDK Go task",
-          "lastUpdateTime": "2026-06-22T04:35:49Z",
+          "lastUpdateTime": "2026-06-23T01:46:41Z",
           "lastUpdatedBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -986,7 +987,7 @@
     "tasks.query": {
       "tasks": [
         {
-          "createTime": "2026-06-22T04:35:49Z",
+          "createTime": "2026-06-23T01:46:41Z",
           "createdBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -994,7 +995,7 @@
           },
           "description": "Direct Go SDK cert smoke",
           "displayName": "SDK Go task",
-          "lastUpdateTime": "2026-06-22T04:35:49Z",
+          "lastUpdateTime": "2026-06-23T01:46:41Z",
           "lastUpdatedBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -1019,7 +1020,7 @@
       ]
     },
     "tasks.update_status": {
-      "createTime": "2026-06-22T04:35:49Z",
+      "createTime": "2026-06-23T01:46:41Z",
       "createdBy": {
         "system": {
           "serviceName": "local-compat-sandbox"
@@ -1027,7 +1028,7 @@
       },
       "description": "Direct Go SDK cert smoke",
       "displayName": "SDK Go task",
-      "lastUpdateTime": "2026-06-22T04:35:49Z",
+      "lastUpdateTime": "2026-06-23T01:46:41Z",
       "lastUpdatedBy": {
         "system": {
           "serviceName": "local-compat-sandbox"

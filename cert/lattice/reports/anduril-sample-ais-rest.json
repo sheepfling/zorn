@@ -1,4 +1,5 @@
 {
+  "adaptation_tier": "endpoint_token_only",
   "details": {
     "entities.location": {
       "entity": {
@@ -159,9 +160,9 @@
               }
             },
             "eventType": "CREATE",
-            "occurredTime": "2026-06-21T23:36:10.800914Z",
+            "occurredTime": "2026-06-23T01:49:06.655950Z",
             "sequence": 1,
-            "time": "2026-06-21T23:36:10.798348Z"
+            "time": "2026-06-23T01:49:06.653458Z"
           }
         ],
         "events": [
@@ -190,9 +191,9 @@
               }
             },
             "eventType": "CREATE",
-            "occurredTime": "2026-06-21T23:36:10.800914Z",
+            "occurredTime": "2026-06-23T01:49:06.655950Z",
             "sequence": 1,
-            "time": "2026-06-21T23:36:10.798348Z"
+            "time": "2026-06-23T01:49:06.653458Z"
           }
         ],
         "sessionToken": "1"

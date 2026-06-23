@@ -1,17 +1,18 @@
 {
+  "adaptation_tier": "runtime_shim",
   "details": {
     "auth.bearer_token": {
       "client": "constructed"
     },
     "auth.oauth_client_credentials": {
-      "token_prefix": "dev-toke"
+      "token_prefix": "zorn-oau"
     },
     "auth.sandbox_header": {
       "header": "Anduril-Sandbox-Authorization"
     },
     "command": [
       "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/sdk-python-smoke/.venv/bin/python",
-      "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-cps8t6rw/sdk_python_smoke.py"
+      "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-3yi_xbxt/sdk_python_smoke.py"
     ],
     "entities.asset": {
       "_compat": {
@@ -173,9 +174,9 @@
             }
           },
           "eventType": "CREATE",
-          "occurredTime": "2026-06-22T04:30:04.240981Z",
+          "occurredTime": "2026-06-23T01:52:33.577722Z",
           "sequence": 1,
-          "time": "2026-06-22T04:30:04.236514Z"
+          "time": "2026-06-23T01:52:33.575284Z"
         },
         {
           "entity": {
@@ -216,9 +217,9 @@
             }
           },
           "eventType": "CREATE",
-          "occurredTime": "2026-06-22T04:30:04.250510Z",
+          "occurredTime": "2026-06-23T01:52:33.582544Z",
           "sequence": 2,
-          "time": "2026-06-22T04:30:04.249051Z"
+          "time": "2026-06-23T01:52:33.582145Z"
         },
         {
           "entity": {
@@ -244,9 +245,9 @@
             }
           },
           "eventType": "CREATE",
-          "occurredTime": "2026-06-22T04:30:04.262492Z",
+          "occurredTime": "2026-06-23T01:52:33.586224Z",
           "sequence": 3,
-          "time": "2026-06-22T04:30:04.261377Z"
+          "time": "2026-06-23T01:52:33.585844Z"
         }
       ],
       "events": [
@@ -296,9 +297,9 @@
             }
           },
           "eventType": "CREATE",
-          "occurredTime": "2026-06-22T04:30:04.240981Z",
+          "occurredTime": "2026-06-23T01:52:33.577722Z",
           "sequence": 1,
-          "time": "2026-06-22T04:30:04.236514Z"
+          "time": "2026-06-23T01:52:33.575284Z"
         },
         {
           "entity": {
@@ -339,9 +340,9 @@
             }
           },
           "eventType": "CREATE",
-          "occurredTime": "2026-06-22T04:30:04.250510Z",
+          "occurredTime": "2026-06-23T01:52:33.582544Z",
           "sequence": 2,
-          "time": "2026-06-22T04:30:04.249051Z"
+          "time": "2026-06-23T01:52:33.582145Z"
         },
         {
           "entity": {
@@ -367,9 +368,9 @@
             }
           },
           "eventType": "CREATE",
-          "occurredTime": "2026-06-22T04:30:04.262492Z",
+          "occurredTime": "2026-06-23T01:52:33.586224Z",
           "sequence": 3,
-          "time": "2026-06-22T04:30:04.261377Z"
+          "time": "2026-06-23T01:52:33.585844Z"
         }
       ],
       "sessionToken": "3"
@@ -435,7 +436,7 @@
         }
       },
       "milView": {
-        "disposition": "DISPOSITION_HOSTILE"
+        "disposition": "DISPOSITION_ASSUMED_FRIENDLY"
       },
       "noExpiry": true,
       "ontology": {
@@ -538,7 +539,7 @@
     "entities.stream_sse": {
       "events": [
         {
-          "data": "{\"event\":\"entity\",\"eventType\":\"EVENT_TYPE_PREEXISTING\",\"time\":\"2026-06-22T04:30:04.287598Z\",\"entity\":{\"entityId\":\"sdk-python-asset\",\"description\":\"SDK Python asset\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7701,\"longitudeDegrees\":-122.4102,\"altitudeHaeMeters\":50.0},\"velocityEnu\":{\"e\":3.0,\"n\":4.0,\"u\":0.2},\"attitudeEnu\":{\"w\":1.0,\"x\":0.0,\"y\":0.0,\"z\":0.0}},\"ontology\":{\"template\":\"TEMPLATE_ASSET\",\"platformType\":\"UAV\"},\"provenance\":{\"sourceId\":\"sdk-python-smoke\",\"integrationName\":\"sdk-python-smoke\"},\"taskCatalog\":{\"taskDefinitions\":[{\"typeUrl\":\"type.googleapis.com/zorn.cert.Investigate\"}]},\"health\":{\"healthStatus\":\"HEALTH_STATUS_HEALTHY\"},\"entity_id\":\"sdk-python-asset\",\"is_live\":true}}",
+          "data": "{\"event\":\"entity\",\"eventType\":\"EVENT_TYPE_PREEXISTING\",\"time\":\"2026-06-23T01:52:33.599060Z\",\"entity\":{\"entityId\":\"sdk-python-asset\",\"description\":\"SDK Python asset\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7701,\"longitudeDegrees\":-122.4102,\"altitudeHaeMeters\":50.0},\"velocityEnu\":{\"e\":3.0,\"n\":4.0,\"u\":0.2},\"attitudeEnu\":{\"w\":1.0,\"x\":0.0,\"y\":0.0,\"z\":0.0}},\"ontology\":{\"template\":\"TEMPLATE_ASSET\",\"platformType\":\"UAV\"},\"provenance\":{\"sourceId\":\"sdk-python-smoke\",\"integrationName\":\"sdk-python-smoke\"},\"taskCatalog\":{\"taskDefinitions\":[{\"typeUrl\":\"type.googleapis.com/zorn.cert.Investigate\"}]},\"health\":{\"healthStatus\":\"HEALTH_STATUS_HEALTHY\"},\"entity_id\":\"sdk-python-asset\",\"is_live\":true}}",
           "entity": {
             "description": "SDK Python asset",
             "entityId": "sdk-python-asset",
@@ -583,10 +584,10 @@
           },
           "event": "entity",
           "eventType": "EVENT_TYPE_PREEXISTING",
-          "time": "2026-06-22T04:30:04.287598Z"
+          "time": "2026-06-23T01:52:33.599060Z"
         },
         {
-          "data": "{\"event\":\"entity\",\"eventType\":\"EVENT_TYPE_PREEXISTING\",\"time\":\"2026-06-22T04:30:04.287712Z\",\"entity\":{\"entityId\":\"sdk-python-track\",\"description\":\"SDK Python track\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7701,\"longitudeDegrees\":-122.411,\"altitudeHaeMeters\":50.0},\"velocityEnu\":{\"e\":3.0,\"n\":4.0,\"u\":0.2},\"attitudeEnu\":{\"w\":1.0,\"x\":0.0,\"y\":0.0,\"z\":0.0}},\"milView\":{\"disposition\":\"DISPOSITION_ASSUMED_FRIENDLY\"},\"ontology\":{\"template\":\"TEMPLATE_TRACK\",\"platformType\":\"UAS\"},\"provenance\":{\"sourceId\":\"sdk-python-smoke\",\"integrationName\":\"sdk-python-smoke\"},\"entity_id\":\"sdk-python-track\",\"is_live\":true}}",
+          "data": "{\"event\":\"entity\",\"eventType\":\"EVENT_TYPE_PREEXISTING\",\"time\":\"2026-06-23T01:52:33.599106Z\",\"entity\":{\"entityId\":\"sdk-python-track\",\"description\":\"SDK Python track\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7701,\"longitudeDegrees\":-122.411,\"altitudeHaeMeters\":50.0},\"velocityEnu\":{\"e\":3.0,\"n\":4.0,\"u\":0.2},\"attitudeEnu\":{\"w\":1.0,\"x\":0.0,\"y\":0.0,\"z\":0.0}},\"milView\":{\"disposition\":\"DISPOSITION_ASSUMED_FRIENDLY\"},\"ontology\":{\"template\":\"TEMPLATE_TRACK\",\"platformType\":\"UAS\"},\"provenance\":{\"sourceId\":\"sdk-python-smoke\",\"integrationName\":\"sdk-python-smoke\"},\"entity_id\":\"sdk-python-track\",\"is_live\":true}}",
           "entity": {
             "description": "SDK Python track",
             "entityId": "sdk-python-track",
@@ -624,7 +625,7 @@
           },
           "event": "entity",
           "eventType": "EVENT_TYPE_PREEXISTING",
-          "time": "2026-06-22T04:30:04.287712Z"
+          "time": "2026-06-23T01:52:33.599106Z"
         }
       ]
     },
@@ -678,10 +679,10 @@
       ],
       "returncode": 0,
       "stderr": "WARNING: The directory '/Users/rick/Library/Caches/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.\n\n[notice] A new release of pip is available: 24.0 -> 26.1.2\n[notice] To update, run: /Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/sdk-python-smoke/.venv/bin/python -m pip install --upgrade pip\n",
-      "stdout": "Obtaining file:///Users/rick/Library/Mobile%20Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/sdk-python-smoke\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nRequirement already satisfied: httpx>=0.21.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk==4.14.0) (0.28.1)\nRequirement already satisfied: pydantic>=1.9.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk==4.14.0) (2.13.4)\nRequirement already satisfied: pydantic-core<3.0.0,>=2.18.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk==4.14.0) (2.46.4)\nRequirement already satisfied: typing_extensions>=4.0.0 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk==4.14.0) (4.15.0)\nRequirement already satisfied: anyio in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==4.14.0) (4.14.0)\nRequirement already satisfied: certifi in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==4.14.0) (2026.6.17)\nRequirement already satisfied: httpcore==1.* in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==4.14.0) (1.0.9)\nRequirement already satisfied: idna in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==4.14.0) (3.18)\nRequirement already satisfied: h11>=0.16 in ./.venv/lib/python3.12/site-packages (from httpcore==1.*->httpx>=0.21.2->anduril-lattice-sdk==4.14.0) (0.16.0)\nRequirement already satisfied: annotated-types>=0.6.0 in ./.venv/lib/python3.12/site-packages (from pydantic>=1.9.2->anduril-lattice-sdk==4.14.0) (0.7.0)\nRequirement already satisfied: typing-inspection>=0.4.2 in ./.venv/lib/python3.12/site-packages (from pydantic>=1.9.2->anduril-lattice-sdk==4.14.0) (0.4.2)\nBuilding wheels for collected packages: anduril-lattice-sdk\n  Building editable for anduril-lattice-sdk (pyproject.toml): started\n  Building editable for anduril-lattice-sdk (pyproject.toml): finished with status 'done'\n  Created wheel for anduril-lattice-sdk: filename=anduril_lattice_sdk-4.14.0-py3-none-any.whl size=9559 sha256=b477d4d97b1093166c9346b480c2ea9ea0b0b212685e9c7487fa7f9c98740d02\n  Stored in directory: /private/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/pip-ephem-wheel-cache-g1kbi2a8/wheels/53/bc/7d/929f5cc003958947b861999dbab5dca21c3ad631f97f7c25d5\nSuccessfully built anduril-lattice-sdk\nInstalling collected packages: anduril-lattice-sdk\n  Attempting uninstall: anduril-lattice-sdk\n    Found existing installation: anduril-lattice-sdk 4.14.0\n    Uninstalling anduril-lattice-sdk-4.14.0:\n      Successfully uninstalled anduril-lattice-sdk-4.14.0\nSuccessfully installed anduril-lattice-sdk-4.14.0\n"
+      "stdout": "Obtaining file:///Users/rick/Library/Mobile%20Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/sdk-python-smoke\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Checking if build backend supports build_editable: started\n  Checking if build backend supports build_editable: finished with status 'done'\n  Getting requirements to build editable: started\n  Getting requirements to build editable: finished with status 'done'\n  Preparing editable metadata (pyproject.toml): started\n  Preparing editable metadata (pyproject.toml): finished with status 'done'\nRequirement already satisfied: httpx>=0.21.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk==4.14.0) (0.28.1)\nRequirement already satisfied: pydantic>=1.9.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk==4.14.0) (2.13.4)\nRequirement already satisfied: pydantic-core<3.0.0,>=2.18.2 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk==4.14.0) (2.46.4)\nRequirement already satisfied: typing_extensions>=4.0.0 in ./.venv/lib/python3.12/site-packages (from anduril-lattice-sdk==4.14.0) (4.15.0)\nRequirement already satisfied: anyio in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==4.14.0) (4.14.0)\nRequirement already satisfied: certifi in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==4.14.0) (2026.6.17)\nRequirement already satisfied: httpcore==1.* in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==4.14.0) (1.0.9)\nRequirement already satisfied: idna in ./.venv/lib/python3.12/site-packages (from httpx>=0.21.2->anduril-lattice-sdk==4.14.0) (3.18)\nRequirement already satisfied: h11>=0.16 in ./.venv/lib/python3.12/site-packages (from httpcore==1.*->httpx>=0.21.2->anduril-lattice-sdk==4.14.0) (0.16.0)\nRequirement already satisfied: annotated-types>=0.6.0 in ./.venv/lib/python3.12/site-packages (from pydantic>=1.9.2->anduril-lattice-sdk==4.14.0) (0.7.0)\nRequirement already satisfied: typing-inspection>=0.4.2 in ./.venv/lib/python3.12/site-packages (from pydantic>=1.9.2->anduril-lattice-sdk==4.14.0) (0.4.2)\nBuilding wheels for collected packages: anduril-lattice-sdk\n  Building editable for anduril-lattice-sdk (pyproject.toml): started\n  Building editable for anduril-lattice-sdk (pyproject.toml): finished with status 'done'\n  Created wheel for anduril-lattice-sdk: filename=anduril_lattice_sdk-4.14.0-py3-none-any.whl size=9559 sha256=b477d4d97b1093166c9346b480c2ea9ea0b0b212685e9c7487fa7f9c98740d02\n  Stored in directory: /private/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/pip-ephem-wheel-cache-xhzn59jy/wheels/53/bc/7d/929f5cc003958947b861999dbab5dca21c3ad631f97f7c25d5\nSuccessfully built anduril-lattice-sdk\nInstalling collected packages: anduril-lattice-sdk\n  Attempting uninstall: anduril-lattice-sdk\n    Found existing installation: anduril-lattice-sdk 4.14.0\n    Uninstalling anduril-lattice-sdk-4.14.0:\n      Successfully uninstalled anduril-lattice-sdk-4.14.0\nSuccessfully installed anduril-lattice-sdk-4.14.0\n"
     },
     "objects.delete": {
-      "error": "headers: {'date': 'Mon, 22 Jun 2026 04:30:03 GMT', 'server': 'uvicorn', 'content-length': '29', 'content-type': 'application/json'}, status_code: 404, body: ",
+      "error": "headers: {'date': 'Tue, 23 Jun 2026 01:52:33 GMT', 'server': 'uvicorn', 'content-length': '29', 'content-type': 'application/json'}, status_code: 404, body: ",
       "status_code": 404
     },
     "objects.download": {
@@ -695,23 +696,23 @@
           "checksum": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
           "path": "sdk-python-smoke/object.txt"
         },
-        "createdTime": "2026-06-22T04:30:04.457939Z",
+        "createdTime": "2026-06-23T01:52:33.693149Z",
         "expiry_time": null,
-        "last_updated_at": "2026-06-22T04:30:04.457939Z",
+        "last_updated_at": "2026-06-23T01:52:33.693149Z",
         "metadata": {},
         "objectPath": "sdk-python-smoke/object.txt",
         "sizeBytes": 22,
         "size_bytes": 22,
-        "updatedTime": "2026-06-22T04:30:04.457939Z"
+        "updatedTime": "2026-06-23T01:52:33.693149Z"
       }
     ],
     "objects.metadata": {
       "checksum": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
       "content-length": "22",
       "content-type": "application/octet-stream",
-      "date": "Mon, 22 Jun 2026 04:30:03 GMT",
+      "date": "Tue, 23 Jun 2026 01:52:33 GMT",
       "etag": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
-      "last-modified": "2026-06-22T04:30:04.457939Z",
+      "last-modified": "2026-06-23T01:52:33.693149Z",
       "path": "sdk-python-smoke/object.txt",
       "server": "uvicorn",
       "x-checksum-sha256": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
@@ -724,19 +725,19 @@
         "checksum": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
         "path": "sdk-python-smoke/object.txt"
       },
-      "createdTime": "2026-06-22T04:30:04.457939Z",
+      "createdTime": "2026-06-23T01:52:33.693149Z",
       "expiry_time": null,
-      "last_updated_at": "2026-06-22T04:30:04.457939Z",
+      "last_updated_at": "2026-06-23T01:52:33.693149Z",
       "metadata": {},
       "objectPath": "sdk-python-smoke/object.txt",
       "sizeBytes": 22,
       "size_bytes": 22,
-      "updatedTime": "2026-06-22T04:30:04.457939Z"
+      "updatedTime": "2026-06-23T01:52:33.693149Z"
     },
     "process": {
       "args": [
         "/Users/rick/Library/Mobile Documents/com~apple~CloudDocs/GIT/Zorn/cert/lattice/.fixtures/sdk-python-smoke/.venv/bin/python",
-        "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-cps8t6rw/sdk_python_smoke.py"
+        "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-cert-https-3yi_xbxt/sdk_python_smoke.py"
       ],
       "returncode": 0,
       "stderr": "",
@@ -751,7 +752,7 @@
       },
       "auth.oauth_client_credentials": {
         "evidence": {
-          "token_prefix": "dev-toke"
+          "token_prefix": "zorn-oau"
         },
         "ok": true
       },
@@ -931,9 +932,9 @@
                 }
               },
               "eventType": "CREATE",
-              "occurredTime": "2026-06-22T04:30:04.240981Z",
+              "occurredTime": "2026-06-23T01:52:33.577722Z",
               "sequence": 1,
-              "time": "2026-06-22T04:30:04.236514Z"
+              "time": "2026-06-23T01:52:33.575284Z"
             },
             {
               "entity": {
@@ -974,9 +975,9 @@
                 }
               },
               "eventType": "CREATE",
-              "occurredTime": "2026-06-22T04:30:04.250510Z",
+              "occurredTime": "2026-06-23T01:52:33.582544Z",
               "sequence": 2,
-              "time": "2026-06-22T04:30:04.249051Z"
+              "time": "2026-06-23T01:52:33.582145Z"
             },
             {
               "entity": {
@@ -1002,9 +1003,9 @@
                 }
               },
               "eventType": "CREATE",
-              "occurredTime": "2026-06-22T04:30:04.262492Z",
+              "occurredTime": "2026-06-23T01:52:33.586224Z",
               "sequence": 3,
-              "time": "2026-06-22T04:30:04.261377Z"
+              "time": "2026-06-23T01:52:33.585844Z"
             }
           ],
           "events": [
@@ -1054,9 +1055,9 @@
                 }
               },
               "eventType": "CREATE",
-              "occurredTime": "2026-06-22T04:30:04.240981Z",
+              "occurredTime": "2026-06-23T01:52:33.577722Z",
               "sequence": 1,
-              "time": "2026-06-22T04:30:04.236514Z"
+              "time": "2026-06-23T01:52:33.575284Z"
             },
             {
               "entity": {
@@ -1097,9 +1098,9 @@
                 }
               },
               "eventType": "CREATE",
-              "occurredTime": "2026-06-22T04:30:04.250510Z",
+              "occurredTime": "2026-06-23T01:52:33.582544Z",
               "sequence": 2,
-              "time": "2026-06-22T04:30:04.249051Z"
+              "time": "2026-06-23T01:52:33.582145Z"
             },
             {
               "entity": {
@@ -1125,9 +1126,9 @@
                 }
               },
               "eventType": "CREATE",
-              "occurredTime": "2026-06-22T04:30:04.262492Z",
+              "occurredTime": "2026-06-23T01:52:33.586224Z",
               "sequence": 3,
-              "time": "2026-06-22T04:30:04.261377Z"
+              "time": "2026-06-23T01:52:33.585844Z"
             }
           ],
           "sessionToken": "3"
@@ -1199,7 +1200,7 @@
             }
           },
           "milView": {
-            "disposition": "DISPOSITION_HOSTILE"
+            "disposition": "DISPOSITION_ASSUMED_FRIENDLY"
           },
           "noExpiry": true,
           "ontology": {
@@ -1308,7 +1309,7 @@
         "evidence": {
           "events": [
             {
-              "data": "{\"event\":\"entity\",\"eventType\":\"EVENT_TYPE_PREEXISTING\",\"time\":\"2026-06-22T04:30:04.287598Z\",\"entity\":{\"entityId\":\"sdk-python-asset\",\"description\":\"SDK Python asset\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7701,\"longitudeDegrees\":-122.4102,\"altitudeHaeMeters\":50.0},\"velocityEnu\":{\"e\":3.0,\"n\":4.0,\"u\":0.2},\"attitudeEnu\":{\"w\":1.0,\"x\":0.0,\"y\":0.0,\"z\":0.0}},\"ontology\":{\"template\":\"TEMPLATE_ASSET\",\"platformType\":\"UAV\"},\"provenance\":{\"sourceId\":\"sdk-python-smoke\",\"integrationName\":\"sdk-python-smoke\"},\"taskCatalog\":{\"taskDefinitions\":[{\"typeUrl\":\"type.googleapis.com/zorn.cert.Investigate\"}]},\"health\":{\"healthStatus\":\"HEALTH_STATUS_HEALTHY\"},\"entity_id\":\"sdk-python-asset\",\"is_live\":true}}",
+              "data": "{\"event\":\"entity\",\"eventType\":\"EVENT_TYPE_PREEXISTING\",\"time\":\"2026-06-23T01:52:33.599060Z\",\"entity\":{\"entityId\":\"sdk-python-asset\",\"description\":\"SDK Python asset\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7701,\"longitudeDegrees\":-122.4102,\"altitudeHaeMeters\":50.0},\"velocityEnu\":{\"e\":3.0,\"n\":4.0,\"u\":0.2},\"attitudeEnu\":{\"w\":1.0,\"x\":0.0,\"y\":0.0,\"z\":0.0}},\"ontology\":{\"template\":\"TEMPLATE_ASSET\",\"platformType\":\"UAV\"},\"provenance\":{\"sourceId\":\"sdk-python-smoke\",\"integrationName\":\"sdk-python-smoke\"},\"taskCatalog\":{\"taskDefinitions\":[{\"typeUrl\":\"type.googleapis.com/zorn.cert.Investigate\"}]},\"health\":{\"healthStatus\":\"HEALTH_STATUS_HEALTHY\"},\"entity_id\":\"sdk-python-asset\",\"is_live\":true}}",
               "entity": {
                 "description": "SDK Python asset",
                 "entityId": "sdk-python-asset",
@@ -1353,10 +1354,10 @@
               },
               "event": "entity",
               "eventType": "EVENT_TYPE_PREEXISTING",
-              "time": "2026-06-22T04:30:04.287598Z"
+              "time": "2026-06-23T01:52:33.599060Z"
             },
             {
-              "data": "{\"event\":\"entity\",\"eventType\":\"EVENT_TYPE_PREEXISTING\",\"time\":\"2026-06-22T04:30:04.287712Z\",\"entity\":{\"entityId\":\"sdk-python-track\",\"description\":\"SDK Python track\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7701,\"longitudeDegrees\":-122.411,\"altitudeHaeMeters\":50.0},\"velocityEnu\":{\"e\":3.0,\"n\":4.0,\"u\":0.2},\"attitudeEnu\":{\"w\":1.0,\"x\":0.0,\"y\":0.0,\"z\":0.0}},\"milView\":{\"disposition\":\"DISPOSITION_ASSUMED_FRIENDLY\"},\"ontology\":{\"template\":\"TEMPLATE_TRACK\",\"platformType\":\"UAS\"},\"provenance\":{\"sourceId\":\"sdk-python-smoke\",\"integrationName\":\"sdk-python-smoke\"},\"entity_id\":\"sdk-python-track\",\"is_live\":true}}",
+              "data": "{\"event\":\"entity\",\"eventType\":\"EVENT_TYPE_PREEXISTING\",\"time\":\"2026-06-23T01:52:33.599106Z\",\"entity\":{\"entityId\":\"sdk-python-track\",\"description\":\"SDK Python track\",\"isLive\":true,\"noExpiry\":true,\"location\":{\"position\":{\"latitudeDegrees\":37.7701,\"longitudeDegrees\":-122.411,\"altitudeHaeMeters\":50.0},\"velocityEnu\":{\"e\":3.0,\"n\":4.0,\"u\":0.2},\"attitudeEnu\":{\"w\":1.0,\"x\":0.0,\"y\":0.0,\"z\":0.0}},\"milView\":{\"disposition\":\"DISPOSITION_ASSUMED_FRIENDLY\"},\"ontology\":{\"template\":\"TEMPLATE_TRACK\",\"platformType\":\"UAS\"},\"provenance\":{\"sourceId\":\"sdk-python-smoke\",\"integrationName\":\"sdk-python-smoke\"},\"entity_id\":\"sdk-python-track\",\"is_live\":true}}",
               "entity": {
                 "description": "SDK Python track",
                 "entityId": "sdk-python-track",
@@ -1394,7 +1395,7 @@
               },
               "event": "entity",
               "eventType": "EVENT_TYPE_PREEXISTING",
-              "time": "2026-06-22T04:30:04.287712Z"
+              "time": "2026-06-23T01:52:33.599106Z"
             }
           ]
         },
@@ -1444,7 +1445,7 @@
       },
       "objects.delete": {
         "evidence": {
-          "error": "headers: {'date': 'Mon, 22 Jun 2026 04:30:03 GMT', 'server': 'uvicorn', 'content-length': '29', 'content-type': 'application/json'}, status_code: 404, body: ",
+          "error": "headers: {'date': 'Tue, 23 Jun 2026 01:52:33 GMT', 'server': 'uvicorn', 'content-length': '29', 'content-type': 'application/json'}, status_code: 404, body: ",
           "status_code": 404
         },
         "ok": true
@@ -1464,14 +1465,14 @@
               "checksum": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
               "path": "sdk-python-smoke/object.txt"
             },
-            "createdTime": "2026-06-22T04:30:04.457939Z",
+            "createdTime": "2026-06-23T01:52:33.693149Z",
             "expiry_time": null,
-            "last_updated_at": "2026-06-22T04:30:04.457939Z",
+            "last_updated_at": "2026-06-23T01:52:33.693149Z",
             "metadata": {},
             "objectPath": "sdk-python-smoke/object.txt",
             "sizeBytes": 22,
             "size_bytes": 22,
-            "updatedTime": "2026-06-22T04:30:04.457939Z"
+            "updatedTime": "2026-06-23T01:52:33.693149Z"
           }
         ],
         "ok": true
@@ -1481,9 +1482,9 @@
           "checksum": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
           "content-length": "22",
           "content-type": "application/octet-stream",
-          "date": "Mon, 22 Jun 2026 04:30:03 GMT",
+          "date": "Tue, 23 Jun 2026 01:52:33 GMT",
           "etag": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
-          "last-modified": "2026-06-22T04:30:04.457939Z",
+          "last-modified": "2026-06-23T01:52:33.693149Z",
           "path": "sdk-python-smoke/object.txt",
           "server": "uvicorn",
           "x-checksum-sha256": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
@@ -1499,20 +1500,20 @@
             "checksum": "a7c81ccc63b08edfd934427478279143f97702ad05370cefc9e5be4ffff37970",
             "path": "sdk-python-smoke/object.txt"
           },
-          "createdTime": "2026-06-22T04:30:04.457939Z",
+          "createdTime": "2026-06-23T01:52:33.693149Z",
           "expiry_time": null,
-          "last_updated_at": "2026-06-22T04:30:04.457939Z",
+          "last_updated_at": "2026-06-23T01:52:33.693149Z",
           "metadata": {},
           "objectPath": "sdk-python-smoke/object.txt",
           "sizeBytes": 22,
           "size_bytes": 22,
-          "updatedTime": "2026-06-22T04:30:04.457939Z"
+          "updatedTime": "2026-06-23T01:52:33.693149Z"
         },
         "ok": true
       },
       "tasks.cancel": {
         "evidence": {
-          "createTime": "2026-06-22T04:30:04.385012Z",
+          "createTime": "2026-06-23T01:52:33.662638Z",
           "createdBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -1520,7 +1521,7 @@
           },
           "description": "Direct SDK conformance smoke",
           "displayName": "SDK Python task",
-          "lastUpdateTime": "2026-06-22T04:30:04.423003Z",
+          "lastUpdateTime": "2026-06-23T01:52:33.678611Z",
           "lastUpdatedBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -1557,7 +1558,7 @@
             "eventType": "CREATE",
             "sequence": 6
           },
-          "createTime": "2026-06-22T04:30:04.385012Z",
+          "createTime": "2026-06-23T01:52:33.662638Z",
           "createdBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -1565,7 +1566,7 @@
           },
           "description": "Direct SDK conformance smoke",
           "displayName": "SDK Python task",
-          "lastUpdateTime": "2026-06-22T04:30:04.385012Z",
+          "lastUpdateTime": "2026-06-23T01:52:33.662638Z",
           "lastUpdatedBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -1597,7 +1598,7 @@
       },
       "tasks.get": {
         "evidence": {
-          "createTime": "2026-06-22T04:30:04.385012Z",
+          "createTime": "2026-06-23T01:52:33.662638Z",
           "createdBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -1605,7 +1606,7 @@
           },
           "description": "Direct SDK conformance smoke",
           "displayName": "SDK Python task",
-          "lastUpdateTime": "2026-06-22T04:30:04.385012Z",
+          "lastUpdateTime": "2026-06-23T01:52:33.662638Z",
           "lastUpdatedBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -1642,7 +1643,7 @@
           "eventType": "ExecuteRequest",
           "executeRequest": {
             "task": {
-              "createTime": "2026-06-22T04:30:04.385012Z",
+              "createTime": "2026-06-23T01:52:33.662638Z",
               "createdBy": {
                 "system": {
                   "serviceName": "local-compat-sandbox"
@@ -1650,7 +1651,7 @@
               },
               "description": "Direct SDK conformance smoke",
               "displayName": "SDK Python task",
-              "lastUpdateTime": "2026-06-22T04:30:04.385012Z",
+              "lastUpdateTime": "2026-06-23T01:52:33.662638Z",
               "lastUpdatedBy": {
                 "system": {
                   "serviceName": "local-compat-sandbox"
@@ -1679,13 +1680,13 @@
               }
             }
           },
-          "occurredTime": "2026-06-22T04:30:04.389201Z",
+          "occurredTime": "2026-06-23T01:52:33.664321Z",
           "requestType": "ExecuteRequest",
           "request_type": "ExecuteRequest",
           "sequence": 7,
           "task": {
-            "createTime": "2026-06-22T04:30:04.385012Z",
-            "create_time": "2026-06-22T04:30:04.385012Z",
+            "createTime": "2026-06-23T01:52:33.662638Z",
+            "create_time": "2026-06-23T01:52:33.662638Z",
             "createdBy": {
               "system": {
                 "serviceName": "local-compat-sandbox",
@@ -1701,14 +1702,14 @@
             "description": "Direct SDK conformance smoke",
             "displayName": "SDK Python task",
             "display_name": "SDK Python task",
-            "lastUpdateTime": "2026-06-22T04:30:04.385012Z",
+            "lastUpdateTime": "2026-06-23T01:52:33.662638Z",
             "lastUpdatedBy": {
               "system": {
                 "serviceName": "local-compat-sandbox",
                 "service_name": "local-compat-sandbox"
               }
             },
-            "last_update_time": "2026-06-22T04:30:04.385012Z",
+            "last_update_time": "2026-06-23T01:52:33.662638Z",
             "last_updated_by": {
               "system": {
                 "serviceName": "local-compat-sandbox",
@@ -1746,9 +1747,10 @@
       },
       "tasks.query": {
         "evidence": {
+          "nextPageToken": null,
           "tasks": [
             {
-              "createTime": "2026-06-22T04:30:04.385012Z",
+              "createTime": "2026-06-23T01:52:33.662638Z",
               "createdBy": {
                 "system": {
                   "serviceName": "local-compat-sandbox"
@@ -1756,7 +1758,7 @@
               },
               "description": "Direct SDK conformance smoke",
               "displayName": "SDK Python task",
-              "lastUpdateTime": "2026-06-22T04:30:04.385012Z",
+              "lastUpdateTime": "2026-06-23T01:52:33.662638Z",
               "lastUpdatedBy": {
                 "system": {
                   "serviceName": "local-compat-sandbox"
@@ -1790,7 +1792,7 @@
       },
       "tasks.update_status": {
         "evidence": {
-          "createTime": "2026-06-22T04:30:04.385012Z",
+          "createTime": "2026-06-23T01:52:33.662638Z",
           "createdBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -1798,7 +1800,7 @@
           },
           "description": "Direct SDK conformance smoke",
           "displayName": "SDK Python task",
-          "lastUpdateTime": "2026-06-22T04:30:04.416172Z",
+          "lastUpdateTime": "2026-06-23T01:52:33.675700Z",
           "lastUpdatedBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -1835,9 +1837,9 @@
         "ok": true
       }
     },
-    "server_log": "INFO:     Started server process [74464]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on https://127.0.0.1:53140 (Press CTRL+C to quit)\nINFO:     127.0.0.1:53148 - \"GET /healthz HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53150 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53150 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53150 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53150 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53150 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53150 - \"GET /api/v1/entities/sdk-python-asset HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53150 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53150 - \"POST /api/v1/entities/stream HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"PUT /api/v1/entities/sdk-python-track/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"DELETE /api/v1/entities/sdk-python-track/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"POST /api/v1/tasks HTTP/1.1\" 201 Created\nINFO:     127.0.0.1:53152 - \"GET /api/v1/tasks/sdk-python-task HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"PUT /api/v1/tasks/sdk-python-task/status HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"PUT /api/v1/tasks/sdk-python-task/cancel HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"POST /api/v1/objects/sdk-python-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"HEAD /api/v1/objects/sdk-python-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"GET /api/v1/objects?prefix=sdk-python-smoke HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"GET /api/v1/objects/sdk-python-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"DELETE /api/v1/objects/sdk-python-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:53152 - \"HEAD /api/v1/objects/sdk-python-smoke/object.txt HTTP/1.1\" 404 Not Found\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [74464]\n",
+    "server_log": "INFO:     Started server process [90226]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on https://127.0.0.1:64032 (Press CTRL+C to quit)\nINFO:     127.0.0.1:64038 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64040 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64040 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64040 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64040 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64040 - \"PUT /api/v1/entities HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64040 - \"GET /api/v1/entities/sdk-python-asset HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64040 - \"POST /api/v1/entities/events HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64040 - \"POST /api/v1/entities/stream HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64042 - \"PUT /api/v1/entities/sdk-python-track/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64042 - \"DELETE /api/v1/entities/sdk-python-track/override/mil_view.disposition HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64042 - \"POST /api/v1/tasks HTTP/1.1\" 201 Created\nINFO:     127.0.0.1:64042 - \"GET /api/v1/tasks/sdk-python-task HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64042 - \"POST /api/v1/tasks/query HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64042 - \"POST /api/v1/agent/listen HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64042 - \"PUT /api/v1/tasks/sdk-python-task/status HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64042 - \"PUT /api/v1/tasks/sdk-python-task/cancel HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64042 - \"POST /api/v1/objects/sdk-python-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64042 - \"HEAD /api/v1/objects/sdk-python-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64042 - \"GET /api/v1/objects?prefix=sdk-python-smoke HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64042 - \"GET /api/v1/objects/sdk-python-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64042 - \"DELETE /api/v1/objects/sdk-python-smoke/object.txt HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64042 - \"HEAD /api/v1/objects/sdk-python-smoke/object.txt HTTP/1.1\" 404 Not Found\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [90226]\n",
     "tasks.cancel": {
-      "createTime": "2026-06-22T04:30:04.385012Z",
+      "createTime": "2026-06-23T01:52:33.662638Z",
       "createdBy": {
         "system": {
           "serviceName": "local-compat-sandbox"
@@ -1845,7 +1847,7 @@
       },
       "description": "Direct SDK conformance smoke",
       "displayName": "SDK Python task",
-      "lastUpdateTime": "2026-06-22T04:30:04.423003Z",
+      "lastUpdateTime": "2026-06-23T01:52:33.678611Z",
       "lastUpdatedBy": {
         "system": {
           "serviceName": "local-compat-sandbox"
@@ -1879,7 +1881,7 @@
         "eventType": "CREATE",
         "sequence": 6
       },
-      "createTime": "2026-06-22T04:30:04.385012Z",
+      "createTime": "2026-06-23T01:52:33.662638Z",
       "createdBy": {
         "system": {
           "serviceName": "local-compat-sandbox"
@@ -1887,7 +1889,7 @@
       },
       "description": "Direct SDK conformance smoke",
       "displayName": "SDK Python task",
-      "lastUpdateTime": "2026-06-22T04:30:04.385012Z",
+      "lastUpdateTime": "2026-06-23T01:52:33.662638Z",
       "lastUpdatedBy": {
         "system": {
           "serviceName": "local-compat-sandbox"
@@ -1916,7 +1918,7 @@
       }
     },
     "tasks.get": {
-      "createTime": "2026-06-22T04:30:04.385012Z",
+      "createTime": "2026-06-23T01:52:33.662638Z",
       "createdBy": {
         "system": {
           "serviceName": "local-compat-sandbox"
@@ -1924,7 +1926,7 @@
       },
       "description": "Direct SDK conformance smoke",
       "displayName": "SDK Python task",
-      "lastUpdateTime": "2026-06-22T04:30:04.385012Z",
+      "lastUpdateTime": "2026-06-23T01:52:33.662638Z",
       "lastUpdatedBy": {
         "system": {
           "serviceName": "local-compat-sandbox"
@@ -1958,7 +1960,7 @@
       "eventType": "ExecuteRequest",
       "executeRequest": {
         "task": {
-          "createTime": "2026-06-22T04:30:04.385012Z",
+          "createTime": "2026-06-23T01:52:33.662638Z",
           "createdBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -1966,7 +1968,7 @@
           },
           "description": "Direct SDK conformance smoke",
           "displayName": "SDK Python task",
-          "lastUpdateTime": "2026-06-22T04:30:04.385012Z",
+          "lastUpdateTime": "2026-06-23T01:52:33.662638Z",
           "lastUpdatedBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -1995,13 +1997,13 @@
           }
         }
       },
-      "occurredTime": "2026-06-22T04:30:04.389201Z",
+      "occurredTime": "2026-06-23T01:52:33.664321Z",
       "requestType": "ExecuteRequest",
       "request_type": "ExecuteRequest",
       "sequence": 7,
       "task": {
-        "createTime": "2026-06-22T04:30:04.385012Z",
-        "create_time": "2026-06-22T04:30:04.385012Z",
+        "createTime": "2026-06-23T01:52:33.662638Z",
+        "create_time": "2026-06-23T01:52:33.662638Z",
         "createdBy": {
           "system": {
             "serviceName": "local-compat-sandbox",
@@ -2017,14 +2019,14 @@
         "description": "Direct SDK conformance smoke",
         "displayName": "SDK Python task",
         "display_name": "SDK Python task",
-        "lastUpdateTime": "2026-06-22T04:30:04.385012Z",
+        "lastUpdateTime": "2026-06-23T01:52:33.662638Z",
         "lastUpdatedBy": {
           "system": {
             "serviceName": "local-compat-sandbox",
             "service_name": "local-compat-sandbox"
           }
         },
-        "last_update_time": "2026-06-22T04:30:04.385012Z",
+        "last_update_time": "2026-06-23T01:52:33.662638Z",
         "last_updated_by": {
           "system": {
             "serviceName": "local-compat-sandbox",
@@ -2059,9 +2061,10 @@
       }
     },
     "tasks.query": {
+      "nextPageToken": null,
       "tasks": [
         {
-          "createTime": "2026-06-22T04:30:04.385012Z",
+          "createTime": "2026-06-23T01:52:33.662638Z",
           "createdBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -2069,7 +2072,7 @@
           },
           "description": "Direct SDK conformance smoke",
           "displayName": "SDK Python task",
-          "lastUpdateTime": "2026-06-22T04:30:04.385012Z",
+          "lastUpdateTime": "2026-06-23T01:52:33.662638Z",
           "lastUpdatedBy": {
             "system": {
               "serviceName": "local-compat-sandbox"
@@ -2100,7 +2103,7 @@
       ]
     },
     "tasks.update_status": {
-      "createTime": "2026-06-22T04:30:04.385012Z",
+      "createTime": "2026-06-23T01:52:33.662638Z",
       "createdBy": {
         "system": {
           "serviceName": "local-compat-sandbox"
@@ -2108,7 +2111,7 @@
       },
       "description": "Direct SDK conformance smoke",
       "displayName": "SDK Python task",
-      "lastUpdateTime": "2026-06-22T04:30:04.416172Z",
+      "lastUpdateTime": "2026-06-23T01:52:33.675700Z",
       "lastUpdatedBy": {
         "system": {
           "serviceName": "local-compat-sandbox"
