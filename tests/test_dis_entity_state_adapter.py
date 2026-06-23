@@ -1,10 +1,7 @@
 from __future__ import annotations
 
 import json
-import os
 from pathlib import Path
-import subprocess
-import sys
 
 from fastapi.testclient import TestClient
 
@@ -102,16 +99,3 @@ def test_deleted_entity_stream_payload_uses_official_deleted_event_name() -> Non
 
     assert payload["eventType"] == "EVENT_TYPE_DELETED"
     assert json.loads(payload["data"])["eventType"] == "EVENT_TYPE_DELETED"
-
-
-def test_dis_replay_command_help_points_to_public_api_target() -> None:
-    result = subprocess.run(
-        [sys.executable, "-m", "zorn", "replay", "dis", "--help"],
-        check=False,
-        env={**os.environ},
-        capture_output=True,
-        text=True,
-    )
-
-    assert result.returncode == 0
-    assert "--target" in result.stdout

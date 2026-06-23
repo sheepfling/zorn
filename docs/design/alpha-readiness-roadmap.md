@@ -1,36 +1,35 @@
 # Alpha Readiness Roadmap
 
 This roadmap translates the technical S5-S12 plan into product-readiness gates.
-It is intentionally honest about maturity: Alpha 1 should be useful for a DIS
-app, Alpha 2 should be a much more faithful Lattice-compatible data plane, and
-Alpha 3 should add browser-visible product apps without polluting the data plane.
+It is intentionally honest about maturity: Alpha 1 should be a strict public
+Lattice surrogate, Alpha 2 should be a much more faithful Lattice-compatible
+data plane, and Alpha 3 should add browser-visible product apps without
+polluting the data plane.
 
-## Alpha 1: DIS App Ready
+## Alpha 1: Strict Surrogate Ready
 
-Goal: make Zorn a practical local surrogate target for a DIS integration app.
+Goal: make Zorn a practical local surrogate target for public Lattice clients.
 
-Alpha 1 is not full Lattice compatibility. It is the smallest useful tactical
-integration harness: replay DIS Entity State PDUs, publish normalized entities,
-stream them back, and prove the data is inspectable.
+Alpha 1 is not full Lattice compatibility. It is the smallest useful public
+integration harness: publish normalized entities, stream them back, and prove
+the data is inspectable.
 
 Primary scope:
 
-- DIS Entity State PDU -> Zorn Entity adapter.
 - Entity publish/update/read/stream over the REST-compatible surface.
-- Stable entity IDs derived from DIS exercise/site/application/entity identity.
-- DIS source identity and exercise ID preserved in aliases/provenance.
-- Location, velocity, orientation, force/disposition, entity type, and marking mapped into entity components.
+- Stable entity/task/object lifecycle behavior through the public APIs.
 - Entity create/update/delete or stale behavior visible in event streams.
-- Minimal scenario/replay command for a recorded DIS sample.
-- Compatibility report showing pass/fail/missing for the DIS readiness contract.
+- Minimal scenario/replay command for a recorded public API sample.
+- Compatibility report showing pass/fail/missing for the public surrogate
+  contract.
 
 Acceptance criteria:
 
-- `zorn replay dis <pcap-or-fixture>` publishes moving entities into Zorn.
 - `GET` entity returns canonical state for a replayed DIS entity.
 - REST stream emits ordered create/update/delete or stale events.
-- Multiple DIS exercise IDs namespace cleanly without entity ID collisions.
-- AIS REST sample and direct SDK smoke fixtures still pass after DIS adapter work.
+- Multiple entity identifiers namespace cleanly without collisions.
+- AIS REST sample and direct SDK smoke fixtures still pass after strict
+  surrogate work.
 - A certification report can show the final entity set and event log without adding a Zorn-specific integration endpoint.
 
 Non-goals:
@@ -39,12 +38,12 @@ Non-goals:
 - Full task lifecycle parity.
 - Operator `/c2` UI.
 - Full object/media workflows.
-- Fusion/correlation beyond stable DIS identity mapping.
+- Fusion/correlation beyond stable public identity mapping.
 
 Exit label:
 
-`Alpha 1 DIS App Ready`: suitable for local DIS app integration and demos, with
-known gaps documented in reports.
+`Alpha 1 Strict Surrogate Ready`: suitable for local public client integration
+and demos, with known gaps documented in reports.
 
 ## Alpha 2: Vetted Data Plane
 
@@ -144,13 +143,13 @@ Zorn runs.
 
 ## Dependency Order
 
-Alpha 1 feeds Alpha 2 with real tactical data pressure. Alpha 2 feeds Alpha 3
+Alpha 1 feeds Alpha 2 with strict public API pressure. Alpha 2 feeds Alpha 3
 with trustworthy data-plane behavior. Alpha 3 proves behavior visually, but does
 not define the behavior.
 
 ```text
-Alpha 1 DIS App Ready
-  -> DIS adapter, replay, entity streams, reports
+Alpha 1 Strict Surrogate Ready
+  -> public API replay, entity streams, reports
 
 Alpha 2 Vetted Data Plane
   -> SDK/sample/gRPC/object/task lifecycle parity
@@ -174,8 +173,8 @@ The immediate implementation priority is now Alpha 1 corrective hardening:
    mode.
 4. Keep FastDIS and replay lanes on the same public Entity/Task/Object
    interfaces used by SDK/sample certification.
-5. After the above is green, resume the DIS Entity State adapter and replay
-   tranche.
+5. After the above is green, resume any evaluation-only adapter helpers that
+   exercise the same public routes.
 
 The detailed corrective plan is in:
 
@@ -186,16 +185,15 @@ The detailed corrective plan is in:
 
 The first Alpha 1 implementation slice is fixture-driven:
 
-- Adapter package: `src/zorn/adapters/dis/`.
+- Evaluation helper package: `src/zorn/adapters/dis/`.
 - Replay fixture: `tests/fixtures/dis/entity_state_replay.jsonl`.
 - Fixture notes: `tests/fixtures/dis/README.md`.
-- Command: `zorn replay dis tests/fixtures/dis/entity_state_replay.jsonl --target http://127.0.0.1:8080 --report /tmp/zorn-alpha1-dis-report.json`.
 - Tests: `tests/test_dis_entity_state_adapter.py`.
 - Public API replay log: `tests/fixtures/replay/entity_task_object_api.jsonl`.
 - Public API replay tests: `tests/test_public_api_replay.py`.
 
-This proves the JSONL Entity State replay path through the existing public
-Entity API. It also proves Entity/Task/Object replay logs can be applied through
-the existing public routes without adding a new server surface. It does not yet
-prove PCAP or FastDIS ingestion; those should feed the same neutral adapter
-model next.
+This proves the JSONL replay helper can drive the existing public Entity API.
+It also proves Entity/Task/Object replay logs can be applied through the
+existing public routes without adding a new server surface. It does not yet
+prove PCAP or any external adapter ingestion; those should feed the same
+neutral adapter model outside the core runtime.

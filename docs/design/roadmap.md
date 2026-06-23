@@ -216,7 +216,6 @@ Stable commands should include:
 - `zorn serve`
 - `zorn grpc`
 - `zorn scenario run cuas-demo-01`
-- `zorn replay dis fixtures/demo.pcap`
 - `zorn compat run`
 - `zorn export events run-001.jsonl`
 
@@ -229,7 +228,7 @@ Goal: explain why Zorn exists with polished, reproducible demonstrations.
 Demos:
 
 1. AIS vessel tracking into Zorn
-2. DIS battlefield replay into live COP
+2. Public API replay into live COP
 3. Suspicious entity triggers investigation task
 4. Mock UAV accepts task and publishes object thumbnail
 5. Edge node goes offline, reconnects, and reconciles

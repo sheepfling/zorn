@@ -2,9 +2,9 @@
 
 ## Objective
 
-Implement the first tactical data adapter: DIS Entity State PDU to Zorn Entity.
-This is the milestone where Zorn becomes a tactical simulation integration
-platform instead of only a Lattice-compatible API sandbox.
+Document and validate the first evaluation-only adapter helper: DIS Entity State
+JSONL to Zorn Entity. This helper exercises the public surface without turning
+DIS into a core runtime concept.
 
 ## Scope
 
@@ -12,7 +12,7 @@ platform instead of only a Lattice-compatible API sandbox.
 - Add a small internal neutral representation for DIS Entity State data.
 - Map DIS Entity State fields to Zorn entity payloads.
 - Add fixture-driven tests for deterministic mappings.
-- Add a replay command stub that can later consume PCAP/FastDIS input.
+- Keep replay helpers outside the runtime CLI.
 
 ## Mapping
 
@@ -35,9 +35,8 @@ platform instead of only a Lattice-compatible API sandbox.
 - Namespacing supports multiple DIS exercise IDs.
 - Source identity is present in provenance.
 - Tests cover force/disposition mapping and location/velocity/attitude fields.
-- `zorn replay dis tests/fixtures/dis/entity_state_replay.jsonl --target http://127.0.0.1:8080`
-  publishes the fixture through the existing public Entity API and writes a
-  pass/fail report.
+- The helper publishes the fixture through the existing public Entity API and
+  writes a pass/fail report.
 
 ## Out of Scope
 
@@ -49,13 +48,14 @@ platform instead of only a Lattice-compatible API sandbox.
 
 ## Follow-On
 
-After this mapping is stable, add a concrete reader backed by Packet-Stoat or
-FastDIS and wire `zorn replay dis fixtures/demo.pcap` into the scenario engine.
+After this mapping is stable, keep any concrete reader or adapter wiring
+outside the core runtime and feed the same neutral model through the public
+Entity API.
 
 ## Current Status
 
 Initial JSONL replay is implemented under `src/zorn/adapters/dis/`. It is a
-neutral fixture path, not full PCAP parsing. The command emits an Alpha 1 report
-with passed, failed, missing, entities, and events fields. Normal replay uses
-the existing `/api/v1/entities` and `/api/v1/entities/events` routes; private
-store access is limited to internal tests/helpers.
+neutral fixture path, not full PCAP parsing. The helper emits a report with
+passed, failed, missing, entities, and events fields. Normal replay uses the
+existing `/api/v1/entities` and `/api/v1/entities/events` routes; private store
+access is limited to internal tests/helpers.

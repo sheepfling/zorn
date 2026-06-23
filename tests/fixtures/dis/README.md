@@ -1,8 +1,8 @@
 # DIS Fixtures
 
-`entity_state_replay.jsonl` is the first Alpha 1 DIS readiness fixture. Each
-line is a neutral JSON representation of a DIS Entity State update that can later
-be produced by a PCAP/FastDIS reader.
+`entity_state_replay.jsonl` is an evaluation-only fixture. Each line is a
+neutral JSON representation of a DIS Entity State update that can later be
+produced by a PCAP/FastDIS reader outside this repo.
 
 The fixture covers:
 
@@ -14,14 +14,9 @@ The fixture covers:
 - provenance/source update time preservation,
 - non-live/delete stream behavior.
 
-Run it with:
+Run it through the adapter helpers or the test suite, not through the core Zorn
+CLI:
 
-```bash
-zorn replay dis tests/fixtures/dis/entity_state_replay.jsonl \
-  --target http://127.0.0.1:8080 \
-  --report /tmp/zorn-alpha1-dis-report.json
-```
-
-The replay command publishes through the existing `/api/v1/entities` and
-`/api/v1/entities/events` routes. It does not use private store access in the
-normal plugin path.
+The replay helpers publish through the existing `/api/v1/entities` and
+`/api/v1/entities/events` routes. They do not use private store access in the
+normal adapter path.

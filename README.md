@@ -5,11 +5,13 @@ entity, and object workflow experiments.
 
 ## Alpha 1 Status
 
-Alpha 1 is the DIS-app readiness baseline. It is meant to be cloned elsewhere
-and used as the source of truth while testing an external FastDIS/DIS plugin.
+Alpha 1 is the strict public Lattice surrogate baseline. It is meant to be
+cloned elsewhere and used as the source of truth for public API compatibility
+testing.
 
-Alpha 1 does **not** introduce a new server API for DIS. DIS-style adapters
-publish through the existing public Zorn/Lattice-compatible surfaces:
+Alpha 1 does **not** introduce a new server API for DIS or any other adapter
+domain. External adapters publish through the existing public Zorn/Lattice-
+compatible surfaces:
 
 - `PUT /api/v1/entities`
 - `POST /api/v1/entities/events`
@@ -38,7 +40,7 @@ The repo includes replay tooling and fixtures that exercise those public routes:
 
 1. Install `uv` and Python 3.12+.
 2. Run `uv sync --extra dev --extra grpc`.
-3. Run `.venv/bin/python -m pytest tests/test_public_api_replay.py tests/test_dis_entity_state_adapter.py tests/test_entities.py tests/test_tasks.py tests/test_objects.py`.
+3. Run `.venv/bin/python -m pytest tests/test_public_api_replay.py tests/test_entities.py tests/test_tasks.py tests/test_objects.py`.
 4. Optionally copy `zorn.example.toml` to `zorn.toml` and edit it, or use
    `C2_COMPAT_*` environment variables directly. Env vars override TOML.
 5. Start the REST API:
@@ -50,10 +52,6 @@ The repo includes replay tooling and fixtures that exercise those public routes:
 6. In another shell, run the Alpha 1 replay checks:
 
    ```bash
-   .venv/bin/zorn replay dis tests/fixtures/dis/entity_state_replay.jsonl \
-     --target http://127.0.0.1:8080 \
-     --report /tmp/zorn-alpha1-dis-report.json
-
    .venv/bin/zorn replay api tests/fixtures/replay/entity_task_object_api.jsonl \
      --target http://127.0.0.1:8080 \
      --report /tmp/zorn-alpha1-api-report.json
@@ -79,7 +77,7 @@ does not maintain hand-written replacement protobuf files.
 - `docs/manifests/` contains REST, gRPC, proto, and integration registry manifests.
 - `docs/design/alpha-readiness-roadmap.md` defines Alpha 1/2/3 readiness gates.
 - `docs/plans/active/` tracks active work packets.
-- `tests/fixtures/dis/` contains the Alpha 1 DIS Entity State replay fixture.
+- `tests/fixtures/dis/` contains evaluation-only DIS Entity State fixtures.
 - `tests/fixtures/replay/` contains public Entity/Task/Object API replay logs.
 - `scripts/workflow_bootstrap.py` owns the repo root and cache-root setup.
 - `.venv`, `.cache`, `.pytest_cache`, `.ruff_cache`, `.mypy_cache`, `cache`, and
@@ -95,11 +93,11 @@ The repo now includes a local compatibility surface for:
 - OAuth-dev/static/no-auth REST modes,
 - official Lattice EntityManagerAPI and TaskManagerAPI gRPC/proto contract checks.
 
-## External DIS Plugin Contract
+## External Adapter Contract
 
-An external DIS/FastDIS plugin should treat Zorn as an HTTP API target:
+An external adapter should treat Zorn as an HTTP API target:
 
-1. Parse DIS/PCAP/FastDIS input outside this repo.
+1. Parse adapter-specific input outside this repo.
 2. Map Entity State PDUs into normal entity payloads.
 3. Publish through `PUT /api/v1/entities`.
 4. Verify stream behavior through `POST /api/v1/entities/events` or
@@ -107,4 +105,4 @@ An external DIS/FastDIS plugin should treat Zorn as an HTTP API target:
 5. Use existing Task and Object routes for task lifecycle and media/object replay.
 
 The in-repo JSONL fixtures are examples of the expected payload shape and report
-format; they are not a new public DIS API.
+format; they are not a new public adapter API.

@@ -4,7 +4,6 @@ import argparse
 import json
 from pathlib import Path
 
-from .adapters.dis import replay_entity_state_jsonl_with_public_api
 from .replay import UrlLibPublicApiTransport, replay_api_log
 
 
@@ -22,12 +21,6 @@ def build_parser() -> argparse.ArgumentParser:
     api_parser.add_argument("--report", type=Path)
     api_parser.add_argument("--json", action="store_true", dest="as_json")
 
-    dis_parser = replay_subparsers.add_parser("dis", help="Replay DIS Entity State JSONL fixtures.")
-    dis_parser.add_argument("fixture", type=Path)
-    dis_parser.add_argument("--target", default="http://127.0.0.1:8080")
-    dis_parser.add_argument("--token", default=None)
-    dis_parser.add_argument("--report", type=Path)
-    dis_parser.add_argument("--json", action="store_true", dest="as_json")
     return parser
 
 
@@ -38,15 +31,8 @@ def main() -> int:
         repo_root = Path(__file__).resolve().parents[2]
         print("Zorn surrogate workspace is ready.")
         print(f"repo_root={repo_root}")
-        print("next_step=zorn replay dis tests/fixtures/dis/entity_state_replay.jsonl --target http://127.0.0.1:8080")
+        print("next_step=zorn replay api tests/fixtures/replay/entity_task_object_api.jsonl --target http://127.0.0.1:8080")
         return 0
-    ####
-    if args.command == "replay" and args.replay_command == "dis":
-        transport = UrlLibPublicApiTransport(args.target, token=args.token)
-        result = replay_entity_state_jsonl_with_public_api(args.fixture, transport)
-        report = result.to_report()
-        _emit_report(report, args.report, args.as_json)
-        return 0 if report["result"] == "passed" else 1
     ####
     if args.command == "replay" and args.replay_command == "api":
         transport = UrlLibPublicApiTransport(args.target, token=args.token)
