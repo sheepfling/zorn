@@ -41,7 +41,7 @@ DIS into a core runtime concept.
 ## Out of Scope
 
 - Full PCAP parsing.
-- FastDIS dependency wiring.
+- External adapter dependency wiring.
 - Fire/Detonation events.
 - Electromagnetic emission mapping.
 - Scenario clock/replay controls.
