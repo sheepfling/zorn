@@ -13,7 +13,7 @@
       ],
       "returncode": 0,
       "stderr": "",
-      "stdout": "{\n  \"auth.grpc_bearer_metadata\": {\n    \"metadata\": \"authorization: Bearer <token>\",\n    \"ok\": true\n  },\n  \"entities.get\": {\n    \"entity_id\": \"grpc-wire-entity-get\",\n    \"ok\": true\n  },\n  \"entities.grpc_stream\": {\n    \"entity_id\": \"grpc-wire-entity-publish\",\n    \"ok\": true\n  },\n  \"entities.publish\": {\n    \"entity_id\": \"grpc-wire-entity-publish\",\n    \"ok\": true\n  },\n  \"tasks.create\": {\n    \"ok\": true,\n    \"task_id\": \"grpc-wire-task-create\"\n  },\n  \"tasks.listen_as_agent\": {\n    \"ok\": true,\n    \"task_id\": \"grpc-wire-task-listen\"\n  },\n  \"tasks.update_status\": {\n    \"ok\": true,\n    \"status_version\": 2,\n    \"task_id\": \"grpc-wire-task-update\"\n  },\n  \"transport.grpc_protobuf\": {\n    \"grpc_target\": \"127.0.0.1:56245\",\n    \"ok\": true\n  }\n}\n"
+      "stdout": "{\n  \"auth.grpc_bearer_metadata\": {\n    \"metadata\": \"authorization: Bearer <token>\",\n    \"ok\": true\n  },\n  \"entities.get\": {\n    \"entity_id\": \"grpc-wire-entity-get\",\n    \"ok\": true\n  },\n  \"entities.grpc_stream\": {\n    \"entity_id\": \"grpc-wire-entity-publish\",\n    \"ok\": true\n  },\n  \"entities.publish\": {\n    \"entity_id\": \"grpc-wire-entity-publish\",\n    \"ok\": true\n  },\n  \"tasks.create\": {\n    \"ok\": true,\n    \"task_id\": \"grpc-wire-task-create\"\n  },\n  \"tasks.listen_as_agent\": {\n    \"ok\": true,\n    \"task_id\": \"grpc-wire-task-listen\"\n  },\n  \"tasks.update_status\": {\n    \"ok\": true,\n    \"status_version\": 2,\n    \"task_id\": \"grpc-wire-task-update\"\n  },\n  \"transport.grpc_protobuf\": {\n    \"grpc_target\": \"127.0.0.1:64202\",\n    \"ok\": true\n  }\n}\n"
     },
     "entities.get": {
       "entity_id": "grpc-wire-entity-get",
@@ -65,12 +65,12 @@
         "task_id": "grpc-wire-task-update"
       },
       "transport.grpc_protobuf": {
-        "grpc_target": "127.0.0.1:56245",
+        "grpc_target": "127.0.0.1:64202",
         "ok": true
       }
     },
-    "server_log": "INFO:     Started server process [34536]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://127.0.0.1:56244 (Press CTRL+C to quit)\nINFO:     127.0.0.1:56249 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:56250 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:56252 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:56254 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:56257 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [34536]\n",
-    "smoke_root": "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-rust-sdk-smoke-x1xreogd",
+    "server_log": "INFO:     Started server process [92650]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://127.0.0.1:64201 (Press CTRL+C to quit)\nINFO:     127.0.0.1:64206 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64207 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64209 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64212 - \"POST /api/v1/oauth/token HTTP/1.1\" 200 OK\nINFO:     Shutting down\nINFO:     Waiting for application shutdown.\nINFO:     Application shutdown complete.\nINFO:     Finished server process [92650]\n",
+    "smoke_root": "/var/folders/v8/h5gvd6pd54x7vhtkwqh5s34w0000gn/T/zorn-rust-sdk-smoke-ugsk74gd",
     "tasks.create": {
       "ok": true,
       "task_id": "grpc-wire-task-create"
@@ -85,7 +85,7 @@
       "task_id": "grpc-wire-task-update"
     },
     "transport.grpc_protobuf": {
-      "grpc_target": "127.0.0.1:56245",
+      "grpc_target": "127.0.0.1:64202",
       "ok": true
     }
   },
